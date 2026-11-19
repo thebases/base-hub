@@ -1,0 +1,240 @@
+{
+  "sequence": 5,
+  "selector": "#site-footer",
+  "groups": [
+    {
+      "label": "Footer layout",
+      "controls": [
+        {
+          "id": "f-width",
+          "label": "Content width",
+          "type": "select",
+          "values": [
+            {
+              "label": "Small",
+              "class": "bh-container-small"
+            },
+            {
+              "label": "Regular",
+              "class": "container"
+            },
+            {
+              "label": "Full",
+              "class": "container-fluid"
+            }
+          ],
+          "target": "[data-chrome=\"container\"]"
+        },
+        {
+          "id": "f-slideout",
+          "label": "Slide-out effect",
+          "type": "select",
+          "values": [
+            {
+              "label": "Regular",
+              "class": ""
+            },
+            {
+              "label": "Slide hover",
+              "class": "bh-footer-slideout"
+            },
+            {
+              "label": "Slide hover + shadow",
+              "class": "bh-footer-slideout bh-footer-slideout-shadow"
+            }
+          ]
+        },
+        {
+          "id": "f-scrolltop",
+          "label": "Scroll top button",
+          "type": "select",
+          "values": [
+            {
+              "label": "Hidden",
+              "class": "d-none"
+            },
+            {
+              "label": "Left",
+              "class": "d-flex justify-content-start"
+            },
+            {
+              "label": "Center",
+              "class": "d-flex justify-content-center"
+            },
+            {
+              "label": "Right",
+              "class": "d-flex justify-content-end"
+            }
+          ],
+          "target": "[data-chrome-el=\"scrolltop\"]"
+        }
+      ]
+    },
+    {
+      "label": "Footer style",
+      "controls": [
+        {
+          "id": "f-bg",
+          "label": "Background",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Body",
+              "class": "bg-body"
+            },
+            {
+              "label": "Tinted",
+              "class": "bg-body-tertiary"
+            },
+            {
+              "label": "Primary",
+              "class": "bg-primary text-white"
+            },
+            {
+              "label": "Secondary",
+              "class": "bg-secondary text-white"
+            },
+            {
+              "label": "Dark",
+              "class": "bg-dark text-white"
+            },
+            {
+              "label": "Light",
+              "class": "bg-light"
+            }
+          ]
+        },
+        {
+          "id": "f-bg-color",
+          "label": "Custom background",
+          "type": "color",
+          "style": "background-color"
+        },
+        {
+          "id": "f-text-color",
+          "label": "Text color",
+          "type": "color",
+          "style": "color"
+        },
+        {
+          "id": "f-border",
+          "label": "Border",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "Top",
+              "class": "border-top"
+            },
+            {
+              "label": "All sides",
+              "class": "border"
+            }
+          ]
+        },
+        {
+          "id": "f-shadow",
+          "label": "Shadow",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "Small",
+              "class": "shadow-sm"
+            },
+            {
+              "label": "Regular",
+              "class": "shadow"
+            },
+            {
+              "label": "Large",
+              "class": "shadow-lg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Copyright",
+      "controls": [
+        {
+          "id": "f-copyright",
+          "label": "Copyright bar",
+          "type": "select",
+          "values": [
+            {
+              "label": "Show",
+              "class": ""
+            },
+            {
+              "label": "Hide",
+              "class": "d-none"
+            }
+          ],
+          "target": "[data-chrome-el=\"copyright\"]"
+        },
+        {
+          "id": "f-copyright-bg",
+          "label": "Copyright background",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Body",
+              "class": "bg-body"
+            },
+            {
+              "label": "Tinted",
+              "class": "bg-body-tertiary"
+            },
+            {
+              "label": "Primary",
+              "class": "bg-primary text-white"
+            },
+            {
+              "label": "Dark",
+              "class": "bg-dark text-white"
+            }
+          ],
+          "target": ".bh-footer-copyright"
+        },
+        {
+          "id": "f-copyright-color",
+          "label": "Copyright custom background",
+          "type": "color",
+          "style": "background-color",
+          "target": ".bh-footer-copyright"
+        },
+        {
+          "id": "f-lang",
+          "label": "Language selector",
+          "type": "select",
+          "values": [
+            {
+              "label": "Show",
+              "class": ""
+            },
+            {
+              "label": "Hide",
+              "class": "d-none"
+            }
+          ],
+          "target": ".bh-footer-copyright [data-chrome-el=\"language\"]"
+        }
+      ]
+    }
+  ]
+}

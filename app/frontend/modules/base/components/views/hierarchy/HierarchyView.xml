@@ -1,0 +1,16 @@
+<templates xml:space="preserve">
+  <t t-name="HierarchyView">
+    <div class="basehub-hierarchy-root" t-ref="root">
+      <t t-if="props.roots.length === 0">
+        <NoContent label="t('No records found.')"/>
+      </t>
+      <t t-else="">
+        <div class="basehub-hierarchy-columns" role="region" t-att-aria-label="t('Hierarchy')">
+          <t t-foreach="props.roots" t-as="root" t-key="root.record.id">
+            <HierarchyCard node="root" layout="props.layout" onOpen="props.onOpenRecord"/>
+          </t>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="dashboard_project" model="ui.view">
+      <field name="name">Project</field>
+      <field name="type">dashboard</field>
+      <field name="module">project</field>
+      <field name="sequence">10</field>
+      <field name="arch" type="xml">
+        <dashboard>
+          <cards>
+            <card model="tbl.project" icon="folder-kanban" label="Projects" href="/web/tbl.project"/>
+            <card model="tbl.project_task" icon="check-square" label="Open Tasks" href="/web/tbl.project_task" domain="[[&quot;is_closed&quot;,&quot;=&quot;,false]]"/>
+            <card model="tbl.project_task" icon="octagon-alert" label="Blocked Tasks" href="/web/tbl.project_task" domain="[[&quot;kanban_state&quot;,&quot;=&quot;,&quot;blocked&quot;]]"/>
+            <!-- Static-domain KPI cards: search_count has no relative-date
+                 support (confirmed by helpdesk_dashboard.xml — DashboardView.js's
+                 domain is a plain JSON literal, evaluated once), so an
+                 "overdue tasks" card comparing date_deadline against "today"
+                 isn't expressible here. -->
+            <card model="tbl.project_milestone" icon="flag" label="Pending Milestones" href="/web/tbl.project_milestone" domain="[[&quot;is_reached&quot;,&quot;=&quot;,false]]"/>
+          </cards>
+          <quicklinks>
+            <link model="tbl.project" icon="folder-kanban" label="Projects" href="/web/tbl.project"/>
+            <link model="tbl.project_task" icon="check-square" label="Tasks" href="/web/tbl.project_task"/>
+            <link model="tbl.project_milestone" icon="flag" label="Milestones" href="/web/tbl.project_milestone"/>
+            <link model="tbl.project_update" icon="activity" label="Updates" href="/web/tbl.project_update"/>
+            <link model="tbl.project_collaborator" icon="users" label="Collaborators" href="/web/tbl.project_collaborator"/>
+          </quicklinks>
+        </dashboard>
+      </field>
+    </record>
+</data>

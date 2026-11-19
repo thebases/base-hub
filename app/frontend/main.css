@@ -1,0 +1,49 @@
+/* Smallest possible scrollbar, applied globally (Firefox + Chromium/WebKit). */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--b-border, #d4d4d4) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--b-border, #d4d4d4);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Outlined Base UI fields always show their label floated on the border, even when empty
+   (the library only floats it once the control has a value, focus or placeholder). */
+.b-input-outlined .b-input-label {
+  font-size: 12px;
+  left: 12px;
+  top: 0;
+}
+
+/* Phones: a scrollable tab list must start at the left edge; centered overflow hides the first tabs. */
+@media (max-width: 767.98px) {
+  .b-tabs-list.b-tabs-list-default,
+  .b-tabs-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Base UI tab panels get breathing room and rounded corners. */
+.b-tabs-contents {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.b-tabs-list-default {
+  border-radius: var(--b-radius-sm);
+}

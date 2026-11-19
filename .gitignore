@@ -1,33 +1,26 @@
-# If you prefer the allow list template instead of the deny list, see community template:
-# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
-#
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, built with `go test -c`
-*.test
-
-# Code coverage profiles and other test artifacts
-*.out
-coverage.*
-!coverage.go
-*.coverprofile
-profile.cov
-
-# Dependency directories (remove the comment below to include it)
-# vendor/
-
-# Go workspace file
-go.work
-go.work.sum
-
-# env file
-.env
-
-# Editor/IDE
-# .idea/
-# .vscode/
+build
+logs
+vendor
+temp
+app/backend/data
+app/backend/public
+app/backend/public-user-fe
+app/backend/public-new-admin
+app/backend/build
+app/frontend-admin/node_modules
+app/frontend/node_modules
+# app/backend/frontend is a static, no-bundler SPA — its vendor/ assets
+# (Owl, base-ui) are the actual runtime dependency, not a build artifact, so
+# they must be committed despite the blanket "vendor" ignore above.
+!app/backend/frontend/vendor/
+!app/backend/frontend/vendor/**
+version.json
+**/*/version.json
+# app/backend/frontend is embedded straight from source (no build step), so
+# unlike the other version.json files (which are CI build artifacts), this
+# one must be committed or //go:embed in main_embed.go has nothing to match.
+!app/backend/frontend/version.json
+.agents
+.claude
+CLAUDE.md
+GEMINI.md

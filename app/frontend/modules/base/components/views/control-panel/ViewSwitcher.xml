@@ -1,0 +1,14 @@
+<templates xml:space="preserve">
+  <t t-name="ViewSwitcher">
+    <t t-if="visibleModes.length > 1">
+      <div class="btn-group" role="group" t-att-aria-label="t('View mode')">
+        <t t-foreach="visibleModes" t-as="mode" t-key="mode">
+          <Button type="'button'" size="'icon-sm'" icon="iconFor(mode)" ariaLabel="labelFor(mode)"
+                  variant="mode === props.active ? 'primary' : 'secondary'"
+                  aria-pressed="mode === props.active"
+                  onClick="() => this.onClickMode(mode)"/>
+        </t>
+      </div>
+    </t>
+  </t>
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_theme_list" model="ui.view">
+      <field name="name">tbl.website_theme.list</field>
+      <field name="model">tbl.website_theme</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Website Themes">
+          <field name="name"/>
+          <field name="slug"/>
+          <field name="is_builtin"/>
+        </list>
+      </field>
+    </record>
+</data>

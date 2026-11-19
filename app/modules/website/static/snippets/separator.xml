@@ -1,0 +1,5 @@
+<templates name="Separator" group="text" sequence="160" class="bh-separator" keywords="divider,line" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2210%22 y=%2234%22 width=%22100%22 height=%223%22 rx=%222%22 fill=%22%23adb5bd%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.separator">
+    <section class="bh-separator py-3" data-snippet="separator"><div class="container"><hr/></div></section>
+  </t>
+</templates>

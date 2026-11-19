@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_model_log_list" model="ui.view">
+      <field name="name">sys.model.log.list</field>
+      <field name="model">sys.model.log</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Model Change Log" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="created_at"/>
+          <field name="action"/>
+          <field name="change_type" optional="show"/>
+          <field name="source" optional="show"/>
+          <field name="subject_model" optional="hide"/>
+          <field name="subject_name" optional="hide"/>
+          <field name="target_model" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_model_log_form" model="ui.view">
+      <field name="name">sys.model.log.form</field>
+      <field name="model">sys.model.log</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Model Change Log">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="action"/>
+                <field name="change_type"/>
+                <field name="source"/>
+                <field name="subject_model"/>
+                <field name="subject_name"/>
+                <field name="target_model"/>
+                <field name="target_record"/>
+                <field name="user_id"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details" name="details">
+                <field name="after_data"/>
+                <field name="before_data"/>
+                <field name="changed_fields"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_model_log_search" model="ui.view">
+      <field name="name">sys.model.log.search</field>
+      <field name="model">sys.model.log</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Model Change Log">
+          <field name="name"/>
+          <field name="action"/>
+          <field name="change_type"/>
+          <field name="source"/>
+          <field name="subject_model"/>
+        </search>
+      </field>
+    </record>
+</data>

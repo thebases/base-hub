@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_ui_actions_client_list" model="ui.view">
+      <field name="name">ui.actions.client.list</field>
+      <field name="model">ui.actions.client</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="UI Client Action" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="type"/>
+          <field name="created_at"/>
+          <field name="sys_model" optional="show"/>
+          <field name="tag" optional="show"/>
+          <field name="target" optional="hide"/>
+          <field name="updated_at" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_ui_actions_client_form" model="ui.view">
+      <field name="name">ui.actions.client.form</field>
+      <field name="model">ui.actions.client</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="UI Client Action">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="type" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="sys_model"/>
+                <field name="tag"/>
+                <field name="target"/>
+              </group>
+              <group string="Payload">
+                <field name="context"/>
+                <field name="params"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_ui_actions_client_search" model="ui.view">
+      <field name="name">ui.actions.client.search</field>
+      <field name="model">ui.actions.client</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="UI Client Action">
+          <field name="name"/>
+          <field name="type"/>
+          <field name="sys_model"/>
+          <field name="tag"/>
+          <field name="target"/>
+        </search>
+      </field>
+    </record>
+</data>

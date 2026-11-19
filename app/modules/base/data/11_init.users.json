@@ -1,0 +1,69 @@
+[
+  {
+    "action": "c",
+    "model": "base.users",
+    "external_id": "user.admin",
+    "force_update": true,
+    "data": {
+      "name": "Admin",
+      "partner_id": "partner.admin",
+      "group_id": "base.group_no_one",
+      "login": "admin",
+      "active": true,
+      "share": false,
+      "company_id": "company.main",
+      "company_ids": ["company.main", "company.base1"],
+      "lang_id": "base.base_lang_en",
+      "tz": "UTC"
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.users",
+    "external_id": "user.template",
+    "force_update": true,
+    "data": {
+      "name": "User template",
+      "group_id": "base.group_user",
+      "active": false,
+      "share": false,
+      "company_id": "company.main",
+      "company_ids": ["company.main"],
+      "lang_id": "base.base_lang_en",
+      "tz": "UTC"
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.users",
+    "external_id": "user.base_bot",
+    "force_update": true,
+    "data": {
+      "name": "BaseBot",
+      "active": false,
+      "share": false,
+      "company_id": "company.main",
+      "company_ids": ["company.main"],
+      "lang_id": "base.base_lang_en",
+      "tz": "UTC"
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.users",
+    "external_id": "user.base1",
+    "force_update": true,
+    "data": {
+      "name": "base1",
+      "partner_id": "partner.base1_user",
+      "group_id": "base.group_user",
+      "login": "base1",
+      "active": false,
+      "share": false,
+      "company_id": "company.base1",
+      "company_ids": ["company.base1"],
+      "lang_id": "base.base_lang_en",
+      "tz": "UTC"
+    }
+  }
+]

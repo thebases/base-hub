@@ -1,0 +1,122 @@
+/* WorkflowCanvasPage — mobile / narrow-screen overrides.
+   Loaded after WorkflowCanvasPage.desktop.css so these rules win at their
+   breakpoints. Two tiers: ≤1200px (tablet/narrow desktop — stack panes,
+   canvas first) and ≤767.98px (phone — the repo's standard mobile
+   breakpoint, see Shell.css/MarkdownPage.css). */
+
+/* Tablet / narrow desktop: stack the three panes, canvas viewport first. */
+@media (max-width: 1200px) {
+  .workflow-canvas-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workflow-canvas-viewport {
+    order: 1;
+  }
+
+  .workflow-canvas-palette {
+    order: 2;
+  }
+
+  .workflow-canvas-detail {
+    order: 3;
+  }
+}
+
+/* ---------------------------------------------------------------- Mobile (<768px) */
+
+@media (max-width: 767.98px) {
+  .workflow-canvas-page {
+    padding: 0 0.75rem;
+    gap: 0.75rem;
+  }
+
+  /* nowrap matters: a wrapping column flexbox sizes its line to the widest child, so the
+     actions row grew to its full max-content width (~1000px) and the whole page scrolled
+     sideways instead of the row's own overflow-x. */
+  .workflow-canvas-header {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .workflow-canvas-selector {
+    max-width: 100%;
+  }
+
+  /* Long generated topics (workflow.<stamp>-<random>) must wrap, not widen the page. */
+  .workflow-canvas-subtitle {
+    overflow-wrap: anywhere;
+  }
+
+  /* One swipeable row instead of a 3-row wrapped toolbar that pushes the canvas off-screen. */
+  .workflow-canvas-actions {
+    min-width: 0;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .workflow-canvas-actions > * {
+    flex-shrink: 0;
+  }
+
+  .workflow-canvas-body {
+    gap: 0.75rem;
+    min-height: 0;
+  }
+
+  .workflow-canvas-viewport {
+    min-height: 360px;
+  }
+
+  .workflow-canvas-node {
+    width: 180px;
+  }
+
+  .workflow-canvas-palette {
+    /* max-height: 40vh; */
+    display: none;
+  }
+
+  /* The desktop detail aside has no room on mobile — a node's "View" icon
+     button opens the same content in WorkflowCanvasPage.NodeDetailSheet instead. */
+  .workflow-canvas-detail {
+    display: none;
+  }
+
+  /* Header + stacked footer buttons take ~18rem; 75vh alone pushed the footer below the viewport. */
+  .workflow-node-dialog-body {
+    max-height: calc(100vh - 18rem);
+    max-height: calc(100dvh - 18rem);
+  }
+
+  .workflow-gen-dialog-panel {
+    width: 96vw;
+  }
+
+  /* Phase 6 panels: one column of rows on a phone. */
+  .workflow-template-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .workflow-test-run-body,
+  .workflow-templates-body {
+    max-height: calc(100svh - 18rem);
+  }
+
+  .workflow-gen-dialog-body {
+    min-height: 0;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .workflow-gen-dialog-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

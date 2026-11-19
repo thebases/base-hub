@@ -1,0 +1,5 @@
+<templates name="Cover" group="intro" sequence="21" class="bh-cover" keywords="hero,image,background" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%220%22 y=%220%22 width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%236c757d%22/%3E%3Crect x=%2230%22 y=%2222%22 width=%2260%22 height=%229%22 rx=%222%22 fill=%22%23e9ecef%22/%3E%3Crect x=%2244%22 y=%2242%22 width=%2232%22 height=%228%22 rx=%224%22 fill=%22%23e9ecef%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.cover">
+    <section class="bh-cover py-5 text-center text-white bg-dark" data-snippet="cover"><div class="container"><h1 class="display-3">Make a strong first impression</h1><p class="lead">Add a short supporting line.</p><a class="btn btn-light btn-lg" href="/contact">Contact us</a></div></section>
+  </t>
+</templates>

@@ -1,0 +1,91 @@
+<templates xml:space="preserve">
+  <t t-name="CohortView">
+    <div class="d-flex flex-column gap-2">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <span class="fw-semibold" t-esc="props.title"/>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="btn-group flex-wrap" role="group" t-att-aria-label="t('Cohort timeline')">
+            <t t-foreach="timelines" t-as="timeline" t-key="timeline">
+              <Button type="'button'" size="'sm'"
+                      variant="timeline === props.timeline ? 'primary' : 'outline'"
+                      aria-pressed="timeline === props.timeline"
+                      onClick="() => props.onTimelineChange(timeline)">
+                <t t-esc="optionLabel(timeline)"/>
+              </Button>
+            </t>
+          </div>
+          <div class="btn-group flex-wrap" role="group" t-att-aria-label="t('Cohort interval')">
+            <t t-foreach="intervals" t-as="interval" t-key="interval">
+              <Button type="'button'" size="'sm'"
+                      variant="interval === props.interval ? 'primary' : 'outline'"
+                      aria-pressed="interval === props.interval"
+                      onClick="() => props.onIntervalChange(interval)">
+                <t t-esc="optionLabel(interval)"/>
+              </Button>
+            </t>
+          </div>
+          <div class="btn-group flex-wrap" role="group" t-att-aria-label="t('Cohort mode')">
+            <t t-foreach="modes" t-as="mode" t-key="mode">
+              <Button type="'button'" size="'sm'"
+                      variant="mode === props.mode ? 'primary' : 'outline'"
+                      aria-pressed="mode === props.mode"
+                      onClick="() => props.onModeChange(mode)">
+                <t t-esc="optionLabel(mode)"/>
+              </Button>
+            </t>
+          </div>
+          <div class="btn-group flex-wrap" role="group" t-att-aria-label="t('Cohort measure')">
+            <t t-foreach="props.measureOptions" t-as="option" t-key="option.value">
+              <Button type="'button'" size="'sm'"
+                      variant="option.value === props.measure ? 'primary' : 'outline'"
+                      aria-pressed="option.value === props.measure"
+                      onClick="() => props.onMeasureChange(option.value)">
+                <t t-esc="option.label"/>
+              </Button>
+            </t>
+          </div>
+        </div>
+      </div>
+
+      <t t-if="props.rows.length === 0">
+        <NoContent label="t('No records found.')"/>
+      </t>
+      <t t-else="">
+        <div class="overflow-auto border rounded">
+          <table class="table table-sm mb-0 basehub-cohort-table">
+            <thead>
+              <tr>
+                <th t-esc="t('Cohort')"/>
+                <th class="text-end" t-esc="t('Total')"/>
+                <t t-foreach="offsets" t-as="offset" t-key="offset">
+                  <th class="text-end" t-esc="'+' + offset"/>
+                </t>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="props.rows" t-as="row" t-key="row.bucket">
+                <tr t-att-class="props.disableLinking ? '' : 'basehub-cohort-row--clickable'"
+                    t-on-click="() => this.onClickRow(row)">
+                  <td t-esc="row.bucket"/>
+                  <td class="text-end" t-esc="row.total"/>
+                  <t t-foreach="offsets" t-as="offset" t-key="offset">
+                    <td t-att-class="'text-end ' + cellClass(row, offset)" t-esc="cellLabel(row, offset)"/>
+                  </t>
+                </tr>
+              </t>
+            </tbody>
+            <tfoot>
+              <tr class="fw-semibold">
+                <td t-esc="t('Average')"/>
+                <td class="text-end" t-esc="averageRow.total"/>
+                <t t-foreach="offsets" t-as="offset" t-key="offset">
+                  <td t-att-class="'text-end ' + cellClass(averageRow, offset)" t-esc="cellLabel(averageRow, offset)"/>
+                </t>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

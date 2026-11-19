@@ -1,0 +1,46 @@
+<templates xml:space="preserve">
+  <t t-name="DashboardView">
+    <div class="p-2 basehub-dashboard-view" b-block="dashboard-01">
+      <div b-block-content="">
+        <div b-block-metrics="" class="d-flex flex-wrap gap-3 p-2">
+          <t t-foreach="state.metrics" t-as="metric" t-key="metric.key">
+            <a t-att-href="metric.href" class="basehub-dashboard-metric-card flex-grow-1">
+              <Card>
+                <CardBody>
+                  <div class="basehub-dashboard-metric-label" b-block-muted="">
+                    <Icon name="metric.icon" className="'basehub-dashboard-metric-icon'"/>
+                    <t t-esc="metric.label"/>
+                  </div>
+                  <t t-if="metric.loading">
+                    <Skeleton className="'h4 mb-0'"/>
+                  </t>
+                  <t t-elif="metric.error">
+                    <div class="h4 mb-0 text-body-secondary">&#8212;</div>
+                  </t>
+                  <t t-else="">
+                    <div class="h4 mb-0" t-esc="metric.value"/>
+                  </t>
+                </CardBody>
+              </Card>
+            </a>
+          </t>
+        </div>
+
+        <Card className="'basehub-dashboard-panel'">
+          <CardHeader>
+            <strong t-esc="t('Quick links')"/>
+            <div class="text-body-secondary small mt-1" t-esc="t('Jump straight into a workspace section')"/>
+          </CardHeader>
+          <CardBody className="'basehub-dashboard-quicklinks'">
+            <t t-foreach="state.quickLinks" t-as="link" t-key="link.key">
+              <a t-att-href="link.href" class="basehub-dashboard-quicklink">
+                <Icon name="link.icon" className="'basehub-dashboard-quicklink-icon'"/>
+                <span t-esc="link.label"/>
+              </a>
+            </t>
+          </CardBody>
+        </Card>
+      </div>
+    </div>
+  </t>
+</templates>

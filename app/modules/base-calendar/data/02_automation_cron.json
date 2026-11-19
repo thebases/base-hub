@@ -1,0 +1,15 @@
+[
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "base_calendar.automation.cron.cleanup_orphaned_recurrences",
+    "force_update": false,
+    "data": {
+      "name": "Calendar: Cleanup Orphaned Recurrences",
+      "action_id": "base_calendar.automation.action.cleanup_orphaned_recurrences",
+      "interval_seconds": 300,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

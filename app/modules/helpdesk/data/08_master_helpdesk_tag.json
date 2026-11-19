@@ -1,0 +1,44 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.bug",
+    "force_update": false,
+    "data": { "name": "Bug", "color": 1, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.feature_request",
+    "force_update": false,
+    "data": { "name": "Feature Request", "color": 2, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.question",
+    "force_update": false,
+    "data": { "name": "Question", "color": 3, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.urgent",
+    "force_update": false,
+    "data": { "name": "Urgent", "color": 4, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.vip",
+    "force_update": false,
+    "data": { "name": "VIP", "color": 5, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_tag",
+    "external_id": "helpdesk.tag.billing",
+    "force_update": false,
+    "data": { "name": "Billing", "color": 6, "active": true }
+  }
+]

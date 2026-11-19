@@ -1,0 +1,54 @@
+{
+  "sequence": 40,
+  "selector": "[data-snippet]",
+  "groups": [
+    {
+      "label": "Animation",
+      "controls": [
+        {
+          "id": "animate",
+          "label": "On scroll",
+          "type": "select",
+          "attr": "data-bh-animate",
+          "values": [
+            {
+              "label": "None",
+              "value": ""
+            },
+            {
+              "label": "Fade in",
+              "value": "fade-in"
+            },
+            {
+              "label": "Slide up",
+              "value": "slide-up"
+            },
+            {
+              "label": "Zoom in",
+              "value": "zoom-in"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Behavior",
+      "controls": [
+        {
+          "id": "parallax",
+          "label": "Parallax background",
+          "type": "toggle",
+          "attr": "data-bh-parallax",
+          "on": "1"
+        },
+        {
+          "id": "lightbox",
+          "label": "Open images in a lightbox",
+          "type": "toggle",
+          "attr": "data-bh-lightbox",
+          "on": "1"
+        }
+      ]
+    }
+  ]
+}

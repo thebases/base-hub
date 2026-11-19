@@ -1,0 +1,20 @@
+<templates xml:space="preserve">
+  <t t-name="Chatter">
+    <div class="basehub-chatter-body">
+      <ChatterComposer mode="state.mode" onModeChange="(mode) => this.setMode(mode)"
+                        onSubmit="(body, recipientUserIds) => this.onComposerSubmit(body, recipientUserIds)"
+                        onScheduleActivity="() => this.openSchedule()"/>
+
+      <ActivityList activities="state.activities" modelName="props.modelName" recordId="props.recordId"
+                    currentUserId="currentUserId" onChanged="() => this.onActivityChanged()"
+                    scheduleOpen="state.scheduleOpen" onScheduleOpenChange="(open) => this.setScheduleOpen(open)"/>
+
+      <t t-if="state.loading">
+        <p class="basehub-chatter-empty" t-esc="t('Loading…')"/>
+      </t>
+      <t t-else="">
+        <MessageFeed messages="state.messages" currentUserId="currentUserId"/>
+      </t>
+    </div>
+  </t>
+</templates>

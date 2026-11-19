@@ -1,0 +1,44 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "base.cron_platform_autovacuum",
+    "force_update": false,
+    "data": {
+      "name": "Platform Autovacuum",
+      "handler": "platform.autovacuum",
+      "interval_seconds": 86400,
+      "max_failures": 5,
+      "active": true,
+      "payload": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "base.cron_idempotency_gc",
+    "force_update": false,
+    "data": {
+      "name": "Idempotency Store GC",
+      "handler": "platform.idempotency_gc",
+      "interval_seconds": 1800,
+      "max_failures": 5,
+      "active": true,
+      "payload": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "base.cron_attachment_gc",
+    "force_update": false,
+    "data": {
+      "name": "Attachment Blob GC",
+      "handler": "platform.attachment_gc",
+      "interval_seconds": 86400,
+      "max_failures": 5,
+      "active": true,
+      "payload": {}
+    }
+  }
+]

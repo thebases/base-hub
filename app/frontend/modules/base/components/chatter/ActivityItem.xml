@@ -1,0 +1,31 @@
+<templates xml:space="preserve">
+  <t t-name="ActivityItem">
+    <li t-attf-class="basehub-chatter-activity basehub-chatter-activity--{{derivedState}}">
+      <div class="basehub-chatter-activity-row">
+        <Icon name="'clock'"/>
+        <div class="basehub-chatter-activity-body">
+          <div class="basehub-chatter-activity-title">
+            <strong t-esc="typeName"/>
+            <Badge variant="derivedState === 'overdue' ? 'danger' : (derivedState === 'today' ? 'primary' : 'secondary')" t-esc="stateLabel"/>
+          </div>
+          <t t-if="props.activity.summary">
+            <div t-esc="props.activity.summary"/>
+          </t>
+          <div class="basehub-chatter-activity-meta">
+            <span t-esc="deadlineLabel"/>
+            <t t-if="assigneeName">
+              <span t-esc="'· ' + assigneeName"/>
+            </t>
+          </div>
+        </div>
+        <Button variant="'outline'" size="'sm'" onClick="() => this.toggleFeedback()" label="t('Mark done')"/>
+      </div>
+      <t t-if="state.feedbackOpen">
+        <div class="basehub-chatter-activity-feedback">
+          <Textarea value="state.feedbackNote" onInput="(v) => this.state.feedbackNote = v" placeholder="t('Feedback (optional)')" rows="2"/>
+          <Button variant="'default'" size="'sm'" disabled="state.submitting" onClick="() => this.markDone()" label="t('Done')"/>
+        </div>
+      </t>
+    </li>
+  </t>
+</templates>

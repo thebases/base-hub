@@ -1,0 +1,17 @@
+{
+    "event": "etl_event",
+    "message": {
+        "transactionid": "8207ec74-33d4-475a-a7df-e29b7b5b63cf",
+        "transactiontime": 1756996680000,
+        "referencenumber": "FT25247996175120",
+        "amount": 10000,
+        "content": "NGUYEN HOANG ANH chuyen tien- Ma GD ACSP/ LQ559074",
+        "bankaccount": "765232828",
+        "transType": "D",
+        "valueDate": 0,
+        "va": "",
+        "reciprocalAccount": "1368282869",
+        "reciprocalBankCode": "970436",
+        "binCode": "970422"
+    }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_rating_list" model="ui.view">
+      <field name="name">tbl.helpdesk_rating.list</field>
+      <field name="model">tbl.helpdesk_rating</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <!-- decoration-* replaces a bespoke smiley-badge widget: Label
+             (computeRatingLabel) already classifies each row top/ok/ko, so
+             the generic list decoration mechanism (see
+             sys_rule_views.xml's own decoration- use) colors the row without
+             new frontend code. -->
+        <list string="Helpdesk Ratings" decoration-success="label == 'top'" decoration-warning="label == 'ok'" decoration-danger="label == 'ko'">
+          <field name="ticket_id"/>
+          <field name="value"/>
+          <field name="label"/>
+          <field name="feedback"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_rating_form" model="ui.view">
+      <field name="name">tbl.helpdesk_rating.form</field>
+      <field name="model">tbl.helpdesk_rating</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Rating">
+          <sheet>
+            <group>
+              <field name="ticket_id"/>
+              <field name="value"/>
+              <field name="feedback"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_rating_search" model="ui.view">
+      <field name="name">tbl.helpdesk_rating.search</field>
+      <field name="model">tbl.helpdesk_rating</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Ratings">
+          <field name="ticket_id"/>
+        </search>
+      </field>
+    </record>
+</data>

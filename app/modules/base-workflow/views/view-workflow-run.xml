@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_workflow_run_list" model="ui.view">
+      <field name="name">base.workflow.run.list</field>
+      <field name="model">base.workflow.run</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Workflow Runs" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="status"/>
+          <field name="trigger_type" optional="show"/>
+          <field name="topic"/>
+          <field name="flow_version" optional="show"/>
+          <field name="dry_run" optional="show"/>
+          <field name="parent_run_id" optional="hide"/>
+          <field name="cancel_requested" optional="hide"/>
+          <field name="current_step" optional="show"/>
+          <field name="created_at"/>
+          <field name="attempt_count"/>
+          <field name="updated_at" optional="show"/>
+          <field name="next_retry_at" optional="show"/>
+          <field name="last_error" optional="hide"/>
+          <action>
+            <button string="Replay" type="object" name="replay_run" class="btn-secondary" reload="true" confirm="Start a new run that replays this one?" invisible="status != 'dead_letter' and status != 'failed' and status != 'succeeded' and status != 'cancelled'"/>
+            <button string="Cancel" type="object" name="cancel_run" class="btn-destructive" reload="true" confirm="Cancel this run?" invisible="status != 'pending' and status != 'waiting_retry' and status != 'running'"/>
+          </action>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_workflow_run_form" model="ui.view">
+      <field name="name">base.workflow.run.form</field>
+      <field name="model">base.workflow.run</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Workflow Run">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <div class="d-flex gap-2">
+                  <button string="Replay" type="object" name="replay_run" class="btn-secondary" reload="true" confirm="Start a new run that replays this one?" invisible="status != 'dead_letter' and status != 'failed' and status != 'succeeded' and status != 'cancelled'"/>
+                  <button string="Cancel" type="object" name="cancel_run" class="btn-destructive" reload="true" confirm="Cancel this run?" invisible="status != 'pending' and status != 'waiting_retry' and status != 'running'"/>
+                </div>
+                <h1>
+                  <field name="name" nolabel="1" placeholder="Workflow run name"/>
+                </h1>
+                <div class="small text-muted">
+                  Run state, retry schedule, and execution payload audit for one workflow execution.
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="Execution">
+                <field name="name"/>
+                <field name="status"/>
+                <field name="trigger_type"/>
+                <field name="audit_mode"/>
+                <field name="topic"/>
+                <field name="flow_version"/>
+                <field name="current_step"/>
+                <field name="parent_run_id"/>
+                <field name="dry_run"/>
+              </group>
+              <group string="Recovery">
+                <field name="attempt_count"/>
+                <field name="next_retry_at"/>
+                <field name="last_error"/>
+                <field name="cancel_requested"/>
+                <field name="approval_group_id"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Payload" name="payload">
+                <field name="input_payload"/>
+                <field name="output_payload"/>
+              </page>
+              <page string="Step History" name="step_history">
+                <field name="step_runs"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_workflow_run_search" model="ui.view">
+      <field name="name">base.workflow.run.search</field>
+      <field name="model">base.workflow.run</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Workflow Run">
+          <field name="name"/>
+          <field name="status"/>
+          <field name="trigger_type"/>
+          <field name="topic"/>
+          <field name="flow_version"/>
+          <field name="attempt_count"/>
+          <field name="current_step"/>
+          <field name="next_retry_at"/>
+          <field name="last_error"/>
+          <field name="created_at"/>
+          <filter string="Pending" name="status_pending" domain="[('status', '=', 'pending')]"/>
+          <filter string="Running" name="status_running" domain="[('status', '=', 'running')]"/>
+          <filter string="Waiting Retry" name="status_waiting_retry" domain="[('status', '=', 'waiting_retry')]"/>
+          <filter string="Dead Letter" name="status_dead_letter" domain="[('status', '=', 'dead_letter')]"/>
+          <filter string="Succeeded" name="status_succeeded" domain="[('status', '=', 'succeeded')]"/>
+          <filter string="Failed" name="status_failed" domain="[('status', '=', 'failed')]"/>
+          <filter string="Cancelled" name="status_cancelled" domain="[('status', '=', 'cancelled')]"/>
+          <filter string="Dry Run" name="dry_run" domain="[('dry_run', '=', True)]"/>
+          <filter string="Retry Scheduled" name="retry_scheduled" domain="[('next_retry_at', '>', 0)]"/>
+          <group>
+            <filter string="Name" name="group_by_name" domain="[]" context="{'group_by': 'name'}"/>
+            <filter string="Status" name="group_by_status" domain="[]" context="{'group_by': 'status'}"/>
+            <filter string="Trigger Type" name="group_by_trigger_type" domain="[]" context="{'group_by': 'trigger_type'}"/>
+            <filter string="Topic" name="group_by_topic" domain="[]" context="{'group_by': 'topic'}"/>
+            <filter string="Flow Version" name="group_by_flow_version" domain="[]" context="{'group_by': 'flow_version'}"/>
+            <filter string="Current Step" name="group_by_current_step" domain="[]" context="{'group_by': 'current_step'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

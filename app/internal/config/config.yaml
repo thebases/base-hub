@@ -1,0 +1,86 @@
+app:
+    encryptKey: "c17d6d63a8dfdaaf3a3776b7c6b2dbd22520e3ec4dfacd5089b8c0553021c748"
+    deviceProvisioningEnable: true
+    discussInboundWebhookSecret: ""
+    supportApikey: false
+    appName: BASE HUB
+    version: 0.0.2
+    env: production
+    initImport: false
+    use_multi_tenant: false
+authService:
+    enable: false
+    endpoint: ""
+    clientId: ""
+    clientSecret: ""
+    scopes: openid profile email
+    serviceName: ""
+    issuer: ""
+    audience: ""
+    jwksUrl: ""
+    roleClaim: ""
+    loginClaim: ""
+    tenantClaim: ""
+    autoProvision: false
+    clockSkewSecs: 60
+cors:
+    allowCredentials: false
+    allowHeaders: Origin, Content-Type, Accept, Authorization, X-Database-Name, X-Idempotency-Key
+    allowMethods: GET,POST,PUT,DELETE,OPTIONS
+    allowOrigins: '*'
+    exposeHeaders: X-Custom-Header
+kafka:
+    brokers:
+        - 62.146.233.42:9092
+    enable: false
+    isComsumer: true
+    isProducer: true
+    topics:
+        - bank_ipn_topic
+        - ipn_napas
+        - ipn_bidv
+    useDedupe: false
+tcp:
+    useTcp: false
+logging:
+    level: 1
+    path: ./logs/ipn.log
+    pattern: ${protocol} ${host} ${method} ${path} ${status} [${latency}] [${ua}] [${locals:cleanBody}]
+    reqPath: ./logs/ipn_req.log
+    useFile: true
+knowledge:
+    publicDocsPath: public_docs
+mqtt:
+    clientId: base_ipn_service
+    domain: mqtt.thebase.vn
+    enable: false
+    password: theBase15112023@
+    port: "11883"
+    publicWsUrl: ""
+    tlsCaFile: ""
+    tlsCertFile: ""
+    tlsInsecureSkipVerify: false
+    tlsKeyFile: ""
+    useSsl: true
+    userName: thebase
+postgresql:
+    dbFilter: '^hub([-.a-zA-Z0-9]*)\.thebase\.vn$|^home$'
+    dbHost: localhost
+    dbPassword: theBase15112023@
+    dbPort: 5432
+    dbSslmode: disable
+    dbUser: thebase
+    enable: true
+    homeDbName: base-home
+    templateDbName: base-template
+server:
+    basePath: /
+    staticPath: ./data/files
+    sharedFolder: ./data
+    host: localhost
+    port: 8382
+    issuer: base-hub
+    accessTokenTtlMinutes: 15
+    refreshTokenTtlDays: 30
+    supportFlow: false
+

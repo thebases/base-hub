@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_ui_menu_list" model="ui.view">
+    <field name="name">ui.menu.list</field>
+    <field name="model">ui.menu</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="UI Menu" sample="1" multi_edit="1">
+        <field name="name"/>
+        <field name="complete_name"/>
+        <field name="parent_id"/>
+        <field name="sequence" optional="show"/>
+        <field name="active" optional="show"/>
+        <field name="created_at" optional="hide"/>
+        <field name="icon" optional="hide"/>
+        <field name="route_path" optional="hide"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_ui_menu_form" model="ui.view">
+    <field name="name">ui.menu.form</field>
+    <field name="model">ui.menu</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="UI Menu">
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1"/>
+              </h1>
+              <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                <field name="complete_name" nolabel="1"/>
+              </div>
+            </main>
+          </div>
+          <group>
+            <group string="General">
+              <field name="route_path"/>
+              <field name="icon"/>
+              <field name="action"/>
+            </group>
+            <group string="Others">
+              <field name="bid"/>
+              <field name="parent_id"/>
+              <field name="sequence"/>
+              <field name="statusbar_visible"/>
+              <field name="active"/>
+            </group>
+          </group>
+          <field name="child_ids"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_ui_menu_search" model="ui.view">
+    <field name="name">ui.menu.search</field>
+    <field name="model">ui.menu</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="UI Menu">
+        <field name="name"/>
+        <field name="complete_name"/>
+        <field name="parent_id"/>
+        <field name="sequence"/>
+        <field name="icon"/>
+        <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+        <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+        <group>
+          <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+          <filter string="Parent ID" name="group_by_parent_id" domain="[]" context="{'group_by': 'parent_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

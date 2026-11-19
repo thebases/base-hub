@@ -1,0 +1,30 @@
+<templates xml:space="preserve">
+  <t t-name="SearchBar">
+    <div class="basehub-search-bar d-flex align-items-center flex-wrap gap-1">
+      <t t-if="props.fields.length > 0">
+        <NativeSelect size="'sm'" className="'basehub-search-field w-auto'" aria-label="t('Search field')"
+                      value="resolvedActiveField" onChange="(value) => this.onFieldChange(value)">
+          <t t-foreach="props.fields" t-as="field" t-key="field.name">
+            <option t-att-value="field.name" t-att-selected="field.name === resolvedActiveField" t-esc="field.label"/>
+          </t>
+        </NativeSelect>
+      </t>
+
+      <t t-foreach="props.facets" t-as="facet" t-key="facet.id">
+        <span class="badge bg-primary-subtle text-primary-emphasis">
+          <t t-esc="facet.label"/>
+          <button type="button" class="btn-close btn-close-sm ms-1"
+                  t-att-aria-label="t('Remove filter: {label}', { label: facet.label })"
+                  t-on-click="() => this.onRemoveFacet(facet.id)"/>
+        </span>
+      </t>
+
+      <input type="text" class="basehub-search-input" t-att-placeholder="props.facets.length === 0 ? props.placeholder : ''"
+             t-att-value="state.inputValue" t-on-input="onInput" t-on-keydown="onKeyDown" t-att-aria-label="t('Search')"/>
+
+      <t t-if="props.facets.length > 0">
+        <button type="button" class="btn-close" t-att-aria-label="t('Clear all filters')" t-on-click="onClearAll"/>
+      </t>
+    </div>
+  </t>
+</templates>

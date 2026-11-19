@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_task_type_list" model="ui.view">
+      <field name="name">tbl.project_task_type.list</field>
+      <field name="model">tbl.project_task_type</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Task Stages">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="fold"/>
+          <field name="is_closed"/>
+          <field name="color" widget="kanban_color_picker"/>
+          <field name="user_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_task_type_form" model="ui.view">
+      <field name="name">tbl.project_task_type.form</field>
+      <field name="model">tbl.project_task_type</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Task Stages">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="fold"/>
+                <field name="is_closed"/>
+                <field name="color" widget="kanban_color_picker"/>
+              </group>
+              <group>
+                <field name="project_ids"/>
+                <field name="user_id"/>
+                <field name="rating_active"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_task_type_search" model="ui.view">
+      <field name="name">tbl.project_task_type.search</field>
+      <field name="model">tbl.project_task_type</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Task Stages">
+          <field name="name"/>
+          <field name="project_ids"/>
+        </search>
+      </field>
+    </record>
+</data>

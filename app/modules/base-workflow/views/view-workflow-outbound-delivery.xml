@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_outbound_delivery_list" model="ui.view">
+      <field name="name">base.workflow.outbound.list</field>
+      <field name="model">base.workflow.outbound</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Outbound Delivery" sample="1" multi_edit="1">
+          <field name="status"/>
+          <field name="topic"/>
+          <field name="target_ref"/>
+          <field name="created_at"/>
+          <field name="attempt_count"/>
+          <field name="delivery_type" optional="show"/>
+          <field name="last_attempt_at" optional="show"/>
+          <field name="response_body" optional="hide"/>
+          <field name="last_error" optional="hide"/>
+          <field name="max_attempts" optional="hide"/>
+          <field name="next_attempt_at" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_outbound_delivery_form" model="ui.view">
+      <field name="name">base.workflow.outbound.form</field>
+      <field name="model">base.workflow.outbound</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Outbound Delivery">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="target_ref" nolabel="1" placeholder="Target endpoint or channel"/>
+                </h1>
+                <div class="small text-muted">
+                  Durable outbound payload delivery state for webhook, chat, MQTT, or push transports.
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="Delivery">
+                <div class="d-flex align-items-center gap-2">
+                  <field name="status"/>
+                  <button
+                    string="Retry"
+                    type="object"
+                    name="manual_retry"
+                    class="btn-secondary"
+                    icon="fa-refresh"
+                    invisible="status == 'sending' or status == 'delivered'"
+                  />
+                </div>
+                <field name="topic"/>
+                <field name="target_ref"/>
+                <field name="delivery_type"/>
+              </group>
+              <group string="Attempts">
+                <field name="attempt_count"/>
+                <field name="last_attempt_at"/>
+                <field name="last_error"/>
+                <field name="max_attempts"/>
+                <field name="next_attempt_at"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Payload" name="payload">
+                <field name="headers"/>
+                <field name="request_body"/>
+                <field name="response_body"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_outbound_delivery_search" model="ui.view">
+      <field name="name">base.workflow.outbound.search</field>
+      <field name="model">base.workflow.outbound</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Outbound Delivery">
+          <field name="status"/>
+          <field name="topic"/>
+          <field name="target_ref"/>
+          <field name="attempt_count"/>
+          <field name="delivery_type"/>
+          <field name="last_attempt_at"/>
+          <field name="response_body"/>
+          <field name="last_error"/>
+          <filter string="Queued" name="status_queued" domain="[('status', '=', 'queued')]"/>
+          <filter string="Sending" name="status_sending" domain="[('status', '=', 'sending')]"/>
+          <filter string="Delivered" name="status_delivered" domain="[('status', '=', 'delivered')]"/>
+          <filter string="Retryable Failed" name="status_retryable_failed" domain="[('status', '=', 'retryable_failed')]"/>
+          <filter string="Permanent Failed" name="status_permanent_failed" domain="[('status', '=', 'permanent_failed')]"/>
+          <group>
+            <filter string="Status" name="group_by_status" domain="[]" context="{'group_by': 'status'}"/>
+            <filter string="Topic" name="group_by_topic" domain="[]" context="{'group_by': 'topic'}"/>
+            <filter string="Delivery Type" name="group_by_delivery_type" domain="[]" context="{'group_by': 'delivery_type'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,58 @@
+[
+  {
+    "action": "c",
+    "model": "ui.actions.client",
+    "external_id": "project-helpdesk.action_convert_ticket_to_task",
+    "force_update": false,
+    "data": {
+      "name": "Convert to Task",
+      "tag": "open_widget",
+      "target": "dialog",
+      "sys_model": "tbl.helpdesk_ticket",
+      "params": {"widget": "project_helpdesk_convert", "direction": "ticket_to_task", "title": "Convert to Task", "title_field": "subject", "size": "md"}
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.actions.client",
+    "external_id": "project-helpdesk.action_convert_task_to_ticket",
+    "force_update": false,
+    "data": {
+      "name": "Convert to Ticket",
+      "tag": "open_widget",
+      "target": "dialog",
+      "sys_model": "tbl.project_task",
+      "params": {"widget": "project_helpdesk_convert", "direction": "task_to_ticket", "title": "Convert to Ticket", "title_field": "name", "size": "md"}
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.model.action",
+    "external_id": "project-helpdesk.model_action_convert_ticket_to_task",
+    "force_update": false,
+    "data": {
+      "name": "Convert to Task",
+      "model_name": "tbl.helpdesk_ticket",
+      "action_type": "client",
+      "client_action_id": "project-helpdesk.action_convert_ticket_to_task",
+      "view_type": "form",
+      "icon": "list-checks",
+      "sequence": 50
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.model.action",
+    "external_id": "project-helpdesk.model_action_convert_task_to_ticket",
+    "force_update": false,
+    "data": {
+      "name": "Convert to Ticket",
+      "model_name": "tbl.project_task",
+      "action_type": "client",
+      "client_action_id": "project-helpdesk.action_convert_task_to_ticket",
+      "view_type": "form",
+      "icon": "ticket",
+      "sequence": 50
+    }
+  }
+]

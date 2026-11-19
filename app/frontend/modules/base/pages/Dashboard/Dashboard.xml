@@ -1,0 +1,30 @@
+<templates xml:space="preserve">
+  <t t-name="Dashboard">
+    <div class="basehub-dashboard-page" b-block="dashboard-page">
+      <t t-if="state.status === 'loading'">
+        <div class="d-flex align-items-center gap-2 text-body-secondary py-4 px-3">
+          <span t-esc="t('Loading dashboards…')"/>
+        </div>
+      </t>
+      <t t-elif="state.dashboards.length === 0">
+        <div class="text-body-secondary py-4 px-3" t-esc="t('No dashboards configured yet.')"/>
+      </t>
+      <t t-else="">
+        <Tabs defaultValue="firstDashboardModule">
+          <TabsList>
+            <t t-foreach="state.dashboards" t-as="dashboard" t-key="dashboard.module">
+              <TabTrigger value="dashboard.module"><t t-esc="dashboard.name"/></TabTrigger>
+            </t>
+          </TabsList>
+          <TabsContainer>
+            <t t-foreach="state.dashboards" t-as="dashboard" t-key="dashboard.module">
+              <TabContent value="dashboard.module">
+                <DashboardView arch="dashboard.arch"/>
+              </TabContent>
+            </t>
+          </TabsContainer>
+        </Tabs>
+      </t>
+    </div>
+  </t>
+</templates>

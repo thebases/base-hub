@@ -1,0 +1,5 @@
+<templates name="Map" group="contact" sequence="151" class="bh-map" keywords="location,address" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2210%22 y=%2210%22 width=%22100%22 height=%2252%22 rx=%222%22 fill=%22%23cfe2ff%22/%3E%3Ccircle cx=%2260%22 cy=%2234%22 r=%226%22 fill=%22%23dc3545%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.map">
+    <section class="bh-map py-5" data-snippet="map"><div class="container"><h2>Find us</h2><p>Street address, city.</p><a class="btn btn-outline-primary" href="https://maps.google.com">Open in maps</a></div></section>
+  </t>
+</templates>

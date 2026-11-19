@@ -1,0 +1,3 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+base_automation.access_automation_action_system,Automation Action system,base.group_system,automation.action,true,true,true,true,true
+base_automation.access_automation_cron_system,Automation Cron system,base.group_system,automation.cron,true,true,true,true,true

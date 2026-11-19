@@ -1,0 +1,75 @@
+<templates xml:space="preserve">
+  <t t-name="PWAInstallDrawer">
+    <t t-if="shouldRender">
+      <div class="basehub-pwa-root">
+        <t t-if="shouldShowLauncher">
+          <div class="basehub-pwa-launcher basehub-pwa-launcher-install">
+            <Button variant="'default'" size="'lg'" onClick="() => this.openInstallDrawer()">
+              <Icon name="'download'"/> <t t-esc="t('Install app')"/>
+            </Button>
+          </div>
+        </t>
+        <t t-if="shouldShowNotificationLauncher">
+          <div class="basehub-pwa-launcher basehub-pwa-launcher-notification">
+            <Button variant="'outline'" size="'sm'" onClick="() => this.openNotificationDrawer()">
+              <Icon name="'bell'"/> <t t-esc="t('Allow notifications')"/>
+            </Button>
+          </div>
+        </t>
+
+        <Sheet side="'bottom'" open="state.open" onOpenChange="(open) => this.state.open = open">
+          <SheetContent className="'basehub-pwa-sheet-panel'">
+            <div class="basehub-pwa-sheet-header">
+              <h2 class="h6 mb-1" t-esc="title"/>
+              <p class="mb-0 basehub-pwa-sheet-desc" t-esc="description"/>
+            </div>
+            <div class="basehub-pwa-sheet-body">
+              <div class="basehub-pwa-sheet-card">
+                <p class="mb-1 fw-medium" t-esc="t('Installation steps')"/>
+                <p class="mb-0 text-body-secondary small" t-esc="t('Follow the instructions below to install Base Hub as a PWA on this device.')"/>
+              </div>
+              <t t-if="state.pwa.needsManualInstructions">
+                <ol class="basehub-pwa-steps">
+                  <t t-foreach="manualInstallSteps" t-as="instruction" t-key="instruction_index">
+                    <li>
+                      <span class="basehub-pwa-step-index" t-esc="instruction_index + 1"/>
+                      <span t-esc="instruction"/>
+                    </li>
+                  </t>
+                </ol>
+              </t>
+              <t t-else="">
+                <div class="basehub-pwa-sheet-card" t-out="tHtml(&quot;Tap &lt;strong&gt;Open install prompt&lt;/strong&gt;, then confirm the browser's install flow to add Base Hub to your device.&quot;)"/>
+              </t>
+            </div>
+            <div class="basehub-pwa-sheet-footer">
+              <Button variant="'ghost'" disabled="state.loading" onClick="() => this.handleLater()"><t t-esc="t('Later')"/></Button>
+              <Button variant="'outline'" disabled="state.loading" onClick="() => this.handleHidePrompt()"><t t-esc="t('Hide prompt')"/></Button>
+              <Button variant="'default'" disabled="state.loading" onClick="() => this.handleInstall()">
+                <Icon name="'download'"/> <t t-esc="installButtonLabel"/>
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet side="'bottom'" open="state.notificationOpen" onOpenChange="(open) => this.state.notificationOpen = open">
+          <SheetContent className="'basehub-pwa-sheet-panel'">
+            <div class="basehub-pwa-sheet-header">
+              <h2 class="h6 mb-1" t-esc="t('Allow browser notifications')"/>
+              <p class="mb-0 basehub-pwa-sheet-desc" t-esc="t('Enable notifications so Base Hub can alert you about updates and important activity.')"/>
+            </div>
+            <div class="basehub-pwa-sheet-body">
+              <div class="basehub-pwa-sheet-card" t-out="tHtml('Tap &lt;strong&gt;Allow notifications&lt;/strong&gt;, then choose &lt;strong&gt;Allow&lt;/strong&gt; in your browser prompt.')"/>
+            </div>
+            <div class="basehub-pwa-sheet-footer">
+              <Button variant="'ghost'" disabled="state.notificationLoading" onClick="() => this.handleLaterNotifications()"><t t-esc="t('Later')"/></Button>
+              <Button variant="'default'" disabled="state.notificationLoading" onClick="() => this.handleAllowNotifications()">
+                <Icon name="'bell'"/> <t t-esc="t('Allow notifications')"/>
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </t>
+  </t>
+</templates>

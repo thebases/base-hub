@@ -1,0 +1,43 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "workflow.group_workflow_viewer",
+      "name": "Workflow Viewer",
+      "full_name": "Workflow / Viewer",
+      "sequence": 110,
+      "description": "Read workflow definitions, runs and outbound deliveries",
+      "superadmin": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "workflow.group_workflow_operator",
+      "name": "Workflow Operator",
+      "full_name": "Workflow / Operator",
+      "sequence": 120,
+      "description": "Workflow Viewer plus starting runs (test-run) and retrying outbound deliveries",
+      "superadmin": false,
+      "implied_ids": ["workflow.group_workflow_viewer"]
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "workflow.group_workflow_author",
+      "name": "Workflow Author",
+      "full_name": "Workflow / Author",
+      "sequence": 130,
+      "description": "Workflow Operator; editing workflows still requires Settings (base.group_system) while workflow steps run as sudo",
+      "superadmin": false,
+      "implied_ids": ["workflow.group_workflow_operator"]
+    }
+  }
+]

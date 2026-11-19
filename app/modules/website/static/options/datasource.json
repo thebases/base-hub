@@ -1,0 +1,29 @@
+{
+  "sequence": 53,
+  "selector": "[data-bh-source]",
+  "groups": [
+    {
+      "label": "Data",
+      "controls": [
+        {
+          "id": "source-key",
+          "label": "Source",
+          "type": "select",
+          "attr": "data-bh-source",
+          "values": [
+            {
+              "label": "Blog posts",
+              "value": "blog-posts"
+            }
+          ]
+        },
+        {
+          "id": "source-limit",
+          "label": "Number of items (1-24)",
+          "type": "text",
+          "attr": "data-bh-limit"
+        }
+      ]
+    }
+  ]
+}

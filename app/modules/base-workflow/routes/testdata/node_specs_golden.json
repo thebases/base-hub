@@ -1,0 +1,1148 @@
+{
+  "triggers": [
+    {
+      "type": "webhook",
+      "label": "Webhook",
+      "params": [
+        {
+          "name": "topic",
+          "label": "Webhook Path",
+          "type": "string",
+          "required": false,
+          "default": "/wh/\u003ctopic\u003e",
+          "help": "Derived from the workflow topic and exposed at /wh/\u003ctopic\u003e."
+        },
+        {
+          "name": "group_id",
+          "label": "Access Group",
+          "type": "many2one",
+          "required": false,
+          "help": "Optional tbl.groups access gate for protected workflow execution."
+        }
+      ]
+    },
+    {
+      "type": "kafka",
+      "label": "Kafka Topic",
+      "params": [
+        {
+          "name": "topic",
+          "label": "Kafka Topic",
+          "type": "string",
+          "required": true,
+          "help": "Inbound Kafka topic that should execute this workflow."
+        },
+        {
+          "name": "consumer_group",
+          "label": "Consumer Group",
+          "type": "string",
+          "required": false,
+          "help": "Optional Kafka consumer group. Empty uses a group of its own (wf-\u003cdatabase\u003e-\u003ctrigger id\u003e)."
+        },
+        {
+          "name": "use_dedupe",
+          "label": "Use Dedupe",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "help": "Deprecated and ignored: each offset runs once because the run is named after it. Set dedupe_key on the trigger to deduplicate by a payload field."
+        }
+      ]
+    },
+    {
+      "type": "mqtt",
+      "label": "MQTT Topic",
+      "params": [
+        {
+          "name": "topic",
+          "label": "MQTT Topic",
+          "type": "string",
+          "required": true,
+          "help": "MQTT topic or wildcard pattern that should execute this workflow."
+        },
+        {
+          "name": "qos",
+          "label": "QoS",
+          "type": "select",
+          "required": false,
+          "default": "1",
+          "help": "MQTT delivery quality of service; fixed at 1 (at-least-once) for every subscription.",
+          "options": [
+            {
+              "value": "1",
+              "label": "1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tcp",
+      "label": "TCP",
+      "params": [
+        {
+          "name": "port",
+          "label": "Port",
+          "type": "number",
+          "required": false,
+          "default": 10123,
+          "help": "Listen port for this trigger (one trigger per port). Must be inside the server's tcp.portMin-tcp.portMax range; requires tcp.useTcp."
+        },
+        {
+          "name": "framing",
+          "label": "Framing",
+          "type": "select",
+          "required": false,
+          "default": "len2_bcd",
+          "help": "How one message is delimited on the stream. The body is passed to the workflow untouched.",
+          "options": [
+            {
+              "value": "len2_bcd",
+              "label": "2-byte BCD length"
+            },
+            {
+              "value": "len2_bin",
+              "label": "2-byte binary length"
+            },
+            {
+              "value": "stx_etx",
+              "label": "STX ... ETX"
+            },
+            {
+              "value": "len4_ascii",
+              "label": "4-digit ASCII length"
+            }
+          ]
+        },
+        {
+          "name": "len_includes_header",
+          "label": "Length Includes Header",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "help": "Set when the sender counts the length header bytes in the length value."
+        },
+        {
+          "name": "tls_mode",
+          "label": "TLS",
+          "type": "select",
+          "required": false,
+          "default": "none",
+          "help": "TLS and mutual TLS use the certificate files from the server config (tcp.tlsCertFile, tcp.tlsKeyFile, tcp.tlsClientCaFile).",
+          "options": [
+            {
+              "value": "none",
+              "label": "None (plain TCP)"
+            },
+            {
+              "value": "tls",
+              "label": "TLS"
+            },
+            {
+              "value": "mtls",
+              "label": "Mutual TLS (client certificate)"
+            }
+          ]
+        },
+        {
+          "name": "reply_timeout_ms",
+          "label": "Reply Timeout (ms)",
+          "type": "number",
+          "required": false,
+          "default": 30000,
+          "help": "Time the workflow has to produce the reply; on timeout the connection is closed without a reply."
+        }
+      ]
+    },
+    {
+      "type": "model",
+      "label": "Model Event",
+      "params": [
+        {
+          "name": "model",
+          "label": "Model",
+          "type": "combobox",
+          "required": true,
+          "help": "Runtime model to watch for create/write/unlink events. Options are sourced from GET /wf/sys-models."
+        },
+        {
+          "name": "trigger_domain",
+          "label": "Trigger Domain",
+          "type": "domain",
+          "required": false,
+          "help": "Optional domain condition that gates the whole workflow: evaluated on every create/write/unlink event for the selected model, independent of the Operation below. Leave empty to skip this gate."
+        },
+        {
+          "name": "operation",
+          "label": "Operation",
+          "type": "select",
+          "required": true,
+          "default": "after_create",
+          "help": "Record-lifecycle event that fires this workflow. \"before_*\" evaluates the domain against the pre-image (values before the write); \"after_*\" against the post-image (persisted record). Always fires after the write has committed — a model trigger can filter an event, never block it.",
+          "options": [
+            {
+              "value": "before_create",
+              "label": "Before Create"
+            },
+            {
+              "value": "after_create",
+              "label": "After Create"
+            },
+            {
+              "value": "before_write",
+              "label": "Before Update"
+            },
+            {
+              "value": "after_write",
+              "label": "After Update"
+            },
+            {
+              "value": "before_unlink",
+              "label": "Before Delete"
+            },
+            {
+              "value": "after_unlink",
+              "label": "After Delete"
+            }
+          ]
+        },
+        {
+          "name": "domain",
+          "label": "Domain",
+          "type": "domain",
+          "required": false,
+          "help": "Optional domain condition (same format as list-view filters) matched against the record snapshot for the selected Operation only. The workflow only runs when the domain matches — leave empty to fire on every occurrence of the selected operation."
+        }
+      ]
+    }
+  ],
+  "fallback_actions": [
+    {
+      "code": "parse_payload",
+      "label": "Parse Payload",
+      "category": "Input",
+      "params": null
+    },
+    {
+      "code": "crud_model",
+      "label": "CRUD Model",
+      "category": "Persistence",
+      "params": [
+        {
+          "name": "model_name",
+          "label": "Model Name",
+          "type": "combobox",
+          "required": true
+        },
+        {
+          "name": "operation",
+          "label": "Operation",
+          "type": "select",
+          "required": true,
+          "default": "find_or_create",
+          "options": [
+            {
+              "value": "create",
+              "label": "Create"
+            },
+            {
+              "value": "update",
+              "label": "Update"
+            },
+            {
+              "value": "upsert",
+              "label": "Upsert"
+            },
+            {
+              "value": "find_or_create",
+              "label": "Find Or Create"
+            }
+          ]
+        },
+        {
+          "name": "merge_result",
+          "label": "Merge Result",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "result_key",
+          "label": "Result Key",
+          "type": "string",
+          "required": false,
+          "default": "_crud_result"
+        }
+      ]
+    },
+    {
+      "code": "notify",
+      "label": "Notify",
+      "category": "Delivery",
+      "params": [
+        {
+          "name": "channel",
+          "label": "Channel",
+          "type": "string",
+          "required": false,
+          "default": "generic_webhook"
+        },
+        {
+          "name": "target_url",
+          "label": "Target URL",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "headers",
+          "label": "Headers",
+          "type": "json",
+          "required": false
+        },
+        {
+          "name": "authorization",
+          "label": "Authorization",
+          "type": "string",
+          "required": false,
+          "help": "Select a sys.credential to send its access token as the Authorization header. Leave empty to send none."
+        }
+      ]
+    },
+    {
+      "code": "flatten_json",
+      "label": "Flatten JSON",
+      "category": "Input",
+      "params": null
+    },
+    {
+      "code": "transform_data",
+      "label": "Transform Data",
+      "category": "Transform",
+      "params": [
+        {
+          "name": "model_name",
+          "label": "Model Name",
+          "type": "combobox",
+          "required": false,
+          "help": "Optional source model. When selected, the frontend can fetch its JSON template from /wf/sys-models."
+        },
+        {
+          "name": "template",
+          "label": "Template",
+          "type": "json",
+          "required": true
+        },
+        {
+          "name": "flatten",
+          "label": "Flatten Input",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "code": "post_output_object",
+      "label": "Post Output Object",
+      "category": "Delivery",
+      "params": [
+        {
+          "name": "target_url",
+          "label": "Target URL",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "headers",
+          "label": "Headers",
+          "type": "json",
+          "required": false
+        },
+        {
+          "name": "authorization",
+          "label": "Authorization",
+          "type": "string",
+          "required": false,
+          "help": "Select a sys.credential to send its access token as the Authorization header. Leave empty to send none."
+        }
+      ]
+    },
+    {
+      "code": "hmac_action",
+      "label": "HMAC Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "hmac_key",
+          "label": "HMAC Key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "output_field",
+          "label": "Output Field",
+          "type": "string",
+          "required": false,
+          "default": "signature"
+        },
+        {
+          "name": "include_key",
+          "label": "Include Key",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "category": "Security",
+      "code": "hmac_verify",
+      "label": "HMAC Verify",
+      "params": [
+        {
+          "help": "Shared secret as a @cred:\u003cname\u003e or @syscred:\u003cname\u003e reference.",
+          "label": "HMAC Key",
+          "name": "hmac_key",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "sha256",
+          "label": "Algorithm",
+          "name": "algorithm",
+          "options": [
+            {
+              "label": "HMAC-SHA256",
+              "value": "sha256"
+            },
+            {
+              "label": "HMAC-SHA512",
+              "value": "sha512"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        },
+        {
+          "help": "Dotted payload path of the received signature (for example signature or meta.sig).",
+          "label": "Signature Field",
+          "name": "signature_field",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "help": "Dotted payload path of the signed message. Text is signed as is; any other value as compact JSON with sorted keys.",
+          "label": "Message Field",
+          "name": "message_field",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "hex",
+          "label": "Encoding",
+          "name": "encoding",
+          "options": [
+            {
+              "label": "Hex",
+              "value": "hex"
+            },
+            {
+              "label": "Base64",
+              "value": "base64"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "code": "aes_action",
+      "label": "AES Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "aes_key",
+          "label": "AES Key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "output_field",
+          "label": "Output Field",
+          "type": "string",
+          "required": false,
+          "default": "data"
+        },
+        {
+          "name": "include_key",
+          "label": "Include Key",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    {
+      "code": "aes_decrypt_action",
+      "label": "AES Decrypt Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "input_field",
+          "label": "Input Field",
+          "type": "string",
+          "required": false,
+          "default": "data"
+        },
+        {
+          "name": "key_field",
+          "label": "Key Field",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "aes_key",
+          "label": "AES Key",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "code": "condition",
+      "label": "Condition",
+      "category": "Control",
+      "params": [
+        {
+          "name": "expression",
+          "label": "Condition",
+          "type": "json",
+          "required": true,
+          "help": "JSON condition object evaluated against the current payload. Leaf operators: exists, empty, equals, not_equals, in, not_in, gt, gte, lt, lte (numbers only), contains (substring or array element), regex (RE2, max 512 chars); combine with all/any/not. Example: {\"field\":\"amount\",\"gte\":100}"
+        },
+        {
+          "name": "true_label",
+          "label": "Yes Label",
+          "type": "string",
+          "required": false,
+          "default": "Yes"
+        },
+        {
+          "name": "false_label",
+          "label": "No Label",
+          "type": "string",
+          "required": false,
+          "default": "No"
+        }
+      ]
+    },
+    {
+      "code": "lua_script",
+      "label": "Lua Script",
+      "category": "Action",
+      "params": [
+        {
+          "name": "automation_action_id",
+          "label": "Custom Action",
+          "type": "select",
+          "required": true,
+          "help": "Lua custom action (Automation \u003e Actions) to run. It sees payload (previous node output), data (the JSON below), raw, topic, step_key and base."
+        },
+        {
+          "name": "data",
+          "label": "Custom Data",
+          "type": "json",
+          "required": false,
+          "help": "Optional JSON object handed to the script as the global \"data\", e.g. {\"threshold\": 10}."
+        }
+      ]
+    },
+    {
+      "category": "Control",
+      "code": "call_workflow",
+      "label": "Call Workflow",
+      "params": [
+        {
+          "help": "Published workflow to run as a sub-workflow. It runs its published version in this database under the same identity.",
+          "label": "Target Workflow",
+          "name": "target_workflow_id",
+          "required": true,
+          "type": "select"
+        },
+        {
+          "default": "sync",
+          "help": "sync = wait for the child run and use its output (the only mode for now).",
+          "label": "Wait",
+          "name": "wait",
+          "options": [
+            {
+              "label": "Wait For Result",
+              "value": "sync"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        },
+        {
+          "default": "pass_through",
+          "help": "pass_through = the child receives the current payload as is.",
+          "label": "Payload Mapping",
+          "name": "payload_mapping",
+          "options": [
+            {
+              "label": "Pass Through",
+              "value": "pass_through"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "category": "Control",
+      "code": "for_each",
+      "label": "For Each",
+      "params": [
+        {
+          "help": "Dotted payload path of the array to iterate (for example order.lines). An object element is the child payload as is; any other element is sent as {\"item\": value}.",
+          "label": "Items Path",
+          "name": "items_path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "help": "Published workflow to run as a sub-workflow. It runs its published version in this database under the same identity.",
+          "label": "Target Workflow",
+          "name": "target_workflow_id",
+          "required": true,
+          "type": "select"
+        },
+        {
+          "default": 1,
+          "help": "Children running at once (1 to 8).",
+          "label": "Max Concurrency",
+          "name": "max_concurrency",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "default": 100,
+          "help": "The step fails without retries when the array is longer (at most 1000).",
+          "label": "Max Items",
+          "name": "max_items",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "default": true,
+          "help": "On: the first failed item stops the others and fails the step. Off: every item runs and failures are collected as {\"_error\": ...} entries.",
+          "label": "Fail Fast",
+          "name": "fail_fast",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "default": "results",
+          "help": "Payload key that receives the array of child outputs.",
+          "label": "Output Field",
+          "name": "output_field",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "category": "Control",
+      "code": "wait_approval",
+      "label": "Wait For Approval",
+      "params": [
+        {
+          "default": 0,
+          "help": "The wait fails the run after this many seconds without a decision (0 = never; at most 30 days).",
+          "label": "Expires In Seconds",
+          "name": "expires_in_seconds",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "help": "Optional. Members of this group who hold the workflow operator role may approve or reject the waiting run without its resume token. The user who started the run still cannot approve it.",
+          "label": "Approver Group",
+          "name": "approver_group_id",
+          "required": false,
+          "type": "select"
+        }
+      ]
+    }
+  ],
+  "catalog_by_handler_key": {
+    "aes_action": {
+      "code": "aes_action",
+      "catalog_id": 7,
+      "label": "AES Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "aes_key",
+          "label": "AES Key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "output_field",
+          "label": "Output Field",
+          "type": "string",
+          "required": false,
+          "default": "data"
+        },
+        {
+          "name": "include_key",
+          "label": "Include Key",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    "aes_decrypt_action": {
+      "code": "aes_decrypt_action",
+      "catalog_id": 7,
+      "label": "AES Decrypt Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "input_field",
+          "label": "Input Field",
+          "type": "string",
+          "required": false,
+          "default": "data"
+        },
+        {
+          "name": "key_field",
+          "label": "Key Field",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "aes_key",
+          "label": "AES Key",
+          "type": "string",
+          "required": false
+        }
+      ]
+    },
+    "call_workflow": {
+      "catalog_id": 7,
+      "category": "Control",
+      "code": "call_workflow",
+      "label": "Call Workflow",
+      "params": [
+        {
+          "help": "Published workflow to run as a sub-workflow. It runs its published version in this database under the same identity.",
+          "label": "Target Workflow",
+          "name": "target_workflow_id",
+          "required": true,
+          "type": "select"
+        },
+        {
+          "default": "sync",
+          "help": "sync = wait for the child run and use its output (the only mode for now).",
+          "label": "Wait",
+          "name": "wait",
+          "options": [
+            {
+              "label": "Wait For Result",
+              "value": "sync"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        },
+        {
+          "default": "pass_through",
+          "help": "pass_through = the child receives the current payload as is.",
+          "label": "Payload Mapping",
+          "name": "payload_mapping",
+          "options": [
+            {
+              "label": "Pass Through",
+              "value": "pass_through"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        }
+      ]
+    },
+    "condition": {
+      "code": "condition",
+      "catalog_id": 7,
+      "label": "Condition",
+      "category": "Control",
+      "params": [
+        {
+          "name": "expression",
+          "label": "Condition",
+          "type": "json",
+          "required": true,
+          "help": "JSON condition object evaluated against the current payload. Leaf operators: exists, empty, equals, not_equals, in, not_in, gt, gte, lt, lte (numbers only), contains (substring or array element), regex (RE2, max 512 chars); combine with all/any/not. Example: {\"field\":\"amount\",\"gte\":100}"
+        },
+        {
+          "name": "true_label",
+          "label": "Yes Label",
+          "type": "string",
+          "required": false,
+          "default": "Yes"
+        },
+        {
+          "name": "false_label",
+          "label": "No Label",
+          "type": "string",
+          "required": false,
+          "default": "No"
+        }
+      ]
+    },
+    "crud_model": {
+      "code": "crud_model",
+      "catalog_id": 7,
+      "label": "CRUD Model",
+      "category": "Persistence",
+      "params": [
+        {
+          "name": "model_name",
+          "label": "Model Name",
+          "type": "combobox",
+          "required": true
+        },
+        {
+          "name": "operation",
+          "label": "Operation",
+          "type": "select",
+          "required": true,
+          "default": "find_or_create",
+          "options": [
+            {
+              "value": "create",
+              "label": "Create"
+            },
+            {
+              "value": "update",
+              "label": "Update"
+            },
+            {
+              "value": "upsert",
+              "label": "Upsert"
+            },
+            {
+              "value": "find_or_create",
+              "label": "Find Or Create"
+            }
+          ]
+        },
+        {
+          "name": "merge_result",
+          "label": "Merge Result",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "result_key",
+          "label": "Result Key",
+          "type": "string",
+          "required": false,
+          "default": "_crud_result"
+        }
+      ]
+    },
+    "flatten_json": {
+      "code": "flatten_json",
+      "catalog_id": 7,
+      "label": "Flatten JSON",
+      "category": "Input",
+      "params": null
+    },
+    "for_each": {
+      "catalog_id": 7,
+      "category": "Control",
+      "code": "for_each",
+      "label": "For Each",
+      "params": [
+        {
+          "help": "Dotted payload path of the array to iterate (for example order.lines). An object element is the child payload as is; any other element is sent as {\"item\": value}.",
+          "label": "Items Path",
+          "name": "items_path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "help": "Published workflow to run as a sub-workflow. It runs its published version in this database under the same identity.",
+          "label": "Target Workflow",
+          "name": "target_workflow_id",
+          "required": true,
+          "type": "select"
+        },
+        {
+          "default": 1,
+          "help": "Children running at once (1 to 8).",
+          "label": "Max Concurrency",
+          "name": "max_concurrency",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "default": 100,
+          "help": "The step fails without retries when the array is longer (at most 1000).",
+          "label": "Max Items",
+          "name": "max_items",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "default": true,
+          "help": "On: the first failed item stops the others and fails the step. Off: every item runs and failures are collected as {\"_error\": ...} entries.",
+          "label": "Fail Fast",
+          "name": "fail_fast",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "default": "results",
+          "help": "Payload key that receives the array of child outputs.",
+          "label": "Output Field",
+          "name": "output_field",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    "hmac_action": {
+      "code": "hmac_action",
+      "catalog_id": 7,
+      "label": "HMAC Action",
+      "category": "Security",
+      "params": [
+        {
+          "name": "hmac_key",
+          "label": "HMAC Key",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "output_field",
+          "label": "Output Field",
+          "type": "string",
+          "required": false,
+          "default": "signature"
+        },
+        {
+          "name": "include_key",
+          "label": "Include Key",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    "hmac_verify": {
+      "catalog_id": 7,
+      "category": "Security",
+      "code": "hmac_verify",
+      "label": "HMAC Verify",
+      "params": [
+        {
+          "help": "Shared secret as a @cred:\u003cname\u003e or @syscred:\u003cname\u003e reference.",
+          "label": "HMAC Key",
+          "name": "hmac_key",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "sha256",
+          "label": "Algorithm",
+          "name": "algorithm",
+          "options": [
+            {
+              "label": "HMAC-SHA256",
+              "value": "sha256"
+            },
+            {
+              "label": "HMAC-SHA512",
+              "value": "sha512"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        },
+        {
+          "help": "Dotted payload path of the received signature (for example signature or meta.sig).",
+          "label": "Signature Field",
+          "name": "signature_field",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "help": "Dotted payload path of the signed message. Text is signed as is; any other value as compact JSON with sorted keys.",
+          "label": "Message Field",
+          "name": "message_field",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "hex",
+          "label": "Encoding",
+          "name": "encoding",
+          "options": [
+            {
+              "label": "Hex",
+              "value": "hex"
+            },
+            {
+              "label": "Base64",
+              "value": "base64"
+            }
+          ],
+          "required": false,
+          "type": "select"
+        }
+      ]
+    },
+    "lua_script": {
+      "code": "lua_script",
+      "catalog_id": 7,
+      "label": "Lua Script",
+      "category": "Action",
+      "params": [
+        {
+          "name": "automation_action_id",
+          "label": "Custom Action",
+          "type": "select",
+          "required": true,
+          "help": "Lua custom action (Automation \u003e Actions) to run. It sees payload (previous node output), data (the JSON below), raw, topic, step_key and base."
+        },
+        {
+          "name": "data",
+          "label": "Custom Data",
+          "type": "json",
+          "required": false,
+          "help": "Optional JSON object handed to the script as the global \"data\", e.g. {\"threshold\": 10}."
+        }
+      ]
+    },
+    "notify": {
+      "code": "notify",
+      "catalog_id": 7,
+      "label": "Notify",
+      "category": "Delivery",
+      "params": [
+        {
+          "name": "channel",
+          "label": "Channel",
+          "type": "string",
+          "required": false,
+          "default": "generic_webhook"
+        },
+        {
+          "name": "target_url",
+          "label": "Target URL",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "headers",
+          "label": "Headers",
+          "type": "json",
+          "required": false
+        },
+        {
+          "name": "authorization",
+          "label": "Authorization",
+          "type": "string",
+          "required": false,
+          "help": "Select a sys.credential to send its access token as the Authorization header. Leave empty to send none."
+        }
+      ]
+    },
+    "parse_payload": {
+      "code": "parse_payload",
+      "catalog_id": 7,
+      "label": "Parse Payload",
+      "category": "Input",
+      "params": null
+    },
+    "post_output_object": {
+      "code": "post_output_object",
+      "catalog_id": 7,
+      "label": "Post Output Object",
+      "category": "Delivery",
+      "params": [
+        {
+          "name": "target_url",
+          "label": "Target URL",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "headers",
+          "label": "Headers",
+          "type": "json",
+          "required": false
+        },
+        {
+          "name": "authorization",
+          "label": "Authorization",
+          "type": "string",
+          "required": false,
+          "help": "Select a sys.credential to send its access token as the Authorization header. Leave empty to send none."
+        }
+      ]
+    },
+    "transform_data": {
+      "code": "transform_data",
+      "catalog_id": 7,
+      "label": "Transform Data",
+      "category": "Transform",
+      "params": [
+        {
+          "name": "model_name",
+          "label": "Model Name",
+          "type": "combobox",
+          "required": false,
+          "help": "Optional source model. When selected, the frontend can fetch its JSON template from /wf/sys-models."
+        },
+        {
+          "name": "template",
+          "label": "Template",
+          "type": "json",
+          "required": true
+        },
+        {
+          "name": "flatten",
+          "label": "Flatten Input",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    },
+    "wait_approval": {
+      "catalog_id": 7,
+      "category": "Control",
+      "code": "wait_approval",
+      "label": "Wait For Approval",
+      "params": [
+        {
+          "default": 0,
+          "help": "The wait fails the run after this many seconds without a decision (0 = never; at most 30 days).",
+          "label": "Expires In Seconds",
+          "name": "expires_in_seconds",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "help": "Optional. Members of this group who hold the workflow operator role may approve or reject the waiting run without its resume token. The user who started the run still cannot approve it.",
+          "label": "Approver Group",
+          "name": "approver_group_id",
+          "required": false,
+          "type": "select"
+        }
+      ]
+    }
+  }
+}

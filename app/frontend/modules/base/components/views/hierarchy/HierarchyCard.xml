@@ -1,0 +1,38 @@
+<templates xml:space="preserve">
+  <t t-name="HierarchyCard">
+    <div class="basehub-hierarchy-node">
+      <div class="basehub-hierarchy-node-row d-flex align-items-center gap-2">
+        <t t-if="hasChildren">
+          <Button variant="'ghost'" size="'sm'" aria-label="state.expanded ? t('Collapse') : t('Expand')" onClick="() => this.toggleExpand()">
+            <t t-esc="state.expanded ? '▾' : '▸'"/>
+          </Button>
+        </t>
+        <t t-else="">
+          <span class="basehub-hierarchy-node-spacer"/>
+        </t>
+        <div class="basehub-hierarchy-card" role="button" tabindex="0" t-on-click="() => this.props.onOpen(props.node.record)">
+          <Card className="'basehub-hierarchy-card-inner'">
+            <CardBody>
+              <span class="basehub-hierarchy-card-title" t-esc="title"/>
+              <t t-if="subFields.length > 0">
+                <div class="basehub-hierarchy-card-subfields">
+                  <t t-foreach="subFields" t-as="sub" t-key="sub.name">
+                    <Badge variant="'secondary'" label="sub.value"/>
+                  </t>
+                </div>
+              </t>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
+
+      <t t-if="hasChildren and state.expanded">
+        <div class="basehub-hierarchy-children">
+          <t t-foreach="props.node.children" t-as="child" t-key="child.record.id">
+            <HierarchyCard node="child" layout="props.layout" onOpen="props.onOpen"/>
+          </t>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

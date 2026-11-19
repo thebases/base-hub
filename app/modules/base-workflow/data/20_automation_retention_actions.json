@@ -1,0 +1,16 @@
+[
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "workflow.automation.action.purge_retention",
+    "force_update": false,
+    "data": {
+      "name": "Workflow: Purge Expired Runs and Deliveries",
+      "action_type": "go_handler",
+      "handler_key": "workflow.purge_retention",
+      "values": {},
+      "description": "Deletes terminal base.workflow.run and base.workflow.outbound rows older than sys_config_param workflow.run_retention_days / workflow.outbound_retention_days (default 30, 0 disables) in bounded batches (plan T96).",
+      "active": true
+    }
+  }
+]

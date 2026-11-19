@@ -1,0 +1,3 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+auth.access_sys_oauth_client_system,OAuth Clients system,base.group_system,sys.oauth_client,true,true,true,true,true
+auth.access_sys_oauth_refresh_token_system,OAuth Refresh Tokens system,base.group_system,sys.oauth_refresh_token,true,true,false,true,true

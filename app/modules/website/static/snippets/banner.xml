@@ -1,0 +1,5 @@
+<templates name="Banner" group="intro" sequence="20" class="bh-banner" keywords="hero,header,intro" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2230%22 y=%2214%22 width=%2260%22 height=%229%22 rx=%222%22 fill=%22%23adb5bd%22/%3E%3Crect x=%2224%22 y=%2230%22 width=%2272%22 height=%225%22 rx=%222%22 fill=%22%23ced4da%22/%3E%3Crect x=%2249%22 y=%2246%22 width=%2222%22 height=%228%22 rx=%224%22 fill=%22%236ea8fe%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.banner">
+    <section class="bh-banner py-5 text-center bg-light" data-snippet="banner"><div class="container"><h1 class="display-4">Your headline</h1><p class="lead">A short sentence that explains what you offer.</p><a class="btn btn-primary btn-lg" href="/contact">Get started</a></div></section>
+  </t>
+</templates>

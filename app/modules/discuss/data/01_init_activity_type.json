@@ -1,0 +1,77 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.discuss_activity_type",
+    "bid": "discuss.activity_type_email",
+    "force_update": true,
+    "data": {
+      "name": "Email",
+      "sequence": 10,
+      "delay_count": 0,
+      "delay_unit": "days",
+      "delay_from": "current_date",
+      "icon": "mail",
+      "chaining_type": "suggest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.discuss_activity_type",
+    "bid": "discuss.activity_type_call",
+    "force_update": true,
+    "data": {
+      "name": "Call",
+      "sequence": 20,
+      "delay_count": 0,
+      "delay_unit": "days",
+      "delay_from": "current_date",
+      "icon": "phone",
+      "chaining_type": "suggest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.discuss_activity_type",
+    "bid": "discuss.activity_type_meeting",
+    "force_update": true,
+    "data": {
+      "name": "Meeting",
+      "sequence": 30,
+      "delay_count": 0,
+      "delay_unit": "days",
+      "delay_from": "current_date",
+      "icon": "calendar",
+      "chaining_type": "suggest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.discuss_activity_type",
+    "bid": "discuss.activity_type_todo",
+    "force_update": true,
+    "data": {
+      "name": "To Do",
+      "sequence": 40,
+      "delay_count": 0,
+      "delay_unit": "days",
+      "delay_from": "current_date",
+      "icon": "check-square",
+      "chaining_type": "suggest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.discuss_activity_type",
+    "bid": "discuss.activity_type_upload_document",
+    "force_update": true,
+    "data": {
+      "name": "Upload Document",
+      "sequence": 50,
+      "delay_count": 0,
+      "delay_unit": "days",
+      "delay_from": "current_date",
+      "icon": "upload",
+      "chaining_type": "suggest"
+    }
+  }
+]

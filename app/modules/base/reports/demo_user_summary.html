@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Demo report template for SRS-F-020 (sys.report base.report_demo_user_summary).
+     Templates are plain Go html/template sources with the restricted func map:
+     t, displayName, formatFloat, formatDate, formatDateTime. No arbitrary code. -->
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{t "User Summary"}}</title>
+  <style>
+    body { font-family: Helvetica, Arial, sans-serif; color: #1a1a1a; margin: 32px; }
+    h1 { font-size: 20px; border-bottom: 2px solid #1a1a1a; padding-bottom: 8px; }
+    .record { margin: 16px 0; padding: 12px 16px; border: 1px solid #d0d0d0; border-radius: 4px; }
+    .record h2 { font-size: 16px; margin: 0 0 8px 0; }
+    table { border-collapse: collapse; }
+    th { text-align: left; padding: 2px 16px 2px 0; color: #555; font-weight: normal; }
+    td { padding: 2px 0; }
+    footer { margin-top: 24px; font-size: 11px; color: #888; }
+  </style>
+</head>
+<body>
+  <h1>{{t "User Summary"}}</h1>
+  {{range .docs}}
+  <div class="record">
+    <h2>{{displayName .name}}</h2>
+    <table>
+      <tr><th>{{t "Login"}}</th><td>{{.login}}</td></tr>
+      <tr><th>{{t "Email"}}</th><td>{{displayName .email}}</td></tr>
+      <tr><th>{{t "Company"}}</th><td>{{displayName .company_id}}</td></tr>
+      <tr><th>{{t "Created"}}</th><td>{{formatDateTime .created_at}}</td></tr>
+    </table>
+  </div>
+  {{end}}
+  <footer>{{t "Generated at"}}: {{formatDateTime .now}}</footer>
+</body>
+</html>

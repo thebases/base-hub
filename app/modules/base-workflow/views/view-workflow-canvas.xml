@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_workflow_canvas_view" model="ui.view">
+    <field name="name">base.workflow.canvas</field>
+    <field name="model">base.workflow</field>
+    <field name="type">canvas</field>
+    <field name="arch" type="xml">
+      <canvas>
+        <widget name="record_selection"/>
+        <field name="layout" widget="workflow_canvas"/>
+      </canvas>
+    </field>
+  </record>
+
+  
+</data>

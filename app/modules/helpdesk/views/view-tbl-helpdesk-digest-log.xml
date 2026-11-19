@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_digest_log_list" model="ui.view">
+      <field name="name">tbl.helpdesk_digest_log.list</field>
+      <field name="model">tbl.helpdesk_digest_log</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Digest Log">
+          <field name="team_id"/>
+          <field name="period_start"/>
+          <field name="period_end"/>
+          <field name="tickets_closed"/>
+          <field name="success_rate"/>
+          <field name="avg_rating"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_digest_log_form" model="ui.view">
+      <field name="name">tbl.helpdesk_digest_log.form</field>
+      <field name="model">tbl.helpdesk_digest_log</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Digest Log">
+          <sheet>
+            <group>
+              <field name="team_id"/>
+              <field name="period_start"/>
+              <field name="period_end"/>
+              <field name="tickets_closed"/>
+              <field name="success_rate"/>
+              <field name="avg_rating"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_digest_log_search" model="ui.view">
+      <field name="name">tbl.helpdesk_digest_log.search</field>
+      <field name="model">tbl.helpdesk_digest_log</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Digest Log">
+          <field name="team_id"/>
+          <group>
+            <filter string="Team" name="group_by_team" domain="[]" context="{'group_by': 'team_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

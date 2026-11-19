@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_page_version_list" model="ui.view">
+      <field name="name">tbl.website_page_version.list</field>
+      <field name="model">tbl.website_page_version</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Page Versions" create="false">
+          <field name="page_id"/>
+          <field name="revision"/>
+          <field name="label"/>
+          <field name="create_date"/>
+        </list>
+      </field>
+    </record>
+</data>

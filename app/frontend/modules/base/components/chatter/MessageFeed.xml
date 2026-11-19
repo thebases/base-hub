@@ -1,0 +1,33 @@
+<templates xml:space="preserve">
+  <t t-name="MessageFeed">
+    <div class="basehub-chatter-messages">
+      <MessageScroller autoscroll="false" className="'basehub-chatter-scroller'">
+        <t t-if="rows.length === 0">
+          <p class="basehub-chatter-empty" t-esc="t('No messages yet.')"/>
+        </t>
+        <t t-foreach="rows" t-as="row" t-key="row.id">
+          <div t-attf-class="basehub-chatter-message-row basehub-chatter-message-row--{{row.side}}">
+            <Avatar className="'flex-shrink-0'">
+              <t t-set-slot="fallback" t-esc="row.authorInitials"/>
+            </Avatar>
+            <div class="basehub-chatter-message-bubble">
+              <div t-attf-class="basehub-chatter-message-meta basehub-chatter-message-row--{{row.side}}">
+                <span class="basehub-chatter-message-author xsmall" t-esc="row.authorName"/>
+                <span class="basehub-chatter-message-time xsmall" t-esc="row.createdAt"/>
+              </div>
+              <t t-if="row.subject">
+                <div t-attf-class="basehub-chatter-message-subject basehub-chatter-message-row--{{row.side}}" t-esc="row.subject"/>
+              </t>
+              <div t-attf-class="basehub-chatter-message-content basehub-chatter-message-row--{{row.side}}">
+                <Message side="row.side">
+                  <span t-esc="row.body" class="xsmall"/>
+                </Message>
+              </div>
+
+            </div>
+          </div>
+        </t>
+      </MessageScroller>
+    </div>
+  </t>
+</templates>

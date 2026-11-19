@@ -1,0 +1,32 @@
+{
+  "sequence": 52,
+  "selector": "[data-bh-form], [data-snippet=\"form\"]",
+  "groups": [
+    {
+      "label": "Form",
+      "controls": [
+        {
+          "id": "form-key",
+          "label": "Form key (groups submissions)",
+          "type": "text",
+          "attr": "data-bh-form",
+          "target": "[data-bh-form]"
+        },
+        {
+          "id": "form-success",
+          "label": "Success message",
+          "type": "text",
+          "attr": "data-bh-form-success",
+          "target": "[data-bh-form]"
+        },
+        {
+          "id": "form-redirect",
+          "label": "Redirect after sending (path)",
+          "type": "text",
+          "attr": "data-bh-form-redirect",
+          "target": "[data-bh-form]"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<templates xml:space="preserve">
+  <t t-name="WorkflowTemplatesPage">
+    <main class="p-3 p-lg-4 d-flex flex-column gap-3">
+      <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+        <div>
+          <h1 class="h4 fw-semibold mb-1" t-esc="t('Workflow Templates')"/>
+          <p class="small text-body-secondary mb-0" t-esc="t('Start a new workflow from a template: the template is copied into a new draft workflow that you can edit on the canvas.')"/>
+        </div>
+        <Button variant="'default'" size="'sm'" icon="'layout-template'" label="t('Browse templates')" onClick="() => this.state.open = true"/>
+      </div>
+      <TemplatesDialog open="state.open" onOpenChange="(open) => this.state.open = open" onCreated="(id) => this.openCanvas(id)"/>
+    </main>
+  </t>
+</templates>

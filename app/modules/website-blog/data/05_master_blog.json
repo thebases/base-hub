@@ -1,0 +1,37 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.website_blog_blog",
+    "external_id": "website-blog.blog.news",
+    "force_update": false,
+    "data": {
+      "name": "News",
+      "company_id": null,
+      "subtitle": "Announcements and updates",
+      "description": "Company news, product announcements and updates.",
+      "sequence": 10,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.website_blog_category",
+    "external_id": "website-blog.category.topics",
+    "force_update": false,
+    "data": { "name": "Topics", "sequence": 10, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.website_blog_tag",
+    "external_id": "website-blog.tag.announcement",
+    "force_update": false,
+    "data": { "name": "Announcement", "category_id": "website-blog.category.topics", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.website_blog_tag",
+    "external_id": "website-blog.tag.tutorial",
+    "force_update": false,
+    "data": { "name": "Tutorial", "category_id": "website-blog.category.topics", "active": true }
+  }
+]

@@ -1,0 +1,50 @@
+<templates xml:space="preserve">
+  <t t-name="AttachmentWidget">
+    <div t-attf-class="basehub-attachment-widget {{props.className}}">
+      <t t-if="state.error">
+        <Alert variant="'danger'" className="'mb-2'">
+          <t t-esc="state.error"/>
+          <button type="button" class="btn-close float-end" t-att-aria-label="t('Dismiss')" t-on-click="dismissError"/>
+        </Alert>
+      </t>
+
+      <t t-if="!props.readonly">
+        <div t-attf-class="basehub-attachment-dropzone {{state.dragging ? 'is-dragging' : ''}}"
+             t-on-dragover="onDragOver" t-on-dragleave="onDragLeave" t-on-drop="onDrop">
+          <input type="file" class="visually-hidden" t-att-multiple="props.multi" t-ref="fileInput"
+                 tabindex="-1" t-on-change="onInputChange"/>
+          <Icon name="'upload-cloud'" className="'basehub-attachment-dropzone-icon'"/>
+          <p class="text-body-secondary small mb-2" t-esc="t('Drag and drop a file here, or')"/>
+          <Button variant="'outline'" size="'sm'"
+                  disabled="state.uploading" onClick="() => this.openPicker()"
+                  t-att-aria-label="state.uploading ? t('Uploading…') : t('Upload file')"
+                  t-att-title="state.uploading ? t('Uploading…') : t('Upload file')">
+            <Icon name="state.uploading ? 'loader-2' : 'upload'"
+                  className="state.uploading ? 'basehub-attachment-spin' : ''"/>
+          </Button>
+        </div>
+      </t>
+
+      <t t-if="state.attachments.length > 0">
+        <ul class="basehub-attachment-list">
+          <t t-foreach="state.attachments" t-as="attachment" t-key="attachment.id">
+            <li class="basehub-attachment-row">
+              <Icon name="'link-2'" className="'basehub-attachment-row-icon'"/>
+              <a t-att-href="attachmentDownloadURL(attachment.id)" target="_blank" rel="noreferrer"
+                 class="basehub-attachment-row-name" t-att-title="attachment.name" t-esc="attachment.name"/>
+              <t t-if="!props.readonly">
+                <Button variant="'ghost'" size="'sm'"
+                        t-att-aria-label="t('Delete attachment')" onClick="() => this.onDeleteClick(attachment)">
+                  <Icon name="'trash-2'"/>
+                </Button>
+              </t>
+            </li>
+          </t>
+        </ul>
+      </t>
+      <t t-elif="props.readonly">
+        <NoContent label="t('No attachments')"/>
+      </t>
+    </div>
+  </t>
+</templates>

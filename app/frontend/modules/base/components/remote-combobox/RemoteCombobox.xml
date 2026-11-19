@@ -1,0 +1,18 @@
+<templates xml:space="preserve">
+  <t t-name="RemoteCombobox">
+    <div class="basehub-remote-combobox" t-ref="root" t-on-focusin="(ev) => this.onFocusIn(ev)"
+         t-on-focusout="(ev) => this.onFocusOut(ev)" t-on-keydown="(ev) => this.onKeyDown(ev)">
+      <Input value="displayValue" placeholder="props.placeholder" readonly="props.readonly" autocomplete="'off'"
+             onInput="(value) => this.onInput(value)"/>
+      <ul t-if="showList" class="basehub-form-m2o-list" role="listbox">
+        <li t-if="props.loading and props.options.length === 0" class="basehub-form-m2o-hint">Searching…</li>
+        <li t-elif="props.options.length === 0" class="basehub-form-m2o-hint">No results</li>
+        <li t-foreach="props.options" t-as="option" t-key="option.value" role="option"
+            t-att-class="{ 'basehub-form-m2o-active': option_index === state.active, 'basehub-form-m2o-selected': option.value === props.value }"
+            t-on-mousedown="(ev) => this.onPick(ev, option)">
+          <t t-esc="option.label"/>
+        </li>
+      </ul>
+    </div>
+  </t>
+</templates>

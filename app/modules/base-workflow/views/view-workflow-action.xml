@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_base_etl_action_list" model="ui.view">
+    <field name="name">base.workflow.action.list</field>
+    <field name="model">base.workflow.action</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Workflow Actions" sample="1" multi_edit="1">
+        <field name="sequence"/>
+        <field name="name"/>
+        <field name="workflow_id"/>
+        <field name="catalog_id"/>
+        <field name="step_key"/>
+        <field name="is_active"/>
+        <field name="description" optional="show"/>
+        <field name="action_code" optional="hide"/>
+        <field name="updated_at" optional="show"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_etl_action_form" model="ui.view">
+    <field name="name">base.workflow.action.form</field>
+    <field name="model">base.workflow.action</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Workflow Action">
+        <sheet>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1" placeholder="Action step name"/>
+              </h1>
+              <p class="small text-muted">
+                  Configure one workflow step by selecting a built-in catalog action and filling the inputs required by that action.
+              </p>
+            </main>
+          </div>
+          <group>
+            <group string="Definition">
+              <field name="workflow_id"/>
+              <field name="catalog_id"/>
+              <field name="action_code" readonly="1"/>
+              <field name="action_version" readonly="1"/>
+              <field name="sequence"/>
+              <field name="step_key"/>
+              <field name="is_active"/>
+            </group>
+            <group string="Execution">
+              <field name="timeout_seconds"/>
+              <field name="retry_policy"/>
+              <field name="continue_on_error"/>
+            </group>
+          </group>
+          <group>
+            <group string="Notes">
+              <field name="description"/>
+            </group>
+            <group string="Contracts">
+              <field name="input_contract"/>
+              <field name="output_contract"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Action Inputs" name="action_inputs">
+              <group string="Persistence" invisible="action_code != 'crud_model'">
+                  <field name="model_name" widget="workflow_model_name"/>
+              </group>
+              <group string="Outbound Delivery" invisible="action_code != 'notify' and action_code != 'post_output_object'">
+                <field name="target_ref" string="Target URL"/>
+                <field name="channel" invisible="action_code != 'notify'"/>
+                <field name="headers"/>
+                <field name="authorization" widget="workflow_authorization"/>
+              </group>
+              <group string="Transform" invisible="action_code != 'transform_data'">
+                <field name="flatten_input"/>
+                  <field name="model_name" widget="workflow_model_name"/>
+                <field name="template"/>
+              </group>
+              <group string="HMAC" invisible="action_code != 'hmac_action'">
+                <field name="hmac_key"/>
+                <field name="key_list"/>
+                <field name="output_field"/>
+                <field name="include_key"/>
+                <field name="include_raw"/>
+              </group>
+              <group string="AES" invisible="action_code != 'aes_action' and action_code != 'aes_decrypt_action'">
+                <field name="aes_key"/>
+                <field name="output_field"/>
+                <field name="include_key"/>
+                <field name="include_raw"/>
+              </group>
+              <!-- lua_script@v1 selects a base-automation Lua action (extra_params.automation_action_id) and carries custom JSON (extra_params.data); no Lua source lives in the workflow. -->
+              <widget name="workflow_lua_script" field="extra_params" string="Lua Action" invisible="action_code != 'lua_script'"/>
+              <group string="Common" invisible="action_code != 'parse_payload' and action_code != 'flatten_json'">
+                <label string="This built-in action does not require extra inputs beyond the shared execution settings."/>
+              </group>
+            </page>
+            <page string="Advanced Params" name="advanced">
+              <field name="extra_params"/>
+            </page>
+            <page string="Catalog Defaults" name="catalog_defaults">
+              <label string="Catalog selection controls the runtime handler and default parameter set for this workflow step."/>
+            </page>
+            <page string="Audit" name="technical">
+              <field name="created_at" readonly="1"/>
+              <field name="updated_at" readonly="1"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_etl_action_search" model="ui.view">
+    <field name="name">base.workflow.action.search</field>
+    <field name="model">base.workflow.action</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Workflow Actions">
+        <field name="name"/>
+        <field name="workflow_id"/>
+        <field name="catalog_id"/>
+        <field name="action_code"/>
+        <field name="step_key"/>
+        <filter string="Active" name="is_active_true" domain="[('is_active', '=', True)]"/>
+        <filter string="Inactive" name="is_active_false" domain="[('is_active', '=', False)]"/>
+        <group>
+          <filter string="Workflow" name="group_by_workflow_id" domain="[]" context="{'group_by': 'workflow_id'}"/>
+          <filter string="Catalog" name="group_by_catalog_id" domain="[]" context="{'group_by': 'catalog_id'}"/>
+          <filter string="Status" name="group_by_is_active" domain="[]" context="{'group_by': 'is_active'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="view_base_etl_action_catalog_list" model="ui.view">
+    <field name="name">base.workflow.action.catalog.list</field>
+    <field name="model">base.workflow.action.catalog</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Workflow Action Catalog" sample="1" create="false" delete="false">
+        <field name="name"/>
+        <field name="code"/>
+        <field name="version"/>
+        <field name="description"/>
+        <field name="is_active"/>
+        <field name="handler_key" optional="show"/>
+        <field name="handler_version" optional="show"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_etl_action_catalog_form" model="ui.view">
+    <field name="name">base.workflow.action.catalog.form</field>
+    <field name="model">base.workflow.action.catalog</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Workflow Action Catalog" create="false" delete="false">
+        <sheet>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1" readonly="1"/>
+              </h1>
+              <p class="small text-muted">
+                  Built-in workflow action type. Runtime behavior is implemented in Go and configured per workflow through base.workflow.action records.
+              </p>
+            </main>
+          </div>
+          <group>
+            <group string="Catalog">
+              <field name="code" readonly="1"/>
+              <field name="version" readonly="1"/>
+              <field name="is_active"/>
+              <field name="description"/>
+            </group>
+            <group string="Implementation">
+              <field name="handler_key" readonly="1"/>
+              <field name="handler_version" readonly="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Default Params" name="defaults">
+              <field name="default_params"/>
+            </page>
+            <page string="Audit" name="audit">
+              <field name="created_at" readonly="1"/>
+              <field name="updated_at" readonly="1"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_etl_action_catalog_search" model="ui.view">
+    <field name="name">base.workflow.action.catalog.search</field>
+    <field name="model">base.workflow.action.catalog</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Workflow Action Catalog">
+        <field name="name"/>
+        <field name="code"/>
+        <field name="version"/>
+        <field name="description"/>
+        <field name="handler_key"/>
+        <filter string="Active" name="catalog_is_active_true" domain="[('is_active', '=', True)]"/>
+        <filter string="Inactive" name="catalog_is_active_false" domain="[('is_active', '=', False)]"/>
+        <group>
+          <filter string="Handler" name="catalog_group_by_handler_key" domain="[]" context="{'group_by': 'handler_key'}"/>
+          <filter string="Version" name="catalog_group_by_version" domain="[]" context="{'group_by': 'version'}"/>
+          <filter string="Status" name="catalog_group_by_is_active" domain="[]" context="{'group_by': 'is_active'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_page_translation_list" model="ui.view">
+      <field name="name">tbl.website_page_translation.list</field>
+      <field name="model">tbl.website_page_translation</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Page Translations">
+          <field name="page_id"/>
+          <field name="lang"/>
+          <field name="is_active"/>
+          <field name="deploy_path"/>
+          <field name="updated_at"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_page_translation_form" model="ui.view">
+      <field name="name">tbl.website_page_translation.form</field>
+      <field name="model">tbl.website_page_translation</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Page Translation">
+          <sheet>
+            <group>
+              <group string="Translation">
+                <field name="page_id"/>
+                <field name="lang"/>
+                <field name="is_active"/>
+                <field name="deploy_path" readonly="1"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Content">
+                <field name="body_html"/>
+              </page>
+              <page string="SEO">
+                <field name="seo"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,72 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_task_type",
+    "external_id": "project.task_type.new",
+    "force_update": false,
+    "data": {
+      "name": "New",
+      "color": 4,
+      "sequence": 1,
+      "fold": false,
+      "is_closed": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task_type",
+    "external_id": "project.task_type.todo",
+    "force_update": false,
+    "data": {
+      "name": "To Do",
+      "color": 2,
+      "sequence": 2,
+      "fold": false,
+      "is_closed": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task_type",
+    "external_id": "project.task_type.in_progress",
+    "force_update": false,
+    "data": {
+      "name": "In Progress",
+      "color": 3,
+      "sequence": 3,
+      "fold": false,
+      "is_closed": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task_type",
+    "external_id": "project.task_type.done",
+    "force_update": false,
+    "data": {
+      "name": "Done",
+      "color": 7,
+      "sequence": 4,
+      "fold": true,
+      "is_closed": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task_type",
+    "external_id": "project.task_type.cancelled",
+    "force_update": false,
+    "data": {
+      "name": "Cancelled",
+      "color": 1,
+      "sequence": 5,
+      "fold": true,
+      "is_closed": true,
+      "active": true
+    }
+  }
+]

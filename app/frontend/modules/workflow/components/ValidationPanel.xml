@@ -1,0 +1,25 @@
+<templates xml:space="preserve">
+  <t t-name="ValidationPanel">
+    <Alert variant="this.errorCount ? 'danger' : (this.warningCount ? 'warning' : 'success')" className="'workflow-validation-panel'">
+      <div class="d-flex flex-wrap align-items-center gap-2">
+        <strong t-if="!props.issues.length" t-esc="t('No issues found: the workflow can be published.')"/>
+        <t t-else="">
+          <strong t-esc="t('Validation')"/>
+          <Badge t-if="this.errorCount" variant="'danger'" label="t('{count} errors', { count: this.errorCount })"/>
+          <Badge t-if="this.warningCount" variant="'warning'" label="t('{count} warnings', { count: this.warningCount })"/>
+          <span t-if="this.stepIssueCount" class="small" t-esc="t('{count} on steps (see the badges on the nodes)', { count: this.stepIssueCount })"/>
+        </t>
+        <Button variant="'ghost'" size="'icon-sm'" className="'ms-auto'" aria-label="t('Close')" title="t('Close')" onClick="() => props.onClose()">
+          <Icon name="'x'"/>
+        </Button>
+      </div>
+      <ul t-if="this.generalIssues.length" class="workflow-validation-list mb-0 mt-2 ps-3">
+        <li t-foreach="this.generalIssues" t-as="issue" t-key="this.rowKey(issue, issue_index)">
+          <Badge variant="issue.severity === 'error' ? 'danger' : 'warning'" label="issue.severity === 'error' ? t('Error') : t('Warning')"/>
+          <span class="ms-2 fw-semibold" t-esc="this.label(issue)"/>
+          <span t-if="this.detail(issue)" class="ms-1 small" t-esc="this.detail(issue)"/>
+        </li>
+      </ul>
+    </Alert>
+  </t>
+</templates>

@@ -1,0 +1,16 @@
+[
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "base_calendar.automation.action.cleanup_orphaned_recurrences",
+    "force_update": false,
+    "data": {
+      "name": "Calendar: Cleanup Orphaned Recurrences",
+      "action_type": "go_handler",
+      "handler_key": "base_calendar.cleanup_orphaned_recurrences",
+      "values": {},
+      "description": "Deletes base.calendar.recurrence rows whose master record no longer exists or is no longer registered.",
+      "active": true
+    }
+  }
+]

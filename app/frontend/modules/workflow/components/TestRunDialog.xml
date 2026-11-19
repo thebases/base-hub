@@ -1,0 +1,71 @@
+<templates xml:space="preserve">
+  <t t-name="TestRunDialog">
+    <Dialog open="props.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent className="'workflow-test-run-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Test run')"/></DialogTitle>
+          <DialogDescription><t t-esc="t('Runs the saved draft once with the sample payload. Published triggers are not affected.')"/></DialogDescription>
+        </DialogHeader>
+
+        <div class="d-flex flex-column gap-3 pt-2 workflow-test-run-body">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+          <Field>
+            <Textarea label="t('Sample Payload')" rows="5" className="'workflow-node-dialog-code'"
+                      placeholder="'{&#34;field&#34;: &#34;value&#34;}'" value="props.sampleJSON" disabled="state.running"
+                      onInput="(value) => props.onSampleJSONChange(value)"/>
+          </Field>
+          <Switch checked="state.dryRun" disabled="state.running" onChange="(checked) => this.state.dryRun = checked"
+                  supportingText="t('HTTP calls, messages, record writes and scripts are skipped and only listed below.')">
+            <t t-esc="t('Dry run (no side effects)')"/>
+          </Switch>
+
+          <div t-if="state.running" class="d-flex align-items-center gap-2">
+            <Spinner label="t('Running…')"/>
+            <span t-esc="t('Running…')"/>
+          </div>
+
+          <section t-if="state.result" class="d-flex flex-column gap-2">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <strong t-esc="t('Result')"/>
+              <Badge variant="this.statusVariant" label="this.statusLabel"/>
+              <Badge t-if="state.run and state.run.dry_run" variant="'info'" label="t('Dry run')"/>
+              <span class="small text-body-secondary" t-esc="t('Run #{id}', { id: state.result.run_id })"/>
+            </div>
+            <Alert t-if="state.result.resume_token" variant="'info'">
+              <div class="d-flex flex-wrap align-items-center gap-2">
+                <strong t-esc="t('Approval token')"/>
+                <code class="text-break" t-esc="state.result.resume_token"/>
+                <ClipboardButton variant="'ghost'" size="'sm'" icon="'copy'" value="state.result.resume_token" ariaLabel="t('Copy to clipboard')"/>
+              </div>
+              <div class="small" t-esc="t('Copy it now: the token is not shown again.')"/>
+            </Alert>
+            <Alert t-if="state.run and state.run.last_error" variant="'danger'" t-esc="state.run.last_error"/>
+            <t t-if="state.run and state.run.dry_run">
+              <strong class="small" t-esc="t('What the run would have done')"/>
+              <p t-if="!this.intents.length" class="small text-body-secondary mb-0" t-esc="t('No step with outside effects ran.')"/>
+              <ul t-else="" class="workflow-dry-run-list list-unstyled mb-0">
+                <li t-foreach="this.intents" t-as="intent" t-key="intent.key" class="workflow-dry-run-item">
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <Badge variant="'secondary'" label="intent.effect"/>
+                    <span class="fw-semibold" t-esc="intent.step"/>
+                    <code class="small" t-esc="intent.action"/>
+                  </div>
+                  <div t-if="intent.target" class="small text-break" t-esc="intent.target"/>
+                  <div t-if="intent.reason" class="small text-body-secondary" t-esc="intent.reason"/>
+                </li>
+              </ul>
+            </t>
+          </section>
+        </div>
+
+        <DialogFooter className="'d-flex flex-wrap justify-content-end gap-2'">
+          <Button t-if="state.result and state.result.run_id" variant="'outline'" onClick="() => this.openRun()" label="t('Open in run history')"/>
+          <Button variant="'outline'" disabled="state.running" onClick="() => props.onOpenChange(false)" label="t('Close')"/>
+          <Button variant="'default'" disabled="state.running" onClick="() => this.run()">
+            <t t-esc="state.dryRun ? t('Dry run now') : t('Run now')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

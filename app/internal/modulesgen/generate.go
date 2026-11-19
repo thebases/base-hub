@@ -1,0 +1,161 @@
+package modulesgen
+
+// File overview:
+// - Responsibility: generates the synthetic import fan-in package that forces every bootstrap-capable module to register itself.
+// - Key symbols: GenerateOptions, GenerateModuleImports, renderModuleImports.
+// - Pattern: Keeps generated import output deterministic so module discovery changes are easy to review and bootstrap remains repeatable.
+
+import (
+	"bytes"
+	"fmt"
+	"git.thebase.vn/base_hub/internal/services/log"
+	"go/format"
+	"os"
+	"path/filepath"
+	"sort"
+	"strings"
+)
+
+// GenerateOptions keeps the generator inputs explicit so build tooling can wire
+// module discovery and output paths without hidden defaults.
+type GenerateOptions struct {
+	ModulesRoot string
+	ImportBase  string
+	OutputPath  string
+}
+
+// GenerateModuleImports writes the synthetic `all` package so every runtime
+// module with Go code is imported exactly once during bootstrap.
+func GenerateModuleImports(opts GenerateOptions) error {
+	modulesRoot := filepath.Clean(strings.TrimSpace(opts.ModulesRoot))
+	importBase := strings.TrimRight(strings.TrimSpace(opts.ImportBase), "/")
+	outputPath := filepath.Clean(strings.TrimSpace(opts.OutputPath))
+	if modulesRoot == "" {
+		log.Errorf("modulesgen: modules root is required")
+		return fmt.Errorf("modulesgen: modules root is required")
+	}
+	if importBase == "" {
+		log.Errorf("modulesgen: import base is required")
+		return fmt.Errorf("modulesgen: import base is required")
+	}
+	if outputPath == "" {
+		log.Errorf("modulesgen: output path is required")
+		return fmt.Errorf("modulesgen: output path is required")
+	}
+
+	moduleNames, err := discoverModuleNames(modulesRoot)
+	if err != nil {
+		return err
+	}
+
+	formatted, err := format.Source([]byte(renderModuleImports(importBase, moduleNames)))
+	if err != nil {
+		log.Errorf("modulesgen: format generated source: %v", err)
+		return fmt.Errorf("modulesgen: format generated source: %w", err)
+	}
+	if err := os.MkdirAll(filepath.Dir(outputPath), 0o755); err != nil {
+		log.Errorf("modulesgen: create output directory: %v", err)
+		return fmt.Errorf("modulesgen: create output directory: %w", err)
+	}
+	if err := writeFileIfChanged(outputPath, formatted); err != nil {
+		log.Errorf("modulesgen: write output %s: %v", outputPath, err)
+		return fmt.Errorf("modulesgen: write output %s: %w", outputPath, err)
+	}
+
+	return nil
+}
+
+// discoverModuleNames filters out directories that cannot contribute bootstrap
+// code so the generated `all` package only imports executable modules. Every
+// top-level module folder is eligible here regardless of naming — this
+// discovery only decides what gets *compiled in*, never what is eligible for
+// auto-install. That is a separate, deliberately narrower concern enforced
+// independently by name (IsCoreModuleName, DefaultEnabledModules,
+// singleTenantHomeModuleSelection, nextAutoInstallCandidate all restrict to
+// `base`/`base-*` on their own), so a non-`base-`-prefixed first-party module
+// (e.g. database, knowledge, website) must still be linked into the binary or
+// its models/routes/hooks silently never register while its manifest.md still
+// makes it look installable through disk-only manifest discovery.
+func discoverModuleNames(modulesRoot string) ([]string, error) {
+	entries, err := os.ReadDir(modulesRoot)
+	if err != nil {
+		log.Errorf("modulesgen: read modules root %s: %v", modulesRoot, err)
+		return nil, fmt.Errorf("modulesgen: read modules root %s: %w", modulesRoot, err)
+	}
+
+	names := make([]string, 0, len(entries))
+	for _, entry := range entries {
+		if !entry.IsDir() || entry.Name() == "all" {
+			continue
+		}
+		if !hasBootstrapGoFile(filepath.Join(modulesRoot, entry.Name())) {
+			continue
+		}
+		names = append(names, entry.Name())
+	}
+	sort.Strings(names)
+	return names, nil
+}
+
+// hasBootstrapGoFile treats any non-test Go file as evidence that the module
+// owns runtime bootstrap code and therefore must be imported.
+func hasBootstrapGoFile(moduleRoot string) bool {
+	entries, err := os.ReadDir(moduleRoot)
+	if err != nil {
+		return false
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+
+		name := entry.Name()
+		if !strings.HasSuffix(name, ".go") || strings.HasSuffix(name, "_test.go") {
+			continue
+		}
+		return true
+	}
+
+	return false
+}
+
+// writeFileIfChanged avoids rewriting generated output when discovery is
+// unchanged so dev loops and build systems do not churn file mtimes.
+func writeFileIfChanged(path string, content []byte) error {
+	current, err := os.ReadFile(path)
+	if err == nil && bytes.Equal(current, content) {
+		return nil
+	}
+	if err != nil && !os.IsNotExist(err) {
+		return err
+	}
+	return os.WriteFile(path, content, 0o644)
+}
+
+// renderModuleImports keeps the output deterministic so generated code is
+// stable in git and easy to reason about during bootstrap failures.
+func renderModuleImports(importBase string, moduleNames []string) string {
+	var builder strings.Builder
+	builder.WriteString("// Code generated by modulesgen. DO NOT EDIT.\n")
+	builder.WriteString("package all\n\n")
+	builder.WriteString("// File overview:\n")
+	builder.WriteString("// - Responsibility: aggregates blank imports for every discovered module so package init hooks register runtime bootstrap code.\n")
+	builder.WriteString("// - Key symbols: generated blank imports for module packages discovered under the configured modules root.\n")
+	builder.WriteString("// - Pattern: Keeps bootstrap registration centralized in one generated fan-in file so adding a module only requires discovery, not manual import maintenance.\n\n")
+	if len(moduleNames) == 0 {
+		builder.WriteString("// No module packages with Go bootstrap code were discovered.\n")
+		return builder.String()
+	}
+
+	builder.WriteString("import (\n")
+	for _, name := range moduleNames {
+		builder.WriteString("\t_ \"")
+		builder.WriteString(importBase)
+		builder.WriteString("/")
+		builder.WriteString(name)
+		builder.WriteString("\"\n")
+	}
+	builder.WriteString(")\n")
+	return builder.String()
+}

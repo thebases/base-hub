@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_base_workflow_edge_list" model="ui.view">
+    <field name="name">base.workflow.edge.list</field>
+    <field name="model">base.workflow.edge</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Workflow Edges" sample="1">
+        <field name="workflow_id"/>
+        <field name="from_step_key"/>
+        <field name="to_step_key"/>
+        <field name="edge_type"/>
+        <field name="condition_expr" optional="show"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_workflow_edge_form" model="ui.view">
+    <field name="name">base.workflow.edge.form</field>
+    <field name="model">base.workflow.edge</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Workflow Edge">
+        <sheet>
+          <group>
+            <group string="Connection">
+              <field name="workflow_id"/>
+              <field name="from_step_key"/>
+              <field name="to_step_key"/>
+            </group>
+            <group string="Routing">
+              <field name="edge_type"/>
+              <field name="condition_expr"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_workflow_edge_search" model="ui.view">
+    <field name="name">base.workflow.edge.search</field>
+    <field name="model">base.workflow.edge</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Workflow Edges">
+        <field name="workflow_id"/>
+        <field name="from_step_key"/>
+        <field name="to_step_key"/>
+        <field name="edge_type"/>
+        <group>
+          <filter string="Workflow" name="group_by_workflow_id" domain="[]" context="{'group_by': 'workflow_id'}"/>
+          <filter string="Edge Type" name="group_by_edge_type" domain="[]" context="{'group_by': 'edge_type'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

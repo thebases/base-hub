@@ -1,0 +1,89 @@
+# Direct orm.RuntimeRepositoryCreate/Write callers (plan T15/T87, decision D9).
+# Format: <path>:<Func>  <reason>. Switch RPC-facing ones to orm.CreateRecord/WriteRecords and delete the line;
+# keep server-trusted paths (syncs, engine-owned writes) with a real reason.
+internal/models/sys_attachment.go:createSysAttachment  company/user/group scopes are exclusive: the implicit company pin would invalidate user/group-scoped rows; create_uid set server-side; T15 guard checks explicit company_id
+internal/models/sys_model_constraint.go:actionDisableSysModelConstraint  action-owned state/last_error transition after dropping the live constraint
+internal/models/sys_model.go:setSysModelStatus  kernel-owned publish/unpublish status transition, not caller payload
+internal/models/sys_sequence.go:createSysSequence  code-uniqueness check runs on the unpinned payload; a later company pin could store a colliding code; T15 guard checks explicit company_id
+internal/models/ui_menu_cache.go:writeUIMenuCacheEntry  internal write to another model (base.kvt sidebar cache)
+internal/models/ui_menu.go:createUIMenu  form create posts non-stored computed statusbar_visible, which CreateRecord rejects; no company_id; T15 guard covers record rules
+internal/models/ui_menu.go:syncUIMenuBranch  system write of derived complete_name after a menu create/write
+internal/models/ui_view.go:createUIView  form create posts non-stored computed statusbar_visible, which CreateRecord rejects; no company_id; T15 guard covers record rules
+modules/base-automation/service/action_executor.go:executeSysModelAction  automation action run (cron under sudo, or after the caller's write check) writes its configured target model; executable content is superadmin-only (T24)
+modules/base-automation/service/action_executor.go:findOrCreate  find_or_create operation of an automation action, same trust as executeSysModelAction
+modules/base-bus/models/service_bus.go:publishServiceBus  Internal server-side publish, no caller identity, system-set created_by/created_at
+modules/base-calendar/models/base_calendar_recurrence.go:rescheduleBaseCalendarAllOccurrences  shifts a rule already checked by parentRecordAccess(write) in reschedule_occurrence
+modules/base-calendar/models/base_calendar_recurrence.go:rescheduleBaseCalendarFollowingOccurrences  series split after the parent-rule write check; the new rule copies the validated series company, which a session pin must not change
+modules/base-calendar/models/base_calendar_recurrence.go:rescheduleBaseCalendarSingleOccurrence  side-effect write of the child exception after the parent-rule write check
+modules/base-credential/models/sys_credential.go:StoreSysCredentialLoginFailure  cron/system bookkeeping write, no caller identity
+modules/base-credential/models/sys_credential.go:StoreSysCredentialToken  cron/system write of encrypted token fields, no caller identity
+modules/base/models/tbl_company_partner_sync.go:createCompanyPartner  side-effect create of the linked partner (another model), sync-flagged
+modules/base/models/tbl_company_partner_sync.go:grantRootSuperadminsCompany  sudo system grant on base.users after company create
+modules/base/models/tbl_company_partner_sync.go:syncCompanyValuesToPartners  side-effect mirror write to another model (tbl.partner)
+modules/base/models/tbl_company_partner_sync.go:syncPartnerNameToUsers  sudo side-effect write to another model (base.users)
+modules/base/models/tbl_company_partner_sync.go:syncPartnerValuesToCompanies  side-effect mirror write to another model (tbl.company)
+modules/base/models/tbl_currency.go:createResCurrencyRate  computed company_rate/inverse_company_rate are accepted as inverse inputs (CreateRecord rejects them); a company pin would turn a shared rate into a company override
+modules/base/models/tbl_currency.go:writeResCurrencyRate  same computed inverse inputs as create; T15 guard checks record rules and explicit company_id
+modules/base/models/tbl_user.go:createResUsers  CreateRecord would overwrite the explicit home company_id with the active company after ensureResUsersCompanyScopeConsistent checked it; T15 guard + access handler cover it
+modules/base/models/tbl_user_partner_sync.go:applyResUsersWriteNameFallback  system follow-up name fill on the same ids after the guarded user write
+modules/base/models/tbl_user_partner_sync.go:ensureResUsersPartner  side-effect create of the linked partner (another model) during user create
+modules/base/models/tbl_user_partner_sync.go:writeResUsersPartnerValues  side-effect write of delegated fields to the linked partner (another model)
+modules/base-workflow/models/base_webhook_outbound.go:createOutboundDelivery  Public RPC create (base.group_system ACL), raw: TODO decide Internal (callers: engine dispatch; no dedicated SPA caller, only the generic /web/base.workflow.outbound ModelView)
+modules/base-workflow/models/base_webhook_outbound.go:writeOutboundDelivery  Public RPC write (base.group_system ACL), raw: TODO decide Internal (callers: engine attempt-state updates; no dedicated SPA caller, only the generic Outbound Delivery ModelView)
+modules/base-workflow/models/base_workflow_run.go:createWorkflowRun  Public RPC create (base.group_system ACL), raw: TODO decide Internal (callers: workflow engine run start; no dedicated SPA caller, only the generic Workflow Run ModelView menu)
+modules/base-workflow/models/base_workflow_run.go:writeWorkflowRun  engine-owned run state; method is Internal (T41)
+modules/base-workflow/models/workflow_company_scope.go:cascadeWorkflowCompany  system cascade of company_id to child models when a workflow's company changes (T41)
+modules/base-workflow/models/workflow_copy.go:replaceActionSequenceFlow  T59 atomic canvas save inside the revision-checked transaction, authorised on base.workflow
+modules/base-workflow/models/workflow_copy.go:replaceWorkflowEdgesFlow  T59 atomic canvas save inside the revision-checked transaction, authorised on base.workflow
+modules/base-workflow/models/workflow_flow_map.go:writeWorkflowFlowMap  server-owned derived flow_map regenerated after graph changes
+modules/base-workflow/models/workflow_publish.go:markWorkflowDraft  server-owned state flag (T97) set after a definition change, like flow_map
+modules/base-workflow/models/workflow_publish.go:publishFlow  T97 publish inside the locked workflow transaction: server-owned publication fields and the immutable base.workflow.version row (RPC mutations of that model are Internal)
+modules/base-workflow/models/workflow_step_keys.go:renameWorkflowEdgeStepKey  side-effect write to the edge model when an action step_key is renamed
+modules/discuss/models/activity_service.go:ScheduleActivity  reachable via RPC tbl.discuss_activity.schedule_activity (runtimeScheduleActivity) and server callers, raw: TODO move to CreateRecord (unit tests run on the stub without metadata, so CreateRecord would drop every field)
+modules/discuss/models/activity_service.go:UseCannedResponse  last_used_at bump by any reader; a write record-rule check would change who may use a response
+modules/discuss/models/channel_service.go:CreateChannel  internal service API (documented discuss API)
+modules/discuss/models/channel_service.go:JoinChannel  internal service API, member rows written for the caller by the service
+modules/discuss/models/channel_service.go:MarkSeen  internal service API, member bookkeeping
+modules/discuss/models/channel_service.go:SetMute  internal service API, member bookkeeping
+modules/discuss/models/guest_service.go:CreateGuest  guest bootstrap, no authenticated caller
+modules/discuss/models/guest_service.go:PostMessageAsGuest  guest message, no authenticated caller
+modules/discuss/models/mail_sender.go:EnqueueMail  outbox write by server code, no caller identity
+modules/discuss/models/mail_sender.go:markAllPendingNoServer  mail worker state transition
+modules/discuss/models/mail_sender.go:markMailException  mail worker state transition
+modules/discuss/models/mail_sender.go:markMailSent  mail worker state transition
+modules/discuss/models/rtc_service.go:closeCallHistory  internal call-history bookkeeping
+modules/discuss/models/rtc_service.go:startCallHistory  internal call-history bookkeeping
+modules/discuss/models/rtc_service.go:StartRtcSession  internal service API, RTC session rows
+modules/discuss/models/rtc_service.go:UpdateRtcSessionState  internal service API, RTC session state
+modules/discuss/models/service.go:createNotificationAndPublish  notification rows for other users, system side effect
+modules/discuss/models/service.go:PostMessage  reachable via RPC tbl.discuss_message.post_message (runtimePostMessage) and server callers, raw: no company/computed fields; TODO move to CreateRecord (unit tests run on the stub without metadata)
+modules/discuss/models/service.go:Subscribe  follower upsert fan-out for other users
+modules/helpdesk/models/activity_actions.go:runtimePerformAction  side-effect create of the ticket/activity link row (another model) after schedule_activity ran under the caller's own checks
+modules/helpdesk/models/cron.go:runHelpdeskDigest  cron digest log row, no caller identity
+modules/helpdesk/models/sla_service.go:recomputeTicketSlaDeadline  system recompute of the derived sla_deadline after an SLA status change
+modules/helpdesk/models/sla_service.go:upsertSlaStatus  system SLA status rows matched from the ticket, no caller payload
+modules/project/models/recurrence_service.go:ensureProjectTaskRecurrenceRule  system link of the task to its freshly created recurrence rule (recurrence_id), after the guarded task create
+modules/project/models/recurrence_service.go:spawnNextProjectTaskOccurrenceIfRecurring  system spawn of the next occurrence copied from a closed task the caller just wrote
+modules/project/models/stage_service.go:unlinkProjectStageWithReassign  reassign write to another model (tbl.project) of rows pointing at the stage being deleted, so none dangle
+modules/project/models/stage_service.go:unlinkProjectTaskTypeWithReassign  reassign write to another model (tbl.project_task) of rows pointing at the task type being deleted, so none dangle
+modules/project/models/tbl_project_task_hooks.go:populateMissingPersonalStages  side-effect create of per-assignee personal stage rows (another model) after the guarded task create/write
+modules/project/models/tbl_project_update.go:createProjectUpdate  the update row goes through CreateRecord; the raw write is the mirror of last_update_status/last_update_id onto the parent tbl.project
+modules/website-blog/models/home_nav.go:addBlogToHomeNavigation  side-effect write to another model (tbl.website_page.body_html)
+modules/website/models/helpers_runtime.go:ensureWebsiteSiteDeployFolder  sets server-owned deploy_path on the site (T8, confined)
+modules/website/models/helpers_website_publish_schedule.go:publishDueWebsitePages  scheduler sets publish_pending, no caller identity
+modules/website/models/tbl_website_contact_request.go:contactFormTarget  anonymous public form endpoint, sets readonly ip/user_agent
+modules/website/models/tbl_website_contact_request.go:submitWebsiteContactRequest  anonymous public form endpoint, sets readonly ip/user_agent
+modules/website/models/tbl_website_form_submission.go:submitWebsiteForm  anonymous public form endpoint, sets readonly ip/user_agent
+modules/website/models/tbl_website_page.go:actionSetHomepageWebsitePage  is_homepage/site writes inside the site/page transaction
+modules/website/models/tbl_website_page.go:createWebsitePage  inherits company_id from the parent site (a pin would overwrite it); maps the route-unique violation after insert
+modules/website/models/tbl_website_page.go:publishWebsitePage  publish-owned deploy_path/publish_pending writes inside the site/page transaction
+modules/website/models/tbl_website_page.go:unpublishWebsitePage  publish-owned deploy_path/publish_pending writes inside the site/page transaction
+modules/website/models/tbl_website_page.go:writeOneWebsitePage  owned transaction with revision CAS; rename redirect in the same tx; sets readonly route_path
+modules/website/models/tbl_website_page_translation.go:publishWebsitePageTranslations  publish-owned deploy_path
+modules/website/models/tbl_website_page_translation.go:unpublishWebsitePageTranslations  publish-owned deploy_path
+modules/website/models/tbl_website_page_translation.go:writeOneWebsitePageTranslation  owned transaction with CAS; sets readonly site_id
+modules/website/models/tbl_website_page_version.go:actionRestoreWebsitePageVersion  restore writes tbl.website_page inside a transaction
+modules/website/models/tbl_website_page_version.go:snapshotWebsitePage  internal snapshot inside the publish flow
+modules/website/models/tbl_website_site.go:publishWebsiteSiteLocked  sets published_at under the site lock (system)
+modules/website/models/tbl_website_site.go:syncWebsitePageCompanyScopeForSites  write to another model (tbl.website_page)
+modules/website/models/tbl_website_site.go:writeOneWebsiteSite  owned transaction with revision CAS and page company sync

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_sys_oauth_refresh_token_list" model="ui.view">
+    <field name="name">sys.oauth_refresh_token.list</field>
+    <field name="model">sys.oauth_refresh_token</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="OAuth Tokens" sample="1">
+        <field name="user_id"/>
+        <field name="db_name"/>
+        <field name="family_id" optional="show"/>
+        <field name="issued_at" optional="show"/>
+        <field name="expires_at"/>
+        <field name="revoked_at" optional="show"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_sys_oauth_refresh_token_form" model="ui.view">
+    <field name="name">sys.oauth_refresh_token.form</field>
+    <field name="model">sys.oauth_refresh_token</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="OAuth Token">
+        <sheet>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="family_id" nolabel="1"/>
+              </h1>
+              <div class="small text-muted">
+                Refresh tokens are hashed at rest; revoke suspicious rows or whole families from the OAuth endpoint/service flow.
+              </div>
+            </main>
+          </div>
+          <group>
+            <group string="Subject">
+              <field name="user_id" readonly="1"/>
+              <field name="db_name" readonly="1"/>
+              <field name="family_id" readonly="1"/>
+            </group>
+            <group string="Token State">
+              <field name="token_hash" readonly="1" widget="password"/>
+              <field name="issued_at" readonly="1"/>
+              <field name="expires_at" readonly="1"/>
+              <field name="revoked_at" readonly="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Audit" name="audit">
+              <field name="created_at"/>
+              <field name="updated_at"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_sys_oauth_refresh_token_search" model="ui.view">
+    <field name="name">sys.oauth_refresh_token.search</field>
+    <field name="model">sys.oauth_refresh_token</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="OAuth Tokens">
+        <field name="user_id"/>
+        <field name="db_name"/>
+        <field name="family_id"/>
+        <filter string="Revoked" name="revoked" domain="[('revoked_at', '!=', False)]"/>
+        <group>
+          <filter string="Database" name="group_by_db_name" domain="[]" context="{'group_by': 'db_name'}"/>
+          <filter string="User" name="group_by_user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

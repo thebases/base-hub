@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <!-- §9.4/Phase 1.5: docks the discuss chatter panel onto the ticket form,
+       via the real live mechanism (ui.view.use_chatter), not an xpath
+       extension view — see modules/discuss/views/tbl_partner_chatter_views.xml
+       for the reference pattern this copies. Same-module bare id reference
+       is fine since view_helpdesk_ticket_form is defined by this same
+       module's own helpdesk_ticket_views.xml. -->
+  <record id="view_helpdesk_ticket_form" model="ui.view">
+    <field name="use_chatter" eval="True"/>
+  </record>
+</data>

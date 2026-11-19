@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_kvt_list" model="ui.view">
+      <field name="name">base.kvt.list</field>
+      <field name="model">base.kvt</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Key Values" sample="1">
+          <field name="name"/>
+          <field name="type"/>
+          <field name="value"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_kvt_form" model="ui.view">
+      <field name="name">base.kvt.form</field>
+      <field name="model">base.kvt</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Key Value">
+          <sheet>
+            <field name="name"/>
+            <field name="type"/>
+            <field name="value" widget="code-json"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_kvt_search" model="ui.view">
+      <field name="name">base.kvt.search</field>
+      <field name="model">base.kvt</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Key Values">
+          <field name="name"/>
+          <field name="type"/>
+        </search>
+      </field>
+    </record>
+</data>

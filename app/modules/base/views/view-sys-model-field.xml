@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_model_field_list" model="ui.view">
+      <field name="name">sys.model.field.list</field>
+      <field name="model">sys.model.field</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Model Fields">
+          <field name="model_name"/>
+          <field name="field_name"/>
+          <field name="label"/>
+          <field name="data_type"/>
+          <field name="relation_model"/>
+          <field name="bun_column"/>
+          <field name="is_required"/>
+          <field name="is_primary_key"/>
+          <field name="status"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_model_field_form" model="ui.view">
+      <field name="name">sys.model.field.form</field>
+      <field name="model">sys.model.field</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Model Field">
+          <sheet>
+            <group>
+              <group>
+                <field name="model_name" readonly="not bid"/>
+                <field name="field_name" readonly="not bid"/>
+                <field name="go_name" readonly="not bid"/>
+                <field name="label" readonly="not bid"/>
+              </group>
+              <group>
+                <field name="data_type" readonly="not bid"/>
+                <field name="relation_model" readonly="not bid"/>
+                <field name="bun_column" readonly="not bid"/>
+                <field name="json_name" readonly="not bid"/>
+                <field name="bson_name" readonly="not bid"/>
+              </group>
+            </group>
+            <group>
+              <group>
+                <field name="is_required" readonly="not bid"/>
+                <field name="is_primary_key" readonly="not bid"/>
+              </group>
+              <group>
+                <field name="field_index" readonly="not bid"/>
+                <field name="bid"/>
+                <field name="status" readonly="1"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_model_field_search" model="ui.view">
+      <field name="name">sys.model.field.search</field>
+      <field name="model">sys.model.field</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Model Fields">
+          <field name="model_name"/>
+          <field name="field_name"/>
+          <field name="label"/>
+          <field name="data_type"/>
+          <field name="relation_model"/>
+          <field name="status"/>
+          <group>
+            <filter string="Model" name="group_by_model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+            <filter string="Data Type" name="group_by_data_type" domain="[]" context="{'group_by': 'data_type'}"/>
+            <filter string="Status" name="group_by_status" domain="[]" context="{'group_by': 'status'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

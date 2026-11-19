@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.discuss_canned_response" name="Canned Responses" parent="menu.main" sequence="46" route_path="/web/tbl.discuss_canned_response" icon="message-square-text"/>
+    <menuitem id="menu.discuss_activity_type" name="Activity Types" parent="menu.main" sequence="47" route_path="/web/tbl.discuss_activity_type" icon="list-checks"/>
+</data>

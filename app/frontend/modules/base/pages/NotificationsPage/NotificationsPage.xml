@@ -1,0 +1,42 @@
+<templates xml:space="preserve">
+  <t t-name="NotificationsPage">
+    <main class="p-3 p-lg-4">
+      <div class="mb-3">
+        <h1 class="h4 fw-semibold mb-0" t-esc="t('Notifications')"/>
+        <p class="text-body-secondary small mb-0" t-esc="t('Backend notifications retained for seven days on this device.')"/>
+      </div>
+
+      <t t-if="state.status === 'loading'">
+        <div class="border rounded p-3 text-body-secondary small" t-esc="t('Loading notifications...')"/>
+      </t>
+      <t t-elif="state.status === 'error'">
+        <div class="border border-danger-subtle rounded p-3 text-danger small" t-esc="state.message"/>
+      </t>
+      <t t-elif="state.notifications.length === 0">
+        <div class="border rounded p-3 text-body-secondary small" t-esc="t('No notifications have been stored on this device yet.')"/>
+      </t>
+      <t t-else="">
+        <div class="border rounded overflow-hidden">
+          <div class="d-flex justify-content-between align-items-center gap-3 border-bottom bg-body-secondary px-3 py-2 small fw-medium">
+            <span t-esc="t('Notification')"/>
+            <span t-esc="t('Received')"/>
+          </div>
+          <div>
+            <t t-foreach="state.notifications" t-as="notification" t-key="notification._id">
+              <article class="d-flex justify-content-between align-items-start gap-3 px-3 py-3 border-bottom small">
+                <div class="flex-grow-1" style="min-width: 0;">
+                  <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                    <Badge variant="'secondary'" label="notification.type"/>
+                    <span class="text-body-secondary" t-esc="'#' + notification.sourceId"/>
+                  </div>
+                  <pre class="mb-0 bg-body-secondary rounded p-2 small" style="max-height: 10rem; overflow: auto; white-space: pre-wrap; word-break: break-word;" t-esc="this.formatPayload(notification)"/>
+                </div>
+                <time t-att-datetime="notification.receivedAt" class="text-body-secondary small text-nowrap" t-esc="this.formatReceivedAt(notification)"/>
+              </article>
+            </t>
+          </div>
+        </div>
+      </t>
+    </main>
+  </t>
+</templates>

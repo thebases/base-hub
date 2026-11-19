@@ -1,0 +1,26 @@
+<templates xml:space="preserve">
+  <t t-name="MapView">
+    <div class="basehub-map-root">
+      <t t-if="props.markers.length === 0">
+        <NoContent label="t('No geolocated records found.')"/>
+      </t>
+      <t t-else="">
+        <div class="basehub-map-layout">
+          <div class="basehub-map-canvas" t-ref="mapContainer"/>
+          <div class="basehub-map-sidelist" role="region" t-att-aria-label="props.panelTitle">
+            <div class="basehub-map-sidelist-title" t-esc="props.panelTitle"/>
+            <t t-foreach="props.markers" t-as="item" t-key="item.record.id">
+              <div t-attf-class="basehub-map-sidelist-row{{ state.selectedId === item.record.id ? ' basehub-map-sidelist-row-selected' : '' }}"
+                   t-on-click="() => this.selectRow(item.record)">
+                <t t-esc="this.displayName(item.record)"/>
+              </div>
+            </t>
+          </div>
+        </div>
+      </t>
+      <t t-if="state.error">
+        <div class="basehub-map-error" t-esc="state.error"/>
+      </t>
+    </div>
+  </t>
+</templates>

@@ -1,0 +1,106 @@
+<templates xml:space="preserve">
+  <t t-name="ExportDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => this.onOpenChange(open)">
+      <DialogContent className="'basehub-widget-dialog__panel basehub-widget-dialog__panel--xl'">
+        <DialogHeader>
+          <div class="d-flex align-items-start gap-2">
+            <span class="d-inline-flex flex-shrink-0 align-items-center justify-content-center rounded-3 bg-primary-subtle text-primary-emphasis" style="width: 2rem; height: 2rem;">
+              <Icon name="'download'"/>
+            </span>
+            <div style="min-width: 0;">
+              <DialogTitle><t t-esc="t('Export {title}', { title: props.title })"/></DialogTitle>
+              <p class="small text-body-secondary mb-0" t-esc="this.scopeSummary"/>
+            </div>
+          </div>
+        </DialogHeader>
+
+        <div class="basehub-widget-dialog__body d-flex flex-column gap-3">
+          <!-- Template bar: load, save (overwrite or new), delete. -->
+          <section class="rounded-3 bg-body-tertiary p-3 d-flex flex-column gap-2">
+            <div class="d-flex flex-column flex-md-row align-items-md-end gap-2">
+              <div class="flex-fill" style="min-width: 0;">
+                <label class="form-label small text-body-secondary mb-1" t-esc="t('Template')"/>
+                <NativeSelect size="'sm'" ariaLabel="t('Export template')" value="state.templateId" onChange="(value) => this.loadTemplateById(value)">
+                  <option value="" t-esc="t('Default (required fields)')"/>
+                  <t t-foreach="state.templates" t-as="tpl" t-key="tpl.id">
+                    <option t-att-value="String(tpl.id)" t-esc="tpl.name"/>
+                  </t>
+                </NativeSelect>
+              </div>
+              <div class="flex-fill" style="min-width: 0;">
+                <label class="form-label small text-body-secondary mb-1" t-esc="t('Template name')"/>
+                <Input className="'form-control-sm'" value="state.templateName" placeholder="t('e.g. Monthly report columns')" onInput="(value) => this.setTemplateName(value)"/>
+              </div>
+              <div class="d-flex gap-2">
+                <Button size="'sm'" variant="'outline'" icon="'save'" disabled="!this.canSaveTemplate" onClick="() => this.saveCurrentTemplate()">
+                  <t t-if="this.isOverwrite" t-esc="t('Update')"/>
+                  <t t-else="" t-esc="t('Save as new')"/>
+                </Button>
+                <Button t-if="state.templateId" size="'sm'" variant="'ghost'" icon="'trash-2'" ariaLabel="t('Delete template')"
+                        disabled="state.savingTemplate" onClick="() => this.deleteCurrentTemplate()"/>
+              </div>
+            </div>
+          </section>
+
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+
+          <!-- Field picker: available (searchable) | selected (ordered). Stacks on mobile. -->
+          <div class="row g-3">
+            <div class="col-12 col-md-6 d-flex flex-column gap-2">
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <span class="small fw-semibold" t-esc="t('Available fields')"/>
+                <span class="small text-body-secondary" t-esc="this.availableFields.length"/>
+              </div>
+              <Input className="'form-control-sm'" type="'search'" value="state.search" placeholder="t('Search fields…')" onInput="(value) => this.setSearch(value)"/>
+              <div class="border rounded-3 overflow-auto" style="max-height: 18rem;">
+                <t t-foreach="this.availableFields" t-as="field" t-key="field.name">
+                  <label class="d-flex align-items-center gap-2 px-3 py-2 border-bottom small mb-0" style="cursor: pointer;">
+                    <input type="checkbox" class="form-check-input mt-0 flex-shrink-0" t-att-checked="field.selected"
+                           t-on-change="() => this.toggleField(field.name)"/>
+                    <span class="text-truncate flex-fill" t-esc="field.label"/>
+                    <span class="text-body-secondary text-truncate" style="max-width: 45%;" t-esc="field.name"/>
+                  </label>
+                </t>
+                <div t-if="!this.availableFields.length" class="p-3 small text-body-secondary" t-esc="t('No field matches.')"/>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 d-flex flex-column gap-2">
+              <div class="d-flex align-items-center justify-content-between gap-2">
+                <span class="small fw-semibold" t-esc="t('Fields to export')"/>
+                <Button size="'sm'" variant="'ghost'" label="t('Reset to default')" onClick="() => this.resetToDefault()"/>
+              </div>
+              <div class="border rounded-3 overflow-auto" style="max-height: 20.5rem;">
+                <t t-foreach="this.selectedFields" t-as="field" t-key="field.name">
+                  <div class="d-flex align-items-center gap-1 ps-3 pe-1 py-1 border-bottom small">
+                    <span class="text-truncate flex-fill" t-esc="field.label"/>
+                    <Button size="'icon-sm'" variant="'ghost'" icon="'arrow-up'" ariaLabel="t('Move up')" disabled="field_first" onClick="() => this.moveField(field_index, -1)"/>
+                    <Button size="'icon-sm'" variant="'ghost'" icon="'arrow-down'" ariaLabel="t('Move down')" disabled="field_last" onClick="() => this.moveField(field_index, 1)"/>
+                    <Button size="'icon-sm'" variant="'ghost'" icon="'x'" ariaLabel="t('Remove')" onClick="() => this.toggleField(field.name)"/>
+                  </div>
+                </t>
+                <div t-if="!this.selectedFields.length" class="p-3 small text-body-secondary" t-esc="t('Pick at least one field.')"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <DialogFooter>
+          <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 w-100">
+            <div class="me-sm-auto" style="min-width: 9rem;">
+              <NativeSelect size="'sm'" ariaLabel="t('File format')" value="state.format" onChange="(value) => this.setFormat(value)">
+                <option value="xlsx">Excel (.xlsx)</option>
+                <option value="csv">CSV (.csv)</option>
+              </NativeSelect>
+            </div>
+            <Button variant="'ghost'" label="t('Cancel')" disabled="state.exporting" onClick="() => this.close()"/>
+            <Button icon="'download'" disabled="!this.canExport" onClick="() => this.exportFile()">
+              <t t-if="state.exporting" t-esc="t('Exporting…')"/>
+              <t t-else="" t-esc="t('Export')"/>
+            </Button>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

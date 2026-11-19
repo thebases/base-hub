@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_groups_privilege_list" model="ui.view">
+      <field name="name">base.groups.privilege.list</field>
+      <field name="model">base.groups.privilege</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Group Privilege" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="created_at"/>
+          <field name="category_id" optional="show"/>
+          <field name="placeholder" optional="show"/>
+          <field name="updated_at" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_groups_privilege_form" model="ui.view">
+      <field name="name">base.groups.privilege.form</field>
+      <field name="model">base.groups.privilege</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Group Privilege">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="sequence"/>
+                <field name="category_id"/>
+                <field name="placeholder"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details" name="details">
+                <field name="description"/>
+              </page>
+              <page string="Relations" name="relations">
+                <field name="group_ids" widget="many2many_tags"/>
+              </page>
+              <page string="Access" name="access">
+                <field name="group_ids" widget="many2many_tags"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_groups_privilege_search" model="ui.view">
+      <field name="name">base.groups.privilege.search</field>
+      <field name="model">base.groups.privilege</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Group Privilege">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="category_id"/>
+          <field name="description"/>
+          <field name="placeholder"/>
+          <group>
+            <filter string="Category ID" name="group_by_category_id" domain="[]" context="{'group_by': 'category_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

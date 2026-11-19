@@ -1,0 +1,24 @@
+# context.Background() callers in modules/** and internal/models/** (plan T105, coding rule 1).
+# Format: <path>:<Func>  <reason>. Tenant work must carry the request or event context; work that outlives
+# the request uses context.WithoutCancel(ctx) plus a timeout. Keep only process-level or nil-ctx fallbacks.
+internal/models/sys_model.go:detachedSysModelJobContext  async publish/DDL job outlives the request: rebuilds a sudo env for the caller's DB name and uid on purpose, no request values
+modules/base-auth/service/testsupport.go:MintAccessTokenForTests  test helper (exported for other packages' tests), no request
+modules/base-bus/routes/service_bus_listener.go:closeServiceBusNotifyConn  raw LISTEN connection close with its own deadline; the listener ctx is already cancelled here
+modules/base-mcp/routes/mcp_route.go:mcpGetIdempotencyStore  process-wide idempotency store on the home DB, created once
+modules/base-workflow/models/request_context.go:ContextWithWorkflowOutputSink  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/request_context.go:ContextWithWorkflowRequestID  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/request_context.go:ContextWithWorkflowTriggerType  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/step_idempotency_context.go:ContextWithWorkflowStepIdempotencyKey  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/workflow_audit.go:ContextWithWorkflowAuditMode  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/workflow_company_scope.go:ContextWithWorkflowScope  nil-ctx fallback before context.WithValue
+modules/base-workflow/models/workflow_dry_run.go:ContextWithWorkflowDryRun  nil-ctx fallback before context.WithValue
+modules/base-workflow/service/engine/model_trigger.go:executeModelTriggerJob  per-DB queue worker running after the writer committed; executeTriggerInDB binds the tenant DB from job.dbName
+modules/base-workflow/service/engine/runtime.go:InitRuntime  boot-time trigger sync over every connected DB, no request
+modules/base-workflow/service/engine/service.go:workflowContextOrBackground  nil-ctx fallback for engine entry points
+modules/base-workflow/service/engine/trigger_registry.go:runMQTTEntry  MQTT delivery has no request ctx; bounded by mqttRunTimeout, executeMQTTTriggerInDB binds the tenant DB
+modules/base-workflow/service/engine/trigger_registry.go:workflowTriggerRegistry.registerLocked  Kafka consumer lifetime is the registry entry (cancelKafka), not the request that synced it
+modules/base-workflow/service/engine/trigger_registry.go:workflowTriggerRegistry.startMQTTSubscriptionLocked  MQTT subscription lifetime is the registry entry (sub.cancel), not the request that synced it
+modules/base-workflow/service/engine/trigger_registry_tcp.go:tcpListener.shutdown  listener shutdown with its own deadline, process-level
+modules/base-workflow/service/engine/trigger_registry_watch.go:workflowTriggerRegistry.StartTriggerWatcher  process-wide watcher loop, stopped by the returned stop func
+modules/base-workflow/service/libs/outbound_delivery.go:OutboundDeliveryService.ManualRetry  nil-ctx fallback
+modules/base-workflow/service/libs/outbound_delivery.go:OutboundDeliveryService.QueueHTTPJSON  nil-ctx fallback

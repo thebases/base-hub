@@ -1,0 +1,80 @@
+{
+  "sequence": 30,
+  "selector": "[data-snippet], :is(#site-header, #site-footer, #site-header *, #site-footer *)",
+  "groups": [
+    {
+      "label": "Decoration",
+      "controls": [
+        {
+          "id": "border",
+          "label": "Border",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "All sides",
+              "class": "border"
+            },
+            {
+              "label": "Top",
+              "class": "border-top"
+            },
+            {
+              "label": "Bottom",
+              "class": "border-bottom"
+            }
+          ]
+        },
+        {
+          "id": "radius",
+          "label": "Corner radius",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "None",
+              "class": "rounded-0"
+            },
+            {
+              "label": "Rounded",
+              "class": "rounded"
+            },
+            {
+              "label": "Large",
+              "class": "rounded-4"
+            }
+          ]
+        },
+        {
+          "id": "shadow",
+          "label": "Shadow",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "Small",
+              "class": "shadow-sm"
+            },
+            {
+              "label": "Medium",
+              "class": "shadow"
+            },
+            {
+              "label": "Large",
+              "class": "shadow-lg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

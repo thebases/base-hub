@@ -1,0 +1,19 @@
+[
+  {
+    "action": "c",
+    "model": "sys.sequence",
+    "external_id": "helpdesk.sequence.ticket_number",
+    "force_update": true,
+    "data": {
+      "name": "Helpdesk Ticket Number",
+      "code": "tbl.helpdesk_ticket.number",
+      "prefix": "HD/",
+      "suffix": "",
+      "padding": 4,
+      "increment": 1,
+      "number_next": 1,
+      "implementation": "no_gap",
+      "active": true
+    }
+  }
+]

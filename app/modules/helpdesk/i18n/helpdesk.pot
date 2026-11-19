@@ -1,0 +1,616 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: helpdesk
+#: view
+msgid "Activities"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Activity"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Activity Assignee"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Activity Deadline"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Activity Stage"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Allow Set Activity"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Assign Date"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Assign Method"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Assignee"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Days"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Stage"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Ticket"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Destination Stage"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Source Stages"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Ticket Stage"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Average Rating"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Average Rating (7 Days)"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Body"
+msgstr ""
+
+#. module: helpdesk
+#: menu
+msgid "Categories"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Category"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Channel"
+msgstr ""
+
+#. module: helpdesk
+#: menu
+msgid "Channels"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Close Date"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Close Inactive Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Closed (7 Days)"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Closing Stage"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Color"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Company ID"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Customer"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Deadline"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Description"
+msgstr ""
+
+#. module: helpdesk
+#: menu
+msgid "Digest Log"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Count"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Of"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Tracking Enabled"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Duration Hours"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Exclude Stages"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Feedback"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Fold"
+msgstr ""
+
+#. module: helpdesk
+#: menu
+msgid "Helpdesk Configuration"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Digest Log"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Rating"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ratings"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk SLA Policies"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk SLA Policy"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk SLA Status"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Stage"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Stages"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Tag"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Tags"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Team"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Teams"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Activity Link"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Activity Links"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Categories"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Category"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Channel"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Channels"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Comment"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Comments"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Type"
+msgstr ""
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Types"
+msgstr ""
+
+#. module: helpdesk
+#: label, menu, view
+msgid "Helpdesk Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Inactive Closing Days"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Inactive Sweep Categories"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Inactive Sweep Stages"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Inactive Warning Days"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Is Closed"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "KPIs (Last 7 Days)"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Last Stage Update"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Members"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Name"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Number"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Open Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Partner Response Autoupdate"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Partners"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Period End"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Period Start"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Priority"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Rating Target"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Reached At"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Related Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "SLA Deadline"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "SLA Failed"
+msgstr ""
+
+#. module: helpdesk
+#: menu, view
+msgid "SLA Policies"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "SLA Policy"
+msgstr ""
+
+#. module: helpdesk
+#: menu
+msgid "SLA Status"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate (7 Days)"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate Target"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Satisfaction"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Sequence"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Show In Portal"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Source Activity Type"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Source Model"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Source Record ID"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Stage"
+msgstr ""
+
+#. module: helpdesk
+#: menu, view
+msgid "Stages"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Status"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Subject"
+msgstr ""
+
+#. module: helpdesk
+#: field, menu
+msgid "Tags"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Target Stage"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Targets"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Team"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Team Lead"
+msgstr ""
+
+#. module: helpdesk
+#: field, menu, view
+msgid "Teams"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk
+#: view
+msgid "Ticket Lifecycle"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Ticket Type"
+msgstr ""
+
+#. module: helpdesk
+#: field, menu
+msgid "Ticket Types"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Tickets Closed"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Unassigned Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Unattended"
+msgstr ""
+
+#. module: helpdesk
+#: field, view
+msgid "Urgent Tickets"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Use Rating"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Use SLA"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Value"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Visibility"
+msgstr ""
+
+#. module: helpdesk
+#: field
+msgid "Weekly Closed Target"
+msgstr ""

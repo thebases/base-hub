@@ -1,0 +1,44 @@
+<templates xml:space="preserve">
+  <t t-name="KanbanRecord">
+    <div class="basehub-kanban-card-wrapper" role="button" tabindex="0" t-att-style="cardStyle"
+         t-att-draggable="props.canMove ? 'true' : 'false'"
+         t-on-dragstart="() => this.props.onDragStart(props.record)"
+         t-on-dragover.prevent="() => true"
+         t-on-drop.stop.prevent="() => this.props.onDropOnRecord(props.record)"
+         t-on-click="() => this.props.onOpen(props.record)">
+      <Card className="'basehub-kanban-card'">
+        <CardBody>
+          <div class="basehub-kanban-card-header">
+            <span class="basehub-kanban-card-title" t-esc="title"/>
+            <Button variant="'ghost'" size="'sm'" aria-label="t('Delete record')"
+                    onClick="(ev) => { ev.stopPropagation(); this.props.onDelete(props.record); }">×</Button>
+          </div>
+
+          <t t-if="subFields.length > 0">
+            <div class="basehub-kanban-card-subfields">
+              <t t-foreach="subFields" t-as="sub" t-key="sub.name">
+                <p class="basehub-kanban-card-subfield">
+                  <span class="fw-medium"><t t-esc="sub.label"/>: </span><t t-esc="sub.value"/>
+                </p>
+              </t>
+            </div>
+          </t>
+
+          <div class="basehub-kanban-card-footer">
+            <t t-if="badgeLabel">
+              <Badge variant="'secondary'" label="badgeLabel"/>
+            </t>
+            <t t-else="">
+              <span/>
+            </t>
+            <t t-if="avatarInitials">
+              <Avatar alt="avatarInitials">
+                <t t-set-slot="fallback"><t t-esc="avatarInitials"/></t>
+              </Avatar>
+            </t>
+          </div>
+        </CardBody>
+      </Card>
+    </div>
+  </t>
+</templates>

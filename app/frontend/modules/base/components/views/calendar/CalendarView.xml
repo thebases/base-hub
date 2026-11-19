@@ -1,0 +1,207 @@
+<templates xml:space="preserve">
+  <t t-name="CalendarView">
+    <div class="basehub-calendar-root">
+      <div class="basehub-calendar-toolbar">
+        <div class="d-flex align-items-center gap-2">
+          <Button variant="'outline'" size="'sm'" onClick="() => this.goToday()"><t t-esc="t('Today')"/></Button>
+          <Button variant="'ghost'" size="'sm'" ariaLabel="t('Previous')" onClick="() => this.navigate(-1)">‹</Button>
+          <Button variant="'ghost'" size="'sm'" ariaLabel="t('Next')" onClick="() => this.navigate(1)">›</Button>
+          <span class="basehub-calendar-title" t-esc="headerLabel"/>
+        </div>
+        <NativeSelect size="'sm'" ariaLabel="t('Calendar mode')" value="state.mode" onChange="(value) => this.setMode(value)">
+          <t t-foreach="modeOptions" t-as="option" t-key="option.value">
+            <option t-att-value="option.value" t-att-selected="option.value === state.mode" t-esc="option.label"/>
+          </t>
+        </NativeSelect>
+      </div>
+
+      <t t-if="!isDraggable">
+        <p class="basehub-calendar-hint" t-esc="t('Events are anchored to {field} and cannot be rescheduled by dragging.', { field: props.anchorField.name })"/>
+      </t>
+
+      <t t-if="state.mode === 'month'">
+        <div class="basehub-calendar-month">
+          <t t-foreach="weekdayLabels" t-as="label" t-key="label">
+            <div class="basehub-calendar-weekday" t-esc="label"/>
+          </t>
+          <t t-foreach="monthCells" t-as="cell" t-key="cell.key">
+            <div t-att-class="cell.otherMonth ? 'basehub-calendar-cell is-other-month' : 'basehub-calendar-cell'"
+                 t-on-dragover.prevent="() => true"
+                 t-on-drop.prevent="() => this.dropOnDay(cell.ms)">
+              <button type="button" t-att-class="cell.isToday ? 'basehub-calendar-daynum is-today' : 'basehub-calendar-daynum'"
+                      t-on-click="() => this.openDay(cell.ms)" t-esc="cell.dayNumber"/>
+              <div class="basehub-calendar-chips">
+                <t t-foreach="cell.visible" t-as="entry" t-key="entry.occurrence.id">
+                  <div class="basehub-calendar-chip-row">
+                    <div class="basehub-calendar-chip is-compact" role="button" tabindex="0"
+                         t-att-draggable="isDraggable ? 'true' : 'false'" t-att-title="entry.label"
+                         t-on-dragstart="(ev) => this.onChipDragStart(entry.occurrence, ev)"
+                         t-on-click="() => this.props.onOpenRecord(entry.occurrence)"
+                         t-esc="entry.label"/>
+                    <t t-if="!entry.occurrence.is_recurring">
+                      <button type="button" class="basehub-calendar-repeat" t-att-aria-label="t('Repeat this event')"
+                              t-on-click.stop="() => this.openRecurrence(entry.occurrence)">⟳</button>
+                    </t>
+                  </div>
+                </t>
+                <t t-if="cell.overflow > 0">
+                  <button type="button" class="basehub-calendar-more" t-on-click="() => this.openDay(cell.ms)">
+                    <t t-esc="t('+{count} more', { count: cell.overflow })"/>
+                  </button>
+                </t>
+              </div>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="state.mode === 'day' or state.mode === 'week'">
+        <div class="basehub-calendar-timegrid">
+          <div class="basehub-calendar-hours">
+            <div class="basehub-calendar-dayhead"/>
+            <t t-foreach="hours" t-as="hour" t-key="hour">
+              <div class="basehub-calendar-hourlabel" t-att-style="'height:' + hourRowHeight + 'px'">
+                <t t-if="hour !== 0"><t t-esc="hour % 12 === 0 ? 12 : hour % 12"/> <t t-esc="hour &lt; 12 ? t('AM') : t('PM')"/></t>
+              </div>
+            </t>
+          </div>
+          <t t-foreach="timeGridDays" t-as="day" t-key="day.key">
+            <div class="basehub-calendar-daycol">
+              <div class="basehub-calendar-dayhead" t-esc="day.label"/>
+              <div class="basehub-calendar-dayslots" t-att-style="'height:' + (hourRowHeight * 24) + 'px'">
+                <t t-foreach="hours" t-as="hour" t-key="hour">
+                  <div class="basehub-calendar-slot" t-att-style="'height:' + hourRowHeight + 'px'"
+                       t-on-dragover.prevent="() => true"
+                       t-on-drop.prevent="() => this.dropOnHour(day.ms, hour)"/>
+                </t>
+                <t t-foreach="day.events" t-as="entry" t-key="entry.occurrence.id">
+                  <div class="basehub-calendar-event" t-att-style="'top:' + entry.top + 'px'">
+                    <div class="basehub-calendar-chip-row">
+                      <div class="basehub-calendar-chip" role="button" tabindex="0"
+                           t-att-draggable="isDraggable ? 'true' : 'false'" t-att-title="entry.label"
+                           t-on-dragstart="(ev) => this.onChipDragStart(entry.occurrence, ev)"
+                           t-on-click="() => this.props.onOpenRecord(entry.occurrence)"
+                           t-esc="entry.label"/>
+                      <t t-if="!entry.occurrence.is_recurring">
+                        <button type="button" class="basehub-calendar-repeat" t-att-aria-label="t('Repeat this event')"
+                                t-on-click.stop="() => this.openRecurrence(entry.occurrence)">⟳</button>
+                      </t>
+                    </div>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="state.mode === 'year'">
+        <div class="basehub-calendar-year">
+          <t t-foreach="yearMonths" t-as="month" t-key="month.key">
+            <div class="basehub-calendar-yearmonth">
+              <div class="basehub-calendar-yearmonth-title" t-esc="month.label"/>
+              <div class="basehub-calendar-yeargrid">
+                <t t-foreach="month.days" t-as="day" t-key="day.key">
+                  <button type="button"
+                          t-att-class="'basehub-calendar-yearday' + (day.otherMonth ? ' is-other-month' : '') + (day.count > 0 ? ' has-events' : '')"
+                          t-on-click="() => this.openDay(day.ms)" t-esc="day.dayNumber"/>
+                </t>
+              </div>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-else="">
+        <div class="basehub-calendar-schedule">
+          <t t-if="scheduleGroups.length === 0">
+            <Alert variant="'info'"><t t-esc="t('No events in this range.')"/></Alert>
+          </t>
+          <t t-foreach="scheduleGroups" t-as="group" t-key="group.key">
+            <div class="basehub-calendar-schedule-row">
+              <div class="basehub-calendar-schedule-date" t-esc="group.label"/>
+              <div class="basehub-calendar-schedule-events">
+                <t t-foreach="group.entries" t-as="entry" t-key="entry.occurrence.id">
+                  <div class="basehub-calendar-chip-row">
+                    <div class="basehub-calendar-chip" role="button" tabindex="0" t-att-title="entry.label"
+                         t-on-click="() => this.props.onOpenRecord(entry.occurrence)" t-esc="entry.label"/>
+                    <t t-if="!entry.occurrence.is_recurring">
+                      <button type="button" class="basehub-calendar-repeat" t-att-aria-label="t('Repeat this event')"
+                              t-on-click.stop="() => this.openRecurrence(entry.occurrence)">⟳</button>
+                    </t>
+                  </div>
+                </t>
+              </div>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <Dialog open="state.scopeDialogOpen" onOpenChange="(open) => this.state.scopeDialogOpen = open">
+        <DialogContent>
+          <DialogHeader><DialogTitle><t t-esc="t('Edit recurring event')"/></DialogTitle></DialogHeader>
+          <p class="mb-0" t-esc="t('This event repeats. Which occurrences should this change apply to?')"/>
+          <DialogFooter className="'d-flex flex-column gap-2'">
+            <Button variant="'outline'" onClick="() => this.chooseScope('this')"><t t-esc="t('This event')"/></Button>
+            <Button variant="'outline'" onClick="() => this.chooseScope('following')"><t t-esc="t('This and following events')"/></Button>
+            <Button variant="'outline'" onClick="() => this.chooseScope('all')"><t t-esc="t('All events')"/></Button>
+            <Button variant="'ghost'" onClick="() => this.state.scopeDialogOpen = false"><t t-esc="t('Cancel')"/></Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open="state.recurrenceDialogOpen" onOpenChange="(open) => this.state.recurrenceDialogOpen = open">
+        <DialogContent>
+          <DialogHeader><DialogTitle><t t-esc="t('Repeat event')"/></DialogTitle></DialogHeader>
+          <div class="d-flex flex-column gap-2 pt-2">
+            <t t-if="state.recurrence.error">
+              <Alert variant="'danger'" t-esc="state.recurrence.error"/>
+            </t>
+            <Field>
+              <NativeSelect label="t('Frequency')" id="'recurrence-frequency'" value="state.recurrence.frequency"
+                            onChange="(value) => this.setRecurrenceField('frequency', value)">
+                <t t-foreach="frequencyOptions" t-as="option" t-key="option.value">
+                  <option t-att-value="option.value" t-att-selected="option.value === state.recurrence.frequency" t-esc="option.label"/>
+                </t>
+              </NativeSelect>
+            </Field>
+            <Field>
+              <Input label="t('Interval')" id="'recurrence-interval'" type="'number'" value="recurrenceIntervalText"
+                     onInput="(value) => this.setRecurrenceField('interval', value)"/>
+            </Field>
+            <t t-if="requiresWeekday">
+              <Field>
+                <FieldLabel><t t-esc="t('Days of week')"/></FieldLabel>
+                <div class="d-flex flex-wrap gap-1">
+                  <t t-foreach="weekdayLabels" t-as="label" t-key="label">
+                    <Button size="'sm'"
+                            variant="state.recurrence.weekdays.includes(weekdayLabels.indexOf(label)) ? 'primary' : 'outline'"
+                            onClick="() => this.toggleWeekday(weekdayLabels.indexOf(label))"><t t-esc="label"/></Button>
+                  </t>
+                </div>
+              </Field>
+            </t>
+            <t t-if="requiresMonthday">
+              <Field>
+                <Input label="t('Day of month')" id="'recurrence-monthday'" type="'number'" value="recurrenceMonthdayText"
+                       onInput="(value) => this.setRecurrenceField('monthday', value)"/>
+              </Field>
+            </t>
+            <Field>
+              <Input label="t('Start date')" id="'recurrence-start'" type="'date'" value="state.recurrence.startDate"
+                     onInput="(value) => this.setRecurrenceField('startDate', value)"/>
+            </Field>
+            <Field>
+              <Input label="t('End date (optional)')" id="'recurrence-end'" type="'date'" value="state.recurrence.endDate"
+                     onInput="(value) => this.setRecurrenceField('endDate', value)"/>
+            </Field>
+          </div>
+          <DialogFooter className="'d-flex justify-content-end gap-2'">
+            <Button variant="'outline'" size="'sm'" onClick="() => this.state.recurrenceDialogOpen = false"><t t-esc="t('Cancel')"/></Button>
+            <Button variant="'default'" size="'sm'" disabled="state.recurrence.submitting" onClick="() => this.submitRecurrence()"><t t-esc="t('Create')"/></Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  </t>
+</templates>

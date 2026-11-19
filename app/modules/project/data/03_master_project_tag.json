@@ -1,0 +1,23 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_tag",
+    "external_id": "project.tag.internal",
+    "force_update": false,
+    "data": { "name": "Internal", "color": 1, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_tag",
+    "external_id": "project.tag.research",
+    "force_update": false,
+    "data": { "name": "Research", "color": 2, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_tag",
+    "external_id": "project.tag.urgent",
+    "force_update": false,
+    "data": { "name": "Urgent", "color": 3, "active": true }
+  }
+]

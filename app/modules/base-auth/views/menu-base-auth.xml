@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.sys_oauth_client" name="OAuth Clients" parent="menu.admin" sequence="110" route_path="/web/sys.oauth_client" icon="key-round"/>
+    <menuitem id="menu.sys_oauth_refresh_token" name="OAuth Tokens" parent="menu.admin" sequence="111" route_path="/web/sys.oauth_refresh_token" icon="ticket-check"/>
+</data>

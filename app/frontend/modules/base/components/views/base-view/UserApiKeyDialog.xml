@@ -1,0 +1,29 @@
+<templates xml:space="preserve">
+  <t t-name="UserApiKeyDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('API Key Generated')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary">
+            <t t-esc="t('Copy this key now for {name} — it will never be shown again. Any previous key no longer works.', { name: props.state.subjectName || t('this user') })"/>
+          </p>
+        </DialogHeader>
+        <t t-if="props.state.apiKey">
+          <Field>
+            <FieldLabel>X-API-Key</FieldLabel>
+            <div class="input-group">
+              <code class="basehub-oauth-code" t-esc="props.state.apiKey"/>
+              <Button variant="'outline'" size="'sm'" aria-label="t('Copy API Key')"
+                      onClick="() => this.copy(props.state.apiKey)">
+                <Icon name="'copy'"/>
+              </Button>
+            </div>
+          </Field>
+        </t>
+        <DialogFooter>
+          <Button variant="'default'" onClick="() => this.done()"><t t-esc="t('Done')"/></Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

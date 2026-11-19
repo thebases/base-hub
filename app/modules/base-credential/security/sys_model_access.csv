@@ -1,0 +1,2 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+credential.access_sys_credential_system,Credential system,base.group_system,sys.credential,true,true,true,true,true

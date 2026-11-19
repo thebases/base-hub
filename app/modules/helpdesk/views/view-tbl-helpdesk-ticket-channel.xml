@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_ticket_channel_list" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_channel.list</field>
+      <field name="model">tbl.helpdesk_ticket_channel</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Ticket Channels">
+          <field name="name"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_channel_form" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_channel.form</field>
+      <field name="model">tbl.helpdesk_ticket_channel</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Ticket Channel">
+          <sheet>
+            <group>
+              <field name="name"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_channel_search" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_channel.search</field>
+      <field name="model">tbl.helpdesk_ticket_channel</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Ticket Channels">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+</data>

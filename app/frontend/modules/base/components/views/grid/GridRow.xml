@@ -1,0 +1,15 @@
+<templates xml:space="preserve">
+  <t t-name="GridRow">
+    <tr>
+      <t t-foreach="props.row.labels" t-as="label" t-key="label_index">
+        <td class="text-truncate align-middle" t-esc="label"/>
+      </t>
+      <t t-foreach="props.columns" t-as="column" t-key="column.key">
+        <td class="p-0 align-middle">
+          <GridCell value="cellValue(column.key)" onCommit="(nextValue) => this.onCommitCell(column.key, nextValue)"/>
+        </td>
+      </t>
+      <td class="fw-semibold text-end align-middle" t-esc="total"/>
+    </tr>
+  </t>
+</templates>

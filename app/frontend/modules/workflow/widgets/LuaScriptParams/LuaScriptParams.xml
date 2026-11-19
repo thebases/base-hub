@@ -1,0 +1,20 @@
+<templates xml:space="preserve">
+  <t t-name="LuaScriptParams">
+    <div class="d-flex flex-column gap-3 w-100">
+      <div t-if="invalidParams" class="alert alert-warning py-2 px-3 mb-0 small" role="alert" t-esc="t('Extra Params is not a valid JSON object. Fix it in the Advanced Params tab before editing this node.')"/>
+      <Field>
+        <NativeSelect label="t('Custom Action')" value="selectedActionId" disabled="isReadonly" onChange="onActionChange">
+          <option value="" t-esc="t('— Select a Lua action —')"/>
+          <t t-foreach="actionOptions" t-as="action" t-key="action.value">
+            <option t-att-value="action.value" t-esc="action.label"/>
+          </t>
+        </NativeSelect>
+        <small class="text-body-secondary" t-esc="t('Write the Lua script in Automation > Actions and select it here. It receives payload (previous node output), data (below), raw, topic, step_key and base.')"/>
+      </Field>
+      <Field>
+        <Textarea label="t('Custom Data (JSON)')" rows="5" value="dataText" disabled="isReadonly" onInput="onDataInput"/>
+        <small t-if="state.dataError" class="text-danger" t-esc="state.dataError"/>
+      </Field>
+    </div>
+  </t>
+</templates>

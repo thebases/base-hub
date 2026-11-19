@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_team_list" model="ui.view">
+      <field name="name">tbl.helpdesk_team.list</field>
+      <field name="model">tbl.helpdesk_team</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Teams">
+          <field name="name"/>
+          <field name="visibility"/>
+          <field name="assign_method"/>
+          <field name="use_sla"/>
+          <field name="use_rating"/>
+          <field name="team_lead_id"/>
+          <field name="open_ticket_count"/>
+          <field name="unassigned_ticket_count"/>
+          <field name="urgent_ticket_count"/>
+          <field name="sla_failed_count"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_team_form" model="ui.view">
+      <field name="name">tbl.helpdesk_team.form</field>
+      <field name="model">tbl.helpdesk_team</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Team">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="visibility"/>
+                <field name="assign_method"/>
+                <field name="team_lead_id"/>
+                <field name="member_ids"/>
+                <field name="type_ids"/>
+              </group>
+              <group>
+                <field name="use_sla"/>
+                <field name="use_rating"/>
+                <field name="auto_close_ticket"/>
+                <field name="auto_close_days"/>
+                <field name="auto_close_stage_id"/>
+                <field name="duplicate_tracking_enabled"/>
+              </group>
+            </group>
+            <group string="Partner Response Autoupdate">
+              <field name="autoupdate_ticket_stage"/>
+              <field name="autoupdate_src_stage_ids"/>
+              <field name="autoupdate_dest_stage_id"/>
+            </group>
+            <group string="Close Inactive Tickets">
+              <field name="close_inactive_tickets"/>
+              <field name="ticket_stage_ids"/>
+              <field name="ticket_category_ids"/>
+              <field name="inactive_days_limit_warning"/>
+              <field name="inactive_days_limit_closing"/>
+              <field name="closing_stage_id"/>
+            </group>
+            <group string="Activities">
+              <field name="allow_set_activity"/>
+              <field name="activity_stage_id"/>
+            </group>
+            <group string="KPIs (Last 7 Days)">
+              <field name="open_ticket_count"/>
+              <field name="unassigned_ticket_count"/>
+              <field name="urgent_ticket_count"/>
+              <field name="sla_failed_count"/>
+              <field name="ticket_closed_7d"/>
+              <field name="success_rate_7d"/>
+              <field name="avg_rating_7d"/>
+            </group>
+            <group string="Targets">
+              <field name="target_closed_weekly"/>
+              <field name="target_success_rate"/>
+              <field name="target_rating"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_team_search" model="ui.view">
+      <field name="name">tbl.helpdesk_team.search</field>
+      <field name="model">tbl.helpdesk_team</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Teams">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Notification"
+msgstr "Thông báo"
+
+msgid "The page is out of date. Save your work and refresh to get the latest updates and avoid potential issues."
+msgstr "Trang đã cũ. Hãy lưu công việc và tải lại để nhận bản cập nhật mới nhất, tránh các sự cố tiềm ẩn."
+
+msgid "Refresh"
+msgstr "Làm mới"

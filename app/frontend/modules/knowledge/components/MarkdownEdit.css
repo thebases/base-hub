@@ -1,0 +1,37 @@
+.basehub-md-editor {
+  min-height: 50vh;
+  border-radius: 0.75rem;
+  border: 1px solid #334155;
+  background: #0f172a;
+  overflow: hidden;
+}
+.basehub-md-editor-textarea {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 50vh;
+  padding: 0;
+  background: transparent;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  .b-text-editor-shell {
+    min-height: 100%;
+    width: 100%;
+    color: var(--b-foreground);
+    .b-text-editor-surface {
+      background: #ffffff;
+      .virtual-cursor-enabled {
+        padding: 1rem;
+      }
+      /* Overrides BaseUI reset.css's default 60px/120px .milkdown .ProseMirror
+       padding, which was sized for a full-page document surface and left too
+       much empty gutter inside this editor's narrower shell. */
+      .milkdown .ProseMirror {
+        /* max-width: 46rem; */
+        margin: 0 auto;
+        padding: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_partner_bank_list" model="ui.view">
+      <field name="name">tbl.partner.bank.list</field>
+      <field name="model">tbl.partner.bank</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Bank Account" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="active"/>
+          <field name="created_at"/>
+          <field name="partner_id" optional="show"/>
+          <field name="is_main_account" optional="show"/>
+          <field name="acc_holder_name" optional="hide"/>
+          <field name="acc_number" optional="hide"/>
+          <field name="acc_type" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_partner_bank_form" model="ui.view">
+      <field name="name">tbl.partner.bank.form</field>
+      <field name="model">tbl.partner.bank</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Bank Account">
+          <sheet>
+            <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="active"/>
+                <field name="partner_id"/>
+                <field name="is_main_account"/>
+                <field name="acc_holder_name"/>
+                <field name="acc_number"/>
+                <field name="acc_type"/>
+                <field name="bank_bic"/>
+                <field name="bid"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_partner_bank_search" model="ui.view">
+      <field name="name">tbl.partner.bank.search</field>
+      <field name="model">tbl.partner.bank</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Bank Account">
+          <field name="name"/>
+          <field name="partner_id"/>
+          <field name="acc_holder_name"/>
+          <field name="acc_number"/>
+          <field name="acc_type"/>
+          <filter string="Is Active" name="active_true" domain="[('active', '=', True)]"/>
+          <filter string="Not Is Active" name="active_false" domain="[('active', '=', False)]"/>
+          <filter string="Is Main Account" name="is_main_account_true" domain="[('is_main_account', '=', True)]"/>
+          <filter string="Not Is Main Account" name="is_main_account_false" domain="[('is_main_account', '=', False)]"/>
+          <group>
+            <filter string="Is Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+            <filter string="Partner ID" name="group_by_partner_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+            <filter string="Is Main Account" name="group_by_is_main_account" domain="[]" context="{'group_by': 'is_main_account'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

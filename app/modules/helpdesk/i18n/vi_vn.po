@@ -1,0 +1,617 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: helpdesk
+#: view
+msgid "Activities"
+msgstr "Hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Activity"
+msgstr "Hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Activity Assignee"
+msgstr "Người được giao hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Activity Deadline"
+msgstr "Hạn chót hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Activity Stage"
+msgstr "Giai đoạn hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Allow Set Activity"
+msgstr "Cho phép đặt hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Assign Date"
+msgstr "Ngày giao"
+
+#. module: helpdesk
+#: field
+msgid "Assign Method"
+msgstr "Phương thức giao"
+
+#. module: helpdesk
+#: field
+msgid "Assignee"
+msgstr "Người được giao"
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Days"
+msgstr "Số ngày tự động đóng"
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Stage"
+msgstr "Giai đoạn tự động đóng"
+
+#. module: helpdesk
+#: field
+msgid "Auto Close Ticket"
+msgstr "Tự động đóng phiếu hỗ trợ"
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Destination Stage"
+msgstr "Giai đoạn đích tự động cập nhật"
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Source Stages"
+msgstr "Giai đoạn nguồn tự động cập nhật"
+
+#. module: helpdesk
+#: field
+msgid "Autoupdate Ticket Stage"
+msgstr "Giai đoạn phiếu hỗ trợ tự động cập nhật"
+
+#. module: helpdesk
+#: field
+msgid "Average Rating"
+msgstr "Đánh giá trung bình"
+
+#. module: helpdesk
+#: field
+msgid "Average Rating (7 Days)"
+msgstr "Đánh giá trung bình (7 ngày)"
+
+#. module: helpdesk
+#: field
+msgid "Body"
+msgstr "Nội dung"
+
+#. module: helpdesk
+#: menu
+msgid "Categories"
+msgstr "Danh mục"
+
+#. module: helpdesk
+#: field
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: helpdesk
+#: field
+msgid "Channel"
+msgstr "Kênh"
+
+#. module: helpdesk
+#: menu
+msgid "Channels"
+msgstr "Kênh"
+
+#. module: helpdesk
+#: field
+msgid "Close Date"
+msgstr "Ngày đóng"
+
+#. module: helpdesk
+#: field, view
+msgid "Close Inactive Tickets"
+msgstr "Đóng phiếu hỗ trợ không hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Closed (7 Days)"
+msgstr "Đã đóng (7 ngày)"
+
+#. module: helpdesk
+#: field
+msgid "Closing Stage"
+msgstr "Giai đoạn đóng"
+
+#. module: helpdesk
+#: field
+msgid "Color"
+msgstr "Màu sắc"
+
+#. module: helpdesk
+#: field
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: helpdesk
+#: field
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: helpdesk
+#: field
+msgid "Deadline"
+msgstr "Hạn chót"
+
+#. module: helpdesk
+#: field
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: helpdesk
+#: menu
+msgid "Digest Log"
+msgstr "Nhật ký tổng hợp"
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Count"
+msgstr "Số lượng trùng lặp"
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Of"
+msgstr "Bản sao của"
+
+#. module: helpdesk
+#: field
+msgid "Duplicate Tracking Enabled"
+msgstr "Bật theo dõi trùng lặp"
+
+#. module: helpdesk
+#: field
+msgid "Duration Hours"
+msgstr "Thời lượng (giờ)"
+
+#. module: helpdesk
+#: field
+msgid "Exclude Stages"
+msgstr "Loại trừ giai đoạn"
+
+#. module: helpdesk
+#: field
+msgid "Feedback"
+msgstr "Phản hồi"
+
+#. module: helpdesk
+#: field
+msgid "Fold"
+msgstr "Thu gọn"
+
+#. module: helpdesk
+#: menu
+msgid "Helpdesk Configuration"
+msgstr "Cấu hình hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Digest Log"
+msgstr "Nhật ký tổng hợp hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Rating"
+msgstr "Đánh giá hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ratings"
+msgstr "Đánh giá hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk SLA Policies"
+msgstr "Chính sách SLA hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk SLA Policy"
+msgstr "Chính sách SLA hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk SLA Status"
+msgstr "Trạng thái SLA hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Stage"
+msgstr "Giai đoạn hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Stages"
+msgstr "Giai đoạn hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Tag"
+msgstr "Thẻ hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Tags"
+msgstr "Thẻ hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Team"
+msgstr "Đội hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Teams"
+msgstr "Đội hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket"
+msgstr "Phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Activity Link"
+msgstr "Liên kết hoạt động phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Activity Links"
+msgstr "Liên kết hoạt động phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Categories"
+msgstr "Danh mục phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Category"
+msgstr "Danh mục phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Channel"
+msgstr "Kênh phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Channels"
+msgstr "Kênh phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Comment"
+msgstr "Bình luận phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Comments"
+msgstr "Bình luận phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Helpdesk Ticket Type"
+msgstr "Loại phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, view
+msgid "Helpdesk Ticket Types"
+msgstr "Loại phiếu hỗ trợ"
+
+#. module: helpdesk
+#: label, menu, view
+msgid "Helpdesk Tickets"
+msgstr "Phiếu hỗ trợ"
+
+#. module: helpdesk
+#: field
+msgid "Inactive Closing Days"
+msgstr "Số ngày đóng khi không hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Inactive Sweep Categories"
+msgstr "Danh mục quét không hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Inactive Sweep Stages"
+msgstr "Giai đoạn quét không hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Inactive Warning Days"
+msgstr "Số ngày cảnh báo không hoạt động"
+
+#. module: helpdesk
+#: field
+msgid "Is Closed"
+msgstr "Đã đóng"
+
+#. module: helpdesk
+#: view
+msgid "KPIs (Last 7 Days)"
+msgstr "KPI (7 ngày qua)"
+
+#. module: helpdesk
+#: field
+msgid "Last Stage Update"
+msgstr "Cập nhật giai đoạn gần nhất"
+
+#. module: helpdesk
+#: field
+msgid "Members"
+msgstr "Thành viên"
+
+#. module: helpdesk
+#: field
+msgid "Name"
+msgstr "Tên"
+
+#. module: helpdesk
+#: field
+msgid "Number"
+msgstr "Số"
+
+#. module: helpdesk
+#: field, view
+msgid "Open Tickets"
+msgstr "Phiếu hỗ trợ đang mở"
+
+#. module: helpdesk
+#: view
+msgid "Partner Response Autoupdate"
+msgstr "Tự động cập nhật phản hồi của liên hệ"
+
+#. module: helpdesk
+#: field
+msgid "Partners"
+msgstr "Liên hệ"
+
+#. module: helpdesk
+#: field
+msgid "Period End"
+msgstr "Kết thúc kỳ"
+
+#. module: helpdesk
+#: field
+msgid "Period Start"
+msgstr "Bắt đầu kỳ"
+
+#. module: helpdesk
+#: field, view
+msgid "Priority"
+msgstr "Mức ưu tiên"
+
+#. module: helpdesk
+#: field
+msgid "Rating Target"
+msgstr "Đối tượng đánh giá"
+
+#. module: helpdesk
+#: field
+msgid "Reached At"
+msgstr "Đạt lúc"
+
+#. module: helpdesk
+#: field
+msgid "Related Tickets"
+msgstr "Phiếu hỗ trợ liên quan"
+
+#. module: helpdesk
+#: field
+msgid "SLA Deadline"
+msgstr "Hạn SLA"
+
+#. module: helpdesk
+#: field, view
+msgid "SLA Failed"
+msgstr "SLA không đạt"
+
+#. module: helpdesk
+#: menu, view
+msgid "SLA Policies"
+msgstr "Chính sách SLA"
+
+#. module: helpdesk
+#: field
+msgid "SLA Policy"
+msgstr "Chính sách SLA"
+
+#. module: helpdesk
+#: menu
+msgid "SLA Status"
+msgstr "Trạng thái SLA"
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate"
+msgstr "Tỷ lệ đạt SLA"
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate (7 Days)"
+msgstr "Tỷ lệ đạt SLA (7 ngày)"
+
+#. module: helpdesk
+#: field
+msgid "SLA Success Rate Target"
+msgstr "Mục tiêu tỷ lệ đạt SLA"
+
+#. module: helpdesk
+#: field
+msgid "Satisfaction"
+msgstr "Mức độ hài lòng"
+
+#. module: helpdesk
+#: field
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: helpdesk
+#: field
+msgid "Show In Portal"
+msgstr "Hiển thị trên cổng thông tin"
+
+#. module: helpdesk
+#: field
+msgid "Source Activity Type"
+msgstr "Loại hoạt động nguồn"
+
+#. module: helpdesk
+#: field
+msgid "Source Model"
+msgstr "Mô hình nguồn"
+
+#. module: helpdesk
+#: field
+msgid "Source Record ID"
+msgstr "ID bản ghi nguồn"
+
+#. module: helpdesk
+#: field, view
+msgid "Stage"
+msgstr "Giai đoạn"
+
+#. module: helpdesk
+#: menu, view
+msgid "Stages"
+msgstr "Các giai đoạn"
+
+#. module: helpdesk
+#: field
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: helpdesk
+#: field
+msgid "Subject"
+msgstr "Chủ đề"
+
+#. module: helpdesk
+#: field, menu
+msgid "Tags"
+msgstr "Thẻ"
+
+#. module: helpdesk
+#: field
+msgid "Target Stage"
+msgstr "Giai đoạn đích"
+
+#. module: helpdesk
+#: view
+msgid "Targets"
+msgstr "Mục tiêu"
+
+#. module: helpdesk
+#: field, view
+msgid "Team"
+msgstr "Nhóm"
+
+#. module: helpdesk
+#: field
+msgid "Team Lead"
+msgstr "Trưởng nhóm"
+
+#. module: helpdesk
+#: field, menu, view
+msgid "Teams"
+msgstr "Các nhóm"
+
+#. module: helpdesk
+#: field
+msgid "Ticket"
+msgstr "Phiếu hỗ trợ"
+
+#. module: helpdesk
+#: view
+msgid "Ticket Lifecycle"
+msgstr "Vòng đời phiếu hỗ trợ"
+
+#. module: helpdesk
+#: field
+msgid "Ticket Type"
+msgstr "Loại phiếu hỗ trợ"
+
+#. module: helpdesk
+#: field, menu
+msgid "Ticket Types"
+msgstr "Các loại phiếu hỗ trợ"
+
+#. module: helpdesk
+#: field
+msgid "Tickets Closed"
+msgstr "Phiếu hỗ trợ đã đóng"
+
+#. module: helpdesk
+#: field, view
+msgid "Unassigned Tickets"
+msgstr "Phiếu hỗ trợ chưa phân công"
+
+#. module: helpdesk
+#: field
+msgid "Unattended"
+msgstr "Không giám sát"
+
+#. module: helpdesk
+#: field, view
+msgid "Urgent Tickets"
+msgstr "Phiếu hỗ trợ khẩn cấp"
+
+#. module: helpdesk
+#: field
+msgid "Use Rating"
+msgstr "Dùng đánh giá"
+
+#. module: helpdesk
+#: field
+msgid "Use SLA"
+msgstr "Dùng SLA"
+
+#. module: helpdesk
+#: field
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: helpdesk
+#: field
+msgid "Visibility"
+msgstr "Hiển thị"
+
+#. module: helpdesk
+#: field
+msgid "Weekly Closed Target"
+msgstr "Mục tiêu đóng hằng tuần"

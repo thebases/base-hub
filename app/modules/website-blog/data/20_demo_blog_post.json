@@ -1,0 +1,18 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.website_blog_post",
+    "external_id": "website-blog.post.welcome",
+    "force_update": false,
+    "data": {
+      "name": "Welcome to our blog",
+      "subtitle": "How to publish your first article",
+      "blog_id": "website-blog.blog.news",
+      "state": "published",
+      "published_at": "2026-01-01T00:00:00Z",
+      "teaser": "A short tour of the blog: write a post, add tags, optimize SEO and publish.",
+      "content": "<p>Create posts under <strong>Blog &rarr; Posts</strong>, choose a blog and tags, then press <em>Publish</em>.</p><p>Set a future publish date to schedule an article, and fill the SEO tab to control search previews.</p>",
+      "active": true
+    }
+  }
+]

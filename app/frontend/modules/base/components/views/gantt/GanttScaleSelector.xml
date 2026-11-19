@@ -1,0 +1,14 @@
+<templates xml:space="preserve">
+  <t t-name="GanttScaleSelector">
+    <div class="btn-group" role="group" t-att-aria-label="t('Gantt scale')">
+      <t t-foreach="scales" t-as="scale" t-key="scale">
+        <Button type="'button'" size="'sm'"
+                variant="scale === props.scale ? 'primary' : 'outline'"
+                aria-pressed="scale === props.scale"
+                onClick="() => this.onClickScale(scale)">
+          <t t-esc="scaleLabel(scale)"/>
+        </Button>
+      </t>
+    </div>
+  </t>
+</templates>

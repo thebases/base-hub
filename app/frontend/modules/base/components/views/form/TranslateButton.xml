@@ -1,0 +1,30 @@
+<templates xml:space="preserve">
+  <t t-name="TranslateButton">
+    <Button variant="'ghost'" size="'sm'" icon="'languages'" ariaLabel="'Translate'" className="'basehub-form-translate-btn'"
+            onClick="() => this.openDialog()">
+      <span class="basehub-form-translate-badge" t-esc="badgeText"/>
+    </Button>
+    <Dialog open="state.open" onOpenChange="(open) => this.onOpenChange(open)">
+      <DialogContent className="'basehub-translate-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="dialogTitle"/></DialogTitle>
+        </DialogHeader>
+        <div class="d-flex flex-column gap-3 pt-2">
+          <span t-if="state.loading" class="text-body-secondary">Loading…</span>
+          <t t-else="">
+            <Input t-foreach="state.rows" t-as="row" t-key="row.code" label="row.name + ' (' + row.code + ')'"
+                   value="row.value" disabled="state.saving" onInput="(value) => this.onRowInput(row, value)"/>
+          </t>
+          <small t-if="state.error" class="text-danger" t-esc="state.error"/>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="state.saving" onClick="() => this.closeDialog()" label="'Cancel'"/>
+          <Button variant="'default'" disabled="state.saving or state.loading or !hasChanges" onClick="() => this.save()">
+            <t t-if="state.saving">Saving…</t>
+            <t t-else="">Save</t>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

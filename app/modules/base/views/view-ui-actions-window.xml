@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_ui_actions_window_list" model="ui.view">
+      <field name="name">ui.actions.window.list</field>
+      <field name="model">ui.actions.window</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="UI Window Action" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="type"/>
+          <field name="created_at"/>
+          <field name="view_id" optional="show"/>
+          <field name="help" optional="show"/>
+          <field name="limit" optional="hide"/>
+          <field name="sys_model" optional="hide"/>
+          <field name="target" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_ui_actions_window_form" model="ui.view">
+      <field name="name">ui.actions.window.form</field>
+      <field name="model">ui.actions.window</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="UI Window Action">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="type" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="sys_model"/>
+                <field name="target"/>
+                <!-- Order is kept (first listed mode can be the default); offers view modes only. -->
+                <field name="view_mode" widget="ui_view_types"/>
+                <field name="view_id"/>
+                <field name="search_view_id"/>
+                <field name="limit"/>
+              </group>
+              <group string="Payload">
+                <field name="context"/>
+                <field name="domain"/>
+                <field name="views"/>
+                <field name="help"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_ui_actions_window_search" model="ui.view">
+      <field name="name">ui.actions.window.search</field>
+      <field name="model">ui.actions.window</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="UI Window Action">
+          <field name="name"/>
+          <field name="type"/>
+          <field name="search_view_id"/>
+          <field name="view_id"/>
+          <field name="help"/>
+          <group>
+            <filter string="Search View ID" name="group_by_search_view_id" domain="[]" context="{'group_by': 'search_view_id'}"/>
+            <filter string="View ID" name="group_by_view_id" domain="[]" context="{'group_by': 'view_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

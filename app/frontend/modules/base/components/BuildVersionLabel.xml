@@ -1,0 +1,6 @@
+<templates xml:space="preserve">
+  <t t-name="BuildVersionLabel">
+    <!-- Always rendered (non-breaking space until version.json arrives) so the late fetch cannot shift the layout. -->
+    <p id="built_version" t-attf-class="basehub-build-version {{props.className}}"><t t-if="state.version"><t t-esc="t('Version:')"/> <t t-esc="state.version"/></t><t t-else="">&#160;</t></p>
+  </t>
+</templates>

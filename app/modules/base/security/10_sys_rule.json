@@ -1,0 +1,172 @@
+[
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_admin",
+      "name": "System metadata models",
+      "active": true,
+      "model_name": "sys.model",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_field_admin",
+      "name": "System metadata fields",
+      "active": true,
+      "model_name": "sys.model.field",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_relation_admin",
+      "name": "System metadata relations",
+      "active": true,
+      "model_name": "sys.model.relation",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_constraint_admin",
+      "name": "System metadata constraints",
+      "active": true,
+      "model_name": "sys.model.constraint",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_data_admin",
+      "name": "System metadata external ids",
+      "active": true,
+      "model_name": "sys.model.data",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_model_access_admin",
+      "name": "System metadata access rights",
+      "active": true,
+      "model_name": "sys.model.access",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_module_category_admin",
+      "name": "Module categories",
+      "active": true,
+      "model_name": "sys.module.category",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_sys_module_module_admin",
+      "name": "Modules catalog",
+      "active": true,
+      "model_name": "sys.module.module",
+      "domain_force": "",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_base_kvt_user",
+      "name": "Key values: internal tier",
+      "active": true,
+      "model_name": "base.kvt",
+      "domain_force": "[[\"type\", \"<=\", 1]]",
+      "group_bids": ["base.group_user"],
+      "perm_read": true,
+      "perm_write": false,
+      "perm_create": false,
+      "perm_unlink": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "sys.rule",
+    "forceUpdate": true,
+    "data": {
+      "bid": "base.rule_base_kvt_system",
+      "name": "Key values: system tier",
+      "active": true,
+      "model_name": "base.kvt",
+      "domain_force": "[[\"type\", \"<=\", 2]]",
+      "group_bids": ["base.group_system"],
+      "perm_read": true,
+      "perm_write": true,
+      "perm_create": true,
+      "perm_unlink": true
+    }
+  }
+]

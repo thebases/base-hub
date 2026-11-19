@@ -1,0 +1,346 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: website
+#: field
+msgid "Active"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Alt Text"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Attachment"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Audit"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Base Path"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Built-in"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Canonical Base URL"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Category"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Company"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Default Robots"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Default SEO"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Default SEO Description"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Default SEO Title"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Definition"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Deploy Path"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Description"
+msgstr ""
+
+#. module: website
+#: field, selection
+msgid "Document"
+msgstr ""
+
+#. module: website
+#: menu
+msgid "Domains"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Favicon"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Filename"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Focal Point"
+msgstr ""
+
+#. module: website
+#: selection
+msgid "Font"
+msgstr ""
+
+#. module: website
+#: view
+msgid "General"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Hash"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Home Page"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Homepage"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Host"
+msgstr ""
+
+#. module: website
+#: selection
+msgid "Image"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Kind"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Last Published At"
+msgstr ""
+
+#. module: website
+#: field
+msgid "MIME Type"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Name"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Navigation"
+msgstr ""
+
+#. module: website
+#: action
+msgid "Open Website Studio"
+msgstr ""
+
+#. module: website
+#: selection
+msgid "PDF"
+msgstr ""
+
+#. module: website
+#: menu
+msgid "Pages"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Primary"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Publish"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Published At"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Revision"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Robots"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Robots TXT"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Route Path"
+msgstr ""
+
+#. module: website
+#: field
+msgid "SEO"
+msgstr ""
+
+#. module: website
+#: view
+msgid "SEO Defaults"
+msgstr ""
+
+#. module: website
+#: field
+msgid "SPA Manifest"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Set Homepage"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Site"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Sitemap Enabled"
+msgstr ""
+
+#. module: website
+#: menu
+msgid "Sites"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Size (Bytes)"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Slug"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Supported Languages"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Theme"
+msgstr ""
+
+#. module: website
+#: field
+msgid "Title Text"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Unpublish"
+msgstr ""
+
+#. module: website
+#: selection
+msgid "Video"
+msgstr ""
+
+#. module: website
+#: menu
+msgid "Website"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Assets"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Domains"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Website Page"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Pages"
+msgstr ""
+
+#. module: website
+#: view
+msgid "Website Site"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Sites"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Snippets"
+msgstr ""
+
+#. module: website
+#: label, view
+msgid "Website Themes"
+msgstr ""

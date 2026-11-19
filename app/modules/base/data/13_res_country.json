@@ -1,0 +1,3464 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ad",
+    "force_update": true,
+    "data": {
+      "name": "Andorra",
+      "code": "ad",
+      "phone_code": 376,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ae",
+    "force_update": true,
+    "data": {
+      "name": "United Arab Emirates",
+      "code": "ae",
+      "state_required": true,
+      "phone_code": 971,
+      "vat_label": "TRN",
+      "zip_required": true,
+      "tz": "Asia/Dubai"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "af",
+    "force_update": true,
+    "data": {
+      "name": "Afghanistan",
+      "code": "af",
+      "phone_code": 93,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Kabul"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ag",
+    "force_update": true,
+    "data": {
+      "name": "Antigua and Barbuda",
+      "code": "ag",
+      "phone_code": 1268,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ai",
+    "force_update": true,
+    "data": {
+      "name": "Anguilla",
+      "code": "ai",
+      "phone_code": 1264,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "al",
+    "force_update": true,
+    "data": {
+      "name": "Albania",
+      "code": "al",
+      "phone_code": 355,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Tirane"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "am",
+    "force_update": true,
+    "data": {
+      "name": "Armenia",
+      "code": "am",
+      "phone_code": 374,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Yerevan"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ao",
+    "force_update": true,
+    "data": {
+      "name": "Angola",
+      "code": "ao",
+      "zip_required": false,
+      "phone_code": 244,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "aq",
+    "force_update": true,
+    "data": {
+      "name": "Antarctica",
+      "code": "aq",
+      "phone_code": 672,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ar",
+    "force_update": true,
+    "data": {
+      "name": "Argentina",
+      "code": "ar",
+      "state_required": true,
+      "phone_code": 54,
+      "vat_label": "CUIT",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "zip_required": true,
+      "tz": "America/Argentina/Buenos_Aires"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "as",
+    "force_update": true,
+    "data": {
+      "name": "American Samoa",
+      "code": "as",
+      "phone_code": 1684,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "at",
+    "force_update": true,
+    "data": {
+      "name": "Austria",
+      "code": "at",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 43,
+      "vat_label": "USt",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Vienna"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "au",
+    "force_update": true,
+    "data": {
+      "name": "Australia",
+      "code": "au",
+      "state_required": true,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_code)s %(zip)s\\n%(country_name)s",
+      "phone_code": 61,
+      "vat_label": "ABN",
+      "zip_required": true,
+      "tz": "Australia/Sydney"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "aw",
+    "force_update": true,
+    "data": {
+      "name": "Aruba",
+      "code": "aw",
+      "phone_code": 297,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ax",
+    "force_update": true,
+    "data": {
+      "name": "Åland Islands",
+      "code": "ax",
+      "phone_code": 358,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "az",
+    "force_update": true,
+    "data": {
+      "name": "Azerbaijan",
+      "code": "az",
+      "phone_code": 994,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Baku"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ba",
+    "force_update": true,
+    "data": {
+      "name": "Bosnia and Herzegovina",
+      "code": "ba",
+      "phone_code": 387,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Sarajevo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bb",
+    "force_update": true,
+    "data": {
+      "name": "Barbados",
+      "code": "bb",
+      "phone_code": 1246,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bd",
+    "force_update": true,
+    "data": {
+      "name": "Bangladesh",
+      "code": "bd",
+      "phone_code": 880,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Dhaka"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "be",
+    "force_update": true,
+    "data": {
+      "name": "Belgium",
+      "code": "be",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 32,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Brussels"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bf",
+    "force_update": true,
+    "data": {
+      "name": "Burkina Faso",
+      "code": "bf",
+      "phone_code": 226,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bg",
+    "force_update": true,
+    "data": {
+      "name": "Bulgaria",
+      "code": "bg",
+      "phone_code": 359,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Sofia"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bh",
+    "force_update": true,
+    "data": {
+      "name": "Bahrain",
+      "code": "bh",
+      "phone_code": 973,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Bahrain"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bi",
+    "force_update": true,
+    "data": {
+      "name": "Burundi",
+      "code": "bi",
+      "phone_code": 257,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bj",
+    "force_update": true,
+    "data": {
+      "name": "Benin",
+      "code": "bj",
+      "zip_required": false,
+      "phone_code": 229,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bl",
+    "force_update": true,
+    "data": {
+      "name": "Saint Barthélémy",
+      "code": "bl",
+      "phone_code": 590,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bm",
+    "force_update": true,
+    "data": {
+      "name": "Bermuda",
+      "code": "bm",
+      "phone_code": 1441,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bn",
+    "force_update": true,
+    "data": {
+      "name": "Brunei Darussalam",
+      "code": "bn",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(zip)s\\n%(country_name)s",
+      "phone_code": 673,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Brunei"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bo",
+    "force_update": true,
+    "data": {
+      "name": "Bolivia",
+      "code": "bo",
+      "phone_code": 591,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/La_Paz"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bq",
+    "force_update": true,
+    "data": {
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "code": "bq",
+      "phone_code": 599,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "br",
+    "force_update": true,
+    "data": {
+      "name": "Brazil",
+      "code": "br",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_code)s\\n%(zip)s\\n%(country_name)s",
+      "phone_code": 55,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Sao_Paulo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bs",
+    "force_update": true,
+    "data": {
+      "name": "Bahamas",
+      "code": "bs",
+      "phone_code": 1242,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bt",
+    "force_update": true,
+    "data": {
+      "name": "Bhutan",
+      "code": "bt",
+      "phone_code": 975,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bv",
+    "force_update": true,
+    "data": {
+      "name": "Bouvet Island",
+      "code": "bv",
+      "phone_code": 55,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bw",
+    "force_update": true,
+    "data": {
+      "name": "Botswana",
+      "code": "bw",
+      "phone_code": 267,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "by",
+    "force_update": true,
+    "data": {
+      "name": "Belarus",
+      "code": "by",
+      "phone_code": 375,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Minsk"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "bz",
+    "force_update": true,
+    "data": {
+      "name": "Belize",
+      "code": "bz",
+      "zip_required": false,
+      "phone_code": 501,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ca",
+    "force_update": true,
+    "data": {
+      "name": "Canada",
+      "code": "ca",
+      "state_required": true,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_code)s %(zip)s\\n%(country_name)s",
+      "phone_code": 1,
+      "vat_label": "GST/HST number",
+      "zip_required": true,
+      "tz": "America/Toronto"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cc",
+    "force_update": true,
+    "data": {
+      "name": "Cocos (Keeling) Islands",
+      "code": "cc",
+      "phone_code": 61,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cf",
+    "force_update": true,
+    "data": {
+      "name": "Central African Republic",
+      "code": "cf",
+      "phone_code": 236,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cd",
+    "force_update": true,
+    "data": {
+      "name": "Congo (DRC)",
+      "code": "cd",
+      "phone_code": 243,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cg",
+    "force_update": true,
+    "data": {
+      "name": "Congo (Republic)",
+      "code": "cg",
+      "phone_code": 242,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ch",
+    "force_update": true,
+    "data": {
+      "name": "Switzerland",
+      "code": "ch",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 41,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Zurich"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ci",
+    "force_update": true,
+    "data": {
+      "name": "Côte d'Ivoire",
+      "code": "ci",
+      "phone_code": 225,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ck",
+    "force_update": true,
+    "data": {
+      "name": "Cook Islands",
+      "code": "ck",
+      "phone_code": 682,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cl",
+    "force_update": true,
+    "data": {
+      "name": "Chile",
+      "code": "cl",
+      "phone_code": 56,
+      "vat_label": "RUT",
+      "zip_required": false,
+      "state_required": false,
+      "tz": "America/Santiago"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cm",
+    "force_update": true,
+    "data": {
+      "name": "Cameroon",
+      "code": "cm",
+      "phone_code": 237,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cn",
+    "force_update": true,
+    "data": {
+      "name": "China",
+      "code": "cn",
+      "address_format": "%(country_name)s, %(zip)s\\n%(state_name)s %(city)s %(street)s %(street2)s",
+      "phone_code": 86,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Shanghai"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "co",
+    "force_update": true,
+    "data": {
+      "name": "Colombia",
+      "code": "co",
+      "vat_label": "NIT",
+      "phone_code": 57,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Bogota"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cr",
+    "force_update": true,
+    "data": {
+      "name": "Costa Rica",
+      "code": "cr",
+      "phone_code": 506,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Costa_Rica"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cu",
+    "force_update": true,
+    "data": {
+      "name": "Cuba",
+      "code": "cu",
+      "phone_code": 53,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Havana"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cv",
+    "force_update": true,
+    "data": {
+      "name": "Cape Verde",
+      "code": "cv",
+      "phone_code": 238,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cw",
+    "force_update": true,
+    "data": {
+      "name": "Curaçao",
+      "code": "cw",
+      "phone_code": 599,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cx",
+    "force_update": true,
+    "data": {
+      "name": "Christmas Island",
+      "code": "cx",
+      "phone_code": 61,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cy",
+    "force_update": true,
+    "data": {
+      "name": "Cyprus",
+      "code": "cy",
+      "phone_code": 357,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Nicosia"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "cz",
+    "force_update": true,
+    "data": {
+      "name": "Czech Republic",
+      "code": "cz",
+      "phone_code": 420,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Prague"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "de",
+    "force_update": true,
+    "data": {
+      "name": "Germany",
+      "code": "de",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 49,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Berlin"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "dj",
+    "force_update": true,
+    "data": {
+      "name": "Djibouti",
+      "code": "dj",
+      "phone_code": 253,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "dk",
+    "force_update": true,
+    "data": {
+      "name": "Denmark",
+      "code": "dk",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 45,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Copenhagen"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "dm",
+    "force_update": true,
+    "data": {
+      "name": "Dominica",
+      "code": "dm",
+      "phone_code": 1767,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "do",
+    "force_update": true,
+    "data": {
+      "name": "Dominican Republic",
+      "code": "do",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "phone_code": 1849,
+      "vat_label": "RNC",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Santo_Domingo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "dz",
+    "force_update": true,
+    "data": {
+      "name": "Algeria",
+      "code": "dz",
+      "phone_code": 213,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Algiers"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ec",
+    "force_update": true,
+    "data": {
+      "name": "Ecuador",
+      "code": "ec",
+      "phone_code": 593,
+      "vat_label": "RUC",
+      "zip_required": false,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s\\n%(country_name)s",
+      "state_required": false,
+      "tz": "America/Guayaquil"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ee",
+    "force_update": true,
+    "data": {
+      "name": "Estonia",
+      "code": "ee",
+      "phone_code": 372,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Tallinn"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "eg",
+    "force_update": true,
+    "data": {
+      "name": "Egypt",
+      "code": "eg",
+      "phone_code": 20,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Cairo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "eh",
+    "force_update": true,
+    "data": {
+      "name": "Western Sahara",
+      "code": "eh",
+      "phone_code": 212,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "er",
+    "force_update": true,
+    "data": {
+      "name": "Eritrea",
+      "code": "er",
+      "phone_code": 291,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "es",
+    "force_update": true,
+    "data": {
+      "name": "Spain",
+      "code": "es",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(state_name)s\\n%(country_name)s",
+      "phone_code": 34,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Madrid"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "et",
+    "force_update": true,
+    "data": {
+      "name": "Ethiopia",
+      "code": "et",
+      "phone_code": 251,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Addis_Ababa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fi",
+    "force_update": true,
+    "data": {
+      "name": "Finland",
+      "code": "fi",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 358,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Helsinki"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fj",
+    "force_update": true,
+    "data": {
+      "name": "Fiji",
+      "code": "fj",
+      "phone_code": 679,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fk",
+    "force_update": true,
+    "data": {
+      "name": "Falkland Islands",
+      "code": "fk",
+      "phone_code": 500,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fm",
+    "force_update": true,
+    "data": {
+      "name": "Micronesia",
+      "code": "fm",
+      "phone_code": 691,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fo",
+    "force_update": true,
+    "data": {
+      "name": "Faroe Islands",
+      "code": "fo",
+      "phone_code": 298,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "fr",
+    "force_update": true,
+    "data": {
+      "name": "France",
+      "code": "fr",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 33,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Paris"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ga",
+    "force_update": true,
+    "data": {
+      "name": "Gabon",
+      "code": "ga",
+      "phone_code": 241,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gd",
+    "force_update": true,
+    "data": {
+      "name": "Grenada",
+      "code": "gd",
+      "phone_code": 1473,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ge",
+    "force_update": true,
+    "data": {
+      "name": "Georgia",
+      "code": "ge",
+      "phone_code": 995,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Tbilisi"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gf",
+    "force_update": true,
+    "data": {
+      "name": "French Guiana",
+      "code": "gf",
+      "phone_code": 594,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gh",
+    "force_update": true,
+    "data": {
+      "name": "Ghana",
+      "code": "gh",
+      "phone_code": 233,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Accra"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gi",
+    "force_update": true,
+    "data": {
+      "name": "Gibraltar",
+      "code": "gi",
+      "phone_code": 350,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gg",
+    "force_update": true,
+    "data": {
+      "name": "Guernsey",
+      "code": "gg",
+      "phone_code": 44,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gl",
+    "force_update": true,
+    "data": {
+      "name": "Greenland",
+      "code": "gl",
+      "phone_code": 299,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gm",
+    "force_update": true,
+    "data": {
+      "name": "Gambia",
+      "code": "gm",
+      "phone_code": 220,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gn",
+    "force_update": true,
+    "data": {
+      "name": "Guinea",
+      "code": "gn",
+      "phone_code": 224,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gp",
+    "force_update": true,
+    "data": {
+      "name": "Guadeloupe",
+      "code": "gp",
+      "phone_code": 590,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gq",
+    "force_update": true,
+    "data": {
+      "name": "Equatorial Guinea",
+      "code": "gq",
+      "phone_code": 240,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gr",
+    "force_update": true,
+    "data": {
+      "name": "Greece",
+      "code": "gr",
+      "phone_code": 30,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Athens"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gs",
+    "force_update": true,
+    "data": {
+      "name": "South Georgia and the South Sandwich Islands",
+      "code": "gs",
+      "phone_code": 500,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gt",
+    "force_update": true,
+    "data": {
+      "name": "Guatemala",
+      "code": "gt",
+      "phone_code": 502,
+      "vat_label": "NIT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Guatemala"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gu",
+    "force_update": true,
+    "data": {
+      "name": "Guam",
+      "code": "gu",
+      "phone_code": 1671,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gw",
+    "force_update": true,
+    "data": {
+      "name": "Guinea-Bissau",
+      "code": "gw",
+      "phone_code": 245,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "gy",
+    "force_update": true,
+    "data": {
+      "name": "Guyana",
+      "code": "gy",
+      "phone_code": 592,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "hk",
+    "force_update": true,
+    "data": {
+      "name": "Hong Kong",
+      "code": "hk",
+      "zip_required": false,
+      "phone_code": 852,
+      "state_required": false,
+      "tz": "Asia/Hong_Kong"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "hm",
+    "force_update": true,
+    "data": {
+      "name": "Heard Island and McDonald Islands",
+      "code": "hm",
+      "phone_code": 672,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "hn",
+    "force_update": true,
+    "data": {
+      "name": "Honduras",
+      "code": "hn",
+      "phone_code": 504,
+      "vat_label": "RTN",
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "hr",
+    "force_update": true,
+    "data": {
+      "name": "Croatia",
+      "code": "hr",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s \\n%(country_name)s",
+      "phone_code": 385,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Zagreb"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ht",
+    "force_update": true,
+    "data": {
+      "name": "Haiti",
+      "code": "ht",
+      "phone_code": 509,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "hu",
+    "force_update": true,
+    "data": {
+      "name": "Hungary",
+      "code": "hu",
+      "phone_code": 36,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Budapest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "id",
+    "force_update": true,
+    "data": {
+      "name": "Indonesia",
+      "code": "id",
+      "state_required": true,
+      "phone_code": 62,
+      "vat_label": "NPWP",
+      "zip_required": true,
+      "tz": "Asia/Jakarta"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ie",
+    "force_update": true,
+    "data": {
+      "name": "Ireland",
+      "code": "ie",
+      "zip_required": false,
+      "phone_code": 353,
+      "vat_label": "VAT",
+      "state_required": false,
+      "tz": "Europe/Dublin"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "il",
+    "force_update": true,
+    "data": {
+      "name": "Israel",
+      "code": "il",
+      "phone_code": 972,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Jerusalem"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "im",
+    "force_update": true,
+    "data": {
+      "name": "Isle of Man",
+      "code": "im",
+      "phone_code": 44,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "in",
+    "force_update": true,
+    "data": {
+      "name": "India",
+      "code": "in",
+      "state_required": true,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(zip)s\\n%(state_name)s %(state_code)s\\n%(country_name)s",
+      "phone_code": 91,
+      "vat_label": "GSTIN",
+      "zip_required": true,
+      "tz": "Asia/Kolkata"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "io",
+    "force_update": true,
+    "data": {
+      "name": "British Indian Ocean Territory",
+      "code": "io",
+      "phone_code": 246,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "iq",
+    "force_update": true,
+    "data": {
+      "name": "Iraq",
+      "code": "iq",
+      "phone_code": 964,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Baghdad"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ir",
+    "force_update": true,
+    "data": {
+      "name": "Iran",
+      "code": "ir",
+      "phone_code": 98,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Tehran"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "is",
+    "force_update": true,
+    "data": {
+      "name": "Iceland",
+      "code": "is",
+      "phone_code": 354,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Atlantic/Reykjavik"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "it",
+    "force_update": true,
+    "data": {
+      "name": "Italy",
+      "code": "it",
+      "state_required": true,
+      "phone_code": 39,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "tz": "Europe/Rome"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "je",
+    "force_update": true,
+    "data": {
+      "name": "Jersey",
+      "code": "je",
+      "phone_code": 44,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "jm",
+    "force_update": true,
+    "data": {
+      "name": "Jamaica",
+      "code": "jm",
+      "phone_code": 1876,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "jo",
+    "force_update": true,
+    "data": {
+      "name": "Jordan",
+      "code": "jo",
+      "phone_code": 962,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Amman"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "jp",
+    "force_update": true,
+    "data": {
+      "name": "Japan",
+      "code": "jp",
+      "state_required": true,
+      "address_format": "%(zip)s\\n%(state_name)s %(city)s\\n%(street)s\\n%(street2)s\\n%(country_name)s",
+      "name_position": "after",
+      "phone_code": 81,
+      "zip_required": true,
+      "tz": "Asia/Tokyo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ke",
+    "force_update": true,
+    "data": {
+      "name": "Kenya",
+      "code": "ke",
+      "phone_code": 254,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Nairobi"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kg",
+    "force_update": true,
+    "data": {
+      "name": "Kyrgyzstan",
+      "code": "kg",
+      "phone_code": 996,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Bishkek"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kh",
+    "force_update": true,
+    "data": {
+      "name": "Cambodia",
+      "code": "kh",
+      "phone_code": 855,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Phnom_Penh"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ki",
+    "force_update": true,
+    "data": {
+      "name": "Kiribati",
+      "code": "ki",
+      "phone_code": 686,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "km",
+    "force_update": true,
+    "data": {
+      "name": "Comoros",
+      "code": "km",
+      "phone_code": 269,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kn",
+    "force_update": true,
+    "data": {
+      "name": "Saint Kitts and Nevis",
+      "code": "kn",
+      "phone_code": 1869,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kp",
+    "force_update": true,
+    "data": {
+      "name": "North Korea",
+      "code": "kp",
+      "phone_code": 850,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kr",
+    "force_update": true,
+    "data": {
+      "name": "South Korea",
+      "code": "kr",
+      "phone_code": 82,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Seoul"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kw",
+    "force_update": true,
+    "data": {
+      "name": "Kuwait",
+      "code": "kw",
+      "phone_code": 965,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Kuwait"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ky",
+    "force_update": true,
+    "data": {
+      "name": "Cayman Islands",
+      "code": "ky",
+      "phone_code": 1345,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "kz",
+    "force_update": true,
+    "data": {
+      "name": "Kazakhstan",
+      "code": "kz",
+      "phone_code": 7,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Almaty"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "la",
+    "force_update": true,
+    "data": {
+      "name": "Laos",
+      "code": "la",
+      "phone_code": 856,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Vientiane"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lb",
+    "force_update": true,
+    "data": {
+      "name": "Lebanon",
+      "code": "lb",
+      "phone_code": 961,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Beirut"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lc",
+    "force_update": true,
+    "data": {
+      "name": "Saint Lucia",
+      "code": "lc",
+      "phone_code": 1758,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "li",
+    "force_update": true,
+    "data": {
+      "name": "Liechtenstein",
+      "code": "li",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 423,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lk",
+    "force_update": true,
+    "data": {
+      "name": "Sri Lanka",
+      "code": "lk",
+      "phone_code": 94,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Colombo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lr",
+    "force_update": true,
+    "data": {
+      "name": "Liberia",
+      "code": "lr",
+      "phone_code": 231,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ls",
+    "force_update": true,
+    "data": {
+      "name": "Lesotho",
+      "code": "ls",
+      "phone_code": 266,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lt",
+    "force_update": true,
+    "data": {
+      "name": "Lithuania",
+      "code": "lt",
+      "phone_code": 370,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Vilnius"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lu",
+    "force_update": true,
+    "data": {
+      "name": "Luxembourg",
+      "code": "lu",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s \\n%(country_name)s",
+      "phone_code": 352,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Luxembourg"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "lv",
+    "force_update": true,
+    "data": {
+      "name": "Latvia",
+      "code": "lv",
+      "phone_code": 371,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Riga"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ly",
+    "force_update": true,
+    "data": {
+      "name": "Libya",
+      "code": "ly",
+      "phone_code": 218,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ma",
+    "force_update": true,
+    "data": {
+      "name": "Morocco",
+      "code": "ma",
+      "phone_code": 212,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Casablanca"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mc",
+    "force_update": true,
+    "data": {
+      "name": "Monaco",
+      "code": "mc",
+      "phone_code": 377,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "md",
+    "force_update": true,
+    "data": {
+      "name": "Moldova",
+      "code": "md",
+      "phone_code": 373,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "me",
+    "force_update": true,
+    "data": {
+      "name": "Montenegro",
+      "code": "me",
+      "phone_code": 382,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mf",
+    "force_update": true,
+    "data": {
+      "name": "Saint Martin (French part)",
+      "code": "mf",
+      "phone_code": 590,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mg",
+    "force_update": true,
+    "data": {
+      "name": "Madagascar",
+      "code": "mg",
+      "phone_code": 261,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mh",
+    "force_update": true,
+    "data": {
+      "name": "Marshall Islands",
+      "code": "mh",
+      "phone_code": 692,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mk",
+    "force_update": true,
+    "data": {
+      "name": "North Macedonia",
+      "code": "mk",
+      "phone_code": 389,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ml",
+    "force_update": true,
+    "data": {
+      "name": "Mali",
+      "code": "ml",
+      "phone_code": 223,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mm",
+    "force_update": true,
+    "data": {
+      "name": "Myanmar",
+      "code": "mm",
+      "phone_code": 95,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Yangon"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mn",
+    "force_update": true,
+    "data": {
+      "name": "Mongolia",
+      "code": "mn",
+      "phone_code": 976,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Ulaanbaatar"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mo",
+    "force_update": true,
+    "data": {
+      "name": "Macau",
+      "code": "mo",
+      "zip_required": false,
+      "phone_code": 853,
+      "state_required": false,
+      "tz": "Asia/Macau"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mp",
+    "force_update": true,
+    "data": {
+      "name": "Northern Mariana Islands",
+      "code": "mp",
+      "phone_code": 1670,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mq",
+    "force_update": true,
+    "data": {
+      "name": "Martinique",
+      "code": "mq",
+      "phone_code": 596,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mr",
+    "force_update": true,
+    "data": {
+      "name": "Mauritania",
+      "code": "mr",
+      "phone_code": 222,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ms",
+    "force_update": true,
+    "data": {
+      "name": "Montserrat",
+      "code": "ms",
+      "phone_code": 1664,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mt",
+    "force_update": true,
+    "data": {
+      "name": "Malta",
+      "code": "mt",
+      "phone_code": 356,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mu",
+    "force_update": true,
+    "data": {
+      "name": "Mauritius",
+      "code": "mu",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_code)s %(zip)s\\n%(country_name)s",
+      "phone_code": 230,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mv",
+    "force_update": true,
+    "data": {
+      "name": "Maldives",
+      "code": "mv",
+      "phone_code": 960,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mw",
+    "force_update": true,
+    "data": {
+      "name": "Malawi",
+      "code": "mw",
+      "phone_code": 265,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mx",
+    "force_update": true,
+    "data": {
+      "name": "Mexico",
+      "code": "mx",
+      "state_required": true,
+      "phone_code": 52,
+      "vat_label": "RFC",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s, %(state_code)s\\n%(country_name)s",
+      "zip_required": true,
+      "tz": "America/Mexico_City"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "my",
+    "force_update": true,
+    "data": {
+      "name": "Malaysia",
+      "code": "my",
+      "phone_code": 60,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Kuala_Lumpur"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "mz",
+    "force_update": true,
+    "data": {
+      "name": "Mozambique",
+      "code": "mz",
+      "phone_code": 258,
+      "vat_label": "NUIT",
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "na",
+    "force_update": true,
+    "data": {
+      "name": "Namibia",
+      "code": "na",
+      "phone_code": 264,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nc",
+    "force_update": true,
+    "data": {
+      "name": "New Caledonia",
+      "code": "nc",
+      "phone_code": 687,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ne",
+    "force_update": true,
+    "data": {
+      "name": "Niger",
+      "code": "ne",
+      "phone_code": 227,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nf",
+    "force_update": true,
+    "data": {
+      "name": "Norfolk Island",
+      "code": "nf",
+      "phone_code": 672,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ng",
+    "force_update": true,
+    "data": {
+      "name": "Nigeria",
+      "code": "ng",
+      "phone_code": 234,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Lagos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ni",
+    "force_update": true,
+    "data": {
+      "name": "Nicaragua",
+      "code": "ni",
+      "phone_code": 505,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nl",
+    "force_update": true,
+    "data": {
+      "name": "Netherlands",
+      "code": "nl",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 31,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Amsterdam"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "no",
+    "force_update": true,
+    "data": {
+      "name": "Norway",
+      "code": "no",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 47,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Oslo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "np",
+    "force_update": true,
+    "data": {
+      "name": "Nepal",
+      "code": "np",
+      "phone_code": 977,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Kathmandu"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nr",
+    "force_update": true,
+    "data": {
+      "name": "Nauru",
+      "code": "nr",
+      "phone_code": 674,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nu",
+    "force_update": true,
+    "data": {
+      "name": "Niue",
+      "code": "nu",
+      "phone_code": 683,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "nz",
+    "force_update": true,
+    "data": {
+      "name": "New Zealand",
+      "code": "nz",
+      "phone_code": 64,
+      "vat_label": "GST",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Pacific/Auckland"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "om",
+    "force_update": true,
+    "data": {
+      "name": "Oman",
+      "code": "om",
+      "phone_code": 968,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Muscat"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pa",
+    "force_update": true,
+    "data": {
+      "name": "Panama",
+      "code": "pa",
+      "phone_code": 507,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "vat_label": "RUC",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Panama"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pe",
+    "force_update": true,
+    "data": {
+      "name": "Peru",
+      "code": "pe",
+      "zip_required": false,
+      "phone_code": 51,
+      "vat_label": "RUC",
+      "state_required": false,
+      "tz": "America/Lima"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pf",
+    "force_update": true,
+    "data": {
+      "name": "French Polynesia",
+      "code": "pf",
+      "phone_code": 689,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pg",
+    "force_update": true,
+    "data": {
+      "name": "Papua New Guinea",
+      "code": "pg",
+      "phone_code": 675,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ph",
+    "force_update": true,
+    "data": {
+      "name": "Philippines",
+      "code": "ph",
+      "phone_code": 63,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Manila"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pk",
+    "force_update": true,
+    "data": {
+      "name": "Pakistan",
+      "code": "pk",
+      "phone_code": 92,
+      "vat_label": "NTN",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Karachi"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pl",
+    "force_update": true,
+    "data": {
+      "name": "Poland",
+      "code": "pl",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 48,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Warsaw"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pm",
+    "force_update": true,
+    "data": {
+      "name": "Saint Pierre and Miquelon",
+      "code": "pm",
+      "phone_code": 508,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pn",
+    "force_update": true,
+    "data": {
+      "name": "Pitcairn Islands",
+      "code": "pn",
+      "phone_code": 64,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pr",
+    "force_update": true,
+    "data": {
+      "name": "Puerto Rico",
+      "code": "pr",
+      "phone_code": 1939,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ps",
+    "force_update": true,
+    "data": {
+      "name": "State of Palestine",
+      "code": "ps",
+      "phone_code": 970,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pt",
+    "force_update": true,
+    "data": {
+      "name": "Portugal",
+      "code": "pt",
+      "phone_code": 351,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Lisbon"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "pw",
+    "force_update": true,
+    "data": {
+      "name": "Palau",
+      "code": "pw",
+      "phone_code": 680,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "py",
+    "force_update": true,
+    "data": {
+      "name": "Paraguay",
+      "code": "py",
+      "phone_code": 595,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Asuncion"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "qa",
+    "force_update": true,
+    "data": {
+      "name": "Qatar",
+      "code": "qa",
+      "phone_code": 974,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Qatar"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "re",
+    "force_update": true,
+    "data": {
+      "name": "Réunion",
+      "code": "re",
+      "phone_code": 262,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ro",
+    "force_update": true,
+    "data": {
+      "name": "Romania",
+      "code": "ro",
+      "phone_code": 40,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Bucharest"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "rs",
+    "force_update": true,
+    "data": {
+      "name": "Serbia",
+      "code": "rs",
+      "phone_code": 381,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Belgrade"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ru",
+    "force_update": true,
+    "data": {
+      "name": "Russian Federation",
+      "code": "ru",
+      "phone_code": 7,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Moscow"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "rw",
+    "force_update": true,
+    "data": {
+      "name": "Rwanda",
+      "code": "rw",
+      "phone_code": 250,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sa",
+    "force_update": true,
+    "data": {
+      "name": "Saudi Arabia",
+      "code": "sa",
+      "phone_code": 966,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Riyadh"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sb",
+    "force_update": true,
+    "data": {
+      "name": "Solomon Islands",
+      "code": "sb",
+      "phone_code": 677,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sc",
+    "force_update": true,
+    "data": {
+      "name": "Seychelles",
+      "code": "sc",
+      "phone_code": 248,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sd",
+    "force_update": true,
+    "data": {
+      "name": "Sudan",
+      "code": "sd",
+      "phone_code": 249,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "se",
+    "force_update": true,
+    "data": {
+      "name": "Sweden",
+      "code": "se",
+      "address_format": "%(street)s\\n%(street2)s\\n%(zip)s %(city)s\\n%(country_name)s",
+      "phone_code": 46,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Stockholm"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sg",
+    "force_update": true,
+    "data": {
+      "name": "Singapore",
+      "code": "sg",
+      "phone_code": 65,
+      "vat_label": "GST No.",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Singapore"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sh",
+    "force_update": true,
+    "data": {
+      "name": "Saint Helena, Ascension and Tristan da Cunha",
+      "code": "sh",
+      "phone_code": 290,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "si",
+    "force_update": true,
+    "data": {
+      "name": "Slovenia",
+      "code": "si",
+      "phone_code": 386,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Ljubljana"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sj",
+    "force_update": true,
+    "data": {
+      "name": "Svalbard and Jan Mayen",
+      "code": "sj",
+      "phone_code": 47,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sk",
+    "force_update": true,
+    "data": {
+      "name": "Slovakia",
+      "code": "sk",
+      "phone_code": 421,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Bratislava"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sl",
+    "force_update": true,
+    "data": {
+      "name": "Sierra Leone",
+      "code": "sl",
+      "phone_code": 232,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sm",
+    "force_update": true,
+    "data": {
+      "name": "San Marino",
+      "code": "sm",
+      "phone_code": 378,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sn",
+    "force_update": true,
+    "data": {
+      "name": "Senegal",
+      "code": "sn",
+      "phone_code": 221,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "so",
+    "force_update": true,
+    "data": {
+      "name": "Somalia",
+      "code": "so",
+      "phone_code": 252,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sr",
+    "force_update": true,
+    "data": {
+      "name": "Suriname",
+      "code": "sr",
+      "phone_code": 597,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ss",
+    "force_update": true,
+    "data": {
+      "name": "South Sudan",
+      "code": "ss",
+      "phone_code": 211,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "st",
+    "force_update": true,
+    "data": {
+      "name": "São Tomé and Príncipe",
+      "code": "st",
+      "phone_code": 239,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sv",
+    "force_update": true,
+    "data": {
+      "name": "El Salvador",
+      "code": "sv",
+      "phone_code": 503,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/El_Salvador"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sx",
+    "force_update": true,
+    "data": {
+      "name": "Sint Maarten (Dutch part)",
+      "code": "sx",
+      "phone_code": 1721,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sy",
+    "force_update": true,
+    "data": {
+      "name": "Syria",
+      "code": "sy",
+      "phone_code": 963,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Damascus"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "sz",
+    "force_update": true,
+    "data": {
+      "name": "Eswatini",
+      "code": "sz",
+      "phone_code": 268,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tc",
+    "force_update": true,
+    "data": {
+      "name": "Turks and Caicos Islands",
+      "code": "tc",
+      "phone_code": 1649,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "td",
+    "force_update": true,
+    "data": {
+      "name": "Chad",
+      "code": "td",
+      "phone_code": 235,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tf",
+    "force_update": true,
+    "data": {
+      "name": "French Southern Territories",
+      "code": "tf",
+      "phone_code": 262,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tg",
+    "force_update": true,
+    "data": {
+      "name": "Togo",
+      "code": "tg",
+      "phone_code": 228,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "th",
+    "force_update": true,
+    "data": {
+      "name": "Thailand",
+      "code": "th",
+      "phone_code": 66,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s\\n%(state_name)s %(zip)s\\n%(country_name)s",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Bangkok"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tj",
+    "force_update": true,
+    "data": {
+      "name": "Tajikistan",
+      "code": "tj",
+      "phone_code": 992,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tk",
+    "force_update": true,
+    "data": {
+      "name": "Tokelau",
+      "code": "tk",
+      "phone_code": 690,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tm",
+    "force_update": true,
+    "data": {
+      "name": "Turkmenistan",
+      "code": "tm",
+      "phone_code": 993,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tn",
+    "force_update": true,
+    "data": {
+      "name": "Tunisia",
+      "code": "tn",
+      "phone_code": 216,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Tunis"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "to",
+    "force_update": true,
+    "data": {
+      "name": "Tonga",
+      "code": "to",
+      "phone_code": 676,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tl",
+    "force_update": true,
+    "data": {
+      "name": "Timor-Leste",
+      "code": "tl",
+      "phone_code": 670,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tr",
+    "force_update": true,
+    "data": {
+      "name": "Türkiye",
+      "code": "tr",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_name)s %(zip)s\\n%(country_name)s",
+      "phone_code": 90,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Istanbul"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tt",
+    "force_update": true,
+    "data": {
+      "name": "Trinidad and Tobago",
+      "code": "tt",
+      "phone_code": 1868,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tv",
+    "force_update": true,
+    "data": {
+      "name": "Tuvalu",
+      "code": "tv",
+      "phone_code": 688,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tw",
+    "force_update": true,
+    "data": {
+      "name": "Taiwan",
+      "code": "tw",
+      "phone_code": 886,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Taipei"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "tz",
+    "force_update": true,
+    "data": {
+      "name": "Tanzania",
+      "code": "tz",
+      "phone_code": 255,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Dar_es_Salaam"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ua",
+    "force_update": true,
+    "data": {
+      "name": "Ukraine",
+      "code": "ua",
+      "phone_code": 380,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/Kyiv"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ug",
+    "force_update": true,
+    "data": {
+      "name": "Uganda",
+      "code": "ug",
+      "phone_code": 256,
+      "vat_label": "TIN",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Kampala"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "uk",
+    "force_update": true,
+    "data": {
+      "name": "United Kingdom",
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s\\n%(state_name)s\\n%(zip)s\\n%(country_name)s",
+      "code": "gb",
+      "phone_code": 44,
+      "vat_label": "VAT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Europe/London"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "um",
+    "force_update": true,
+    "data": {
+      "name": "USA Minor Outlying Islands",
+      "code": "um",
+      "phone_code": 699,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "us",
+    "force_update": true,
+    "data": {
+      "name": "United States",
+      "code": "us",
+      "state_required": true,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s %(state_code)s %(zip)s\\n%(country_name)s",
+      "phone_code": 1,
+      "vat_label": "",
+      "zip_required": true,
+      "tz": "America/New_York"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "uy",
+    "force_update": true,
+    "data": {
+      "name": "Uruguay",
+      "code": "uy",
+      "phone_code": 598,
+      "vat_label": "RUT",
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Montevideo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "uz",
+    "force_update": true,
+    "data": {
+      "name": "Uzbekistan",
+      "code": "uz",
+      "phone_code": 998,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Asia/Tashkent"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "va",
+    "force_update": true,
+    "data": {
+      "name": "Holy See (Vatican City State)",
+      "code": "va",
+      "phone_code": 379,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "vc",
+    "force_update": true,
+    "data": {
+      "name": "Saint Vincent and the Grenadines",
+      "code": "vc",
+      "phone_code": 1784,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ve",
+    "force_update": true,
+    "data": {
+      "name": "Venezuela",
+      "code": "ve",
+      "phone_code": 58,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "America/Caracas"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "vg",
+    "force_update": true,
+    "data": {
+      "name": "Virgin Islands (British)",
+      "code": "vg",
+      "phone_code": 1284,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "vi",
+    "force_update": true,
+    "data": {
+      "name": "Virgin Islands (USA)",
+      "code": "vi",
+      "phone_code": 1340,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "vn",
+    "force_update": true,
+    "data": {
+      "name": "Vietnam",
+      "code": "vn",
+      "phone_code": 84,
+      "zip_required": false,
+      "address_format": "%(street)s\\n%(street2)s\\n%(city)s\\n%(state_name)s %(country_name)s",
+      "state_required": false,
+      "tz": "Asia/Ho_Chi_Minh"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "vu",
+    "force_update": true,
+    "data": {
+      "name": "Vanuatu",
+      "code": "vu",
+      "phone_code": 678,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "wf",
+    "force_update": true,
+    "data": {
+      "name": "Wallis and Futuna",
+      "code": "wf",
+      "phone_code": 681,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ws",
+    "force_update": true,
+    "data": {
+      "name": "Samoa",
+      "code": "ws",
+      "phone_code": 685,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "ye",
+    "force_update": true,
+    "data": {
+      "name": "Yemen",
+      "code": "ye",
+      "phone_code": 967,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "yt",
+    "force_update": true,
+    "data": {
+      "name": "Mayotte",
+      "code": "yt",
+      "phone_code": 262,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "za",
+    "force_update": true,
+    "data": {
+      "name": "South Africa",
+      "code": "za",
+      "phone_code": 27,
+      "zip_required": true,
+      "state_required": false,
+      "tz": "Africa/Johannesburg"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "zm",
+    "force_update": true,
+    "data": {
+      "name": "Zambia",
+      "code": "zm",
+      "phone_code": 260,
+      "vat_label": "TPIN",
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "zw",
+    "force_update": true,
+    "data": {
+      "name": "Zimbabwe",
+      "code": "zw",
+      "phone_code": 263,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "xi",
+    "force_update": true,
+    "data": {
+      "name": "Northern Ireland",
+      "code": "xi",
+      "phone_code": 44,
+      "zip_required": true,
+      "state_required": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.country",
+    "external_id": "xk",
+    "force_update": true,
+    "data": {
+      "name": "Kosovo",
+      "code": "xk",
+      "phone_code": 383,
+      "zip_required": true,
+      "state_required": false
+    }
+  }
+]

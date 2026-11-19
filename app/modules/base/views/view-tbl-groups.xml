@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_groups_list" model="ui.view">
+      <field name="name">tbl.groups.list</field>
+      <field name="model">tbl.groups</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Groups" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="created_at"/>
+          <field name="privilege_id" optional="show"/>
+          <field name="superadmin" optional="show"/>
+          <field name="api_key_duration" optional="hide"/>
+          <field name="category_bid" optional="hide"/>
+          <field name="full_name" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_groups_form" model="ui.view">
+      <field name="name">tbl.groups.form</field>
+      <field name="model">tbl.groups</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Group">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="bid" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="sequence"/>
+                <field name="privilege_id"/>
+                <field name="superadmin"/>
+                <field name="api_key_duration"/>
+                <field name="category_bid"/>
+                <field name="full_name"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details" name="details">
+                <field name="comment"/>
+                <field name="description"/>
+              </page>
+              <page string="Relations" name="relations">
+                <field name="implied_by_ids"/>
+                <field name="implied_ids"/>
+                <field name="user_ids"/>
+              </page>
+              <page string="Permissions" name="permissions">
+                <model-access/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_groups_search" model="ui.view">
+      <field name="name">tbl.groups.search</field>
+      <field name="model">tbl.groups</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Groups">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="privilege_id"/>
+          <field name="api_key_duration"/>
+          <field name="category_bid"/>
+          <filter string="Superadmin" name="superadmin_true" domain="[('superadmin', '=', True)]"/>
+          <filter string="Not Superadmin" name="superadmin_false" domain="[('superadmin', '=', False)]"/>
+          <group>
+            <filter string="Privilege ID" name="group_by_privilege_id" domain="[]" context="{'group_by': 'privilege_id'}"/>
+            <filter string="Superadmin" name="group_by_superadmin" domain="[]" context="{'group_by': 'superadmin'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

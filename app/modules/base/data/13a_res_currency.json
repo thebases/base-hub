@@ -1,0 +1,4538 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "USD",
+    "force_update": true,
+    "data": {
+      "name": "USD",
+      "iso_numeric": "840",
+      "full_name": "United States dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "VEF",
+    "force_update": true,
+    "data": {
+      "name": "VEF",
+      "iso_numeric": "937",
+      "full_name": "Venezuelan bolívar fuerte",
+      "symbol": "Bs.F",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Bolivar",
+      "currency_subunit_label": "Centimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CAD",
+    "force_update": true,
+    "data": {
+      "name": "CAD",
+      "iso_numeric": "124",
+      "full_name": "Canadian dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CHF",
+    "force_update": true,
+    "data": {
+      "name": "CHF",
+      "iso_numeric": "756",
+      "full_name": "Swiss franc",
+      "symbol": "CHF",
+      "position": "before",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BRL",
+    "force_update": true,
+    "data": {
+      "name": "BRL",
+      "iso_numeric": "986",
+      "full_name": "Brazilian real",
+      "symbol": "R$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Real",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CNY",
+    "force_update": true,
+    "data": {
+      "name": "CNY",
+      "iso_numeric": "156",
+      "full_name": "Chinese yuan",
+      "symbol": "¥",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Yuan",
+      "currency_subunit_label": "Fen",
+      "position": "before"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CNH",
+    "force_update": true,
+    "data": {
+      "name": "CNH",
+      "full_name": "Chinese yuan - Offshore",
+      "symbol": "¥",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Yuan",
+      "currency_subunit_label": "Fen",
+      "position": "before"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "COP",
+    "force_update": true,
+    "data": {
+      "name": "COP",
+      "iso_numeric": "170",
+      "full_name": "Colombian peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CZK",
+    "force_update": true,
+    "data": {
+      "name": "CZK",
+      "iso_numeric": "203",
+      "full_name": "Czech koruna",
+      "symbol": "Kč",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Koruna",
+      "currency_subunit_label": "Halers"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "DKK",
+    "force_update": true,
+    "data": {
+      "name": "DKK",
+      "iso_numeric": "208",
+      "full_name": "Danish krone",
+      "symbol": "kr",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Krone",
+      "currency_subunit_label": "Ore"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "HUF",
+    "force_update": true,
+    "data": {
+      "name": "HUF",
+      "iso_numeric": "348",
+      "full_name": "Hungarian forint",
+      "symbol": "Ft",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Forint",
+      "currency_subunit_label": "Filler"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "IDR",
+    "force_update": true,
+    "data": {
+      "name": "IDR",
+      "iso_numeric": "360",
+      "full_name": "Indonesian rupiah",
+      "symbol": "Rp",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Rupiah",
+      "currency_subunit_label": "Sen"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LVL",
+    "force_update": true,
+    "data": {
+      "name": "LVL",
+      "iso_numeric": "840",
+      "full_name": "Latvian lats",
+      "symbol": "Ls",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lats",
+      "currency_subunit_label": "Santims"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NOK",
+    "force_update": true,
+    "data": {
+      "name": "NOK",
+      "iso_numeric": "578",
+      "full_name": "Norwegian krone",
+      "symbol": "kr",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Krone",
+      "currency_subunit_label": "Ore"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "XPF",
+    "force_update": true,
+    "data": {
+      "name": "XPF",
+      "iso_numeric": "953",
+      "full_name": "CFP franc",
+      "symbol": "XPF",
+      "rounding": "1.00",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PAB",
+    "force_update": true,
+    "data": {
+      "name": "PAB",
+      "iso_numeric": "590",
+      "full_name": "Panamanian balboa",
+      "symbol": "B/.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Balboa",
+      "currency_subunit_label": "Centesimo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PLN",
+    "force_update": true,
+    "data": {
+      "name": "PLN",
+      "iso_numeric": "985",
+      "full_name": "Polish złoty",
+      "symbol": "zł",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Zloty",
+      "currency_subunit_label": "Groszy"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SEK",
+    "force_update": true,
+    "data": {
+      "name": "SEK",
+      "iso_numeric": "752",
+      "full_name": "Swedish krona",
+      "symbol": "kr",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Krona",
+      "currency_subunit_label": "Ore"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ARS",
+    "force_update": true,
+    "data": {
+      "name": "ARS",
+      "iso_numeric": "032",
+      "full_name": "Argentine peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "INR",
+    "force_update": true,
+    "data": {
+      "name": "INR",
+      "iso_numeric": "356",
+      "full_name": "Indian rupee",
+      "symbol": "₹",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Rupees",
+      "currency_subunit_label": "Paise"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AUD",
+    "force_update": true,
+    "data": {
+      "name": "AUD",
+      "iso_numeric": "036",
+      "full_name": "Australian dollar",
+      "symbol": "$",
+      "position": "before",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UAH",
+    "force_update": true,
+    "data": {
+      "name": "UAH",
+      "iso_numeric": "980",
+      "full_name": "Ukraine Hryvnia",
+      "symbol": "₴",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Hryvnia",
+      "currency_subunit_label": "Kopiyka"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "VND",
+    "force_update": true,
+    "data": {
+      "name": "VND",
+      "iso_numeric": "704",
+      "full_name": "Vietnamese đồng",
+      "symbol": "₫",
+      "rounding": "1.00",
+      "active": false,
+      "currency_unit_label": "Dong",
+      "currency_subunit_label": "Xu"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "HKD",
+    "force_update": true,
+    "data": {
+      "name": "HKD",
+      "iso_numeric": "344",
+      "full_name": "Hong Kong dollar",
+      "symbol": "$",
+      "position": "before",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "JPY",
+    "force_update": true,
+    "data": {
+      "name": "JPY",
+      "iso_numeric": "392",
+      "full_name": "Japanese yen",
+      "symbol": "¥",
+      "rounding": "1.00",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Yen",
+      "currency_subunit_label": "Cen"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BGN",
+    "force_update": true,
+    "data": {
+      "name": "BGN",
+      "iso_numeric": "975",
+      "full_name": "Bulgarian lev",
+      "symbol": "лв",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lev",
+      "currency_subunit_label": "Stotinki"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LTL",
+    "force_update": true,
+    "data": {
+      "name": "LTL",
+      "iso_numeric": "840",
+      "full_name": "Lithuanian litas",
+      "symbol": "Lt",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Litas",
+      "currency_subunit_label": "Centas"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "RON",
+    "force_update": true,
+    "data": {
+      "name": "RON",
+      "iso_numeric": "946",
+      "full_name": "Romanian leu",
+      "symbol": "lei",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Leu",
+      "currency_subunit_label": "Bani"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "HRK",
+    "force_update": true,
+    "data": {
+      "name": "HRK",
+      "iso_numeric": "191",
+      "full_name": "Croatian kuna",
+      "symbol": "kn",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kuna",
+      "currency_subunit_label": "Lipa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "RUB",
+    "force_update": true,
+    "data": {
+      "name": "RUB",
+      "iso_numeric": "643",
+      "full_name": "Russian ruble",
+      "symbol": "руб",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Ruble",
+      "currency_subunit_label": "Kopek"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TRY",
+    "force_update": true,
+    "data": {
+      "name": "TRY",
+      "iso_numeric": "949",
+      "full_name": "Turkish lira",
+      "symbol": "₺",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lira",
+      "currency_subunit_label": "Kurus"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KRW",
+    "force_update": true,
+    "data": {
+      "name": "KRW",
+      "iso_numeric": "410",
+      "full_name": "South Korean won",
+      "symbol": "₩",
+      "rounding": "1",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Won",
+      "currency_subunit_label": "Chon"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MXN",
+    "force_update": true,
+    "data": {
+      "name": "MXN",
+      "iso_numeric": "484",
+      "full_name": "Mexican peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Pesos",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MYR",
+    "force_update": true,
+    "data": {
+      "name": "MYR",
+      "iso_numeric": "458",
+      "full_name": "Malaysian ringgit",
+      "symbol": "RM",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Ringgit",
+      "currency_subunit_label": "Sen"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NZD",
+    "force_update": true,
+    "data": {
+      "name": "NZD",
+      "iso_numeric": "554",
+      "full_name": "New Zealand dollar",
+      "symbol": "$",
+      "position": "before",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PHP",
+    "force_update": true,
+    "data": {
+      "name": "PHP",
+      "iso_numeric": "608",
+      "full_name": "Philippine peso",
+      "symbol": "₱",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SGD",
+    "force_update": true,
+    "data": {
+      "name": "SGD",
+      "iso_numeric": "702",
+      "full_name": "Singapore dollar",
+      "symbol": "S$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ZAR",
+    "force_update": true,
+    "data": {
+      "name": "ZAR",
+      "iso_numeric": "710",
+      "full_name": "South African rand",
+      "symbol": "R",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Rand",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CRC",
+    "force_update": true,
+    "data": {
+      "name": "CRC",
+      "iso_numeric": "188",
+      "full_name": "Costa Rican colón",
+      "rounding": "0.01",
+      "symbol": "₡",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Colon",
+      "currency_subunit_label": "Centimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MUR",
+    "force_update": true,
+    "data": {
+      "name": "MUR",
+      "iso_numeric": "480",
+      "full_name": "Mauritian rupee",
+      "symbol": "Rs",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rupee",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "XOF",
+    "force_update": true,
+    "data": {
+      "name": "XOF",
+      "iso_numeric": "952",
+      "full_name": "CFA franc BCEAO",
+      "symbol": "CFA",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "XAF",
+    "force_update": true,
+    "data": {
+      "name": "XAF",
+      "iso_numeric": "950",
+      "full_name": "CFA franc BEAC",
+      "symbol": "FCFA",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UGX",
+    "force_update": true,
+    "data": {
+      "name": "UGX",
+      "iso_numeric": "800",
+      "full_name": "Ugandan shilling",
+      "symbol": "USh",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Shilling",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "HNL",
+    "force_update": true,
+    "data": {
+      "name": "HNL",
+      "iso_numeric": "340",
+      "full_name": "Honduran lempira",
+      "symbol": "L",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Lempiras",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CLP",
+    "force_update": true,
+    "data": {
+      "name": "CLP",
+      "iso_numeric": "152",
+      "full_name": "Chilean peso",
+      "symbol": "$",
+      "rounding": "1",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UYU",
+    "force_update": true,
+    "data": {
+      "name": "UYU",
+      "iso_numeric": "858",
+      "full_name": "Uruguayan peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centesimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AFN",
+    "force_update": true,
+    "data": {
+      "name": "AFN",
+      "iso_numeric": "971",
+      "full_name": "Afghan afghani",
+      "symbol": "Afs",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Afghani",
+      "currency_subunit_label": "Puls"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AOA",
+    "force_update": true,
+    "data": {
+      "name": "AOA",
+      "iso_numeric": "973",
+      "full_name": "Angolan kwanza",
+      "symbol": "Kz",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kwanza",
+      "currency_subunit_label": "Centimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "XCD",
+    "force_update": true,
+    "data": {
+      "name": "XCD",
+      "iso_numeric": "951",
+      "full_name": "East Caribbean dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AMD",
+    "force_update": true,
+    "data": {
+      "name": "AMD",
+      "iso_numeric": "051",
+      "full_name": "Armenian dram",
+      "symbol": "դր.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dram",
+      "currency_subunit_label": "Luma"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AWG",
+    "force_update": true,
+    "data": {
+      "name": "AWG",
+      "iso_numeric": "533",
+      "full_name": "Aruban florin",
+      "symbol": "Afl.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Guilder",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AZN",
+    "force_update": true,
+    "data": {
+      "name": "AZN",
+      "iso_numeric": "944",
+      "full_name": "Azerbaijani manat",
+      "symbol": "m",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Manat",
+      "currency_subunit_label": "Qapik"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BSD",
+    "force_update": true,
+    "data": {
+      "name": "BSD",
+      "iso_numeric": "044",
+      "full_name": "Bahamian dollar",
+      "symbol": "B$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BHD",
+    "force_update": true,
+    "data": {
+      "name": "BHD",
+      "iso_numeric": "048",
+      "full_name": "Bahraini dinar",
+      "symbol": "BD",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BDT",
+    "force_update": true,
+    "data": {
+      "name": "BDT",
+      "iso_numeric": "050",
+      "full_name": "Bangladeshi taka",
+      "symbol": "৳",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Taka",
+      "currency_subunit_label": "Paisa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BBD",
+    "force_update": true,
+    "data": {
+      "name": "BBD",
+      "iso_numeric": "052",
+      "full_name": "Barbados dollar",
+      "symbol": "Bds$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BYR",
+    "force_update": true,
+    "data": {
+      "name": "BYR",
+      "iso_numeric": "974",
+      "full_name": "Belarusian ruble",
+      "symbol": "BR",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Ruble BYR",
+      "currency_subunit_label": "Kapeyka"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BYN",
+    "force_update": true,
+    "data": {
+      "name": "BYN",
+      "iso_numeric": "974",
+      "full_name": "Belarusian ruble",
+      "symbol": "Br",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rubles",
+      "currency_subunit_label": "Kopeks"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BZD",
+    "force_update": true,
+    "data": {
+      "name": "BZD",
+      "iso_numeric": "084",
+      "full_name": "Belize dollar",
+      "symbol": "BZ$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BMD",
+    "force_update": true,
+    "data": {
+      "name": "BMD",
+      "iso_numeric": "060",
+      "full_name": "Bermudian dollar",
+      "symbol": "BD$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BTN",
+    "force_update": true,
+    "data": {
+      "name": "BTN",
+      "iso_numeric": "064",
+      "full_name": "Bhutanese ngultrum",
+      "symbol": "Nu.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Ngultrum",
+      "currency_subunit_label": "Chhertum"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BOB",
+    "force_update": true,
+    "data": {
+      "name": "BOB",
+      "iso_numeric": "068",
+      "full_name": "Boliviano",
+      "symbol": "Bs.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Boliviano",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BAM",
+    "force_update": true,
+    "data": {
+      "name": "BAM",
+      "iso_numeric": "977",
+      "full_name": "Bosnia and Herzegovina convertible mark",
+      "symbol": "KM",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Mark",
+      "currency_subunit_label": "Fening"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BWP",
+    "force_update": true,
+    "data": {
+      "name": "BWP",
+      "iso_numeric": "072",
+      "full_name": "Botswana pula",
+      "symbol": "P",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pula",
+      "currency_subunit_label": "Thebe"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BIF",
+    "force_update": true,
+    "data": {
+      "name": "BIF",
+      "iso_numeric": "108",
+      "full_name": "Burundian franc",
+      "symbol": "FBu",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KHR",
+    "force_update": true,
+    "data": {
+      "name": "KHR",
+      "iso_numeric": "116",
+      "full_name": "Cambodian riel",
+      "symbol": "៛",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Riel",
+      "currency_subunit_label": "Sen"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KYD",
+    "force_update": true,
+    "data": {
+      "name": "KYD",
+      "iso_numeric": "136",
+      "full_name": "Cayman Islands dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KMF",
+    "force_update": true,
+    "data": {
+      "name": "KMF",
+      "iso_numeric": "174",
+      "full_name": "Comorian franc",
+      "symbol": "CF",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CDF",
+    "force_update": true,
+    "data": {
+      "name": "CDF",
+      "iso_numeric": "976",
+      "full_name": "Congolese franc",
+      "symbol": "Fr",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CUP",
+    "force_update": true,
+    "data": {
+      "name": "CUP",
+      "iso_numeric": "192",
+      "full_name": "Cuban peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ANG",
+    "force_update": true,
+    "data": {
+      "name": "ANG",
+      "iso_numeric": "532",
+      "full_name": "Netherlands Antillean guilder",
+      "symbol": "ƒ",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Guilder",
+      "currency_subunit_label": "Cents",
+      "position": "before"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "XCG",
+    "force_update": true,
+    "data": {
+      "name": "XCG",
+      "full_name": "Caribbean Guilder",
+      "symbol": "Cg",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Guilder",
+      "currency_subunit_label": "Cents",
+      "position": "after"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "DJF",
+    "force_update": true,
+    "data": {
+      "name": "DJF",
+      "iso_numeric": "262",
+      "full_name": "Djiboutian franc",
+      "symbol": "Fdj",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "DOP",
+    "force_update": true,
+    "data": {
+      "name": "DOP",
+      "iso_numeric": "214",
+      "full_name": "Dominican peso",
+      "symbol": "RD$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pesos",
+      "currency_subunit_label": "Centavos",
+      "position": "before"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "EGP",
+    "force_update": true,
+    "data": {
+      "name": "EGP",
+      "iso_numeric": "818",
+      "full_name": "Egyptian pound",
+      "symbol": "LE",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Piastres"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SVC",
+    "force_update": true,
+    "data": {
+      "name": "SVC",
+      "iso_numeric": "222",
+      "full_name": "Salvadoran Colon",
+      "symbol": "¢",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Colones",
+      "currency_subunit_label": "Centavo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ERN",
+    "force_update": true,
+    "data": {
+      "name": "ERN",
+      "iso_numeric": "232",
+      "full_name": "Eritrean nakfa",
+      "symbol": "Nfk",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Nakfa",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ETB",
+    "force_update": true,
+    "data": {
+      "name": "ETB",
+      "iso_numeric": "230",
+      "full_name": "Ethiopian birr",
+      "symbol": "Br",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Birr",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "FKP",
+    "force_update": true,
+    "data": {
+      "name": "FKP",
+      "iso_numeric": "238",
+      "full_name": "Falkland Islands pound",
+      "symbol": "£",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Penny"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "FJD",
+    "force_update": true,
+    "data": {
+      "name": "FJD",
+      "iso_numeric": "242",
+      "full_name": "Fiji dollar",
+      "symbol": "FJ$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GEL",
+    "force_update": true,
+    "data": {
+      "name": "GEL",
+      "iso_numeric": "981",
+      "full_name": "Georgian lari",
+      "symbol": "ლ",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lari",
+      "currency_subunit_label": "Tetri"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GIP",
+    "force_update": true,
+    "data": {
+      "name": "GIP",
+      "iso_numeric": "292",
+      "full_name": "Gibraltar pound",
+      "symbol": "£",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Penny"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GNF",
+    "force_update": true,
+    "data": {
+      "name": "GNF",
+      "iso_numeric": "324",
+      "full_name": "Guinean franc",
+      "symbol": "FG",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GYD",
+    "force_update": true,
+    "data": {
+      "name": "GYD",
+      "iso_numeric": "328",
+      "full_name": "Guyanese dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "HTG",
+    "force_update": true,
+    "data": {
+      "name": "HTG",
+      "iso_numeric": "332",
+      "full_name": "Haitian gourde",
+      "symbol": "G",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Gourde",
+      "currency_subunit_label": "Centime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ISK",
+    "force_update": true,
+    "data": {
+      "name": "ISK",
+      "iso_numeric": "352",
+      "full_name": "Icelandic króna",
+      "symbol": "kr",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Krona",
+      "currency_subunit_label": "Aurar"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "IRR",
+    "force_update": true,
+    "data": {
+      "name": "IRR",
+      "iso_numeric": "364",
+      "full_name": "Iranian rial",
+      "symbol": "﷼",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "IQD",
+    "force_update": true,
+    "data": {
+      "name": "IQD",
+      "iso_numeric": "368",
+      "full_name": "Iraqi dinar",
+      "symbol": "ع.د",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ILS",
+    "force_update": true,
+    "data": {
+      "name": "ILS",
+      "iso_numeric": "376",
+      "full_name": "Israeli new shekel",
+      "symbol": "₪",
+      "position": "before",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Shekel",
+      "currency_subunit_label": "Agorot"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "JMD",
+    "force_update": true,
+    "data": {
+      "name": "JMD",
+      "iso_numeric": "388",
+      "full_name": "Jamaican dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "JOD",
+    "force_update": true,
+    "data": {
+      "name": "JOD",
+      "iso_numeric": "400",
+      "full_name": "Jordanian dinar",
+      "symbol": "د.ا",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KZT",
+    "force_update": true,
+    "data": {
+      "name": "KZT",
+      "iso_numeric": "398",
+      "full_name": "Kazakhstani tenge",
+      "symbol": "₸",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Tenge",
+      "currency_subunit_label": "Tiin"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KES",
+    "force_update": true,
+    "data": {
+      "name": "KES",
+      "iso_numeric": "404",
+      "full_name": "Kenyan shilling",
+      "symbol": "KSh",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Shilling",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KWD",
+    "force_update": true,
+    "data": {
+      "name": "KWD",
+      "iso_numeric": "414",
+      "full_name": "Kuwaiti dinar",
+      "symbol": "د.ك",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KGS",
+    "force_update": true,
+    "data": {
+      "name": "KGS",
+      "iso_numeric": "417",
+      "full_name": "Kyrgyzstani som",
+      "symbol": "лв",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Som",
+      "currency_subunit_label": "Tyiyn"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LAK",
+    "force_update": true,
+    "data": {
+      "name": "LAK",
+      "iso_numeric": "418",
+      "full_name": "Lao kip",
+      "symbol": "₭",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kip",
+      "currency_subunit_label": "Att"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LBP",
+    "force_update": true,
+    "data": {
+      "name": "LBP",
+      "iso_numeric": "422",
+      "full_name": "Lebanese pound",
+      "symbol": "ل.ل",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Piastres"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LSL",
+    "force_update": true,
+    "data": {
+      "name": "LSL",
+      "iso_numeric": "426",
+      "full_name": "Lesotho loti",
+      "symbol": "M",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Loti",
+      "currency_subunit_label": "Sente"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LRD",
+    "force_update": true,
+    "data": {
+      "name": "LRD",
+      "iso_numeric": "430",
+      "full_name": "Liberian dollar",
+      "symbol": "L$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LYD",
+    "force_update": true,
+    "data": {
+      "name": "LYD",
+      "iso_numeric": "434",
+      "full_name": "Libyan dinar",
+      "symbol": "ل.د",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Dirham"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MOP",
+    "force_update": true,
+    "data": {
+      "name": "MOP",
+      "iso_numeric": "446",
+      "full_name": "Macanese pataca",
+      "symbol": "MOP$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pataca",
+      "currency_subunit_label": "Sin"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MKD",
+    "force_update": true,
+    "data": {
+      "name": "MKD",
+      "iso_numeric": "807",
+      "full_name": "Macedonian denar",
+      "symbol": "ден",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Denar",
+      "currency_subunit_label": "Deni"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MGA",
+    "force_update": true,
+    "data": {
+      "name": "MGA",
+      "iso_numeric": "969",
+      "full_name": "Malagasy ariary",
+      "symbol": "Ar",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Ariary",
+      "currency_subunit_label": "Iraimbilanja"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MWK",
+    "force_update": true,
+    "data": {
+      "name": "MWK",
+      "iso_numeric": "454",
+      "full_name": "Malawian kwacha",
+      "symbol": "MK",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kwacha",
+      "currency_subunit_label": "Tambala"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MVR",
+    "force_update": true,
+    "data": {
+      "name": "MVR",
+      "iso_numeric": "462",
+      "full_name": "Maldivian rufiyaa",
+      "symbol": "Rf",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Rufiyaa",
+      "currency_subunit_label": "Laari"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MRO",
+    "force_update": true,
+    "data": {
+      "name": "MRO",
+      "iso_numeric": "478",
+      "full_name": "Mauritanian ouguiya (old)",
+      "symbol": "UM",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Ouguiya",
+      "currency_subunit_label": "Khoums"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MRU",
+    "force_update": true,
+    "data": {
+      "name": "MRU",
+      "iso_numeric": "478",
+      "full_name": "Mauritanian ouguiya",
+      "symbol": "UM",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Ouguiya",
+      "currency_subunit_label": "Khoums"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MDL",
+    "force_update": true,
+    "data": {
+      "name": "MDL",
+      "iso_numeric": "498",
+      "full_name": "Moldovan leu",
+      "symbol": "L",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Leu",
+      "currency_subunit_label": "Ban"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MNT",
+    "force_update": true,
+    "data": {
+      "name": "MNT",
+      "iso_numeric": "496",
+      "full_name": "Mongolian tögrög",
+      "symbol": "₮",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Tugrik",
+      "currency_subunit_label": "Mongo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MAD",
+    "force_update": true,
+    "data": {
+      "name": "MAD",
+      "iso_numeric": "504",
+      "full_name": "Moroccan dirham",
+      "symbol": "DH",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dirham",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "BND",
+    "force_update": true,
+    "data": {
+      "name": "BND",
+      "iso_numeric": "096",
+      "full_name": "Brunei dollar",
+      "symbol": "B$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "DZD",
+    "force_update": true,
+    "data": {
+      "name": "DZD",
+      "iso_numeric": "012",
+      "full_name": "Algerian dinar",
+      "symbol": "DA",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Centimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GHS",
+    "force_update": true,
+    "data": {
+      "name": "GHS",
+      "iso_numeric": "936",
+      "full_name": "Ghanaian cedi",
+      "symbol": "GH¢",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Cedi",
+      "currency_subunit_label": "Pesewas"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GMD",
+    "force_update": true,
+    "data": {
+      "name": "GMD",
+      "iso_numeric": "270",
+      "full_name": "Gambian dalasi",
+      "symbol": "D",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dalasi",
+      "currency_subunit_label": "Butut"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MZN",
+    "force_update": true,
+    "data": {
+      "name": "MZN",
+      "iso_numeric": "943",
+      "full_name": "Mozambican metical",
+      "symbol": "MT",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Metical",
+      "currency_subunit_label": "Centavo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "MMK",
+    "force_update": true,
+    "data": {
+      "name": "MMK",
+      "iso_numeric": "104",
+      "full_name": "Myanmar kyat",
+      "symbol": "K",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kyat",
+      "currency_subunit_label": "Pya"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NAD",
+    "force_update": true,
+    "data": {
+      "name": "NAD",
+      "iso_numeric": "516",
+      "full_name": "Namibian dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NPR",
+    "force_update": true,
+    "data": {
+      "name": "NPR",
+      "iso_numeric": "524",
+      "full_name": "Nepalese rupee",
+      "symbol": "₨",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rupee",
+      "currency_subunit_label": "Paisa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ALL",
+    "force_update": true,
+    "data": {
+      "name": "ALL",
+      "iso_numeric": "008",
+      "full_name": "Albanian lek",
+      "symbol": "L",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lek",
+      "currency_subunit_label": "Qindarke"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NIO",
+    "force_update": true,
+    "data": {
+      "name": "NIO",
+      "iso_numeric": "558",
+      "full_name": "Nicaraguan córdoba",
+      "symbol": "C$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Cordoba",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "NGN",
+    "force_update": true,
+    "data": {
+      "name": "NGN",
+      "iso_numeric": "566",
+      "full_name": "Nigerian naira",
+      "symbol": "₦",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Naira",
+      "currency_subunit_label": "Kobo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "KPW",
+    "force_update": true,
+    "data": {
+      "name": "KPW",
+      "iso_numeric": "408",
+      "full_name": "North Korean won",
+      "symbol": "₩",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Won",
+      "currency_subunit_label": "Chon"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ZIG",
+    "force_update": true,
+    "data": {
+      "name": "ZIG",
+      "full_name": "Zimbabwe Gold",
+      "symbol": "ZiG",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "ZiGs"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "ZMW",
+    "force_update": true,
+    "data": {
+      "name": "ZMW",
+      "iso_numeric": "967",
+      "full_name": "Zambian kwacha",
+      "symbol": "ZK",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kwacha",
+      "currency_subunit_label": "Ngwee"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "YER",
+    "force_update": true,
+    "data": {
+      "name": "YER",
+      "iso_numeric": "886",
+      "full_name": "Yemeni rial",
+      "symbol": "﷼",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rial",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "EUR",
+    "force_update": true,
+    "data": {
+      "name": "EUR",
+      "iso_numeric": "978",
+      "full_name": "Euro",
+      "symbol": "€",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Euros",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "VUV",
+    "force_update": true,
+    "data": {
+      "name": "VUV",
+      "iso_numeric": "548",
+      "full_name": "Vanuatu vatu",
+      "symbol": "VT",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Vatu"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UZS",
+    "force_update": true,
+    "data": {
+      "name": "UZS",
+      "iso_numeric": "860",
+      "full_name": "Uzbekistan som",
+      "symbol": "лв",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Som",
+      "currency_subunit_label": "Tiyin"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "AED",
+    "force_update": true,
+    "data": {
+      "name": "AED",
+      "iso_numeric": "784",
+      "full_name": "United Arab Emirates dirham",
+      "symbol": "AED",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dirham",
+      "currency_subunit_label": "Fils"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TMT",
+    "force_update": true,
+    "data": {
+      "name": "TMT",
+      "iso_numeric": "934",
+      "full_name": "Turkmenistan manat",
+      "symbol": "T",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Manat",
+      "currency_subunit_label": "Tenge"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TND",
+    "force_update": true,
+    "data": {
+      "name": "TND",
+      "iso_numeric": "788",
+      "full_name": "Tunisian dinar",
+      "symbol": "DT",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Millimes"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TTD",
+    "force_update": true,
+    "data": {
+      "name": "TTD",
+      "iso_numeric": "780",
+      "full_name": "Trinidad and Tobago dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TOP",
+    "force_update": true,
+    "data": {
+      "name": "TOP",
+      "iso_numeric": "776",
+      "full_name": "Tongan paʻanga",
+      "symbol": "T$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Paanga",
+      "currency_subunit_label": "Seniti"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "THB",
+    "force_update": true,
+    "data": {
+      "name": "THB",
+      "iso_numeric": "764",
+      "full_name": "Thai baht",
+      "symbol": "฿",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Baht",
+      "currency_subunit_label": "Satang"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TZS",
+    "force_update": true,
+    "data": {
+      "name": "TZS",
+      "iso_numeric": "834",
+      "full_name": "Tanzanian shilling",
+      "symbol": "TSh",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Shilling",
+      "currency_subunit_label": "Senti"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TJS",
+    "force_update": true,
+    "data": {
+      "name": "TJS",
+      "iso_numeric": "972",
+      "full_name": "Tajikistani somoni",
+      "symbol": "TJS",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Somoni",
+      "currency_subunit_label": "Diram"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "TWD",
+    "force_update": true,
+    "data": {
+      "name": "TWD",
+      "iso_numeric": "901",
+      "full_name": "New Taiwan dollar",
+      "symbol": "NT$",
+      "rounding": "1.00",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SYP",
+    "force_update": true,
+    "data": {
+      "name": "SYP",
+      "iso_numeric": "760",
+      "full_name": "Syrian pound",
+      "symbol": "£",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Piastrp"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SZL",
+    "force_update": true,
+    "data": {
+      "name": "SZL",
+      "iso_numeric": "748",
+      "full_name": "Swazi lilangeni",
+      "symbol": "E",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Lilangeni",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SRD",
+    "force_update": true,
+    "data": {
+      "name": "SRD",
+      "iso_numeric": "968",
+      "full_name": "Surinamese dollar",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SDG",
+    "force_update": true,
+    "data": {
+      "name": "SDG",
+      "iso_numeric": "938",
+      "full_name": "Sudanese pound",
+      "symbol": "ج.س.",
+      "rounding": "0.01",
+      "active": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "LKR",
+    "force_update": true,
+    "data": {
+      "name": "LKR",
+      "iso_numeric": "144",
+      "full_name": "Sri Lankan rupee",
+      "symbol": "Rs",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rupee",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SSP",
+    "force_update": true,
+    "data": {
+      "name": "SSP",
+      "iso_numeric": "728",
+      "full_name": "South Sudanese pound",
+      "symbol": "£",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pounds",
+      "currency_subunit_label": "Piasters"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GBP",
+    "force_update": true,
+    "data": {
+      "name": "GBP",
+      "iso_numeric": "826",
+      "full_name": "Pound sterling",
+      "symbol": "£",
+      "rounding": "0.01",
+      "position": "before",
+      "active": false,
+      "currency_unit_label": "Sterling",
+      "currency_subunit_label": "Penny"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SOS",
+    "force_update": true,
+    "data": {
+      "name": "SOS",
+      "iso_numeric": "706",
+      "full_name": "Somali shilling",
+      "symbol": "Sh.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Shillings",
+      "currency_subunit_label": "Senti"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SBD",
+    "force_update": true,
+    "data": {
+      "name": "SBD",
+      "iso_numeric": "090",
+      "full_name": "Solomon Islands dollar",
+      "symbol": "SI$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dollars",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SLL",
+    "force_update": true,
+    "data": {
+      "name": "SLL",
+      "iso_numeric": "694",
+      "full_name": "Sierra Leonean leone",
+      "symbol": "Le",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Leone",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SLE",
+    "force_update": true,
+    "data": {
+      "name": "SLE",
+      "iso_numeric": "694",
+      "full_name": "Sierra Leonean leone",
+      "symbol": "Le",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Leone",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SCR",
+    "force_update": true,
+    "data": {
+      "name": "SCR",
+      "iso_numeric": "690",
+      "full_name": "Seychellois rupee",
+      "symbol": "SR",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rupee",
+      "currency_subunit_label": "Cents"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "RSD",
+    "force_update": true,
+    "data": {
+      "name": "RSD",
+      "iso_numeric": "941",
+      "full_name": "Serbian dinar",
+      "symbol": "din.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dinar",
+      "currency_subunit_label": "Para"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SAR",
+    "force_update": true,
+    "data": {
+      "name": "SAR",
+      "iso_numeric": "682",
+      "full_name": "Saudi riyal",
+      "symbol": "SR",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Riyal",
+      "currency_subunit_label": "Halala"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "STD",
+    "force_update": true,
+    "data": {
+      "name": "STD",
+      "iso_numeric": "678",
+      "full_name": "São Tomé and Príncipe dobra",
+      "symbol": "Db",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dobra",
+      "currency_subunit_label": "Centimo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "WST",
+    "force_update": true,
+    "data": {
+      "name": "WST",
+      "iso_numeric": "882",
+      "full_name": "Samoan tālā",
+      "symbol": "WS$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Tala",
+      "currency_subunit_label": "Sene"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "SHP",
+    "force_update": true,
+    "data": {
+      "name": "SHP",
+      "iso_numeric": "654",
+      "full_name": "Saint Helena pound",
+      "symbol": "£",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Pound",
+      "currency_subunit_label": "Penny"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "RWF",
+    "force_update": true,
+    "data": {
+      "name": "RWF",
+      "iso_numeric": "646",
+      "full_name": "Rwandan franc",
+      "symbol": "RF",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Franc",
+      "currency_subunit_label": "Santime"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "QAR",
+    "force_update": true,
+    "data": {
+      "name": "QAR",
+      "iso_numeric": "634",
+      "full_name": "Qatari riyal",
+      "symbol": "QR",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Riyal",
+      "currency_subunit_label": "Dirham"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PEN",
+    "force_update": true,
+    "data": {
+      "name": "PEN",
+      "iso_numeric": "604",
+      "full_name": "Peruvian sol",
+      "symbol": "S/",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Soles",
+      "currency_subunit_label": "Centimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PYG",
+    "force_update": true,
+    "data": {
+      "name": "PYG",
+      "iso_numeric": "600",
+      "full_name": "Paraguayan guaraní",
+      "symbol": "₲",
+      "rounding": "1",
+      "active": false,
+      "currency_unit_label": "Guarani",
+      "currency_subunit_label": "Centimos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PGK",
+    "force_update": true,
+    "data": {
+      "name": "PGK",
+      "iso_numeric": "598",
+      "full_name": "Papua New Guinean kina",
+      "symbol": "K",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Kina",
+      "currency_subunit_label": "Toea"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "PKR",
+    "force_update": true,
+    "data": {
+      "name": "PKR",
+      "iso_numeric": "586",
+      "full_name": "Pakistani rupee",
+      "symbol": "Rs.",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Rupee",
+      "currency_subunit_label": "Paisa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "OMR",
+    "force_update": true,
+    "data": {
+      "name": "OMR",
+      "iso_numeric": "512",
+      "full_name": "Omani rial",
+      "symbol": "ر.ع.",
+      "rounding": "0.001",
+      "active": false,
+      "currency_unit_label": "Rial",
+      "currency_subunit_label": "Baisa"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CVE",
+    "force_update": true,
+    "data": {
+      "name": "CVE",
+      "iso_numeric": "132",
+      "full_name": "Cape Verdean escudo",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Escudo",
+      "currency_subunit_label": "Centavo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "COU",
+    "force_update": true,
+    "data": {
+      "name": "COU",
+      "iso_numeric": "970",
+      "full_name": "Unidad de Valor Real",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "centavo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CLF",
+    "force_update": true,
+    "data": {
+      "name": "CLF",
+      "iso_numeric": "990",
+      "full_name": "Unidad de Fomento",
+      "symbol": "$",
+      "rounding": "0.0001",
+      "active": false,
+      "position": "before",
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "Centavos"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "CUC",
+    "force_update": true,
+    "data": {
+      "name": "CUC",
+      "iso_numeric": "931",
+      "full_name": "Cuban convertible peso",
+      "symbol": "$",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Cuban convertible peso"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "GTQ",
+    "force_update": true,
+    "data": {
+      "name": "GTQ",
+      "iso_numeric": "320",
+      "full_name": "Guatemalan Quetzal",
+      "symbol": "Q",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Quetzales",
+      "currency_subunit_label": "Centavo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "VES",
+    "force_update": true,
+    "data": {
+      "name": "VES",
+      "iso_numeric": "937",
+      "full_name": "Venezuelan bolívar soberano",
+      "symbol": "Bs",
+      "rounding": "0.01",
+      "active": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UYW",
+    "force_update": true,
+    "data": {
+      "name": "UYW",
+      "iso_numeric": "858",
+      "full_name": "Unidad previsional",
+      "symbol": "$",
+      "rounding": "0.0001",
+      "active": false,
+      "currency_unit_label": "peso",
+      "currency_subunit_label": "centésimo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "UYI",
+    "force_update": true,
+    "data": {
+      "name": "UYI",
+      "iso_numeric": "940",
+      "full_name": "Uruguay Peso en Unidades Indexadas",
+      "symbol": "$",
+      "rounding": "0.0001",
+      "active": false,
+      "currency_unit_label": "Peso",
+      "currency_subunit_label": "centésimo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency",
+    "external_id": "STN",
+    "force_update": true,
+    "data": {
+      "name": "STN",
+      "iso_numeric": "678",
+      "full_name": "São Tomé and Príncipe dobra",
+      "symbol": "Db",
+      "rounding": "0.01",
+      "active": false,
+      "currency_unit_label": "Dobra",
+      "currency_subunit_label": "cêntimo"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUSD",
+    "force_update": true,
+    "data": {
+      "rate": "1.0",
+      "currency_id": "USD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateVEF",
+    "force_update": true,
+    "data": {
+      "rate": "5.864",
+      "currency_id": "VEF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCAD",
+    "force_update": true,
+    "data": {
+      "rate": "1.3388",
+      "currency_id": "CAD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCHF",
+    "force_update": true,
+    "data": {
+      "rate": "1.3086",
+      "currency_id": "CHF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBRL",
+    "force_update": true,
+    "data": {
+      "rate": "2.2344",
+      "currency_id": "BRL",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCNY",
+    "force_update": true,
+    "data": {
+      "rate": "8.7556",
+      "currency_id": "CNY",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCOP",
+    "force_update": true,
+    "data": {
+      "rate": "2933.8378",
+      "currency_id": "COP",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCZK",
+    "force_update": true,
+    "data": {
+      "rate": "26.5634",
+      "currency_id": "CZK",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateDKK",
+    "force_update": true,
+    "data": {
+      "rate": "7.4445",
+      "currency_id": "DKK",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateHUF",
+    "force_update": true,
+    "data": {
+      "rate": "271.5621",
+      "currency_id": "HUF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateIDR1",
+    "force_update": true,
+    "data": {
+      "rate": "14352.00",
+      "currency_id": "IDR",
+      "name": "2009-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateIDR",
+    "force_update": true,
+    "data": {
+      "rate": "11796.39",
+      "currency_id": "IDR",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLVL",
+    "force_update": true,
+    "data": {
+      "rate": "0.7086",
+      "currency_id": "LVL",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNOK",
+    "force_update": true,
+    "data": {
+      "rate": "7.8668",
+      "currency_id": "NOK",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateXPF",
+    "force_update": true,
+    "data": {
+      "rate": "119.331742",
+      "currency_id": "XPF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePAB",
+    "force_update": true,
+    "data": {
+      "rate": "1.2676",
+      "currency_id": "PAB",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePLN",
+    "force_update": true,
+    "data": {
+      "rate": "4.1005",
+      "currency_id": "PLN",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSEK",
+    "force_update": true,
+    "data": {
+      "rate": "10.3004",
+      "currency_id": "SEK",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateARS",
+    "force_update": true,
+    "data": {
+      "rate": "5.0881",
+      "currency_id": "ARS",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateINR",
+    "force_update": true,
+    "data": {
+      "rate": "59.9739",
+      "currency_id": "INR",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAUD",
+    "force_update": true,
+    "data": {
+      "rate": "1.4070",
+      "currency_id": "AUD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUAH",
+    "force_update": true,
+    "data": {
+      "rate": "10.1969",
+      "currency_id": "UAH",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateVND",
+    "force_update": true,
+    "data": {
+      "rate": "26330.01",
+      "currency_id": "VND",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateHKD",
+    "force_update": true,
+    "data": {
+      "rate": "11.1608",
+      "currency_id": "HKD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateJPY",
+    "force_update": true,
+    "data": {
+      "rate": "133.62",
+      "currency_id": "JPY",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBGN",
+    "force_update": true,
+    "data": {
+      "rate": "1.9558",
+      "currency_id": "BGN",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLTL",
+    "force_update": true,
+    "data": {
+      "rate": "3.4528",
+      "currency_id": "LTL",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateRON",
+    "force_update": true,
+    "data": {
+      "rate": "4.2253",
+      "currency_id": "RON",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateHRK",
+    "force_update": true,
+    "data": {
+      "rate": "7.2936",
+      "currency_id": "HRK",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateRUB",
+    "force_update": true,
+    "data": {
+      "rate": "43.16",
+      "currency_id": "RUB",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTRY",
+    "force_update": true,
+    "data": {
+      "rate": "2.1411",
+      "currency_id": "TRY",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKRW",
+    "force_update": true,
+    "data": {
+      "rate": "1662.37",
+      "currency_id": "KRW",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMXN",
+    "force_update": true,
+    "data": {
+      "rate": "18.6664",
+      "currency_id": "MXN",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMYR",
+    "force_update": true,
+    "data": {
+      "rate": "4.8887",
+      "currency_id": "MYR",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNZD",
+    "force_update": true,
+    "data": {
+      "rate": "1.9764",
+      "currency_id": "NZD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePHP",
+    "force_update": true,
+    "data": {
+      "rate": "66.1",
+      "currency_id": "PHP",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSGD",
+    "force_update": true,
+    "data": {
+      "rate": "2.0126",
+      "currency_id": "SGD",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateZAR",
+    "force_update": true,
+    "data": {
+      "rate": "10.5618",
+      "currency_id": "ZAR",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCRC",
+    "force_update": true,
+    "data": {
+      "rate": "691.3153",
+      "currency_id": "CRC",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMUR",
+    "force_update": true,
+    "data": {
+      "rate": "40.28",
+      "currency_id": "MUR",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateXOF",
+    "force_update": true,
+    "data": {
+      "rate": "655.957",
+      "currency_id": "XOF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateXAF",
+    "force_update": true,
+    "data": {
+      "rate": "655.957",
+      "currency_id": "XAF",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUGX",
+    "force_update": true,
+    "data": {
+      "rate": "3401.91388",
+      "currency_id": "UGX",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateHNL",
+    "force_update": true,
+    "data": {
+      "rate": "25",
+      "currency_id": "HNL",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCLP",
+    "force_update": true,
+    "data": {
+      "rate": "710",
+      "currency_id": "CLP",
+      "name": "2010-01-01"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUYU",
+    "force_update": true,
+    "data": {
+      "currency_id": "UYU",
+      "name": "2010-01-01",
+      "rate": "28.36"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUYI",
+    "force_update": true,
+    "data": {
+      "currency_id": "UYI",
+      "name": "2023-09-13",
+      "rate": "5.7778"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAFN",
+    "force_update": true,
+    "data": {
+      "currency_id": "AFN",
+      "name": "2010-01-01",
+      "rate": "59.33"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAOA",
+    "force_update": true,
+    "data": {
+      "currency_id": "AOA",
+      "name": "2010-01-01",
+      "rate": "117.080"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateXCD",
+    "force_update": true,
+    "data": {
+      "currency_id": "XCD",
+      "name": "2010-01-01",
+      "rate": "3.32"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAMD",
+    "force_update": true,
+    "data": {
+      "currency_id": "AMD",
+      "name": "2010-01-01",
+      "rate": "506.02"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAWG",
+    "force_update": true,
+    "data": {
+      "currency_id": "AWG",
+      "name": "2010-01-01",
+      "rate": "0.45"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAZN",
+    "force_update": true,
+    "data": {
+      "currency_id": "AZN",
+      "name": "2010-01-01",
+      "rate": "0.96"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBSD",
+    "force_update": true,
+    "data": {
+      "currency_id": "BSD",
+      "name": "2010-01-01",
+      "rate": "1.23"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBHD",
+    "force_update": true,
+    "data": {
+      "currency_id": "BHD",
+      "name": "2010-01-01",
+      "rate": "0.46"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBDT",
+    "force_update": true,
+    "data": {
+      "currency_id": "BDT",
+      "name": "2010-01-01",
+      "rate": "100.59"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBBD",
+    "force_update": true,
+    "data": {
+      "currency_id": "BBD",
+      "name": "2010-01-01",
+      "rate": "2.46"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBYR",
+    "force_update": true,
+    "data": {
+      "currency_id": "BYR",
+      "name": "2010-01-01",
+      "rate": "10228.19"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBYN",
+    "force_update": true,
+    "data": {
+      "currency_id": "BYN",
+      "name": "2016-07-01",
+      "rate": "2.23151"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBZD",
+    "force_update": true,
+    "data": {
+      "currency_id": "BZD",
+      "name": "2010-01-01",
+      "rate": "2.33"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBMD",
+    "force_update": true,
+    "data": {
+      "currency_id": "BMD",
+      "name": "2010-01-01",
+      "rate": "1.23"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBTN",
+    "force_update": true,
+    "data": {
+      "currency_id": "BTN",
+      "name": "2010-01-01",
+      "rate": "67.81"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBOB",
+    "force_update": true,
+    "data": {
+      "currency_id": "BOB",
+      "name": "2010-01-01",
+      "rate": "8.50"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBAM",
+    "force_update": true,
+    "data": {
+      "currency_id": "BAM",
+      "name": "2010-01-01",
+      "rate": "1.96"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBWP",
+    "force_update": true,
+    "data": {
+      "currency_id": "BWP",
+      "name": "2010-01-01",
+      "rate": "9.45"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBIF",
+    "force_update": true,
+    "data": {
+      "currency_id": "BIF",
+      "name": "2010-01-01",
+      "rate": "1736.73"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKHR",
+    "force_update": true,
+    "data": {
+      "currency_id": "KHR",
+      "name": "2010-01-01",
+      "rate": "5054.53"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKYD",
+    "force_update": true,
+    "data": {
+      "currency_id": "KYD",
+      "name": "2010-01-01",
+      "rate": "1.007"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKMF",
+    "force_update": true,
+    "data": {
+      "currency_id": "KMF",
+      "name": "2010-01-01",
+      "rate": "492.23"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCDF",
+    "force_update": true,
+    "data": {
+      "currency_id": "CDF",
+      "name": "2010-01-01",
+      "rate": "1112.80"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCUP",
+    "force_update": true,
+    "data": {
+      "currency_id": "CUP",
+      "name": "2010-01-01",
+      "rate": "1.226"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateANG",
+    "force_update": true,
+    "data": {
+      "currency_id": "ANG",
+      "name": "2010-01-01",
+      "rate": "2.11"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateXCG",
+    "force_update": true,
+    "data": {
+      "currency_id": "XCG",
+      "name": "2025-01-15",
+      "rate": "1.80302"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateDJF",
+    "force_update": true,
+    "data": {
+      "currency_id": "DJF",
+      "name": "2010-01-01",
+      "rate": "222.22"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateDOP",
+    "force_update": true,
+    "data": {
+      "currency_id": "DOP",
+      "name": "2010-01-01",
+      "rate": "48.09"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateEGP",
+    "force_update": true,
+    "data": {
+      "currency_id": "EGP",
+      "name": "2010-01-01",
+      "rate": "7.46"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSVC",
+    "force_update": true,
+    "data": {
+      "currency_id": "SVC",
+      "name": "2010-01-01",
+      "rate": "10.74"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateERN",
+    "force_update": true,
+    "data": {
+      "currency_id": "ERN",
+      "name": "2010-01-01",
+      "rate": "18.89"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateEEB",
+    "force_update": true,
+    "data": {
+      "currency_id": "ETB",
+      "name": "2010-01-01",
+      "rate": "21.94"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateFKP",
+    "force_update": true,
+    "data": {
+      "currency_id": "FKP",
+      "name": "2010-01-01",
+      "rate": "0.78"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateFJD",
+    "force_update": true,
+    "data": {
+      "currency_id": "FJD",
+      "name": "2010-01-01",
+      "rate": "2.22"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGEL",
+    "force_update": true,
+    "data": {
+      "currency_id": "GEL",
+      "name": "2010-01-01",
+      "rate": "2.018"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGIP",
+    "force_update": true,
+    "data": {
+      "currency_id": "GIP",
+      "name": "2010-01-01",
+      "rate": "0.786"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGNF",
+    "force_update": true,
+    "data": {
+      "currency_id": "GNF",
+      "name": "2010-01-01",
+      "rate": "8835.85"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGYD",
+    "force_update": true,
+    "data": {
+      "currency_id": "GYD",
+      "name": "2010-01-01",
+      "rate": "247.31"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateHTG",
+    "force_update": true,
+    "data": {
+      "currency_id": "HTG",
+      "name": "2010-01-01",
+      "rate": "51.69"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateISK",
+    "force_update": true,
+    "data": {
+      "currency_id": "ISK",
+      "name": "2010-01-01",
+      "rate": "158.70"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateIRR",
+    "force_update": true,
+    "data": {
+      "currency_id": "IRR",
+      "name": "2010-01-01",
+      "rate": "15059.97"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateIQD",
+    "force_update": true,
+    "data": {
+      "currency_id": "IQD",
+      "name": "2010-01-01",
+      "rate": "1432.27"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateILS",
+    "force_update": true,
+    "data": {
+      "currency_id": "ILS",
+      "name": "2010-01-01",
+      "rate": "4.89"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateJMD",
+    "force_update": true,
+    "data": {
+      "currency_id": "JMD",
+      "name": "2010-01-01",
+      "rate": "108.94"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateJOD",
+    "force_update": true,
+    "data": {
+      "currency_id": "JOD",
+      "name": "2010-01-01",
+      "rate": "0.87"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKZT",
+    "force_update": true,
+    "data": {
+      "currency_id": "KZT",
+      "name": "2010-01-01",
+      "rate": "184.09"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKES",
+    "force_update": true,
+    "data": {
+      "currency_id": "KES",
+      "name": "2010-01-01",
+      "rate": "103.43"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKWD",
+    "force_update": true,
+    "data": {
+      "currency_id": "KWD",
+      "name": "2010-01-01",
+      "rate": "0.35"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKGS",
+    "force_update": true,
+    "data": {
+      "currency_id": "KGS",
+      "name": "2010-01-01",
+      "rate": "57.93"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLAK",
+    "force_update": true,
+    "data": {
+      "currency_id": "LAK",
+      "name": "2010-01-01",
+      "rate": "9847.72"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLBP",
+    "force_update": true,
+    "data": {
+      "currency_id": "LBP",
+      "name": "2010-01-01",
+      "rate": "1853.94"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLSL",
+    "force_update": true,
+    "data": {
+      "currency_id": "LSL",
+      "name": "2010-01-01",
+      "rate": "10.06"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLRD",
+    "force_update": true,
+    "data": {
+      "currency_id": "LRD",
+      "name": "2010-01-01",
+      "rate": "90.28"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLYD",
+    "force_update": true,
+    "data": {
+      "currency_id": "LYD",
+      "name": "2010-01-01",
+      "rate": "1.54"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMOP",
+    "force_update": true,
+    "data": {
+      "currency_id": "MOP",
+      "name": "2010-01-01",
+      "rate": "9.81"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMKD",
+    "force_update": true,
+    "data": {
+      "currency_id": "MKD",
+      "name": "2010-01-01",
+      "rate": "60.29"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMGA",
+    "force_update": true,
+    "data": {
+      "currency_id": "MGA",
+      "name": "2010-01-01",
+      "rate": "2775.86"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMWK",
+    "force_update": true,
+    "data": {
+      "currency_id": "MWK",
+      "name": "2010-01-01",
+      "rate": "329.79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMVR",
+    "force_update": true,
+    "data": {
+      "currency_id": "MVR",
+      "name": "2010-01-01",
+      "rate": "18.89"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMRO",
+    "force_update": true,
+    "data": {
+      "currency_id": "MRO",
+      "name": "2010-01-01",
+      "rate": "362.23"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMDL",
+    "force_update": true,
+    "data": {
+      "currency_id": "MDL",
+      "name": "2010-01-01",
+      "rate": "15.27"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMNT",
+    "force_update": true,
+    "data": {
+      "currency_id": "MNT",
+      "name": "2010-01-01",
+      "rate": "1643.57"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMAD",
+    "force_update": true,
+    "data": {
+      "currency_id": "MAD",
+      "name": "2010-01-01",
+      "rate": "10.9962499"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateBND",
+    "force_update": true,
+    "data": {
+      "currency_id": "BND",
+      "name": "2010-01-01",
+      "rate": "1.54"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateDZD",
+    "force_update": true,
+    "data": {
+      "currency_id": "DZD",
+      "name": "2010-01-01",
+      "rate": "99.65"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGHS",
+    "force_update": true,
+    "data": {
+      "currency_id": "GHS",
+      "name": "2010-01-01",
+      "rate": "2.39"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGMD",
+    "force_update": true,
+    "data": {
+      "currency_id": "GMD",
+      "name": "2010-01-01",
+      "rate": "38.89"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMZN",
+    "force_update": true,
+    "data": {
+      "currency_id": "MZN",
+      "name": "2010-01-01",
+      "rate": "33.65"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateMMK",
+    "force_update": true,
+    "data": {
+      "currency_id": "MMK",
+      "name": "2010-01-01",
+      "rate": "1080.82"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNAD",
+    "force_update": true,
+    "data": {
+      "currency_id": "NAD",
+      "name": "2010-01-01",
+      "rate": "10.06"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNPR",
+    "force_update": true,
+    "data": {
+      "currency_id": "NPR",
+      "name": "2010-01-01",
+      "rate": "108.33"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateALL",
+    "force_update": true,
+    "data": {
+      "currency_id": "ALL",
+      "name": "2010-01-01",
+      "rate": "138.00"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNIO",
+    "force_update": true,
+    "data": {
+      "currency_id": "NIO",
+      "name": "2010-01-01",
+      "rate": "28.97"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateNGN",
+    "force_update": true,
+    "data": {
+      "currency_id": "NGN",
+      "name": "2010-01-01",
+      "rate": "196.77"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateKPW",
+    "force_update": true,
+    "data": {
+      "currency_id": "KPW",
+      "name": "2010-01-01",
+      "rate": "1105.24376765"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateZIG",
+    "force_update": true,
+    "data": {
+      "currency_id": "ZIG",
+      "name": "2024-04-08",
+      "rate": "14.69"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateZMW",
+    "force_update": true,
+    "data": {
+      "currency_id": "ZMW",
+      "name": "2010-01-01",
+      "rate": "11.61"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateYER",
+    "force_update": true,
+    "data": {
+      "currency_id": "YER",
+      "name": "2010-01-01",
+      "rate": "264.784483"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateEUR",
+    "force_update": true,
+    "data": {
+      "currency_id": "EUR",
+      "name": "2010-01-01",
+      "rate": "1.2834"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateVUV",
+    "force_update": true,
+    "data": {
+      "currency_id": "VUV",
+      "name": "2010-01-01",
+      "rate": "114.024315363"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateUZS",
+    "force_update": true,
+    "data": {
+      "currency_id": "UZS",
+      "name": "2010-01-01",
+      "rate": "2331.3093"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateAED",
+    "force_update": true,
+    "data": {
+      "currency_id": "AED",
+      "name": "2010-01-01",
+      "rate": "4.51253195"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTMT",
+    "force_update": true,
+    "data": {
+      "currency_id": "TMT",
+      "name": "2010-01-01",
+      "rate": "4.31"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTND",
+    "force_update": true,
+    "data": {
+      "currency_id": "TND",
+      "name": "2010-01-01",
+      "rate": "34.0661408"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTTD",
+    "force_update": true,
+    "data": {
+      "currency_id": "TTD",
+      "name": "2010-01-01",
+      "rate": "8.61926302"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTOP",
+    "force_update": true,
+    "data": {
+      "currency_id": "TOP",
+      "name": "2010-01-01",
+      "rate": "31.1217"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTHB",
+    "force_update": true,
+    "data": {
+      "currency_id": "THB",
+      "name": "2010-01-01",
+      "rate": "38.4070124"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTZS",
+    "force_update": true,
+    "data": {
+      "currency_id": "TZS",
+      "name": "2010-01-01",
+      "rate": "1947.06815"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTJS",
+    "force_update": true,
+    "data": {
+      "currency_id": "TJS",
+      "name": "2010-01-01",
+      "rate": "6.15"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateTWD",
+    "force_update": true,
+    "data": {
+      "currency_id": "TWD",
+      "name": "2010-01-01",
+      "rate": "36.8329536"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSYP",
+    "force_update": true,
+    "data": {
+      "currency_id": "SYP",
+      "name": "2010-01-01",
+      "rate": "78.8338"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSZL",
+    "force_update": true,
+    "data": {
+      "currency_id": "SZL",
+      "name": "2010-01-01",
+      "rate": "10.07"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSRD",
+    "force_update": true,
+    "data": {
+      "currency_id": "SRD",
+      "name": "2010-01-01",
+      "rate": "9.17930"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSDG",
+    "force_update": true,
+    "data": {
+      "currency_id": "SDG",
+      "name": "2010-01-01",
+      "rate": "3.1999"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateLKR",
+    "force_update": true,
+    "data": {
+      "currency_id": "LKR",
+      "name": "2010-01-01",
+      "rate": "163.552526"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSSP",
+    "force_update": true,
+    "data": {
+      "currency_id": "SSP",
+      "name": "2010-01-01",
+      "rate": "5.528"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGBP",
+    "force_update": true,
+    "data": {
+      "currency_id": "GBP",
+      "name": "2010-01-01",
+      "rate": "0.784221994"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSOS",
+    "force_update": true,
+    "data": {
+      "currency_id": "SOS",
+      "name": "2010-01-01",
+      "rate": "1993.71"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSBD",
+    "force_update": true,
+    "data": {
+      "currency_id": "SBD",
+      "name": "2010-01-01",
+      "rate": "8.6605"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSLL",
+    "force_update": true,
+    "data": {
+      "currency_id": "SLL",
+      "name": "2010-01-01",
+      "rate": "5320.43478"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSLE",
+    "force_update": true,
+    "data": {
+      "currency_id": "SLE",
+      "name": "2023-06-08",
+      "rate": "22.5847"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSCR",
+    "force_update": true,
+    "data": {
+      "currency_id": "SCR",
+      "name": "2010-01-01",
+      "rate": "18.2587287"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateRSD",
+    "force_update": true,
+    "data": {
+      "currency_id": "RSD",
+      "name": "2010-01-01",
+      "rate": "117.381295"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSAR",
+    "force_update": true,
+    "data": {
+      "currency_id": "SAR",
+      "name": "2010-01-01",
+      "rate": "4.58898972"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSTD",
+    "force_update": true,
+    "data": {
+      "currency_id": "STD",
+      "name": "2010-01-01",
+      "rate": "24105.86"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateWST",
+    "force_update": true,
+    "data": {
+      "currency_id": "WST",
+      "name": "2010-01-01",
+      "rate": "2.8628"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateSHP",
+    "force_update": true,
+    "data": {
+      "currency_id": "SHP",
+      "name": "2010-01-01",
+      "rate": "0.7856"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateRWF",
+    "force_update": true,
+    "data": {
+      "currency_id": "RWF",
+      "name": "2010-01-01",
+      "rate": "752.57"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateQAR",
+    "force_update": true,
+    "data": {
+      "currency_id": "QAR",
+      "name": "2010-01-01",
+      "rate": "4.45500218"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePEN",
+    "force_update": true,
+    "data": {
+      "currency_id": "PEN",
+      "name": "2010-01-01",
+      "rate": "3.20731573"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePYG",
+    "force_update": true,
+    "data": {
+      "currency_id": "PYG",
+      "name": "2010-01-01",
+      "rate": "5343.66812"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePGK",
+    "force_update": true,
+    "data": {
+      "currency_id": "PGK",
+      "name": "2010-01-01",
+      "rate": "2.5903895"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "ratePKR",
+    "force_update": true,
+    "data": {
+      "currency_id": "PKR",
+      "name": "2010-01-01",
+      "rate": "115.97432"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateOMR",
+    "force_update": true,
+    "data": {
+      "currency_id": "OMR",
+      "name": "2010-01-01",
+      "rate": "0.472921728"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateCVE",
+    "force_update": true,
+    "data": {
+      "currency_id": "CVE",
+      "name": "2010-01-01",
+      "rate": "0.61"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.currency.rate",
+    "external_id": "rateGTQ",
+    "force_update": true,
+    "data": {
+      "rate": "11.2020",
+      "currency_id": "GTQ",
+      "name": "2010-01-01"
+    }
+  }
+]

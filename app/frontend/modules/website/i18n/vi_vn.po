@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Failed to load the base-web-editor script"
+msgstr "Không thể tải tập lệnh base-web-editor"
+
+msgid "Failed to load the website editor"
+msgstr "Không thể tải trình soạn thảo website"
+
+msgid "Could not upload {fileName}."
+msgstr "Không thể tải lên {fileName}."
+
+msgid "Upload for {fileName} did not return an attachment id."
+msgstr "Tải lên {fileName} không trả về mã tệp đính kèm."
+
+msgid "Website page not found"
+msgstr "Không tìm thấy trang website"
+
+msgid "Website page has no site"
+msgstr "Trang web chưa có site"
+
+msgid "Failed to load website page"
+msgstr "Không thể tải trang website"
+
+msgid "Loading website page..."
+msgstr "Đang tải trang website..."
+
+msgid "Failed to load website studio"
+msgstr "Không thể tải website studio"
+
+msgid "Loading website studio..."
+msgstr "Đang tải website studio..."

@@ -1,0 +1,31 @@
+<templates xml:space="preserve">
+  <t t-name="FollowerButton">
+    <Popover>
+      <PopoverTrigger>
+        <span t-attf-class="d-inline-flex align-items-center gap-1 ">
+          <Icon name="props.isFollowing ? 'user-2' : 'user-x-2'"/>
+          <span t-esc="props.followers.length" class="xsmall"/>
+        </span>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div class="basehub-chatter-followers">
+          <t t-if="props.followers.length === 0">
+            <p class="basehub-chatter-empty" t-esc="t('No followers yet.')"/>
+          </t>
+          <ul t-else="" class="basehub-chatter-follower-list">
+            <t t-foreach="props.followers" t-as="follower" t-key="follower.id">
+              <li class="basehub-chatter-follower-row">
+                <span t-esc="followerName(follower)"/>
+                <button type="button" class="basehub-form-chip-remove" t-att-aria-label="t('Remove follower')"
+                        t-on-click="() => this.removeFollower(follower)">×</button>
+              </li>
+            </t>
+          </ul>
+          <UserPicker selected="followerUsers" onAdd="(user) => props.onAddFollower(user.id)" placeholder="t('Add a follower…')"/>
+          <Button variant="props.isFollowing ? 'outline' : 'default'" size="'sm'" onClick="() => props.onToggle()"
+                  label="props.isFollowing ? t('Unfollow') : t('Follow')"/>
+        </div>
+      </PopoverContent>
+    </Popover>
+  </t>
+</templates>

@@ -1,0 +1,5 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+website-blog.access_blog_system,Blog system,base.group_system,tbl.website_blog_blog,true,true,true,true,true
+website-blog.access_post_system,Blog Post system,base.group_system,tbl.website_blog_post,true,true,true,true,true
+website-blog.access_tag_system,Blog Tag system,base.group_system,tbl.website_blog_tag,true,true,true,true,true
+website-blog.access_category_system,Blog Tag Group system,base.group_system,tbl.website_blog_category,true,true,true,true,true

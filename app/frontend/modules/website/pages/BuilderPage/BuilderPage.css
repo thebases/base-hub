@@ -1,0 +1,9 @@
+.bh-builder { height: 100svh; background: var(--b-muted); }
+.bh-builder-bar { background: var(--b-background); }
+.bh-builder-body { min-height: 0; }
+.bh-builder-side { width: 360px; flex: none; overflow-y: auto; background: var(--b-background); }
+.bh-builder-stage { min-width: 0; background: var(--b-muted); }
+.bh-builder-canvas { background: #fff; min-width: 0; max-width: 100%; }
+.bh-builder-format { background: var(--b-background); }
+
+.bh-builder-blocks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }

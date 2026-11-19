@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_ui_view_type_list" model="ui.view">
+      <field name="name">ui.view.type.list</field>
+      <field name="model">ui.view.type</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="View Types" decoration-muted="not active">
+          <field name="sequence" optional="show"/>
+          <field name="name"/>
+          <field name="label"/>
+          <field name="icon" optional="show"/>
+          <field name="is_view_mode"/>
+          <field name="active" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_ui_view_type_form" model="ui.view">
+      <field name="name">ui.view.type.form</field>
+      <field name="model">ui.view.type</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="View Type">
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <sheet>
+            <h1>
+              <field name="label" nolabel="1" placeholder="e.g. Kanban"/>
+            </h1>
+            <p class="small text-muted">
+              View modes must also exist in the frontend VIEW_TYPES registry (view-registry.js) to render.
+            </p>
+            <group>
+              <group>
+                <field name="name" required="1" placeholder="e.g. kanban"/>
+                <field name="is_view_mode"/>
+              </group>
+              <group>
+                <field name="icon" placeholder="e.g. square-kanban"/>
+                <field name="sequence"/>
+                <field name="active"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_ui_view_type_search" model="ui.view">
+      <field name="name">ui.view.type.search</field>
+      <field name="model">ui.view.type</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="View Types">
+          <field name="name"/>
+          <field name="label"/>
+          <filter string="View Modes" name="view_modes" domain="[('is_view_mode', '=', True)]"/>
+          <filter string="Archived" name="active_false" domain="[('active', '=', False)]"/>
+        </search>
+      </field>
+    </record>
+</data>

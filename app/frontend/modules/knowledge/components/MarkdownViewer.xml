@@ -1,0 +1,25 @@
+<templates xml:space="preserve">
+  <t t-name="MarkdownViewer">
+    <div t-att-class="'basehub-md-viewer' + (props.showChrome === false ? ' no-chrome' : '') + (props.className ? ' ' + props.className : '')">
+      <div t-att-class="hasRail ? 'basehub-md-viewer-layout has-rail' : 'basehub-md-viewer-layout'">
+        <div class="basehub-md-viewer-scroll">
+          <article class="basehub-md-article" t-ref="article" t-out="state.html"/>
+        </div>
+        <aside t-if="hasRail" class="basehub-md-rail">
+          <div class="basehub-md-rail-title" t-esc="t('On this page')"/>
+          <t t-if="!props.headings or props.headings.length === 0">
+            <div class="basehub-md-rail-empty" t-esc="t('No headings found.')"/>
+          </t>
+          <nav t-else="" class="basehub-md-rail-nav d-flex flex-column gap-1">
+            <t t-foreach="props.headings" t-as="heading" t-key="heading.id">
+              <a t-att-href="'#' + heading.id"
+                 t-att-class="heading.level > 1 ? 'basehub-md-rail-link is-nested' : 'basehub-md-rail-link'">
+                <t t-esc="heading.title"/>
+              </a>
+            </t>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </t>
+</templates>

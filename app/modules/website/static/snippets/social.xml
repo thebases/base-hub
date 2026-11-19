@@ -1,0 +1,5 @@
+<templates name="Social links" group="social" sequence="130" class="bh-social" keywords="follow,share,links" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2214%22 y=%2228%22 width=%2224%22 height=%2212%22 rx=%226%22 fill=%22%23e9ecef%22/%3E%3Crect x=%2244%22 y=%2228%22 width=%2224%22 height=%2212%22 rx=%226%22 fill=%22%23e9ecef%22/%3E%3Crect x=%2274%22 y=%2228%22 width=%2224%22 height=%2212%22 rx=%226%22 fill=%22%23e9ecef%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.social">
+    <section class="bh-social py-4" data-snippet="social"><div class="container"><p class="text-center"><a class="btn btn-outline-secondary m-1" href="https://example.com">Facebook</a><a class="btn btn-outline-secondary m-1" href="https://example.com">LinkedIn</a><a class="btn btn-outline-secondary m-1" href="https://example.com">YouTube</a></p></div></section>
+  </t>
+</templates>

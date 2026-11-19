@@ -1,0 +1,17 @@
+[
+  {
+    "action": "c",
+    "model": "sys.report",
+    "external_id": "base.report_demo_user_summary",
+    "force_update": false,
+    "data": {
+      "name": "Demo User Summary",
+      "report_name": "base.user_summary",
+      "model": "base.users",
+      "template_ref": "base/reports/demo_user_summary.html",
+      "paper_format": "A4",
+      "attach": false,
+      "active": true
+    }
+  }
+]

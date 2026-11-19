@@ -1,0 +1,174 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_wireframes",
+    "force_update": true,
+    "data": {
+      "name": "Draft homepage wireframes",
+      "description": "Low-fidelity wireframes for the new homepage layout.",
+      "priority": "0",
+      "sequence": 10,
+      "stage_id": "project.task_type.done",
+      "tag_ids": [
+        "project.tag.internal"
+      ],
+      "project_id": "project.project.demo_website_redesign",
+      "milestone_id": "project.milestone.demo_redesign_wireframes",
+      "role_ids": [
+        "project.role.designer"
+      ],
+      "user_ids": [
+        "user.admin"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 8,
+      "date_start": "2026-12-17T00:00:00Z",
+      "date_deadline": "2026-12-31T00:00:00Z"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_homepage_dev",
+    "force_update": true,
+    "data": {
+      "name": "Build homepage template",
+      "description": "Implement the approved homepage wireframes as a page-builder template.",
+      "priority": "1",
+      "sequence": 20,
+      "stage_id": "project.task_type.in_progress",
+      "tag_ids": [
+        "project.tag.internal"
+      ],
+      "project_id": "project.project.demo_website_redesign",
+      "milestone_id": "project.milestone.demo_redesign_launch",
+      "role_ids": [
+        "project.role.developer"
+      ],
+      "user_ids": [
+        "user.admin"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 24,
+      "depend_on_ids": [
+        "project.task.demo_wireframes"
+      ],
+      "date_start": "2026-11-01T00:00:00Z",
+      "date_deadline": "2026-11-15T00:00:00Z"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_homepage_dev_review",
+    "force_update": true,
+    "data": {
+      "name": "Review homepage template against design",
+      "description": "Subtask of the homepage build: visual review pass before merge.",
+      "priority": "0",
+      "sequence": 21,
+      "stage_id": "project.task_type.new",
+      "project_id": "project.project.demo_website_redesign",
+      "parent_id": "project.task.demo_homepage_dev",
+      "display_in_project": false,
+      "role_ids": [
+        "project.role.reviewer"
+      ],
+      "user_ids": [
+        "user.admin"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 2,
+      "date_start": "2026-11-06T00:00:00Z",
+      "date_deadline": "2026-11-20T00:00:00Z"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_beta_build",
+    "force_update": true,
+    "data": {
+      "name": "Build closed-beta package",
+      "description": "Assemble and sign the closed-beta build for the first customer cohort.",
+      "priority": "1",
+      "sequence": 10,
+      "stage_id": "project.task_type.in_progress",
+      "tag_ids": [
+        "project.tag.urgent"
+      ],
+      "project_id": "project.project.demo_mobile_app",
+      "milestone_id": "project.milestone.demo_mobile_beta_release",
+      "role_ids": [
+        "project.role.developer"
+      ],
+      "user_ids": [
+        "user.admin",
+        "user.base1"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 16,
+      "date_start": "2026-11-16T00:00:00Z",
+      "date_deadline": "2026-11-30T00:00:00Z"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_beta_qa",
+    "force_update": true,
+    "data": {
+      "name": "QA the closed-beta package",
+      "description": "Regression pass on the signed beta build before it goes to the cohort.",
+      "priority": "0",
+      "sequence": 20,
+      "stage_id": "project.task_type.new",
+      "tag_ids": [
+        "project.tag.research"
+      ],
+      "project_id": "project.project.demo_mobile_app",
+      "milestone_id": "project.milestone.demo_mobile_beta_release",
+      "role_ids": [
+        "project.role.reviewer"
+      ],
+      "user_ids": [
+        "user.base1"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 6,
+      "depend_on_ids": [
+        "project.task.demo_beta_build"
+      ],
+      "date_start": "2026-11-26T00:00:00Z",
+      "date_deadline": "2026-12-10T00:00:00Z"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_task",
+    "external_id": "project.task.demo_brand_audit",
+    "force_update": true,
+    "data": {
+      "name": "Audit current brand assets",
+      "description": "Inventory of logos, fonts and colors; closed after its deadline, so it demonstrates a late (not on time) task.",
+      "priority": "0",
+      "sequence": 5,
+      "stage_id": "project.task_type.done",
+      "tag_ids": [
+        "project.tag.internal"
+      ],
+      "project_id": "project.project.demo_website_redesign",
+      "role_ids": [
+        "project.role.designer"
+      ],
+      "user_ids": [
+        "user.admin"
+      ],
+      "company_id": "company.main",
+      "allocated_hours": 4,
+      "date_start": "2026-08-17T00:00:00Z",
+      "date_deadline": "2026-08-31T00:00:00Z"
+    }
+  }
+]

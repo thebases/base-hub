@@ -1,0 +1,105 @@
+<templates xml:space="preserve">
+  <t t-name="MqttMonitorPage">
+    <main class="p-3 p-lg-4 d-flex flex-column gap-3">
+      <div class="d-flex flex-wrap align-items-start justify-content-between gap-2">
+        <div>
+          <h1 class="h4 fw-semibold mb-1" t-esc="t('MQTT Monitor')"/>
+          <p class="small text-body-secondary mb-0" t-esc="t(&quot;Live health of this server's MQTT client: connection churn, subscription self-healing, and per-topic traffic, queue depth and workflow run time. Counters are per server process and reset on restart.&quot;)"/>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <Badge variant="statusVariant" label="statusLabel"/>
+          <Button variant="'outline'" size="'sm'" label="state.paused ? t('Resume') : t('Pause')" onClick="() => this.togglePaused()"/>
+          <Button variant="'outline'" size="'sm'" icon="'refresh-cw'" label="t('Refresh')" onClick="() => this.refresh()"/>
+        </div>
+      </div>
+
+      <Alert t-if="state.error" variant="'danger'"><t t-esc="state.error"/></Alert>
+      <t t-foreach="alerts" t-as="alert" t-key="alert_index">
+        <Alert variant="alert.variant"><t t-esc="alert.text"/></Alert>
+      </t>
+
+      <div t-if="d" class="small text-body-secondary">
+        <t t-esc="t('Broker')"/> <code t-esc="d.broker || '-'"/> · <t t-esc="t('client')"/> <code t-esc="d.client_id || '-'"/> · <t t-esc="t('polling every 5s')"/>
+      </div>
+
+      <div class="row g-3">
+        <t t-foreach="cards" t-as="card" t-key="card.title">
+          <div class="col-12 col-md-6 col-xl">
+            <div class="border rounded p-3 h-100">
+              <div class="small text-body-secondary" t-esc="card.title"/>
+              <div class="h5 fw-semibold mb-1" t-esc="card.value"/>
+              <div class="small text-body-secondary" t-esc="card.sub"/>
+            </div>
+          </div>
+        </t>
+      </div>
+
+      <div class="border rounded p-3">
+        <div class="small text-body-secondary mb-2" t-esc="t('Inbound msg/s (last 5 minutes)')"/>
+        <div class="d-flex align-items-end gap-1" style="height: 40px;">
+          <t t-foreach="bars" t-as="bar" t-key="bar_index">
+            <div class="bg-primary rounded-top flex-fill" t-att-style="'height:' + bar.height + 'px'" t-att-title="bar.title"/>
+          </t>
+        </div>
+      </div>
+
+      <div class="border rounded">
+        <div class="table-responsive">
+          <table class="table table-sm align-middle mb-0">
+            <thead>
+              <tr>
+                <th t-esc="t('Topic')"/>
+                <th t-esc="t('State')"/>
+                <th class="text-end" t-esc="t('Received')"/>
+                <th class="text-end" t-esc="t('msg/s')"/>
+                <th t-esc="t('Last frame')"/>
+                <th style="min-width: 9rem;" t-esc="t('Queue')"/>
+                <th class="text-end" t-esc="t('Processed')"/>
+                <th class="text-end" t-esc="t('Dropped')"/>
+                <th class="text-end" t-esc="t('Failed')"/>
+                <th class="text-end" t-esc="t('Avg ms')"/>
+                <th class="text-end" t-esc="t('Max ms')"/>
+                <th class="text-end" t-esc="t('Triggers')"/>
+                <th t-esc="t('Re-asserted')"/>
+              </tr>
+            </thead>
+            <tbody>
+              <tr t-if="!rows.length">
+                <td colspan="13" class="text-center text-body-secondary py-4">
+                  <t t-if="state.loading" t-esc="t('Loading…')"/>
+                  <t t-else="" t-esc="t('No MQTT topics are subscribed. Activate a workflow with an MQTT trigger.')"/>
+                </td>
+              </tr>
+              <t t-foreach="rows" t-as="row" t-key="row.topic">
+                <tr>
+                  <td><code t-esc="row.topic"/><div t-if="row.error" class="small text-danger" t-esc="row.error"/></td>
+                  <td><Badge variant="row.stateVariant" label="row.stateLabel"/></td>
+                  <td class="text-end" t-esc="row.received"/>
+                  <td class="text-end" t-esc="row.rate"/>
+                  <td>
+                    <span t-esc="row.lastReceived"/>
+                    <span t-if="row.idle" class="badge text-bg-warning ms-1" t-esc="t('idle')"/>
+                  </td>
+                  <td>
+                    <t t-if="row.hasRuntime">
+                      <div class="progress" style="height: 6px;"><div class="progress-bar" t-att-class="row.queueBar" t-att-style="row.queueStyle"/></div>
+                      <div class="small text-body-secondary" t-esc="row.queue"/>
+                    </t>
+                    <t t-else="">-</t>
+                  </td>
+                  <td class="text-end" t-esc="row.processed"/>
+                  <td class="text-end" t-att-class="row.hasDropped ? 'text-danger fw-semibold' : ''" t-esc="row.dropped"/>
+                  <td class="text-end" t-att-class="row.hasFailed ? 'text-warning fw-semibold' : ''" t-esc="row.failed"/>
+                  <td class="text-end" t-esc="row.avgMs"/>
+                  <td class="text-end" t-esc="row.maxMs"/>
+                  <td class="text-end" t-esc="row.triggers"/>
+                  <td t-esc="row.asserted"/>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </t>
+</templates>

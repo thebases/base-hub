@@ -1,0 +1,71 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket",
+    "external_id": "helpdesk.ticket.demo_login_issue",
+    "force_update": true,
+    "data": {
+      "subject": "Cannot log in after password reset",
+      "description": "Customer reset their password via the email link but the new password is rejected on every login attempt.",
+      "stage_id": "helpdesk.stage.new",
+      "priority": "high",
+      "assignee_id": "user.admin",
+      "company_id": "company.main"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket",
+    "external_id": "helpdesk.ticket.demo_billing_question",
+    "force_update": true,
+    "data": {
+      "subject": "Invoice shows duplicate charge",
+      "description": "Customer was billed twice for the September subscription renewal and wants one charge refunded.",
+      "stage_id": "helpdesk.stage.in_progress",
+      "priority": "normal",
+      "assignee_id": "user.base1",
+      "company_id": "company.main"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket",
+    "external_id": "helpdesk.ticket.demo_dark_mode_request",
+    "force_update": true,
+    "data": {
+      "subject": "Feature request: dark mode",
+      "description": "Customer asked whether a dark theme is planned for the web dashboard.",
+      "stage_id": "helpdesk.stage.new",
+      "priority": "low",
+      "company_id": "company.main"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket",
+    "external_id": "helpdesk.ticket.demo_api_integration_error",
+    "force_update": true,
+    "data": {
+      "subject": "Webhook callback returns HTTP 500",
+      "description": "The payment callback endpoint has been returning 500 errors since this morning's deploy, blocking order confirmations.",
+      "stage_id": "helpdesk.stage.solved",
+      "priority": "urgent",
+      "assignee_id": "user.admin",
+      "company_id": "company.main"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket",
+    "external_id": "helpdesk.ticket.demo_account_deletion",
+    "force_update": true,
+    "data": {
+      "subject": "Request to delete account and data",
+      "description": "Customer requested full account deletion under the data-privacy policy.",
+      "stage_id": "helpdesk.stage.cancelled",
+      "priority": "normal",
+      "assignee_id": "user.base1",
+      "company_id": "company.main"
+    }
+  }
+]

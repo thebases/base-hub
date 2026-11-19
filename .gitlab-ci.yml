@@ -1,0 +1,240 @@
+# Runner: shell executor on Debian 12 (no Docker). Host must provide:
+#   go >= 1.25 (+ gcc for CGO), node >= 20 with pnpm, openssh-client,
+#   and a reachable PostgreSQL 16 for the conformance suite.
+stages:
+  - build
+  - deploy
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_TAG'
+    - if: '$CI_COMMIT_REF_NAME'
+
+variables:
+  SERVICE_NAME: "base-erp"
+  # SSH target. base_150 can be an alias in the runner user's ~/.ssh/config;
+  # otherwise set the real hostname/IP as a CI/CD variable.
+  DEPLOY_HOST: "base_150"
+  DEPLOY_USER: "deploy"
+  DEPLOY_PATH: "/opt/services/base-erp"
+  # Project/Personal Access Token (scopes: write_repository, api) set as a
+  # masked CI/CD variable. Used by tag:build-and-release to create the
+  # GitLab Release via the API (scope: api).
+  GIT_PUSH_TOKEN: ""
+
+# Backend binary. `make build` emits
+# build/base-erp, build/base-erp-migrate (standalone schema-migration tool,
+# embeds its own SQL files so it runs standalone on the deploy host — see
+# internal/cmd/migrate/main.go), build/base-erp.service (unit baked with
+# DEPLOY_PATH/SERVICE_USER directly, no post-build sed), build/config.yaml —
+# everything the deploy job ships and runs migrations with.
+build:backend:
+  stage: build
+  tags:
+    - deploy
+  variables:
+    GOOS: "linux"
+    GOARCH: "amd64"
+    SERVICE_USER: "deploy"
+  script:
+    - go version
+    - cd app
+    - make build SERVICE_NAME="$SERVICE_NAME" GOOS="$GOOS" GOARCH="$GOARCH" SERVICE_USER="$SERVICE_USER" DEPLOY_PATH="$DEPLOY_PATH"
+  artifacts:
+    paths:
+      - app/build/
+    expire_in: 1 week
+  rules:
+    # Keep GitLab's default-branch push simulation valid with a build-only
+    # pipeline, while production deploy remains gated to master below.
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+# Frontend static checks (no build step: the SPA is served as-is). Fails the pipeline before deploy when the BaseUI
+# pin is inconsistent, a preload list drifted from the import graph, or an i18n catalog has a missing/untranslated msgid.
+# Needs node >= 20 (see header). Keep the pin argument equal to the version in app/frontend/index.html.
+check:frontend:
+  stage: build
+  tags:
+    - deploy
+  script:
+    - node --version
+    - scripts/check_baseui_pin.sh 1.3.5
+    - node scripts/check_preload_graph.mjs
+    - node scripts/check_i18n_msgids.mjs --strict
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+# Tag pipeline (v*): syntax-check + build only, never deploy and never merge.
+# Creates a GitLab Release from the tag with auto-generated notes.
+# Only meaningful for tags cut from master — if the tagged commit isn't
+# reachable from origin/master, the job no-ops instead of building/releasing.
+tag:build-and-release:
+  stage: build
+  tags:
+    - deploy
+  variables:
+    # Ancestry check needs full history; GitLab's default shallow
+    # clone would make merge-base unreliable.
+    GIT_DEPTH: "0"
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v/'
+  script:
+    - echo "== Verify tag ${CI_COMMIT_TAG} originates from master =="
+    - git fetch origin "+refs/heads/master:refs/remotes/origin/master"
+    - |
+      if ! git merge-base --is-ancestor "$CI_COMMIT_SHA" origin/master; then
+        echo "Tag ${CI_COMMIT_TAG} (${CI_COMMIT_SHA}) is not reachable from master; skipping."
+        exit 0
+      fi
+    - 'echo "== Syntax check + build: backend =="'
+    - go version
+    - (cd app && gofmt -l . && go vet ./... && make build SERVICE_NAME="$SERVICE_NAME" DEPLOY_PATH="$DEPLOY_PATH")
+    - echo "== Create GitLab release for ${CI_COMMIT_TAG} =="
+    - |
+      curl --fail --show-error --silent \
+        --header "PRIVATE-TOKEN: ${GIT_PUSH_TOKEN}" \
+        --data-urlencode "tag_name=${CI_COMMIT_TAG}" \
+        --data-urlencode "name=${CI_COMMIT_TAG}" \
+        --data-urlencode "generate_release_notes=true" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases"
+
+# Tag pipeline (v*): publish a filtered snapshot of the tagged commit to
+# GitHub (thebases/base-hub, branch master).
+# GitHub does NOT mirror GitLab history. Each release becomes one commit on
+# GitHub master whose tree is the tagged commit's tree minus
+# GITHUB_EXCLUDE_PATHS, so internal AI/agent files never reach GitHub, not
+# even in old history. GitHub master = latest published release.
+# The snapshot is committed on top of GitHub's current master, so the branch
+# push is a plain fast-forward (no force). Only the tag ref is force-updated
+# so a re-cut tag can be published again. Re-running a pipeline whose tree is
+# already on GitHub master reuses that commit (idempotent).
+# Runs after tag:build-and-release so a tag whose build fails is never
+# published. Shell executor: git comes from the host.
+# Requires CI/CD variables:
+#   GITHUB_TOKEN  masked + protected; fine-grained PAT with Contents: write on
+#                 the target repo. Protected variables reach protected refs
+#                 only, so the v* pattern is protected in
+#                 Settings > Repository > Protected tags.
+#   GITHUB_BRANCH optional branch name on GitHub (default: master).
+# Do not re-run an older tag after a newer one is published: it would commit
+# the older tree on top of GitHub master.
+sync-to-github:
+  stage: deploy
+  tags:
+    - deploy
+  needs: ["tag:build-and-release"]
+  variables:
+    GIT_DEPTH: "0"          # full history for the ancestry gate
+    GITHUB_EXCLUDE_PATHS: ".agents .claude CLAUDE.md GEMINI.md"
+    GITHUB_COMMITTER_NAME: "thebase-tech-guy"
+    GITHUB_COMMITTER_EMAIL: "thebase-tech-guy@users.noreply.github.com"
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v/'
+  script:
+    - test -n "${GITHUB_TOKEN:-}" || { echo "GITHUB_TOKEN not set (is the v* tag protected?)"; exit 1; }
+    - git fetch origin "+refs/heads/master:refs/remotes/origin/master"
+    # Same gate as tag:build-and-release: tags not cut from master are not published.
+    - |
+      if ! git merge-base --is-ancestor "$CI_COMMIT_SHA" origin/master; then
+        echo "Tag ${CI_COMMIT_TAG} (${CI_COMMIT_SHA}) is not reachable from master; skipping."
+        exit 0
+      fi
+    # Push/fetch by URL; never store the token in .git/config.
+    - GITHUB_URL="https://thebase-tech-guy:${GITHUB_TOKEN}@github.com/thebases/base-hub.git"
+    - GH_BRANCH="${GITHUB_BRANCH:-master}"
+    # Current GitHub tip (empty if the branch does not exist yet).
+    - git fetch "$GITHUB_URL" "+refs/heads/${GH_BRANCH}:refs/remotes/github/${GH_BRANCH}" || true
+    - PARENT="$(git rev-parse -q --verify "refs/remotes/github/${GH_BRANCH}^{commit}" || true)"
+    # Fail closed: GitHub history must never contain GitLab commits (they carry
+    # the excluded paths). Building on top of them would keep those files public.
+    - |
+      if [ -n "$PARENT" ] && git merge-base "$PARENT" origin/master >/dev/null 2>&1; then
+        echo "GitHub ${GH_BRANCH} (${PARENT}) shares history with GitLab master; reset it to a filtered base first."
+        exit 1
+      fi
+    # Build the filtered tree in a throwaway index (working tree untouched).
+    - |
+      export GIT_INDEX_FILE="$(git rev-parse --git-dir)/github-sync.index"
+      rm -f "$GIT_INDEX_FILE"
+      git read-tree "$CI_COMMIT_SHA"
+      git rm -r -q --cached --ignore-unmatch -- $GITHUB_EXCLUDE_PATHS
+      TREE="$(git write-tree)"
+      rm -f "$GIT_INDEX_FILE"
+      unset GIT_INDEX_FILE
+    # Fail closed: refuse to publish if any excluded path survived.
+    - |
+      for p in $GITHUB_EXCLUDE_PATHS; do
+        if git cat-file -e "${TREE}:${p}" 2>/dev/null; then echo "excluded path ${p} still in tree"; exit 1; fi
+      done
+    - |
+      if [ -n "$PARENT" ] && [ "$(git rev-parse "${PARENT}^{tree}")" = "$TREE" ]; then
+        SNAPSHOT="$PARENT"
+        echo "GitHub ${GH_BRANCH} already has this tree; reusing ${SNAPSHOT}."
+      else
+        SNAPSHOT="$(
+          GIT_AUTHOR_NAME="$GITHUB_COMMITTER_NAME" GIT_AUTHOR_EMAIL="$GITHUB_COMMITTER_EMAIL" \
+          GIT_COMMITTER_NAME="$GITHUB_COMMITTER_NAME" GIT_COMMITTER_EMAIL="$GITHUB_COMMITTER_EMAIL" \
+          GIT_AUTHOR_DATE="$CI_COMMIT_TIMESTAMP" GIT_COMMITTER_DATE="$CI_COMMIT_TIMESTAMP" \
+          git commit-tree "$TREE" ${PARENT:+-p "$PARENT"} -m "Release ${CI_COMMIT_TAG}"
+        )"
+      fi
+    - echo "== Push snapshot ${SNAPSHOT} of ${CI_COMMIT_SHA} -> github ${GH_BRANCH}, tag ${CI_COMMIT_TAG} =="
+    - >
+      git push "$GITHUB_URL"
+      "${SNAPSHOT}:refs/heads/${GH_BRANCH}"
+      "+${SNAPSHOT}:refs/tags/${CI_COMMIT_TAG}"
+
+# Deploy to base_150 as deploy user (see Makefile's `deploy` target for the
+# exact recipe):
+#   a. stop base-erp.service
+#   b. copy everything in app/build to /opt/services/base-erp
+#      (base-erp-migrate is shipped but no longer auto-run here; run schema
+#      migrations explicitly via `make migrate` or the shipped binary)
+#   c. install the unit into /etc/systemd/system only if it is not there yet
+#   d. start base-erp.service
+# Requires deploy@base_150 to have passwordless sudo for: systemctl
+# stop/start/daemon-reload/enable base-erp, and cp into /etc/systemd/system.
+#
+# NOTE: production's currently-installed base-hub.service on base_150 is not
+# stopped/removed by this pipeline (deploy only installs the unit if the new
+# name isn't present yet, and never touches old units). Before the first
+# deploy after this rename, manually stop+disable the old base-hub.service
+# on base_150 so both units don't end up running side by side.
+#
+# Auth: uses the runner user's own SSH setup (~/.ssh) by default. To use a
+# dedicated key instead, set DEPLOY_SSH_PRIVATE_KEY as a CI/CD variable and
+# it is loaded into a job-local agent.
+deploy:
+  stage: deploy
+  tags:
+    - deploy
+  needs:
+    - job: build:backend
+      artifacts: true
+  before_script:
+    - command -v ssh scp >/dev/null || { echo "openssh-client missing on runner"; exit 1; }
+    - |
+      if [ -n "${DEPLOY_SSH_PRIVATE_KEY:-}" ]; then
+        eval "$(ssh-agent -s)"
+        echo "$DEPLOY_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+      fi
+    # Job-local known_hosts so we never touch the runner user's ~/.ssh.
+    - KNOWN_HOSTS="$CI_PROJECT_DIR/.ci_known_hosts"
+    - |
+      if [ -n "${DEPLOY_SSH_KNOWN_HOSTS:-}" ]; then
+        echo "$DEPLOY_SSH_KNOWN_HOSTS" > "$KNOWN_HOSTS"
+        SSH_OPTS="-o UserKnownHostsFile=$KNOWN_HOSTS"
+      else
+        SSH_OPTS="-o StrictHostKeyChecking=accept-new"
+      fi
+  script:
+    # Same deploy recipe as a manual `make deploy` run — one definition of
+    # "where production lives" shared by CI and local ops.
+    - cd app
+    - make deploy SERVICE_NAME="$SERVICE_NAME" DEPLOY_HOST="$DEPLOY_HOST" DEPLOY_USER="$DEPLOY_USER" DEPLOY_PATH="$DEPLOY_PATH" SSH_OPTS="$SSH_OPTS"
+  environment:
+    name: production
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success
+    - when: never

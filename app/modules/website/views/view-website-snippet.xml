@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_snippet_list" model="ui.view">
+      <field name="name">tbl.website_snippet.list</field>
+      <field name="model">tbl.website_snippet</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Website Snippets">
+          <field name="name"/>
+          <field name="category"/>
+          <field name="site_id"/>
+        </list>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,41 @@
+[
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "workflow.automation.cron.resume_due_runs",
+    "force_update": false,
+    "data": {
+      "name": "Workflow Resume Due Runs",
+      "action_id": "workflow.automation.action.resume_due_runs",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "workflow.automation.cron.reap_stale_running",
+    "force_update": false,
+    "data": {
+      "name": "Workflow Reap Stale Running Runs",
+      "action_id": "workflow.automation.action.reap_stale_running",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "workflow.automation.cron.sweep_outbound",
+    "force_update": false,
+    "data": {
+      "name": "Workflow Sweep Outbound Deliveries",
+      "action_id": "workflow.automation.action.sweep_outbound",
+      "interval_seconds": 30,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

@@ -1,0 +1,47 @@
+<templates xml:space="preserve">
+  <t t-name="InstructionPage">
+    <main class="px-3 px-lg-4">
+      <h1 class="h4 fw-semibold mb-3" t-esc="t('Instruction')"/>
+      <t t-if="state.status === 'loading'">
+        <div class="d-flex align-items-center gap-2 text-body-secondary py-4"><Spinner label="t('Loading')"/><span t-esc="t('Loading instructions…')"/></div>
+      </t>
+      <t t-elif="state.status === 'error'">
+        <Alert variant="'danger'" t-esc="state.message"/>
+      </t>
+      <t t-elif="state.modules.length === 0">
+        <p class="text-body-secondary" t-esc="t('No instruction documents available.')"/>
+      </t>
+      <t t-else="">
+        <div class="row g-3">
+          <div class="col-12 col-lg-3">
+            <Card>
+              <CardBody>
+                <t t-foreach="state.modules" t-as="mod" t-key="mod.module">
+                  <div class="text-body-secondary small text-uppercase fw-semibold mt-2 mb-1" t-esc="mod.module"/>
+                  <t t-foreach="mod.items" t-as="item" t-key="item.path">
+                    <button type="button" class="btn btn-link text-start d-block p-1 text-decoration-none" t-att-class="isSelected(mod.module, item.path) ? 'fw-semibold' : ''" t-on-click="() => this.select(mod.module, item.path)" t-esc="item.title"/>
+                  </t>
+                </t>
+              </CardBody>
+            </Card>
+          </div>
+          <div class="col-12 col-lg-9">
+            <Card>
+              <CardBody>
+                <t t-if="state.docStatus === 'loading'">
+                  <Spinner label="t('Loading')"/>
+                </t>
+                <t t-elif="state.docStatus === 'error'">
+                  <Alert variant="'danger'" t-esc="state.docMessage"/>
+                </t>
+                <t t-else="">
+                  <Markdown content="state.content" mermaid="true" baseUi="true"/>
+                </t>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
+      </t>
+    </main>
+  </t>
+</templates>

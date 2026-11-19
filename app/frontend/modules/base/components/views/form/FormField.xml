@@ -1,0 +1,232 @@
+<templates xml:space="preserve">
+  <t t-name="FormField">
+    <!-- Base UI 1.1.7 Field shares label/description/useTip/error with the Input, Textarea, NativeSelect and
+         Combobox inside it: outlined kinds get their floating label and a help tooltip icon without
+         per-control props. Kinds without a floating label (checkbox, chips, pickers...) get the stacked
+         Label below, whose help is a Base UI Tooltip. -->
+    <Field className="fieldClassName" label="outlineLabel" description="helpText" useTip="1" error="fieldError">
+      <Label t-if="stackedLabel" for="inputID" required="!!field.required">
+        <t t-esc="labelText"/>
+        <Tooltip t-if="helpText" content="helpText" className="'basehub-form-help'">
+          <t t-set-slot="trigger"><Icon name="'circle-question-mark'"/></t>
+        </Tooltip>
+      </Label>
+
+      <t t-if="kind === 'x2many' and isReadonly">
+        <div class="basehub-form-x2many" t-att-id="inputID">
+          <span t-if="x2manyItems.length === 0" class="text-body-secondary" t-esc="t('No related records')"/>
+          <Badge t-foreach="x2manyItems.slice(0, 8)" t-as="item" t-key="item.id" variant="'secondary'" className="'basehub-form-chip'" label="item.name"/>
+          <Badge t-if="x2manyOverflowCount > 0" variant="'light'" label="t('+{count} more', { count: x2manyOverflowCount })"/>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'x2many'">
+        <div class="basehub-form-x2many basehub-form-x2many-edit" t-att-id="inputID">
+          <div class="basehub-form-x2many-chips">
+            <span t-if="x2manyItems.length === 0" class="text-body-secondary" t-esc="t('No related records')"/>
+            <Badge t-foreach="x2manyItems" t-as="item" t-key="item.id" variant="'secondary'" className="'basehub-form-chip'">
+              <t t-esc="item.name"/>
+              <Button variant="'ghost'" size="'sm'" icon="'x'" ariaLabel="t('Remove')" className="'basehub-form-chip-remove'"
+                      onClick="() => this.removeX2ManyItem(item.id)"/>
+            </Badge>
+          </div>
+          <div class="basehub-form-x2many-add">
+            <RemoteCombobox t-key="state.x2manyComboKey" options="x2manyComboOptions" loading="state.x2manyLoading" clearOnSelect="true"
+                            placeholder="t('Search to add…')" onSearch="(query) => this.loadX2ManyOptions(query)"
+                            onChange="(value) => this.onX2ManyChange(value)"/>
+          </div>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'handle'">
+        <span class="basehub-form-handle" t-att-title="t('Drag handle (reordering not implemented)')"><Icon name="'grip-vertical'"/></span>
+      </t>
+
+      <t t-elif="kind === 'timezone_mismatch'">
+        <Alert variant="'warning'" className="'d-inline-flex align-items-center basehub-form-tz-alert'">
+          <Icon name="'alert-triangle'"/> <t t-esc="t('Timezone mismatch')"/>
+        </Alert>
+      </t>
+
+      <t t-elif="kind === 'lua'">
+        <CodeEditor id="inputID" codeLang="'lua'" value="stringValue" readonly="isReadonly" globals="luaGlobals" hint="luaHint"
+                    onChange="(value) => this.onTextInput(value)"/>
+      </t>
+
+      <t t-elif="kind === 'code'">
+        <CodeEditor id="inputID" codeLang="codeLang" value="codeValue" readonly="isReadonly"
+                    onChange="(value) => this.onTextInput(value)"/>
+      </t>
+
+      <t t-elif="kind === 'view_types' and isReadonly">
+        <div class="basehub-form-x2many" t-att-id="inputID">
+          <span t-if="viewTypeLabels.length === 0" class="text-body-secondary" t-esc="t('None')"/>
+          <Badge t-foreach="viewTypeLabels" t-as="viewTypeLabel" t-key="viewTypeLabel_index" variant="'secondary'" className="'basehub-form-chip'" label="viewTypeLabel"/>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'view_types'">
+        <div class="d-flex flex-wrap gap-3" t-att-id="inputID">
+          <Checkbox t-foreach="viewTypeMultiChoices" t-as="choice" t-key="choice.name"
+                    checked="selectedViewTypes.includes(choice.name)"
+                    onChange="(checked) => this.onViewTypeToggle(choice.name, checked)">
+            <span t-esc="choice.label"/>
+          </Checkbox>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'text_editor'">
+        <FormTextEditor id="inputID" value="value" readonly="isReadonly" onChange="(html) => this.onTextInput(html)"/>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'image'">
+        <img t-if="imageSrc" class="basehub-form-image-preview" t-att-src="imageSrc" alt=""/>
+        <span t-else="" class="basehub-form-image-placeholder text-body-secondary" t-esc="t('No image')"/>
+      </t>
+
+      <t t-elif="readonlyPlain and (kind === 'progress_bar' or kind === 'gauge')">
+        <Progress value="progressPercent" max="100"/>
+        <small class="text-body-secondary"><t t-esc="progressPercent"/>%</small>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'color'">
+        <span class="basehub-form-color-swatch" t-att-style="'background-color:' + colorHex"/>
+        <t t-esc="stringValue"/>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'kanban_color_picker'">
+        <span class="basehub-form-color-swatch" t-att-style="kanbanSwatchStyle(kanbanColorIndex)"/>
+      </t>
+
+      <t t-elif="readonlyPlain and (kind === 'url' or kind === 'email' or kind === 'phone')">
+        <a t-if="stringValue and linkHref" t-att-href="linkHref" target="_blank" rel="noopener noreferrer"><t t-esc="stringValue"/></a>
+        <t t-elif="stringValue" t-esc="stringValue"/>
+        <t t-else="">—</t>
+      </t>
+
+      <t t-elif="readonlyPlain and (kind === 'badge' or kind === 'state_selection' or kind === 'statusbar' or kind === 'priority')">
+        <Badge t-if="badgeOption" variant="'secondary'" label="badgeOption.label"/>
+        <t t-else="">—</t>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'copy_clipboard'">
+        <span t-att-id="inputID" t-esc="stringValue || '—'"/>
+        <ClipboardButton variant="'ghost'" size="'sm'" icon="'copy'" value="stringValue" ariaLabel="t('Copy to clipboard')"/>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'remaining_days'">
+        <span t-att-id="inputID" t-esc="remainingDaysDisplay"/>
+      </t>
+
+      <t t-elif="readonlyPlain and kind === 'json'">
+        <pre class="basehub-form-json-readonly" t-att-id="inputID" t-esc="jsonDisplay"/>
+      </t>
+
+      <t t-elif="readonlyPlain">
+        <span class="basehub-form-readonly-value" t-att-id="inputID" t-esc="displayValue"/>
+      </t>
+
+      <t t-elif="kind === 'boolean'">
+        <Checkbox id="inputID" checked="booleanActive" disabled="isReadonly" onChange="(checked) => this.commit(checked)"/>
+      </t>
+
+      <t t-elif="kind === 'boolean_toggle'">
+        <Switch checked="booleanActive" disabled="isReadonly" onChange="(checked) => this.commit(checked)"/>
+      </t>
+
+      <t t-elif="kind === 'boolean_favorite' or kind === 'boolean_icon'">
+        <Button variant="'ghost'" size="'sm'" id="inputID" icon="booleanIconName" disabled="isReadonly"
+                ariaPressed="booleanActive ? 'true' : 'false'" className="booleanActive ? 'basehub-bool-icon-active' : ''"
+                onClick="() => this.onBooleanToggleClick()"/>
+      </t>
+
+      <t t-elif="kind === 'priority'">
+        <div class="basehub-form-priority" t-att-id="inputID">
+          <Button t-foreach="selectionOptions" t-as="option" t-key="option.value" variant="'ghost'" size="'sm'" icon="'star'"
+                  disabled="isReadonly" ariaLabel="option.label" className="isPriorityActive(option) ? 'basehub-bool-icon-active' : ''"
+                  onClick="() => this.onPriorityClick(option)"/>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'kanban_color_picker'">
+        <div class="basehub-form-color-picker" t-att-id="inputID">
+          <Button t-foreach="kanbanColorPalette" t-as="color" t-key="color_index" unstyled="true" disabled="isReadonly"
+                  className="'basehub-form-color-swatch-btn' + (color_index === kanbanColorIndex ? ' is-selected' : '')"
+                  style="kanbanSwatchStyle(color_index)" ariaLabel="t('Color {n}', { n: color_index + 1 })"
+                  onClick="() => this.onKanbanColorClick(color_index)"/>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'image'">
+        <img t-if="imageSrc" class="basehub-form-image-preview" t-att-src="imageSrc" alt=""/>
+        <Attachment onChange="(files) => this.onImageInput(files)"/>
+      </t>
+
+      <t t-elif="isSelectKind">
+        <NativeSelect id="inputID" value="stringValue" onChange="(value) => this.onSelectionInput(value)">
+          <option value=""></option>
+          <option t-foreach="selectionOptions" t-as="option" t-key="option.value" t-att-value="option.value" t-att-selected="isSelected(option)">
+            <t t-esc="option.label"/>
+          </option>
+        </NativeSelect>
+      </t>
+
+      <t t-elif="isComboKind">
+        <div class="basehub-form-m2o">
+          <RemoteCombobox t-if="kind === 'many2one'" options="comboOptions" value="comboValue" text="relationLabel" loading="state.loading"
+                          readonly="isReadonly" placeholder="comboPlaceholder"
+                          onSearch="(query) => this.loadRelationOptions(query)" onChange="(value) => this.onComboChange(value)"/>
+          <Combobox t-else="" options="comboOptions" value="comboValue" placeholder="comboPlaceholder"
+                    onChange="(value) => this.onComboChange(value)"/>
+          <Button t-if="kind === 'many2one' and relationRecordId" variant="'ghost'" size="'icon-sm'" icon="'eye'"
+                  ariaLabel="t('View')" className="'basehub-form-m2o-view'" onClick="() => this.openRelation()"/>
+          <Button t-if="kind === 'many2one' and !isReadonly and relationLabel" variant="'ghost'" size="'sm'" icon="'x'" ariaLabel="t('Clear')"
+                  className="'basehub-form-m2o-clear'" onClick="() => this.commit(false)"/>
+          <t t-if="state.relationDialog" t-component="state.relationDialog.component"
+             model="state.relationDialog.model" recordId="state.relationDialog.recordId" onClose.bind="closeRelation"/>
+        </div>
+      </t>
+
+      <t t-elif="kind === 'json'">
+        <CodeEditor id="inputID" codeLang="'json'" value="jsonEditValue" readonly="isReadonly"
+                    onChange="(value) => this.onTextInput(value)"/>
+      </t>
+
+      <t t-elif="kind === 'text'">
+        <Textarea id="inputID" readonly="isReadonly" rows="textareaRows" className="''"
+                  value="textareaValue" onInput="(value) => this.onTextInput(value)"/>
+        <TranslateButton t-if="showTranslate" model="ctx.model" recordId="ctx.values.id" fieldName="field.name"
+                         label="labelText" uiLang="translateLang" onSaved="(value) => this.onTranslationSaved(value)"/>
+      </t>
+
+      <t t-elif="isDateKind">
+        <Input id="inputID" readonly="isReadonly" type="dateInputType" value="dateInputValue"
+               onInput="(value) => this.onDateInput(value)"/>
+        <small t-if="kind === 'remaining_days'" class="text-body-secondary"><t t-esc="remainingDaysDisplay"/></small>
+      </t>
+
+      <t t-elif="isNumberKind">
+        <Input id="inputID" readonly="isReadonly" type="'number'" step="numberStep" min="numberMin" max="numberMax"
+               value="stringValue" placeholder="kind === 'float_time' ? t('decimal hours') : undefined"
+               trailingIcon="kind === 'percentage' ? 'percent' : undefined" onInput="(value) => this.onNumberInput(value)"/>
+        <small t-if="kind === 'float_time'" class="text-body-secondary"><t t-esc="floatTimeDisplay"/></small>
+      </t>
+
+      <t t-elif="kind === 'copy_clipboard'">
+        <Input id="inputID" readonly="isReadonly" value="stringValue" onInput="(value) => this.onTextInput(value)">
+          <t t-set-slot="end"><ClipboardButton variant="'ghost'" size="'sm'" icon="'copy'" value="stringValue" ariaLabel="t('Copy to clipboard')"/></t>
+        </Input>
+      </t>
+
+      <t t-else="">
+        <Input id="inputID" readonly="isReadonly" type="textInputType" value="colorOrStringValue"
+               placeholder="field.placeholder" onInput="(value) => this.onTextInput(value)">
+          <t t-set-slot="end">
+            <TranslateButton t-if="showTranslate" model="ctx.model" recordId="ctx.values.id" fieldName="field.name"
+                         label="labelText" uiLang="translateLang" onSaved="(value) => this.onTranslationSaved(value)"/>
+          </t>
+        </Input>
+      </t>
+    </Field>
+  </t>
+</templates>

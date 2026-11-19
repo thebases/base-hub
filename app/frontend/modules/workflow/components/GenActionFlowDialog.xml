@@ -1,0 +1,53 @@
+<templates xml:space="preserve">
+  <t t-name="GenActionFlowDialog">
+    <Dialog open="props.open" onOpenChange="(open) => this.props.onOpenChange(open)">
+      <DialogContent className="'workflow-gen-dialog-panel'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Generate Workflow by Script')"/></DialogTitle>
+          <DialogDescription><t t-esc="t('Describe the workflow action sequence in markdown, then generate the backend action rows from that script.')"/></DialogDescription>
+        </DialogHeader>
+
+        <div class="workflow-gen-dialog-body">
+          <section class="workflow-gen-panel">
+            <div class="workflow-gen-panel-header" t-esc="t('Instructions')"/>
+            <div class="workflow-gen-panel-scroll">
+              <div t-if="state.loading" class="workflow-gen-loading" t-esc="t('Loading workflow guidance…')"/>
+              <Alert t-elif="state.loadError" variant="'danger'" t-esc="state.loadError"/>
+              <MarkdownViewer t-else="" content="state.instructions" headings="this.instructionHeadings"
+                              showChrome="false" showHeadingRail="false"/>
+            </div>
+          </section>
+
+          <section class="workflow-gen-panel-script">
+            <div class="workflow-gen-panel-header-row">
+              <div>
+                <div class="workflow-gen-panel-script-title" t-esc="t('Workflow Script')"/>
+                <div class="workflow-gen-panel-script-hint" t-esc="t('Write one `Step` section per workflow action.')"/>
+              </div>
+              <Button variant="'outline'" size="'sm'" disabled="state.loading or state.generating"
+                      onClick="() => this.reload()"><t t-esc="t('Refresh')"/></Button>
+            </div>
+            <div class="workflow-gen-editor-wrap">
+              <div t-if="state.loading" class="workflow-gen-loading" t-esc="t('Preparing the markdown editor…')"/>
+              <MarkdownEdit t-else="" value="state.script" onChange="(value) => this.setScript(value)"/>
+            </div>
+          </section>
+        </div>
+
+        <DialogFooter className="'workflow-gen-dialog-footer'">
+          <Alert t-if="state.parseError" variant="'danger'" className="'workflow-gen-footer-error'" t-esc="state.parseError"/>
+          <div t-else="" class="workflow-gen-footer-info">
+            <t t-esc="t('Supported actions:')"/> <t t-esc="this.supportedActionsLabel"/>
+          </div>
+          <div class="workflow-gen-footer-actions">
+            <Button variant="'outline'" disabled="state.generating" onClick="() => this.cancel()"><t t-esc="t('Cancel')"/></Button>
+            <Button variant="'default'" disabled="state.loading or state.generating" onClick="() => this.generate()">
+              <t t-if="state.generating" t-esc="t('Generating…')"/>
+              <t t-else="" t-esc="t('Generate')"/>
+            </Button>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

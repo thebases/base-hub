@@ -1,0 +1,188 @@
+<templates xml:space="preserve">
+  <t t-name="ArchNode">
+    <t t-if="visible">
+      <t t-if="node.type === 'header'">
+        <div t-att-class="nodeClassName('basehub-arch-header')" t-att-id="node.id">
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <ArchNode node="child" ctx="props.ctx"/>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'sheet'">
+        <div t-att-class="nodeClassName('basehub-arch-sheet basehub-arch-row')" t-att-id="node.id">
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <div t-att-class="childColClass(child)">
+              <ArchNode node="child" ctx="props.ctx"/>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'group'">
+        <fieldset t-att-class="nodeClassName('basehub-arch-group ' + colClass)" t-att-id="node.id">
+          <t t-if="node.label">
+            <legend class="basehub-arch-group-legend" t-esc="node.label"/>
+          </t>
+          <div t-att-class="groupRowClass()">
+            <t t-foreach="node.children" t-as="child" t-key="child.key">
+              <t t-if="child.type === 'group'">
+                <ArchNode node="child" ctx="props.ctx" inGroupRow="true"/>
+              </t>
+              <t t-else="">
+                <div t-att-class="groupChildClass(child)">
+                  <ArchNode node="child" ctx="props.ctx"/>
+                </div>
+              </t>
+            </t>
+          </div>
+        </fieldset>
+      </t>
+
+      <t t-elif="node.type === 'notebook'">
+        <div t-att-class="nodeClassName('basehub-arch-notebook basehub-arch-span-8')" t-att-id="node.id">
+          <!-- defaultValue (uncontrolled): Tabs/TabTrigger already manage their own active-tab state
+               and role="tab"/"tablist" internally, matching the old static component's self-managed
+               click switching — activePageKey only seeds the initial page. -->
+          <Tabs defaultValue="activePageKey">
+            <TabsList>
+              <t t-foreach="visiblePages" t-as="page" t-key="page.key">
+                <TabTrigger value="page.key"><t t-esc="page.label"/></TabTrigger>
+              </t>
+            </TabsList>
+            <TabsContainer>
+              <t t-foreach="visiblePages" t-as="page" t-key="page.key">
+                <TabContent value="page.key">
+                  <div t-att-class="childNodeClassName(page, 'basehub-arch-page basehub-arch-row')">
+                    <t t-foreach="page.children" t-as="child" t-key="child.key">
+                      <div t-att-class="childColClass(child)">
+                        <ArchNode node="child" ctx="props.ctx"/>
+                      </div>
+                    </t>
+                  </div>
+                </TabContent>
+              </t>
+            </TabsContainer>
+          </Tabs>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'page'">
+        <div t-att-class="nodeClassName('basehub-arch-page basehub-arch-row')" t-att-id="node.id">
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <div t-att-class="childColClass(child)">
+              <ArchNode node="child" ctx="props.ctx"/>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'field'">
+        <t t-if="renderField">
+          <FormField field="fieldState.field" node="node" ctx="props.ctx"
+                     showLabel="!node.nolabel" className="nodeClassName(colClass)"/>
+        </t>
+      </t>
+
+      <t t-elif="node.type === 'button'">
+        <Button type="'button'" size="'sm'" variant="buttonVariant"
+                id="node.id" title="node.title" disabled="buttonDisabled"
+                onClick="() => this.onButtonClick()">
+          <t t-esc="node.label"/>
+        </Button>
+      </t>
+
+      <t t-elif="node.type === 'footer'">
+        <div class="basehub-arch-footer basehub-arch-span-8" t-att-id="node.id">
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <ArchNode node="child" ctx="props.ctx"/>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'label'">
+        <!-- Label has no id prop, so node.id (unused elsewhere for lookup) is dropped here. -->
+        <Label className="nodeClassName('basehub-arch-label')" for="node.for ? labelFor(node.for) : null">
+          <t t-esc="node.label || node.for"/>
+        </Label>
+      </t>
+
+      <t t-elif="node.type === 'separator'">
+        <div class="basehub-arch-span-8">
+          <t t-if="node.label">
+            <p class="basehub-arch-separator-label" t-esc="node.label"/>
+          </t>
+          <Separator orientation="'horizontal'"/>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'text'">
+        <span t-att-class="nodeClassName('basehub-arch-text')" t-esc="node.text"/>
+      </t>
+
+      <t t-elif="node.type === 'widget' and isNamedWidget(node)">
+        <!-- Named widget: resolved through form-widget-registry.js and lazily
+             imported from its owning module. -->
+        <div t-att-class="nodeClassName('basehub-arch-widget basehub-arch-span-8')" t-att-id="node.id">
+          <NamedFormWidget node="node" ctx="props.ctx"/>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'widget'">
+        <div t-att-class="nodeClassName('basehub-arch-widget basehub-arch-span-8')" t-att-id="node.id">
+          <t t-if="node.title || node.string">
+            <p class="basehub-arch-widget-title" t-esc="node.title || node.string"/>
+          </t>
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <ArchNode node="child" ctx="props.ctx"/>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'attachment'">
+        <div class="basehub-arch-attachment basehub-arch-span-8" t-att-id="node.id">
+          <t t-if="props.ctx.isCreateMode or !props.ctx.values.id">
+            <p class="basehub-arch-unsupported" t-esc="t('Save the record first to attach files.')"/>
+          </t>
+          <t t-else="">
+            <AttachmentWidget modelName="props.ctx.model" recordId="props.ctx.values.id"
+                               readonly="props.ctx.isReadonly" multi="true"/>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'modelAccess'">
+        <div class="basehub-arch-model-access basehub-arch-span-8" t-att-id="node.id">
+          <t t-if="props.ctx.isCreateMode or !props.ctx.values.id">
+            <p class="basehub-arch-unsupported" t-esc="t('Save the record first to manage permissions.')"/>
+          </t>
+          <t t-else="">
+            <ModelAccessTable groupId="props.ctx.values.id" readonly="props.ctx.isReadonly"/>
+          </t>
+        </div>
+      </t>
+
+      <t t-elif="node.type === 'chatter'">
+        <!-- <chatter/> is a pure marker: FormView.js's hasChatterNode walks the
+             parsed arch for this node type and mounts ChatterPanel as a
+             docked sidebar one level up (see FormView.xml) instead of
+             rendering anything inline here. -->
+      </t>
+
+      <t t-elif="node.type === 'container'">
+        <div t-att-class="containerClassName()" t-att-id="node.id">
+          <t t-foreach="node.children" t-as="child" t-key="child.key">
+            <t t-if="shouldInlineChild(child) and shouldRenderFieldNode(child)">
+              <FormField field="fieldFor(child)" node="child" ctx="props.ctx"
+                         showLabel="inlineFieldShowLabel(child)" inline="true"
+                         className="childNodeClassName(child)"/>
+            </t>
+            <t t-else="">
+              <ArchNode node="child" ctx="props.ctx"/>
+            </t>
+          </t>
+        </div>
+      </t>
+    </t>
+  </t>
+</templates>

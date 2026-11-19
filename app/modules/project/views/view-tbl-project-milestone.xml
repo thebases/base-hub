@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_milestone_list" model="ui.view">
+      <field name="name">tbl.project_milestone.list</field>
+      <field name="model">tbl.project_milestone</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Milestones">
+          <field name="name"/>
+          <field name="project_id"/>
+          <field name="deadline"/>
+          <field name="is_reached"/>
+          <field name="reached_date"/>
+          <field name="task_count"/>
+          <field name="done_task_count"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_milestone_form" model="ui.view">
+      <field name="name">tbl.project_milestone.form</field>
+      <field name="model">tbl.project_milestone</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Milestones">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="deadline"/>
+                <field name="sequence"/>
+              </group>
+              <group>
+                <field name="is_reached"/>
+                <field name="reached_date"/>
+                <field name="task_count"/>
+                <field name="done_task_count"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_milestone_search" model="ui.view">
+      <field name="name">tbl.project_milestone.search</field>
+      <field name="model">tbl.project_milestone</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Milestones">
+          <field name="name"/>
+          <field name="project_id"/>
+          <filter string="Pending" name="pending" domain="[('is_reached', '=', False)]"/>
+          <filter string="Reached" name="reached" domain="[('is_reached', '=', True)]"/>
+          <group>
+            <filter string="Project" name="group_by_project_id" domain="[]" context="{'group_by': 'project_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

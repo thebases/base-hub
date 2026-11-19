@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_menu_list" model="ui.view">
+      <field name="name">tbl.website_menu.list</field>
+      <field name="model">tbl.website_menu</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Website Menu">
+          <field name="site_id"/>
+          <field name="parent_id"/>
+          <field name="name"/>
+          <field name="page_id"/>
+          <field name="url"/>
+          <field name="sequence"/>
+          <field name="is_visible"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_menu_form" model="ui.view">
+      <field name="name">tbl.website_menu.form</field>
+      <field name="model">tbl.website_menu</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Menu Entry">
+          <sheet>
+            <group>
+              <group string="Entry">
+                <field name="site_id"/>
+                <field name="parent_id"/>
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="is_visible"/>
+              </group>
+              <group string="Link">
+                <field name="page_id"/>
+                <field name="url"/>
+                <field name="new_window"/>
+              </group>
+              <group string="Mega Menu">
+                <field name="is_mega_menu"/>
+                <field name="mega_content_html" invisible="not is_mega_menu"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

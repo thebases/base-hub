@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_contact_request_list" model="ui.view">
+      <field name="name">tbl.website_contact_request.list</field>
+      <field name="model">tbl.website_contact_request</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Contact Requests">
+          <field name="created_at" string="Received"/>
+          <field name="name"/>
+          <field name="email"/>
+          <field name="subject"/>
+          <field name="state"/>
+          <field name="site_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_contact_request_form" model="ui.view">
+      <field name="name">tbl.website_contact_request.form</field>
+      <field name="model">tbl.website_contact_request</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Contact Request">
+          <sheet>
+            <group>
+              <group string="Request">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="subject"/>
+                <field name="message"/>
+              </group>
+              <group string="Handling">
+                <field name="state"/>
+                <field name="site_id"/>
+                <field name="ip" readonly="1"/>
+                <field name="user_agent" readonly="1"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

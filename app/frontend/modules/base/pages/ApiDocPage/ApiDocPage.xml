@@ -1,0 +1,292 @@
+<templates xml:space="preserve">
+  <t t-name="ApiDocPage">
+    <main class="px-3 px-lg-4">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+        <!-- <div>
+          <p class="text-body-secondary small mb-1"><a href="/web">Base Hub</a> / API Documentation</p>
+          <h1 class="h4 fw-semibold mb-0">API Documentation</h1>
+          <p class="text-body-secondary small mb-0">Browse documented runtime models and inspect their available fields and methods.</p>
+        </div> -->
+        <div class="d-flex gap-2 flex-wrap">
+        <h1 class="h4 fw-semibold mb-0" t-esc="t('API Documentation')"/>
+          <Button variant="'outline'" size="'sm'" onClick="() => this.refresh()"><t t-esc="t('Refresh')"/></Button>
+          <Button variant="'outline'" size="'sm'" onClick="() => this.openOpenApiJSON()">OpenAPI JSON</Button>
+        </div>
+      </div>
+
+      <Tabs defaultValue="'guide'">
+        <TabsList>
+          <TabTrigger value="'guide'"><t t-esc="t('Guide')"/></TabTrigger>
+          <TabTrigger value="'reference'"><t t-esc="t('RPC Api')"/></TabTrigger>
+          <TabTrigger value="'alias'"><t t-esc="t('Alias Api')"/></TabTrigger>
+        </TabsList>
+        <TabsContainer>
+          <TabContent value="'guide'">
+            <t t-if="state.guideStatus === 'loading'">
+              <div class="d-flex align-items-center gap-2 text-body-secondary py-4"><Spinner label="t('Loading')"/><span t-esc="t('Loading API guide…')"/></div>
+            </t>
+            <t t-elif="state.guideStatus === 'error'">
+              <Alert variant="'danger'" t-esc="state.guideMessage"/>
+            </t>
+            <t t-else="">
+              <Card><CardBody><Markdown content="state.guide" mermaid="true" baseUi="true"/></CardBody></Card>
+            </t>
+          </TabContent>
+          <TabContent value="'reference'">
+          <t t-if="state.status === 'loading'">
+            <div class="d-flex align-items-center gap-2 text-body-secondary py-4">
+              <Spinner label="t('Loading')"/>
+              <span t-esc="t('Loading API documentation…')"/>
+            </div>
+          </t>
+          <t t-elif="state.status === 'error'">
+            <Alert variant="'danger'" t-esc="state.message"/>
+          </t>
+          <t t-else="">
+            <div class="row g-3">
+              <div t-att-class="state.catalogCollapsed ? 'col-12 col-xl-auto' : 'col-12 col-xl-4'">
+                <Card>
+                  <CardHeader>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                      <CardTitle><t t-esc="t('Catalog')"/></CardTitle>
+                      <Button variant="'ghost'" size="'sm'" onClick="() => this.toggleCatalog()"><Icon name="state.catalogCollapsed ? 'panel-left-open' : 'panel-left-close'"/></Button>
+                    </div>
+                  </CardHeader>
+                  <CardBody t-if="!state.catalogCollapsed">
+                    <Input value="state.query" placeholder="t('Search models...')" className="'mb-3'" onInput="(value) => this.setQuery(value)"/>
+                    <div class="row row-cols-3 g-2 mb-3 text-center">
+                      <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Modules')"/><div class="fs-5 fw-semibold" t-esc="state.index.modules.length"/></div>
+                      <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Models')"/><div class="fs-5 fw-semibold" t-esc="state.index.models.length"/></div>
+                      <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Visible')"/><div class="fs-5 fw-semibold" t-esc="filteredModels.length"/></div>
+                    </div>
+                    <div class="list-group" style="max-height: 32rem; overflow-y: auto;">
+                      <div t-if="filteredModels.length === 0" class="text-body-secondary small p-3" t-esc="t('No models match this search.')"/>
+                      <t t-foreach="filteredModels" t-as="model" t-key="model.model">
+                        <button type="button"
+                                t-att-class="'list-group-item list-group-item-action' + (model.model === state.selectedModel ? ' active' : '')"
+                                t-on-click="() => this.selectModel(model.model)">
+                          <div class="d-flex justify-content-between align-items-start gap-2">
+                            <div class="text-truncate">
+                              <div class="fw-medium text-truncate" t-esc="model.name"/>
+                              <div class="small text-truncate" t-att-class="model.model === state.selectedModel ? '' : 'text-body-secondary'" t-esc="model.model"/>
+                            </div>
+                            <Badge variant="'secondary'"><t t-esc="t('{count} methods', { count: model.methods.length })"/></Badge>
+                          </div>
+                        </button>
+                      </t>
+                    </div>
+                  </CardBody>
+                </Card>
+              </div>
+
+              <div t-att-class="state.catalogCollapsed ? 'col-12 col-xl' : 'col-12 col-xl-8'">
+                <Card>
+                  <CardHeader>
+                    <CardTitle><t t-esc="state.modelDoc ? state.modelDoc.name : state.selectedModel"/></CardTitle>
+                    <p class="text-body-secondary small mb-0" t-esc="state.modelDoc ? state.modelDoc.model : t('Select a model to inspect its documentation.')"/>
+                  </CardHeader>
+                  <CardBody>
+                    <t t-if="state.modelStatus === 'loading'">
+                      <div class="d-flex align-items-center justify-content-center gap-2 text-body-secondary py-5">
+                        <Spinner label="t('Loading')"/>
+                        <span t-esc="t('Loading model documentation…')"/>
+                      </div>
+                    </t>
+                    <t t-elif="state.modelStatus === 'error'">
+                      <Alert variant="'danger'" t-esc="state.modelMessage"/>
+                    </t>
+                    <t t-elif="!state.modelDoc">
+                      <div class="text-center text-body-secondary py-5" t-esc="t('Pick a model from the catalog to inspect its contract.')"/>
+                    </t>
+                    <t t-else="">
+                      <div class="row row-cols-3 g-2 mb-3 text-center">
+                        <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Fields')"/><div class="fs-5 fw-semibold" t-esc="sortedFields.length"/></div>
+                        <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Methods')"/><div class="fs-5 fw-semibold" t-esc="sortedMethods.length"/></div>
+                        <div class="col"><div class="small text-body-secondary text-uppercase" t-esc="t('Module')"/><div class="fs-5 fw-semibold" t-esc="(sortedFields[0] and sortedFields[0].module) or state.modelDoc.model.split('.')[0] or 'core'"/></div>
+                      </div>
+                      <div t-if="state.modelDoc.doc" class="bg-body-secondary bg-opacity-10 border rounded-3 p-3 mb-3 small text-body-secondary" t-esc="state.modelDoc.doc"/>
+                      <div t-if="state.modelDoc.doc_file" class="mb-3">
+                        <Button variant="'outline'" size="'sm'" onClick="() => this.showDescription(state.modelDoc.name, state.modelDoc.doc_file)"><Icon name="'file-text'"/> <t t-esc="t('Show Description')"/></Button>
+                      </div>
+                      <Dialog open="state.docDialog.open" onOpenChange="(open) => this.setDocDialogOpen(open)">
+                        <DialogContent className="'basehub-doc-dialog__panel'">
+                          <DialogHeader>
+                            <DialogTitle><t t-esc="t('Function: {name}', { name: state.docDialog.title })"/></DialogTitle>
+                          </DialogHeader>
+                          <div class="basehub-doc-dialog__body">
+                            <Markdown content="state.docDialog.content" mermaid="true" baseUi="true"/>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+
+                      <Tabs defaultValue="'methods'">
+                        <TabsList>
+                         <TabTrigger value="'methods'"><t t-esc="t('Methods')"/></TabTrigger>
+                          <TabTrigger value="'fields'"><t t-esc="t('Fields')"/></TabTrigger>
+                     
+                        </TabsList>
+                        <TabsContainer>
+                    
+                        <TabContent value="'methods'">
+                          <div class="row g-3">
+                            <div class="col-12 col-xl-5">
+                              <div class="border rounded-3" style="max-height: 28rem; overflow-y: auto;">
+                                <div class="list-group list-group-flush">
+                                  <t t-foreach="sortedMethods" t-as="entry" t-key="entry[0]">
+                                    <button type="button"
+                                            t-att-class="'list-group-item list-group-item-action' + (entry[0] === state.selectedMethodName ? ' active' : '')"
+                                            t-on-click="() => this.selectMethod(entry[0])">
+                                      <div class="fw-medium" t-esc="entry[0]"/>
+                                      <div class="small text-truncate font-monospace" t-att-class="entry[0] === state.selectedMethodName ? '' : 'text-body-secondary'" t-esc="entry[1].signature"/>
+                                    </button>
+                                  </t>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 col-xl-7">
+                              <t t-if="!selectedMethod">
+                                <Alert variant="'secondary'"><t t-esc="t('No public methods are documented for this model.')"/></Alert>
+                              </t>
+                              <t t-else="">
+                                <div class="border rounded-3 p-3 mb-3">
+                                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                                    <div class="fs-5 fw-semibold" t-esc="state.selectedMethodName"/>
+                                    <t t-foreach="selectedMethod.api || []" t-as="tag" t-key="tag">
+                                      <Badge variant="'secondary'"><t t-esc="tag"/></Badge>
+                                    </t>
+                                  </div>
+                                  <div class="small text-body-secondary font-monospace mt-1" t-esc="selectedMethod.signature"/>
+                                </div>
+
+                                <div class="mb-3">
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Route')"/>
+                                  <!-- Route and Alias Route share one read-only rendering so they look identical. -->
+                                  <input type="text" class="form-control font-monospace" readonly="readonly" t-att-value="state.route"/>
+                                </div>
+
+                                <!-- Aliases declared via MethodAlias.Route override the default AliasRoute, so show them instead of it. -->
+                                <div class="mb-3" t-if="selectedMethod.alias_paths and selectedMethod.alias_paths.length">
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Alias Route')"/>
+                                  <t t-foreach="selectedMethod.alias_paths" t-as="aliasPath" t-key="aliasPath">
+                                    <input type="text" class="form-control font-monospace mb-1" readonly="readonly" t-att-value="aliasPath"/>
+                                  </t>
+                                </div>
+                                <div class="mb-3" t-elif="selectedMethod.alias_path">
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Alias Route')"/>
+                                  <input type="text" class="form-control font-monospace" readonly="readonly" t-att-value="selectedMethod.alias_path"/>
+                                </div>
+
+                                <div class="mb-3" t-if="selectedMethod.doc or selectedMethod.doc_file">
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Description')"/>
+                                  <div t-if="selectedMethod.doc" class="bg-body-secondary bg-opacity-10 border rounded-3 p-3 small text-body-secondary" t-esc="selectedMethod.doc"/>
+                                  <Button t-if="selectedMethod.doc_file" variant="'outline'" size="'sm'" className="'mt-2'" onClick="() => this.showDescription(state.selectedMethodName, selectedMethod.doc_file)"><Icon name="'file-text'"/> <t t-esc="t('Show Description')"/></Button>
+                                </div>
+
+                                <div class="mb-3">
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Parameters')"/>
+                                  <div class="table-responsive">
+                                    <Table>
+                                      <thead>
+                                        <tr><th t-esc="t('Name')"/><th t-esc="t('Type')"/><th t-esc="t('Default')"/><th t-esc="t('Description')"/></tr>
+                                      </thead>
+                                      <tbody>
+                                        <t t-if="Object.keys(selectedMethod.parameters).length === 0">
+                                          <tr><td colspan="4" class="text-center text-body-secondary" t-esc="t('This method does not declare request parameters.')"/></tr>
+                                        </t>
+                                        <t t-else="">
+                                          <t t-foreach="Object.values(selectedMethod.parameters)" t-as="parameter" t-key="parameter.name">
+                                            <tr>
+                                              <td class="font-monospace small fw-medium" t-esc="parameter.name"/>
+                                              <td t-esc="parameter.annotation || 'any'"/>
+                                              <td t-esc="parameter.default !== undefined ? '' + parameter.default : 'null'"/>
+                                              <td class="text-body-secondary" t-esc="parameter.doc || t('No description')"/>
+                                            </tr>
+                                          </t>
+                                        </t>
+                                      </tbody>
+                                    </Table>
+                                  </div>
+                                </div>
+
+                                <div class="mb-3">
+                                  <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <div class="small text-uppercase text-body-secondary" t-esc="t('Try Request')"/>
+                                    <Button size="'sm'" onClick="() => this.runRequest()" disabled="state.tryStatus === 'running'">
+                                      <t t-esc="state.tryStatus === 'running' ? t('Running…') : t('Run')"/>
+                                    </Button>
+                                  </div>
+                                  <Textarea value="state.requestBody" rows="10" className="'font-monospace small'" onInput="(value) => this.setRequestBody(value)"/>
+                                </div>
+
+                                <div>
+                                  <div class="small text-uppercase text-body-secondary mb-1" t-esc="t('Response')"/>
+                                  <div class="bg-body-secondary bg-opacity-10 border rounded-3 p-3" style="min-height: 8rem;">
+                                    <t t-if="state.tryStatus === 'idle'">
+                                      <p class="small text-body-secondary mb-0" t-esc="t('Run to get a response.')"/>
+                                    </t>
+                                    <t t-elif="state.tryStatus === 'running'">
+                                      <div class="d-flex align-items-center gap-2 small text-body-secondary">
+                                        <Spinner label="t('Running')"/>
+                                        <span t-esc="t('Executing request…')"/>
+                                      </div>
+                                    </t>
+                                    <t t-elif="state.tryStatus === 'error'">
+                                      <p class="small text-danger mb-0" t-esc="state.tryMessage"/>
+                                    </t>
+                                    <t t-else="">
+                                      <Badge variant="state.tryResponse.status gte 200 and state.tryResponse.status lt 300 ? 'secondary' : 'danger'">
+                                        HTTP <t t-esc="state.tryResponse.status"/>
+                                      </Badge>
+                                      <pre class="small mt-2 mb-0" style="white-space: pre-wrap; overflow-x: auto;" t-esc="state.tryResponse.body"/>
+                                    </t>
+                                  </div>
+                                </div>
+                              </t>
+                            </div>
+                          </div>
+                        </TabContent>
+                        <TabContent value="'fields'">
+                          <div class="table-responsive" style="max-height: 28rem;">
+                            <Table>
+                              <thead>
+                                <tr><th t-esc="t('Field')"/><th t-esc="t('Label')"/><th t-esc="t('Type')"/><th t-esc="t('Traits')"/></tr>
+                              </thead>
+                              <tbody>
+                                <t t-foreach="sortedFields" t-as="field" t-key="field.name">
+                                  <tr>
+                                    <td class="fw-medium" t-esc="field.name"/>
+                                    <td t-esc="field.string"/>
+                                    <td>
+                                      <div t-esc="field.kind || field.type"/>
+                                      <div t-if="field.relation" class="small text-body-secondary" t-esc="field.relation"/>
+                                    </td>
+                                    <td>
+                                      <Badge t-if="field.required" variant="'secondary'" className="'me-1'"><t t-esc="t('required')"/></Badge>
+                                      <Badge t-if="field.readonly" variant="'muted'" className="'me-1'"><t t-esc="t('readonly')"/></Badge>
+                                      <Badge t-if="field.searchable" variant="'muted'" className="'me-1'"><t t-esc="t('searchable')"/></Badge>
+                                      <Badge t-if="field.sortable" variant="'muted'" className="'me-1'"><t t-esc="t('sortable')"/></Badge>
+                                      <Badge t-if="field.compute" variant="'muted'" className="'me-1'"><t t-esc="t('compute')"/></Badge>
+                                    </td>
+                                  </tr>
+                                </t>
+                              </tbody>
+                            </Table>
+                          </div>
+                        </TabContent>
+                        </TabsContainer>
+                      </Tabs>
+                    </t>
+                  </CardBody>
+                </Card>
+              </div>
+            </div>
+          </t>
+          </TabContent>
+          <TabContent value="'alias'">
+            <iframe t-key="state.lang" t-att-src="aliasViewerUrl" t-att-title="t('Alias API reference')" class="w-100 border rounded bg-body" style="height: calc(100vh - 15rem); min-height: 520px;"/>
+          </TabContent>
+        </TabsContainer>
+      </Tabs>
+    </main>
+  </t>
+</templates>

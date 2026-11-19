@@ -1,0 +1,5 @@
+<templates name="Call to action" group="content" sequence="70" class="bh-cta" keywords="button,action" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2224%22 y=%2216%22 width=%2272%22 height=%228%22 rx=%222%22 fill=%22%23adb5bd%22/%3E%3Crect x=%2249%22 y=%2236%22 width=%2222%22 height=%228%22 rx=%224%22 fill=%22%236ea8fe%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.cta">
+    <section class="bh-cta py-5 text-center bg-light" data-snippet="cta"><div class="container"><h2>Ready to start?</h2><a class="btn btn-primary btn-lg" href="/contact">Contact us</a></div></section>
+  </t>
+</templates>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_model_access_list" model="ui.view">
+      <field name="name">sys.model.access.list</field>
+      <field name="model">sys.model.access</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Access Rights" decoration-muted="not active">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="group_id"/>
+          <field name="perm_read"/>
+          <field name="perm_write"/>
+          <field name="perm_create"/>
+          <field name="perm_unlink"/>
+          <field name="active"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_model_access_form" model="ui.view">
+      <field name="name">sys.model.access.form</field>
+      <field name="model">sys.model.access</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Access Right">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="active"/>
+                <field name="model_name"/>
+                <field name="group_id"/>
+              </group>
+              <group string="Permissions">
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_model_access_search" model="ui.view">
+      <field name="name">sys.model.access.search</field>
+      <field name="model">sys.model.access</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Access Rights">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="group_id"/>
+          <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+          <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+          <group>
+            <filter string="Model" name="group_by_model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+            <filter string="Group" name="group_by_group_id" domain="[]" context="{'group_by': 'group_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

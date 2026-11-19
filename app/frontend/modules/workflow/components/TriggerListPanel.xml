@@ -1,0 +1,101 @@
+<templates xml:space="preserve">
+  <t t-name="TriggerListPanel">
+    <Sheet side="'right'" open="props.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <SheetContent>
+        <div class="workflow-trigger-panel">
+        <SheetHeader>
+          <SheetTitle><t t-esc="t('Triggers')"/></SheetTitle>
+        </SheetHeader>
+        <div class="workflow-trigger-panel-body d-flex flex-column gap-3">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+          <div class="d-flex align-items-center gap-2">
+            <p class="small text-body-secondary mb-0 flex-grow-1" t-esc="t('Changes here are saved right away. Triggers always run the published version.')"/>
+            <Button variant="'outline'" size="'icon-sm'" aria-label="t('Refresh trigger health')" title="t('Refresh trigger health')" onClick="() => props.onRefreshHealth()">
+              <Icon name="'refresh-cw'"/>
+            </Button>
+          </div>
+
+          <div class="workflow-trigger-row">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <span class="fw-semibold" t-esc="this.typeLabel('webhook')"/>
+              <Badge variant="this.webhookServes ? 'success' : 'muted'" label="this.webhookServes ? t('Serving') : t('Off')"/>
+            </div>
+            <code t-if="!this.webhookRows.length" class="small text-break" t-esc="'/wh/' + props.workflowTopic"/>
+            <span class="small text-body-secondary" t-esc="this.webhookHint"/>
+            <span class="small text-body-secondary" t-esc="t('With other triggers present, the webhook serves only while an explicit webhook row is active.')"/>
+          </div>
+
+          <div t-foreach="this.webhookRows" t-as="row" t-key="row.id" class="workflow-trigger-row">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <span class="fw-semibold" t-esc="this.typeLabel(row.type)"/>
+              <Badge t-if="!row.is_active" variant="'muted'" label="t('Inactive')"/>
+              <div class="ms-auto d-flex align-items-center gap-1">
+                <Switch checked="row.is_active" disabled="state.busyID !== 0" onChange="(checked) => this.toggleRow(row, checked)"><t t-esc="t('Active')"/></Switch>
+                <Button variant="'outline'" size="'icon-sm'" disabled="state.busyID !== 0" aria-label="t('Edit webhook settings')" title="t('Edit webhook settings')" onClick="() => this.editRow(row)">
+                  <Icon name="'pencil'"/>
+                </Button>
+              </div>
+            </div>
+            <code class="small text-break" t-esc="'/wh/' + props.workflowTopic"/>
+            <span class="small text-body-secondary" t-esc="this.webhookSummary(row)"/>
+            <span class="small text-body-secondary" t-esc="t('A webhook row keeps its signature settings: switch it off instead of removing it.')"/>
+          </div>
+
+          <div t-if="state.webhookEdit" class="workflow-trigger-row">
+            <span class="fw-semibold" t-esc="state.webhookEdit.row ? t('Edit webhook settings') : t('New webhook trigger')"/>
+            <code class="small text-break" t-esc="'/wh/' + props.workflowTopic"/>
+            <Field className="'mb-0'">
+              <NativeSelect label="t('Signature secret (HMAC)')" value="state.webhookEdit.hmacSecret" disabled="state.busyID !== 0" onChange="(value) => this.state.webhookEdit.hmacSecret = value">
+                <option value="" t-att-selected="!state.webhookEdit.hmacSecret" t-esc="t('— No signature —')"/>
+                <option t-foreach="this.secretOptions" t-as="option" t-key="option.value" t-att-value="option.value" t-att-selected="option.value === state.webhookEdit.hmacSecret" t-esc="option.label"/>
+              </NativeSelect>
+            </Field>
+            <span class="small text-body-secondary" t-esc="t('Optional. With a secret, callers sign each request (X-Webhook-Timestamp and X-Webhook-Signature headers). The trigger stores only the credential reference.')"/>
+            <Field className="'mb-0'">
+              <Input label="t('Max body bytes')" type="'number'" value="state.webhookEdit.maxBodyBytes" disabled="state.busyID !== 0" onInput="(value) => this.state.webhookEdit.maxBodyBytes = value"/>
+            </Field>
+            <span class="small text-body-secondary" t-esc="t('Optional. Blank uses the server default (1 MiB).')"/>
+            <div class="d-flex justify-content-end gap-2">
+              <Button variant="'outline'" disabled="state.busyID !== 0" onClick="() => this.closeWebhookEditor()"><t t-esc="t('Cancel')"/></Button>
+              <Button variant="'default'" disabled="state.busyID !== 0" onClick="() => this.saveWebhook()"><t t-esc="t('Save')"/></Button>
+            </div>
+          </div>
+
+          <div t-foreach="this.transportRows" t-as="row" t-key="row.id" class="workflow-trigger-row">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <Tooltip t-if="this.tone(row)" content="this.toneText(row)">
+                <t t-set-slot="trigger"><span t-attf-class="workflow-health-dot is-{{ this.tone(row) }}"/></t>
+              </Tooltip>
+              <span class="fw-semibold" t-esc="this.typeLabel(row.type)"/>
+              <Badge t-if="!row.is_active" variant="'muted'" label="t('Inactive')"/>
+              <div class="ms-auto d-flex align-items-center gap-1">
+                <Switch checked="row.is_active" disabled="state.busyID !== 0" onChange="(checked) => this.toggleRow(row, checked)"><t t-esc="t('Active')"/></Switch>
+                <Button variant="'outline'" size="'icon-sm'" disabled="state.busyID !== 0" aria-label="t('Edit trigger settings')" title="t('Edit trigger settings')" onClick="() => this.editRow(row)">
+                  <Icon name="'pencil'"/>
+                </Button>
+                <Button variant="'destructive'" size="'icon-sm'" disabled="state.busyID !== 0" aria-label="t('Remove trigger')" title="t('Remove trigger')" onClick="() => this.removeRow(row)">
+                  <Icon name="'trash-2'"/>
+                </Button>
+              </div>
+            </div>
+            <code class="small text-break" t-esc="row.topic or t('Trigger topic not configured')"/>
+            <span t-if="this.tone(row)" class="small text-body-secondary" t-esc="this.toneText(row)"/>
+          </div>
+
+          <div t-if="this.addableSpecs.length" class="d-flex flex-wrap align-items-end gap-2">
+            <Field className="'flex-grow-1 mb-0'">
+              <NativeSelect label="t('New trigger type')" value="this.selectedAddType" onChange="(value) => this.state.addType = value">
+                <option t-foreach="this.addableSpecs" t-as="spec" t-key="spec.type" t-att-value="spec.type" t-att-selected="spec.type === this.selectedAddType" t-esc="spec.label"/>
+              </NativeSelect>
+            </Field>
+            <Button variant="'default'" disabled="state.busyID !== 0" onClick="() => this.addTrigger()">
+              <Icon name="'plus'"/>
+              <span class="ms-1" t-esc="t('Add trigger')"/>
+            </Button>
+          </div>
+        </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  </t>
+</templates>

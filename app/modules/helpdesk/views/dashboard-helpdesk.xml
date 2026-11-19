@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="dashboard_helpdesk" model="ui.view">
+      <field name="name">Helpdesk</field>
+      <field name="type">dashboard</field>
+      <field name="module">helpdesk</field>
+      <field name="sequence">10</field>
+      <field name="arch" type="xml">
+        <dashboard>
+          <cards>
+            <card model="tbl.helpdesk_ticket" icon="ticket" label="Open Tickets" href="/web/tbl.helpdesk_ticket" domain="[[&quot;stage_id.is_closed&quot;,&quot;=&quot;,false]]"/>
+            <!-- Static-domain KPI cards: search_count has no relative-date
+                 support (confirmed — DashboardView.js's domain is a plain
+                 JSON literal, evaluated once), so "closed today/7 days"
+                 style cards aren't expressible here; those numbers live on
+                 tbl.helpdesk_team's TicketClosed7d/SuccessRate7d/AvgRating7d
+                 compute fields instead (see team_kpi_service.go), visible on
+                 the team list/kanban/form view. -->
+            <card model="tbl.helpdesk_ticket" icon="users" label="Unassigned Tickets" href="/web/tbl.helpdesk_ticket" domain="[[&quot;stage_id.is_closed&quot;,&quot;=&quot;,false],[&quot;assignee_id&quot;,&quot;=&quot;,false]]"/>
+            <card model="tbl.helpdesk_ticket" icon="alert-triangle" label="Urgent Tickets" href="/web/tbl.helpdesk_ticket" domain="[[&quot;stage_id.is_closed&quot;,&quot;=&quot;,false],[&quot;priority&quot;,&quot;=&quot;,&quot;urgent&quot;]]"/>
+            <card model="tbl.helpdesk_sla_status" icon="clock" label="SLA Failed" href="/web/tbl.helpdesk_sla_status" domain="[[&quot;status&quot;,&quot;=&quot;,&quot;failed&quot;]]"/>
+          </cards>
+          <quicklinks>
+            <link model="tbl.helpdesk_ticket" icon="ticket" label="Helpdesk Tickets" href="/web/tbl.helpdesk_ticket"/>
+            <link model="tbl.helpdesk_team" icon="users" label="Teams" href="/web/tbl.helpdesk_team"/>
+            <link model="tbl.helpdesk_stage" icon="columns" label="Stages" href="/web/tbl.helpdesk_stage"/>
+            <link model="tbl.helpdesk_sla" icon="clock" label="SLA Policies" href="/web/tbl.helpdesk_sla"/>
+          </quicklinks>
+        </dashboard>
+      </field>
+    </record>
+</data>

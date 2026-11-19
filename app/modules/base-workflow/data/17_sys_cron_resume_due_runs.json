@@ -1,0 +1,18 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "workflow.cron_resume_due_runs",
+    "force_update": true,
+    "data": {
+      "name": "Workflow Resume Due Runs",
+      "handler": "workflow.resume_due_runs",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": false,
+      "payload": {
+        "limit": 50
+      }
+    }
+  }
+]

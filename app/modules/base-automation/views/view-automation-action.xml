@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_automation_action_list" model="ui.view">
+      <field name="name">automation.action.list</field>
+      <field name="model">automation.action</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Automation Actions" sample="1">
+          <field name="name"/>
+          <field name="action_type"/>
+          <field name="model" optional="show"/>
+          <field name="operation" optional="show"/>
+          <field name="active"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_automation_action_form" model="ui.view">
+      <field name="name">automation.action.form</field>
+      <field name="model">automation.action</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Automation Action">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1" placeholder="Action name"/>
+                </h1>
+                <div class="small text-muted">
+                  A Lua script or declarative model operation that internal crons or a manual Run
+                  can execute.
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="Action">
+                <field name="action_type"/>
+                <field name="description"/>
+                <field name="active"/>
+              </group>
+              <group string="Sys Model" attrs="{'invisible': [('action_type', '!=', 'sys_model')]}">
+                <field name="model" widget="sys_model_name"/>
+                <field name="operation"/>
+                <field name="domain"/>
+                <field name="values"/>
+              </group>
+              <group string="Go Handler" attrs="{'invisible': [('action_type', '!=', 'go_handler')]}">
+                <field name="handler_key"/>
+                <field name="values"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Lua Script" name="lua_script" attrs="{'invisible': [('action_type', '!=', 'lua')]}">
+                <!-- Scripts get `payload` and the `base` table (call/log/json_encode/json_decode); when run from a workflow Lua node they also get `data`, `raw`, `topic`, `step_key`. A returned table becomes the action result. -->
+                <field name="lua_code" nolabel="1" widget="lua" lua_globals="payload,data,raw,base"
+                       lua_hint="Return a table to use it as the action result."/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

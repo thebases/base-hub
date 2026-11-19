@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_ticket_list" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket.list</field>
+      <field name="model">tbl.helpdesk_ticket</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Tickets">
+          <field name="number"/>
+          <field name="subject"/>
+          <field name="team_id"/>
+          <field name="stage_id"/>
+          <field name="priority"/>
+          <field name="ticket_type_id"/>
+          <field name="assignee_id"/>
+          <field name="sla_deadline"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_kanban" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket.kanban</field>
+      <field name="model">tbl.helpdesk_ticket</field>
+      <field name="type">kanban</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="stage_id">
+          <templates>
+            <t t-name="card">
+              <div class="o_kanban_record">
+                <field name="subject"/>
+                <field name="priority"/>
+                <field name="assignee_id"/>
+                <field name="tag_ids"/>
+                <field name="sla_deadline"/>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <!-- First real consumer of the cohort view type in this repo: the
+         backend (internal/orm/runtime_cohort.go's cohort_data RPC) and
+         frontend (CohortView.js/cohort-utils.js, listed in
+         view-registry.js's VIEW_TYPES) are already built and unit-tested,
+         but no module had wired a real ui.view row for it before this one.
+         Cohort never synthesizes a default arch (view-registry.js:
+         synthesizeArch: false), so this arch must be explicit. Buckets
+         tickets by creation week and tracks how many are still open
+         (retention) vs. closed (churn) N weeks later. -->
+    <record id="view_helpdesk_ticket_cohort" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket.cohort</field>
+      <field name="model">tbl.helpdesk_ticket</field>
+      <field name="type">cohort</field>
+      <field name="arch" type="xml">
+        <cohort string="Ticket Lifecycle" date_start="created_at" date_stop="close_date" interval="week" mode="retention"/>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_form" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket.form</field>
+      <field name="model">tbl.helpdesk_ticket</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Ticket">
+          <sheet>
+            <group>
+              <group>
+                <field name="number"/>
+                <field name="subject"/>
+                <field name="team_id"/>
+                <field name="stage_id"/>
+                      <field name="priority"/>
+                <field name="ticket_type_id"/>
+                <field name="category_id"/>
+                <field name="channel_id"/>
+                <field name="tag_ids"/>
+                <field name="partner_id"/>
+                <field name="assignee_id"/>
+              </group>
+              <group>
+                <field name="sla_deadline"/>
+                <field name="assign_date"/>
+                <field name="close_date"/>
+                <field name="last_stage_update"/>
+                <field name="unattended"/>
+                <field name="duplicate_id"/>
+                <field name="related_ticket_ids"/>
+                <field name="description"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_search" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket.search</field>
+      <field name="model">tbl.helpdesk_ticket</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Tickets">
+          <field name="subject"/>
+          <field name="number"/>
+          <field name="priority"/>
+          <field name="team_id"/>
+          <field name="stage_id"/>
+          <group>
+            <filter string="Team" name="group_by_team" domain="[]" context="{'group_by': 'team_id'}"/>
+            <filter string="Stage" name="group_by_stage" domain="[]" context="{'group_by': 'stage_id'}"/>
+            <filter string="Priority" name="group_by_priority" domain="[]" context="{'group_by': 'priority'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_comment_list" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_comment.list</field>
+      <field name="model">tbl.helpdesk_ticket_comment</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Ticket Comments">
+          <field name="ticket_id"/>
+          <field name="body"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_comment_form" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_comment.form</field>
+      <field name="model">tbl.helpdesk_ticket_comment</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Ticket Comment">
+          <sheet>
+            <group>
+              <field name="ticket_id"/>
+              <field name="body"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

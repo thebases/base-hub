@@ -1,0 +1,50 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_stage",
+    "external_id": "project.stage.to_do",
+    "force_update": false,
+    "data": {
+      "name": "To Do",
+      "sequence": 1,
+      "fold": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_stage",
+    "external_id": "project.stage.in_progress",
+    "force_update": false,
+    "data": {
+      "name": "In Progress",
+      "sequence": 2,
+      "fold": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_stage",
+    "external_id": "project.stage.done",
+    "force_update": false,
+    "data": {
+      "name": "Done",
+      "sequence": 3,
+      "fold": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_stage",
+    "external_id": "project.stage.cancelled",
+    "force_update": false,
+    "data": {
+      "name": "Cancelled",
+      "sequence": 4,
+      "fold": true,
+      "active": true
+    }
+  }
+]

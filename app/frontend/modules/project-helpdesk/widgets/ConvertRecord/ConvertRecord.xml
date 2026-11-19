@@ -1,0 +1,25 @@
+<templates xml:space="preserve">
+  <t t-name="ConvertRecord">
+    <div class="d-flex flex-column gap-3 w-100">
+      <p class="text-body-secondary small mb-0" t-esc="config.hint"/>
+      <div t-if="state.error" class="alert alert-danger py-2 px-3 mb-0 small" role="alert" t-esc="state.error"/>
+      <div t-if="state.loading" class="text-body-secondary small">Loading…</div>
+      <t t-else="">
+        <div class="d-flex flex-column gap-1">
+          <label class="form-label small mb-0" t-esc="config.targetLabel"/>
+          <Combobox options="targetOptions" value="state.targetID || undefined" placeholder="'Select…'"
+                    onChange="(value) => this.onTargetChange(value)"/>
+        </div>
+        <div class="d-flex flex-column gap-1" t-if="state.targetID">
+          <label class="form-label small mb-0">Stage (optional)</label>
+          <Combobox t-key="state.targetID" options="stageOptions" value="state.stageID || undefined" placeholder="'Default stage'"
+                    onChange="(value) => this.onStageChange(value)"/>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <Button variant="'ghost'" label="'Cancel'" disabled="state.submitting" onClick="() => this.cancel()"/>
+          <Button label="config.submitLabel" disabled="!canSubmit" onClick="() => this.submit()"/>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

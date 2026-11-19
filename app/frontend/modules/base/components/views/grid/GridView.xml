@@ -1,0 +1,57 @@
+<templates xml:space="preserve">
+  <t t-name="GridView">
+    <div class="d-flex flex-column gap-2">
+      <div class="d-flex align-items-center justify-content-between gap-2">
+        <span class="fw-semibold" t-esc="props.title"/>
+        <div class="btn-group" role="group" t-att-aria-label="t('Grid range')">
+          <t t-foreach="props.ranges" t-as="range" t-key="range.name">
+            <Button type="'button'" size="'sm'"
+                    variant="range.name === props.activeRange ? 'primary' : 'outline'"
+                    aria-pressed="range.name === props.activeRange"
+                    onClick="() => this.setRange(range.name)">
+              <t t-esc="range.name"/>
+            </Button>
+          </t>
+        </div>
+      </div>
+
+      <t t-if="props.rows.length === 0">
+        <NoContent label="t('No records found.')"/>
+      </t>
+      <t t-else="">
+        <div class="overflow-auto border rounded">
+          <table class="table table-sm mb-0 basehub-grid-table">
+            <thead>
+              <tr>
+                <t t-foreach="props.rowFields" t-as="rowField" t-key="rowField">
+                  <th/>
+                </t>
+                <t t-foreach="props.columns" t-as="column" t-key="column.key">
+                  <th class="text-end" t-esc="column.label"/>
+                </t>
+                <th class="text-end" t-esc="t('{measure} total', { measure: props.measureLabel })"/>
+              </tr>
+            </thead>
+            <tbody>
+              <t t-foreach="props.rows" t-as="row" t-key="row.key">
+                <GridRow row="row" columns="props.columns" matrix="props.matrix" onCommitCell="props.onCommitCell"/>
+              </t>
+            </tbody>
+            <tfoot>
+              <tr class="fw-semibold">
+                <t t-foreach="props.rowFields" t-as="rowField" t-key="rowField">
+                  <td t-if="rowField_index === 0" t-esc="t('Total')"/>
+                  <td t-else=""/>
+                </t>
+                <t t-foreach="props.columns" t-as="column" t-key="column.key">
+                  <td class="text-end" t-esc="columnTotals[column.key]"/>
+                </t>
+                <td class="text-end" t-esc="grandTotal"/>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

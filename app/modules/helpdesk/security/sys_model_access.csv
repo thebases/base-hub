@@ -1,0 +1,14 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+helpdesk.access_helpdesk_ticket_user,Helpdesk Tickets user,base.group_user,tbl.helpdesk_ticket,true,true,true,true,true
+helpdesk.access_helpdesk_ticket_comment_user,Helpdesk Ticket Comments user,base.group_user,tbl.helpdesk_ticket_comment,true,true,true,true,true
+helpdesk.access_helpdesk_team_user,Helpdesk Teams user,base.group_user,tbl.helpdesk_team,true,true,true,true,true
+helpdesk.access_helpdesk_stage_user,Helpdesk Stages user,base.group_user,tbl.helpdesk_stage,true,true,true,true,true
+helpdesk.access_helpdesk_tag_user,Helpdesk Tags user,base.group_user,tbl.helpdesk_tag,true,true,true,true,true
+helpdesk.access_helpdesk_ticket_type_user,Helpdesk Ticket Types user,base.group_user,tbl.helpdesk_ticket_type,true,true,true,true,true
+helpdesk.access_helpdesk_ticket_category_user,Helpdesk Ticket Categories user,base.group_user,tbl.helpdesk_ticket_category,true,true,true,true,true
+helpdesk.access_helpdesk_ticket_channel_user,Helpdesk Ticket Channels user,base.group_user,tbl.helpdesk_ticket_channel,true,true,true,true,true
+helpdesk.access_helpdesk_sla_user,Helpdesk SLA Policies user,base.group_user,tbl.helpdesk_sla,true,true,true,true,true
+helpdesk.access_helpdesk_sla_status_user,Helpdesk SLA Status user,base.group_user,tbl.helpdesk_sla_status,true,true,true,true,true
+helpdesk.access_helpdesk_rating_user,Helpdesk Ratings user,base.group_user,tbl.helpdesk_rating,true,true,true,true,true
+helpdesk.access_helpdesk_ticket_activity_link_user,Helpdesk Ticket Activity Links user,base.group_user,tbl.helpdesk_ticket_activity_link,true,true,true,true,true
+helpdesk.access_helpdesk_digest_log_user,Helpdesk Digest Log user,base.group_user,tbl.helpdesk_digest_log,true,true,true,true,true

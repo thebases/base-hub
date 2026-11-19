@@ -1,0 +1,486 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: project
+#: field
+msgid "Allocated Hours"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Assign Date"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Assignees"
+msgstr ""
+
+#. module: project
+#: view
+msgid "At Risk"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Author"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Blocked"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Blocked By"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Blocked Tasks"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Blocking"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Closed"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Closed Subtask Count"
+msgstr ""
+
+#. module: project
+#: menu, view
+msgid "Collaborators"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Color"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Company ID"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Customer"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Date"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Deadline"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Description"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Display in Project"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Done Date"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Done Task Count"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Email"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Email Cc"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Email From"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Expiration Date"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Favorite Of"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Fold"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Important"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Is Closed"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Is a Template"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Kanban State"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Last Stage Update"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Last Update"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Last Update Status"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Limited Access"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Milestone"
+msgstr ""
+
+#. module: project
+#: field, menu, view
+msgid "Milestones"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Name"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Not Templates"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Off Track"
+msgstr ""
+
+#. module: project
+#: field
+msgid "On Time"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Open"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Open Tasks"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Parent Task"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Partner"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Pending"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Pending Milestones"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Personal Stage"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Personal Stage Owner"
+msgstr ""
+
+#. module: project
+#: label
+msgid "Personal Task Stages"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Phone"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Priority"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Private To-dos"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Progress"
+msgstr ""
+
+#. module: project
+#: field, label, menu, view
+msgid "Project"
+msgstr ""
+
+#. module: project
+#: label
+msgid "Project Collaborators"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Project Manager"
+msgstr ""
+
+#. module: project
+#: label
+msgid "Project Milestones"
+msgstr ""
+
+#. module: project
+#: label, view
+msgid "Project Roles"
+msgstr ""
+
+#. module: project
+#: label, menu, view
+msgid "Project Stages"
+msgstr ""
+
+#. module: project
+#: label, view
+msgid "Project Tags"
+msgstr ""
+
+#. module: project
+#: label
+msgid "Project Tasks"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Project Timeline"
+msgstr ""
+
+#. module: project
+#: label, view
+msgid "Project Updates"
+msgstr ""
+
+#. module: project
+#: field, menu, view
+msgid "Projects"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Rating Requested"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Reached"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Reached Date"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Recurrence Rule"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Recurring"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Recurring Tasks"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Repeat Every"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Repeat Unit"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Repeat Until"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Repeat Until Date"
+msgstr ""
+
+#. module: project
+#: field, menu
+msgid "Roles"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Sequence"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Stage"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Start Date"
+msgstr ""
+
+#. module: project
+#: field, view
+msgid "Status"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Subtask Count"
+msgstr ""
+
+#. module: project
+#: field, menu
+msgid "Tags"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Task"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Task Count"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Task Dependencies"
+msgstr ""
+
+#. module: project
+#: label, menu, view
+msgid "Task Stages"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Task Timeline"
+msgstr ""
+
+#. module: project
+#: menu, view
+msgid "Tasks"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Tasks Label"
+msgstr ""
+
+#. module: project
+#: view
+msgid "Templates"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Title"
+msgstr ""
+
+#. module: project
+#: menu, view
+msgid "Updates"
+msgstr ""
+
+#. module: project
+#: field
+msgid "User"
+msgstr ""
+
+#. module: project
+#: field
+msgid "Visibility"
+msgstr ""

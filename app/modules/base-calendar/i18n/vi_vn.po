@@ -1,0 +1,102 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base-calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: base-calendar
+#: field
+msgid "By Month Day"
+msgstr "Theo ngày trong tháng"
+
+#. module: base-calendar
+#: field
+msgid "By Weekday"
+msgstr "Theo ngày trong tuần"
+
+#. module: base-calendar
+#: view
+msgid "Calendar Recurrence"
+msgstr "Lặp lại lịch"
+
+#. module: base-calendar
+#: view
+msgid "Calendar Recurrence Exception"
+msgstr "Ngoại lệ lặp lại lịch"
+
+#. module: base-calendar
+#: label, view
+msgid "Calendar Recurrence Exceptions"
+msgstr "Ngoại lệ lặp lại lịch"
+
+#. module: base-calendar
+#: label, menu, view
+msgid "Calendar Recurrences"
+msgstr "Lặp lại lịch"
+
+#. module: base-calendar
+#: field
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: base-calendar
+#: field
+msgid "End Date"
+msgstr "Ngày kết thúc"
+
+#. module: base-calendar
+#: field, view
+msgid "Frequency"
+msgstr "Tần suất"
+
+#. module: base-calendar
+#: field
+msgid "Interval"
+msgstr "Khoảng thời gian"
+
+#. module: base-calendar
+#: field
+msgid "Is Skipped"
+msgstr "Đã bỏ qua"
+
+#. module: base-calendar
+#: field, view
+msgid "Model"
+msgstr "Mô hình"
+
+#. module: base-calendar
+#: field
+msgid "Original Date"
+msgstr "Ngày gốc"
+
+#. module: base-calendar
+#: field
+msgid "Override Date"
+msgstr "Ngày ghi đè"
+
+#. module: base-calendar
+#: field
+msgid "Record ID"
+msgstr "ID bản ghi"
+
+#. module: base-calendar
+#: field
+msgid "Recurrence"
+msgstr "Lặp lại"
+
+#. module: base-calendar
+#: field
+msgid "Start Date"
+msgstr "Ngày bắt đầu"

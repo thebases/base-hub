@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_ticket_type_list" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_type.list</field>
+      <field name="model">tbl.helpdesk_ticket_type</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Ticket Types">
+          <field name="name"/>
+          <field name="show_in_portal"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_type_form" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_type.form</field>
+      <field name="model">tbl.helpdesk_ticket_type</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Ticket Type">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="show_in_portal"/>
+              <field name="team_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_type_search" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_type.search</field>
+      <field name="model">tbl.helpdesk_ticket_type</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk Ticket Types">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,19 @@
+[
+  {
+    "action": "c",
+    "model": "sys.sequence",
+    "external_id": "base.sequence_demo_document",
+    "force_update": false,
+    "data": {
+      "name": "Demo Document Reference",
+      "code": "demo.document",
+      "prefix": "DEMO/%(year)s/",
+      "suffix": "",
+      "padding": 5,
+      "increment": 1,
+      "number_next": 1,
+      "implementation": "no_gap",
+      "active": true
+    }
+  }
+]

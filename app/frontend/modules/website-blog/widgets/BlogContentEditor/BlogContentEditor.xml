@@ -1,0 +1,23 @@
+<templates xml:space="preserve">
+  <t t-name="BlogContentEditor">
+    <div class="d-flex flex-column gap-2 w-100">
+      <div class="d-flex flex-wrap align-items-center gap-1" t-if="!isReadonly">
+        <t t-foreach="buttons" t-as="btn" t-key="btn.id">
+          <button type="button" class="btn btn-sm btn-outline-secondary" t-att-title="btn.title" t-att-disabled="state.source"
+                  t-on-mousedown.prevent="() => this.run(btn)" t-esc="btn.label"/>
+        </t>
+        <span class="flex-grow-1"/>
+        <button type="button" class="btn btn-sm btn-outline-secondary" t-on-click="() => this.toggleSource()">
+          <t t-if="state.source">Visual</t>
+          <t t-else="">HTML</t>
+        </button>
+      </div>
+      <div t-if="!state.source" t-ref="editor" class="form-control overflow-auto"
+           t-att-contenteditable="isReadonly ? 'false' : 'true'" style="min-height: 18rem; max-height: 70svh"
+           t-on-input="() => this.emit()" t-on-blur="() => this.emit()"/>
+      <textarea t-else="" class="form-control font-monospace" rows="16" spellcheck="false"
+                t-att-value="state.html" t-on-input="(ev) => this.onSourceInput(ev)"/>
+      <small class="text-body-secondary">Content is sanitized when saved: scripts, styles, event handlers and unsafe links are removed.</small>
+    </div>
+  </t>
+</templates>

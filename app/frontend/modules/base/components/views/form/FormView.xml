@@ -1,0 +1,153 @@
+<templates xml:space="preserve">
+  <t t-name="FormView">
+    <div class="basehub-form-root" t-ref="root">
+      <div class="basehub-form-control-bar">
+        <Button t-if="props.onBack" className="'basehub-form-back'" variant="'ghost'" size="'icon-sm'" icon="'arrow-left'" ariaLabel="t('Back to list')" onClick="() => this.props.onBack()"/>
+        <Badge variant="state.status === 'saved' ? 'secondary' : 'primary'">
+          <t t-if="state.status === 'new'" t-esc="t('New')"/>
+          <t t-elif="state.status === 'modified'" t-esc="t('Unsaved changes')"/>
+          <t t-else="" t-esc="t('Saved')"/>
+        </Badge>
+
+        <div class="basehub-form-control-actions">
+          <t t-if="isReadonly">
+            <Tooltip content="t('Create')">
+              <t t-set-slot="trigger">
+                <Button variant="'primary'" size="'icon-sm'" icon="'plus'" ariaLabel="t('Create record')" disabled="state.isSaving" onClick="() => this.create()"/>
+              </t>
+            </Tooltip>
+            <Tooltip content="t('Refresh')">
+              <t t-set-slot="trigger">
+                <Button variant="'outline'" size="'icon-sm'" icon="'refresh-cw'" ariaLabel="t('Refresh record')" disabled="state.isSaving" onClick="() => this.refresh()"/>
+              </t>
+            </Tooltip>
+            <Tooltip content="t('Edit')">
+              <t t-set-slot="trigger">
+                <Button variant="'outline'" size="'icon-sm'" icon="'edit-2'" ariaLabel="t('Edit record')" disabled="state.isSaving" onClick="() => this.edit()"/>
+              </t>
+            </Tooltip>
+          </t>
+          <t t-else="">
+            <t t-if="showSave">
+              <Tooltip content="t('Save')">
+                <t t-set-slot="trigger">
+                  <Button variant="'default'" size="'icon-sm'" icon="state.isSaving ? 'refresh-cw' : 'save'" ariaLabel="t('Save record')" disabled="state.isSaving" onClick="() => this.save()"/>
+                </t>
+              </Tooltip>
+            </t>
+            <t t-if="showDiscard">
+              <Tooltip content="t('Discard changes')">
+                <t t-set-slot="trigger">
+                  <Button variant="'outline'" size="'icon-sm'" icon="'rotate-ccw'" ariaLabel="t('Discard changes')" disabled="state.isSaving" onClick="() => this.discard()"/>
+                </t>
+              </Tooltip>
+            </t>
+          </t>
+          <!-- Actions menu (sys.model.action bound to view_type "form"): read mode only, so a
+               bound method never runs against a record with unsaved edits. -->
+          <t t-if="showActionsMenu">
+            <DropdownMenu style="'width:32px'">
+              <DropdownMenuTrigger className="'btn-icon-sm basehub-control-panel-actions-menu'">
+                <Icon name="'ellipsis-vertical'"/>
+                <span class="visually-hidden" t-esc="t('Actions')"/>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="'dropdown-menu-end'">
+                <t t-if="showDuplicate">
+                  <DropdownMenuItem onSelect="() => this.duplicate()" >
+                    <Icon name="'copy'"/>
+                    <span t-esc="t('Duplicate')"/>
+                  </DropdownMenuItem>
+                </t>
+                <t t-if="showToggleActive">
+                  <DropdownMenuItem onSelect="() => this.toggleActive()">
+                    <Icon name="isRecordActive ? 'archive' : 'power'"/>
+                    <span t-esc="isRecordActive ? t('Deactivate') : t('Activate')"/>
+                  </DropdownMenuItem>
+                </t>
+                <t t-if="showDelete">
+                  <DropdownMenuItem onSelect="() => this.askDelete()" variant="'destructive'">
+                    <Icon name="'trash-2'"/>
+                    <span t-esc="t('Delete')"/>
+                  </DropdownMenuItem>
+                </t>
+                <t t-if="showMenuActions">
+                  <DropdownMenuSeparator t-if="showDuplicate or showDelete"/>
+                  <t t-foreach="props.menuActions" t-as="menuAction" t-key="menuAction.name">
+                    <DropdownMenuItem onSelect="() => this.runMenuAction(menuAction)">
+                      <Icon name="menuAction.icon || 'zap'"/>
+                      <span t-esc="menuAction.label"/>
+                    </DropdownMenuItem>
+                  </t>
+                </t>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </t>
+          <t t-if="hasChatterNode">
+            <Tooltip content="chatterToggleLabel">
+              <t t-set-slot="trigger">
+                <Tooltip content="chatterToggleLabel">
+              <t t-set-slot="trigger">
+                <Button variant="'outline'" size="'icon-sm'" icon="chatterToggleIcon" ariaLabel="chatterToggleLabel" onClick="() => this.toggleChatter()"/>
+              </t>
+            </Tooltip>
+              </t>
+            </Tooltip>
+          </t>
+        </div>
+      </div>
+
+      <t t-if="state.saveError">
+        <Alert variant="'danger'" t-esc="state.saveError"/>
+      </t>
+
+      <div class="basehub-form-with-chatter">
+        <form class="basehub-form-body" novalidate="novalidate" t-on-submit.prevent="save">
+          <t t-if="parsedArch">
+            <div class="basehub-arch-row" t-att-class="parsedArch.className">
+              <t t-foreach="parsedArch.children" t-as="node" t-key="node.key">
+                <div t-att-class="rootColClass(node)">
+                  <ArchNode node="node" ctx="archCtx"/>
+                </div>
+              </t>
+            </div>
+          </t>
+          <t t-else="">
+            <div class="basehub-arch-row">
+              <t t-foreach="fallbackFields" t-as="field" t-key="field.name">
+                <FormField field="field" ctx="archCtx" showLabel="true"
+                           className="'basehub-arch-span-4'"/>
+              </t>
+            </div>
+          </t>
+        </form>
+
+        <t t-if="showChatterPanel">
+          <ChatterPanel modelName="props.model" recordId="archCtx.values.id" collapsed="state.chatterCollapsed" onToggle="() => this.toggleChatter()"/>
+        </t>
+      </div>
+
+      <t t-if="showChatterSheet">
+        <Sheet side="'right'" open="state.chatterSheetOpen" onOpenChange="(open) => this.setChatterSheetOpen(open)">
+          <SheetContent>
+            <div class="basehub-chatter-sheet-body">
+              <ChatterPanel modelName="props.model" recordId="archCtx.values.id" collapsed="false" onToggle="() => this.setChatterSheetOpen(false)"/>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </t>
+
+      <Dialog open="state.deleteDialogOpen" onOpenChange="(open) => this.state.deleteDialogOpen = open">
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle><t t-esc="t('Delete record')"/></DialogTitle>
+          </DialogHeader>
+          <p class="mb-0" t-esc="t('This permanently deletes the record. Continue?')"/>
+          <DialogFooter>
+            <Button variant="'outline'" size="'sm'" onClick="() => this.state.deleteDialogOpen = false" label="t('Cancel')"/>
+            <Button variant="'destructive'" size="'sm'" onClick="() => this.confirmDelete()" label="t('Delete')"/>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  </t>
+</templates>

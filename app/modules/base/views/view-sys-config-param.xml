@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_config_param_list" model="ui.view">
+      <field name="name">sys.config_param.list</field>
+      <field name="model">sys.config_param</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="System Config Parameter" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="value"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_config_param_form" model="ui.view">
+      <field name="name">sys.config_param.form</field>
+      <field name="model">sys.config_param</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="System Config Parameter">
+          <sheet>
+            <field name="name" nolabel="1"/>
+                  <field name="value"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_config_param_search" model="ui.view">
+      <field name="name">sys.config_param.search</field>
+      <field name="model">sys.config_param</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="System Config Parameter">
+          <field name="name"/>
+          <field name="value"/>
+        </search>
+      </field>
+    </record>
+</data>

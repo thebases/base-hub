@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_country_group_list" model="ui.view">
+      <field name="name">tbl.country.group.list</field>
+      <field name="model">tbl.country.group</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Country Group" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="created_at"/>
+          <field name="updated_at" optional="show"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_country_group_form" model="ui.view">
+      <field name="name">tbl.country.group.form</field>
+      <field name="model">tbl.country.group</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Country Group">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="code" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <notebook>
+              <page string="Relations" name="relations">
+                <field name="country_ids"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_country_group_search" model="ui.view">
+      <field name="name">tbl.country.group.search</field>
+      <field name="model">tbl.country.group</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Country Group">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="created_at"/>
+          <field name="updated_at"/>
+        </search>
+      </field>
+    </record>
+</data>

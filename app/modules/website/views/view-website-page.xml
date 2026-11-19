@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="action_open_website_page_builder" model="ui.actions.client">
+      <field name="name">Open Website Builder</field>
+      <field name="tag">navigate_route</field>
+      <field name="target">current</field>
+      <field name="params" type="json">{"route": "/web/tbl.website_page/{{active_id}}/builder"}</field>
+    </record>
+    <record id="view_website_page_list" model="ui.view">
+      <field name="name">tbl.website_page.list</field>
+      <field name="model">tbl.website_page</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Website Pages" create_widget="website_page_template_picker" create_title="Choose a page template" create_size="lg">
+          <field name="site_id"/>
+          <field name="company_id"/>
+          <field name="name"/>
+          <field name="page_template"/>
+          <field name="route_path"/>
+          <field name="is_homepage"/>
+          <field name="is_indexed"/>
+          <field name="deploy_path"/>
+          <action>
+            <button string="Set Homepage" type="object" name="action_set_homepage" invisible="is_homepage"/>
+            <button string="Open Builder" type="client" name="website.action_open_website_page_builder"/>
+            <button string="Publish" type="object" name="action_publish"/>
+            <button string="Unpublish" type="object" name="action_unpublish"/>
+          </action>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_page_form" model="ui.view">
+      <field name="name">tbl.website_page.form</field>
+      <field name="model">tbl.website_page</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Website Page">
+          <sheet>
+            <group>
+              <group string="General">
+                <field name="site_id"/>
+                <field name="company_id" readonly="1"/>
+                <field name="name"/>
+                <field name="page_template" readonly="id"/>
+                <field name="slug" readonly="1"/>
+                <field name="route_path" readonly="1"/>
+                <field name="is_homepage"/>
+                <field name="is_indexed"/>
+                <field name="publish_at"/>
+                <field name="publish_pending"/>
+                <field name="custom_css"/>
+                <field name="visibility"/>
+                <field name="is_in_menu"/>
+                <field name="deploy_path" readonly="1"/>
+                <button name="website.action_open_website_page_builder" type="client" string="Open Builder" class="btn-primary" invisible="not id"/>
+                <button name="action_publish" type="object" string="Publish" invisible="not id"/>
+                <button name="action_unpublish" type="object" string="Unpublish" invisible="not deploy_path"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

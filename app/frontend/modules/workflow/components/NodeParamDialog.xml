@@ -1,0 +1,180 @@
+<templates xml:space="preserve">
+  <t t-name="NodeParamDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent className="'workflow-node-dialog'">
+        <DialogHeader>
+          <DialogTitle t-esc="this.title"/>
+          <DialogDescription>
+            <t t-if="this.action" t-esc="t('Configure the node inputs persisted into the workflow action sequence on canvas save.')"/>
+            <t t-else="" t-esc="t('Configure the workflow trigger transport. Kafka, MQTT, Model and TCP triggers persist as trigger rows; the webhook URL serves while no other trigger exists, or next to them while its webhook row in the trigger list is switched on.')"/>
+          </DialogDescription>
+        </DialogHeader>
+
+        <div class="d-flex flex-column gap-3 pt-2 workflow-node-dialog-body">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+
+          <Alert t-if="this.action and !this.resolvedActionSpec" variant="'warning'">
+            <t t-out="tHtml(&quot;This action's code (&lt;code&gt;{code}&lt;/code&gt;) does not match a known node spec, so its Target URL, Headers and Authorization fields cannot be edited here. Pick a valid entry in the Action Catalog field below to restore this panel.&quot;, { code: this.action.action_code || t('empty') })"/>
+          </Alert>
+
+          <t t-if="this.trigger">
+            <Field>
+              <NativeSelect label="t('Trigger Type')" id="'workflow-canvas-trigger-type'" disabled="props.readonly or props.lockTriggerType"
+                      onChange="(value) => this.onTriggerTypeChange(value)">
+                <option t-foreach="this.triggerTypeSpecs" t-as="spec" t-key="spec.type"
+                        t-att-value="spec.type" t-att-selected="spec.type === state.triggerType"
+                        t-esc="spec.label"/>
+              </NativeSelect>
+            </Field>
+            <Field>
+              <Textarea label="t('Sample Payload')" id="'workflow-canvas-sample-payload'" rows="4"
+                        className="'workflow-node-dialog-code'" placeholder="'{&#34;field&#34;: &#34;value&#34;}'"
+                        value="props.sampleJSON"
+                        onInput="(value) => this.props.onSampleJSONChange(value)"/>
+              <small class="text-body-secondary"><t t-out="tHtml('Field names become &lt;code&gt;{{field}}&lt;/code&gt; suggestions in string params.')"/></small>
+            </Field>
+          </t>
+
+          <t t-if="this.action">
+            <Field>
+              <Input label="t('Name')" id="'workflow-canvas-node-name'" value="state.name"
+                     disabled="props.readonly" onInput="(value) => this.state.name = value"/>
+            </Field>
+            <Field>
+              <NativeSelect label="t('Action Catalog')" id="'workflow-canvas-node-catalog'" disabled="props.readonly"
+                      onChange="(value) => this.state.catalogId = value">
+                <option value="" t-att-selected="state.catalogId === ''" t-esc="t('— Select an action catalog entry —')"/>
+                <option t-foreach="props.catalog" t-as="entry" t-key="entry.id"
+                        t-att-value="entry.id" t-att-selected="this.isCatalogSelected(entry)">
+                  <t t-esc="entry.name"/> (<t t-esc="entry.code"/>)
+                </option>
+              </NativeSelect>
+              <small class="text-body-secondary" t-esc="t('Selects the base.workflow.action.catalog row this node executes — change it to repair a node whose Action Code no longer matches a known catalog entry.')"/>
+            </Field>
+            <Field>
+              <Textarea label="t('Description')" id="'workflow-canvas-node-description'" rows="3"
+                        value="state.description" disabled="props.readonly"
+                        onInput="(value) => this.state.description = value"/>
+            </Field>
+          </t>
+
+          <Field t-if="this.action and !props.isDag and this.laterStepKeys.length">
+            <NativeSelect label="t('On error, continue at')" id="'workflow-canvas-on-error-step'" disabled="props.readonly"
+                    onChange="(value) => this.state.onErrorKey = value">
+              <option value="" t-att-selected="state.onErrorKey === ''" t-esc="t('— None (fail the run) —')"/>
+              <option t-foreach="this.laterStepKeys" t-as="key" t-key="key"
+                      t-att-value="key" t-att-selected="key === state.onErrorKey" t-esc="key"/>
+            </NativeSelect>
+            <small class="text-body-secondary" t-esc="t('When this step fails for good, the run continues at the chosen later step instead of failing.')"/>
+          </Field>
+
+          <Field t-foreach="this.params" t-as="param" t-key="param.name">
+            <t t-set="kind" t-value="this.widgetKind(param)"/>
+
+            <FieldLabel t-if="kind === 'boolean'" for="'workflow-canvas-param-' + param.name" t-esc="param.label"/>
+
+            <t t-if="kind === 'boolean'">
+              <Checkbox id="'workflow-canvas-param-' + param.name"
+                     checked="this.paramValue(param)" disabled="props.readonly"
+                     onChange="(checked) => this.onParamCheckbox(param, checked)"/>
+            </t>
+
+            <t t-elif="kind === 'number'">
+              <Input label="param.label" type="'number'" id="'workflow-canvas-param-' + param.name"
+                     value="this.paramValue(param)" disabled="props.readonly"
+                     onInput="(value) => this.onParamInput(param, value)"/>
+            </t>
+
+            <t t-elif="kind === 'select'">
+              <NativeSelect label="param.label" id="'workflow-canvas-param-' + param.name" disabled="props.readonly"
+                      onChange="(value) => this.onParamInput(param, value)">
+                <option value="">—</option>
+                <option t-foreach="this.selectionOptions(param)" t-as="option" t-key="option.value"
+                        t-att-value="option.value" t-att-selected="option.value === this.paramValue(param)"
+                        t-esc="option.label"/>
+              </NativeSelect>
+            </t>
+
+            <t t-elif="kind === 'json' or kind === 'domain'">
+              <Textarea label="param.label" rows="8" className="'workflow-node-dialog-code'"
+                        id="'workflow-canvas-param-' + param.name"
+                        value="this.paramValue(param)" disabled="props.readonly"
+                        onInput="(value) => this.onParamInput(param, value)"/>
+            </t>
+
+            <t t-elif="kind === 'model'">
+              <Input label="param.label" list="'workflow-canvas-model-options'" placeholder="t('Search sys.model…')"
+                     id="'workflow-canvas-param-' + param.name"
+                     value="this.paramValue(param)" disabled="props.readonly"
+                     onInput="(value) => this.onModelParamInput(param, value)"/>
+              <datalist id="workflow-canvas-model-options">
+                <option t-foreach="state.modelOptions" t-as="option" t-key="option.name"
+                        t-att-value="option.name" t-att-label="option.label"/>
+              </datalist>
+            </t>
+
+            <t t-elif="kind === 'many2one'">
+              <Input label="param.label" list="'workflow-canvas-relation-options-' + param.name" placeholder="t('Search…')"
+                     id="'workflow-canvas-param-' + param.name"
+                     value="this.relationParamLabel(param)" disabled="props.readonly"
+                     onInput="(value) => this.onRelationParamInput(param, value)"/>
+              <datalist t-att-id="'workflow-canvas-relation-options-' + param.name">
+                <option t-foreach="this.relationOptionsFor(param)" t-as="option" t-key="option.id"
+                        t-att-value="option.name"/>
+              </datalist>
+            </t>
+
+            <t t-elif="kind === 'authorization'">
+              <NativeSelect label="param.label" id="'workflow-canvas-param-' + param.name" disabled="props.readonly"
+                      onChange="(value) => this.onAuthorizationChange(param, value)">
+                <option value="" t-esc="t('— No credential —')"/>
+                <option t-foreach="state.sysCredentials" t-as="credential" t-key="credential.id"
+                        t-att-value="credential.name"
+                        t-att-selected="credential.name === this.selectedCredentialName(param)">
+                  <t t-esc="credential.name"/><t t-if="credential.credential_type"> (<t t-esc="credential.credential_type"/>)</t>
+                </option>
+              </NativeSelect>
+            </t>
+
+            <t t-else="">
+              <Input label="param.label" id="'workflow-canvas-param-' + param.name"
+                     value="this.paramValue(param)" disabled="props.readonly"
+                     onInput="(value) => this.onParamInput(param, value)"/>
+            </t>
+
+            <div t-if="this.showCredentialPicker(param)" class="workflow-node-dialog-chips">
+              <span class="text-body-secondary" t-esc="t('Credentials:')"/>
+              <button t-foreach="this.credentialOptions(param)" t-as="credential" t-key="credential.id"
+                      type="button" class="workflow-node-dialog-chip" t-att-title="credential.description || credential.name"
+                      t-on-click="() => this.pickCredential(param, credential.name)" t-esc="credential.name"/>
+              <button type="button" class="workflow-node-dialog-chip"
+                      t-on-click="() => this.clearCredential(param)" t-esc="t('clear')"/>
+            </div>
+
+            <div t-if="param.type === 'string' and this.payloadKeys.length" class="workflow-node-dialog-chips">
+              <button t-foreach="this.payloadKeys" t-as="key" t-key="key" type="button"
+                      class="workflow-node-dialog-chip" t-esc="'{{' + key + '}}'"
+                      t-on-click="() => this.appendPayloadKey(param, key)"/>
+            </div>
+
+            <small t-if="param.help" class="text-body-secondary" t-esc="param.help"/>
+          </Field>
+        </div>
+
+        <DialogFooter className="'d-flex justify-content-between gap-2'">
+          <Button t-if="this.action and !props.readonly" variant="'destructive'"
+                  disabled="state.submitting" onClick="() => this.deleteNode()" label="t('Delete Node')"/>
+          <span t-else=""></span>
+          <div class="d-flex gap-2">
+            <Button variant="'outline'" disabled="state.submitting" onClick="() => this.cancel()" label="t('Close')"/>
+            <Button t-if="!props.readonly" variant="'default'" disabled="state.submitting" onClick="() => this.submit()">
+              <t t-if="state.submitting" t-esc="t('Saving…')"/>
+              <t t-elif="this.action" t-esc="t('Save Node')"/>
+              <t t-else="" t-esc="t('Save Trigger')"/>
+            </Button>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

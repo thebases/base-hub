@@ -1,0 +1,29 @@
+<templates xml:space="preserve">
+  <t t-name="ChatterPanel">
+    <t t-if="props.collapsed">
+      <div class="basehub-chatter-rail">
+        <Button variant="'outline'" size="'icon-sm'" icon="'message-square'" ariaLabel="t('Expand chatter')" onClick="() => props.onToggle()"/>
+      </div>
+    </t>
+    <t t-else="">
+      <aside class="basehub-chatter-panel">
+        <div class="basehub-chatter-panel-header">
+          <span class="basehub-chatter-panel-title">
+            <Icon name="'message-square'"/>
+            <t t-esc="t('Chatter')"/>
+          </span>
+          <t t-if="hasRecord">
+            <FollowerButton followers="state.followers" isFollowing="isFollowing" onToggle="() => this.toggleFollow()"
+                            onAddFollower="(userId) => this.addFollower(userId)" onRemoveFollower="(userId) => this.removeFollower(userId)"/>
+          </t>
+        </div>
+        <t t-if="!hasRecord">
+          <p class="basehub-chatter-hint" t-esc="t('Save the record first to use chatter.')"/>
+        </t>
+        <t t-else="">
+          <Chatter modelName="props.modelName" recordId="props.recordId" onFollowersChanged="() => this.refreshFollowers()"/>
+        </t>
+      </aside>
+    </t>
+  </t>
+</templates>

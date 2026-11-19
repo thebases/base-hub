@@ -1,0 +1,23 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_role",
+    "external_id": "project.role.developer",
+    "force_update": false,
+    "data": { "name": "Developer", "color": 1, "sequence": 1, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_role",
+    "external_id": "project.role.designer",
+    "force_update": false,
+    "data": { "name": "Designer", "color": 2, "sequence": 2, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_role",
+    "external_id": "project.role.reviewer",
+    "force_update": false,
+    "data": { "name": "Reviewer", "color": 3, "sequence": 3, "active": true }
+  }
+]

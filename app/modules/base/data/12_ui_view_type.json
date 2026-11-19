@@ -1,0 +1,198 @@
+[
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_list",
+    "force_update": true,
+    "data": {
+      "name": "list",
+      "label": "List",
+      "icon": "list",
+      "sequence": 10,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_form",
+    "force_update": true,
+    "data": {
+      "name": "form",
+      "label": "Form",
+      "icon": "file-text",
+      "sequence": 20,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_kanban",
+    "force_update": true,
+    "data": {
+      "name": "kanban",
+      "label": "Kanban",
+      "icon": "square-kanban",
+      "sequence": 30,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_calendar",
+    "force_update": true,
+    "data": {
+      "name": "calendar",
+      "label": "Calendar",
+      "icon": "calendar",
+      "sequence": 40,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_hierarchy",
+    "force_update": true,
+    "data": {
+      "name": "hierarchy",
+      "label": "Hierarchy",
+      "icon": "network",
+      "sequence": 50,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_gantt",
+    "force_update": true,
+    "data": {
+      "name": "gantt",
+      "label": "Gantt",
+      "icon": "gantt-chart",
+      "sequence": 60,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_map",
+    "force_update": true,
+    "data": {
+      "name": "map",
+      "label": "Map",
+      "icon": "map",
+      "sequence": 70,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_grid",
+    "force_update": true,
+    "data": {
+      "name": "grid",
+      "label": "Grid",
+      "icon": "grid-3x3",
+      "sequence": 80,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_cohort",
+    "force_update": true,
+    "data": {
+      "name": "cohort",
+      "label": "Cohort",
+      "icon": "table",
+      "sequence": 90,
+      "is_view_mode": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_search",
+    "force_update": true,
+    "data": {
+      "name": "search",
+      "label": "Search",
+      "icon": "search",
+      "sequence": 100,
+      "is_view_mode": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_qweb",
+    "force_update": true,
+    "data": {
+      "name": "qweb",
+      "label": "QWeb",
+      "icon": "code",
+      "sequence": 110,
+      "is_view_mode": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_canvas",
+    "force_update": true,
+    "data": {
+      "name": "canvas",
+      "label": "Canvas",
+      "icon": "workflow",
+      "sequence": 120,
+      "is_view_mode": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_graph",
+    "force_update": true,
+    "data": {
+      "name": "graph",
+      "label": "Graph",
+      "icon": "bar-chart",
+      "sequence": 130,
+      "is_view_mode": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "ui.view.type",
+    "external_id": "base.ui_view_type_pivot",
+    "force_update": true,
+    "data": {
+      "name": "pivot",
+      "label": "Pivot",
+      "icon": "table-2",
+      "sequence": 140,
+      "is_view_mode": false,
+      "active": true
+    }
+  }
+]

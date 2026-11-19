@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_base_workflow_version_list" model="ui.view">
+    <field name="name">base.workflow.version.list</field>
+    <field name="model">base.workflow.version</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Workflow Versions" sample="1" create="false" delete="false">
+        <field name="workflow_id"/>
+        <field name="version"/>
+        <field name="revision"/>
+        <field name="created_at"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_workflow_version_form" model="ui.view">
+    <field name="name">base.workflow.version.form</field>
+    <field name="model">base.workflow.version</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Workflow Version" create="false" delete="false">
+        <sheet>
+          <group>
+            <group string="Version">
+              <field name="workflow_id" readonly="1"/>
+              <field name="version" readonly="1"/>
+              <field name="revision" readonly="1"/>
+              <field name="created_at" readonly="1"/>
+            </group>
+            <group string="Snapshot">
+              <field name="snapshot" widget="code-json" readonly="1"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_workflow_version_search" model="ui.view">
+    <field name="name">base.workflow.version.search</field>
+    <field name="model">base.workflow.version</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Workflow Versions">
+        <field name="workflow_id"/>
+        <field name="version"/>
+        <group>
+          <filter string="Workflow" name="group_by_workflow_id" domain="[]" context="{'group_by': 'workflow_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

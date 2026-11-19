@@ -1,0 +1,81 @@
+<templates xml:space="preserve">
+  <t t-name="Login">
+    <main b-block="login-03" class="basehub-login-01">
+      <div b-block-login="">
+        <t t-if="state.signedIn">
+          <div b-block-auth-card="">
+            <div class="mb-3">
+              <strong t-esc="t('Signed in')"/>
+            </div>
+            <p class="mb-3"><t t-esc="t('Signed in as')"/> <strong t-esc="state.username"/>.</p>
+            <Button variant="'outline'" onClick="() => this.logout()">
+              <t t-esc="t('Log out')"/>
+            </Button>
+          </div>
+        </t>
+
+        <t t-else="">
+          <div b-block-auth-card="">
+            <form b-block-form="" t-on-submit="onSubmit" novalidate="novalidate">
+              <div b-block-form-title="">
+                <h2 t-esc="t('Welcome back')"/>
+                <p t-esc="t('Login with your Google account')"/>
+              </div>
+
+              <div class="d-grid gap-2 mb-3">
+                <Button variant="'outline'" type="'button'">
+                  <t t-esc="t('Login with Google')"/>
+                </Button>
+              </div>
+
+              <div class="basehub-login-01-divider text-center small text-body-secondary mb-3">
+                <span t-esc="t('Or continue with')"/>
+              </div>
+
+              <div b-block-form-grid="">
+                <t t-if="!state.databasePinned">
+                  <div b-block-field="" class="mt-2">
+                    <Input label="t('Database')" ariaLabel="t('Database')" id="'login-database'" type="'text'" autocomplete="'off'" placeholder="state.defaultDbName || t('database')" supportingText="t('Use the backend database name you want this session to open.')" value="state.values.database" onInput="(value) => this.state.values.database = value"/>
+                  </div>
+                </t>
+
+                <div b-block-field="" class="mt-2">
+                  <Input label="t('Email')" ariaLabel="t('Email')" id="'login-email'" type="'email'" autocomplete="'username'" placeholder="'m@example.com'" value="state.values.email" onInput="(value) => this.state.values.email = value"/>
+                </div>
+
+                <div b-block-field="" class="mt-2">
+                  <div class="basehub-login-password">
+                    <Input label="t('Password')" ariaLabel="t('Password')" id="'login-password'" autocomplete="'current-password'" type="state.showPassword ? 'text' : 'password'" value="state.values.password" onInput="(value) => this.state.values.password = value"/>
+                    <button type="button" class="basehub-login-password-toggle" t-att-aria-label="state.showPassword ? t('Hide password') : t('Show password')" t-att-aria-pressed="state.showPassword ? 'true' : 'false'" t-on-click.prevent="togglePassword">
+                      <Icon name="state.showPassword ? 'eye-off' : 'eye'"/>
+                    </button>
+                  </div>
+                  <div b-block-link-row="">
+                    <a href="#" t-on-click.prevent="onForgotPassword" t-esc="t('Forgot your password?')"/>
+                  </div>
+                </div>
+
+                <div class="d-grid">
+                  <Button variant="'default'" type="'submit'" disabled="state.isSubmitting">
+                    <t t-esc="state.isSubmitting ? t('Logging in...') : t('Login')"/>
+                  </Button>
+                </div>
+              </div>
+
+              <t t-if="state.loginError">
+                <Alert variant="'danger'" className="'mt-3 mb-0'">
+                  <t t-esc="state.loginError"/>
+                </Alert>
+              </t>
+
+              <div b-block-footer="">
+                <t t-esc="t(&quot;Don't have an account?&quot;)"/> <a href="#" t-esc="t('Sign up')"/>
+              </div>
+              <BuildVersionLabel/>
+            </form>
+          </div>
+        </t>
+      </div>
+    </main>
+  </t>
+</templates>

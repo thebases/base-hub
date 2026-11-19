@@ -1,0 +1,38 @@
+<templates xml:space="preserve">
+  <t t-name="EdgeTypeDialog">
+    <Dialog open="this.isDialogOpen" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent className="'workflow-edge-type-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Edge Type')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary" t-esc="t('Controls when this connection is followed during DAG execution.')"/>
+        </DialogHeader>
+        <div class="d-flex flex-column gap-3 pt-2">
+          <Field>
+            <NativeSelect label="t('Type')" value="state.edgeType" disabled="props.state.saving"
+                          onChange="(value) => this.state.edgeType = value">
+              <option value="success"><t t-esc="t('Success — only if the source step succeeded')"/></option>
+              <option value="failure"><t t-esc="t('Failure — only if the source step failed')"/></option>
+              <option value="condition"><t t-esc="t('Condition — evaluates condition_expr')"/></option>
+              <option value="always"><t t-esc="t('Always — regardless of source outcome')"/></option>
+              <option value="manual"><t t-esc="t('Manual — never auto-dispatched')"/></option>
+            </NativeSelect>
+          </Field>
+          <Field t-if="this.isConditionType">
+            <Textarea label="t('Condition Expression (JSON)')" rows="4"
+                      placeholder="'{&#34;field&#34;:&#34;status&#34;,&#34;equals&#34;:&#34;ok&#34;}'"
+                      value="state.conditionExpr" disabled="props.state.saving"
+                      onInput="(value) => this.state.conditionExpr = value"/>
+            <small t-if="this.conditionParseError" class="text-danger" t-esc="this.conditionParseError"/>
+          </Field>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="props.state.saving" onClick="() => this.cancel()" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="props.state.saving or this.conditionParseError" onClick="() => this.save()">
+            <t t-if="props.state.saving" t-esc="t('Saving…')"/>
+            <t t-else="" t-esc="t('Save')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

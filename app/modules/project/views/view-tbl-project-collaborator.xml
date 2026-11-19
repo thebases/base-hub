@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_collaborator_list" model="ui.view">
+      <field name="name">tbl.project_collaborator.list</field>
+      <field name="model">tbl.project_collaborator</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Collaborators">
+          <field name="project_id"/>
+          <field name="partner_id"/>
+          <field name="partner_email"/>
+          <field name="limited_access"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_collaborator_form" model="ui.view">
+      <field name="name">tbl.project_collaborator.form</field>
+      <field name="model">tbl.project_collaborator</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Collaborators">
+          <sheet>
+            <group>
+              <field name="project_id"/>
+              <field name="partner_id"/>
+              <field name="partner_email"/>
+              <field name="limited_access"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_collaborator_search" model="ui.view">
+      <field name="name">tbl.project_collaborator.search</field>
+      <field name="model">tbl.project_collaborator</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Collaborators">
+          <field name="project_id"/>
+          <field name="partner_id"/>
+          <field name="partner_email"/>
+          <group>
+            <filter string="Project" name="group_by_project_id" domain="[]" context="{'group_by': 'project_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

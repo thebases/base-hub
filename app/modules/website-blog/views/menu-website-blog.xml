@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.website_blog" name="Blog" parent="menu.website_root" sequence="40" icon="newspaper"/>
+    <menuitem id="menu.website_blog_posts" name="Posts" parent="menu.website_blog" sequence="10" route_path="/web/tbl.website_blog_post" icon="file-text"/>
+    <menuitem id="menu.website_blog_blogs" name="Blogs" parent="menu.website_blog" sequence="20" route_path="/web/tbl.website_blog_blog" icon="book-open"/>
+    <menuitem id="menu.website_blog_tags" name="Tags" parent="menu.website_blog" sequence="30" route_path="/web/tbl.website_blog_tag" icon="tag"/>
+    <menuitem id="menu.website_blog_categories" name="Tag Groups" parent="menu.website_blog" sequence="40" route_path="/web/tbl.website_blog_category" icon="tags"/>
+</data>

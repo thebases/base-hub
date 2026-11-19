@@ -1,0 +1,18 @@
+<templates xml:space="preserve">
+  <t t-name="Pager">
+    <t t-if="props.total > props.limit">
+      <div class="d-flex align-items-center gap-2 basehub-pager">
+        <div class="d-flex align-items-center gap-0 basehub-pager-index">
+          <span class="text-body-secondary xsmall">
+            <t t-esc="rangeStart"/>-<t t-esc="rangeEnd"/>/
+          </span>
+          <span class="text-body-secondary xsmall"><t t-esc="props.total"/></span>
+        </div>
+        <Pagination>
+          <PaginationItem disabled="!hasPrev" onClick="() => this.onPrev()"><Icon name="'chevron-left'"/></PaginationItem>
+          <PaginationItem disabled="!hasNext" onClick="() => this.onNext()"><Icon name="'chevron-right'"/></PaginationItem>
+        </Pagination>
+      </div>
+    </t>
+  </t>
+</templates>

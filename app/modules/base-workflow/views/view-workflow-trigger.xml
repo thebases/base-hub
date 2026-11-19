@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_base_workflow_trigger_list" model="ui.view">
+    <field name="name">base.workflow.trigger.list</field>
+    <field name="model">base.workflow.trigger</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Workflow Triggers" sample="1">
+        <field name="workflow_id"/>
+        <field name="trigger_type"/>
+        <field name="topic"/>
+        <field name="is_active"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_workflow_trigger_form" model="ui.view">
+    <field name="name">base.workflow.trigger.form</field>
+    <field name="model">base.workflow.trigger</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Workflow Trigger">
+        <sheet>
+          <group>
+            <group string="Definition">
+              <field name="workflow_id"/>
+              <field name="trigger_type"/>
+              <field name="topic"/>
+              <field name="is_active"/>
+            </group>
+            <group string="Config">
+              <field name="config" widget="code-json"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_workflow_trigger_search" model="ui.view">
+    <field name="name">base.workflow.trigger.search</field>
+    <field name="model">base.workflow.trigger</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Workflow Triggers">
+        <field name="workflow_id"/>
+        <field name="trigger_type"/>
+        <field name="topic"/>
+        <filter string="Active" name="active" domain="[('is_active', '=', True)]"/>
+        <filter string="Inactive" name="inactive" domain="[('is_active', '=', False)]"/>
+        <filter string="Webhook" name="type_webhook" domain="[('trigger_type', '=', 'webhook')]"/>
+        <filter string="Kafka" name="type_kafka" domain="[('trigger_type', '=', 'kafka')]"/>
+        <filter string="MQTT" name="type_mqtt" domain="[('trigger_type', '=', 'mqtt')]"/>
+        <filter string="Model Event" name="type_model" domain="[('trigger_type', '=', 'model')]"/>
+        <filter string="TCP" name="type_tcp" domain="[('trigger_type', '=', 'tcp')]"/>
+        <group>
+          <filter string="Workflow" name="group_by_workflow_id" domain="[]" context="{'group_by': 'workflow_id'}"/>
+          <filter string="Trigger Type" name="group_by_trigger_type" domain="[]" context="{'group_by': 'trigger_type'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

@@ -1,0 +1,15 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "base_automation.cron_dispatch_due_crons",
+    "force_update": false,
+    "data": {
+      "name": "Automation: Dispatch Due Crons",
+      "handler": "automation.dispatch_due_crons",
+      "interval_seconds": 30,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

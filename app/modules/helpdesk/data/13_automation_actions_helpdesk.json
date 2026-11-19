@@ -1,0 +1,58 @@
+[
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "helpdesk.automation.action.sla_sweep",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk: SLA Breach Sweep",
+      "action_type": "go_handler",
+      "handler_key": "helpdesk.sla_sweep",
+      "values": {},
+      "description": "Marks ongoing tbl.helpdesk_sla_status rows whose deadline has passed as failed (§4).",
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "helpdesk.automation.action.auto_close",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk: Auto-Close Stale Tickets",
+      "action_type": "go_handler",
+      "handler_key": "helpdesk.auto_close",
+      "values": {},
+      "description": "Moves stale non-closed tickets past a team's auto_close_days into its auto_close_stage_id or last stage (§4).",
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "helpdesk.automation.action.close_inactive_tickets",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk: Close Inactive Tickets",
+      "action_type": "go_handler",
+      "handler_key": "helpdesk.close_inactive_tickets",
+      "values": {},
+      "description": "Per-team warning/closing sweep of tickets past inactive_days_limit_warning/_closing (§9.6).",
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "helpdesk.automation.action.digest",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk: Daily KPI Digest",
+      "action_type": "go_handler",
+      "handler_key": "helpdesk.digest",
+      "values": {},
+      "description": "Snapshots every team's tickets-closed/SLA-success-rate/avg-rating over the last 24 hours into tbl.helpdesk_digest_log.",
+      "active": true
+    }
+  }
+]

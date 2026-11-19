@@ -1,0 +1,38 @@
+<templates xml:space="preserve">
+  <t t-name="GanttView">
+    <div class="d-flex flex-column gap-2">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <Button variant="'outline'" size="'sm'" onClick="() => this.goToday()"><t t-esc="t('Today')"/></Button>
+          <Button variant="'ghost'" size="'sm'" ariaLabel="t('Previous')" onClick="() => this.navigate(-1)">‹</Button>
+          <Button variant="'ghost'" size="'sm'" ariaLabel="t('Next')" onClick="() => this.navigate(1)">›</Button>
+          <span class="fw-semibold" t-esc="props.title"/>
+        </div>
+        <GanttScaleSelector scale="state.scale" onChange.bind="setScale"/>
+      </div>
+
+      <t t-if="props.rows.length === 0">
+        <NoContent label="t('No records found.')"/>
+      </t>
+      <t t-else="">
+        <div class="overflow-auto border rounded">
+          <div class="d-flex border-bottom">
+            <div style="width: 180px; flex: 0 0 180px;"/>
+            <div class="d-flex" t-att-style="'width:' + timelineWidthPx + 'px'">
+              <t t-foreach="columns" t-as="col" t-key="col.key">
+                <div t-attf-class="small px-1 border-start {{ col_index === todayColumnIndex ? 'fw-semibold text-primary bg-primary-subtle' : 'text-body-secondary' }}" t-att-style="'width:' + columnWidthPx + 'px; flex: 0 0 ' + columnWidthPx + 'px;'" t-esc="col.label"/>
+              </t>
+            </div>
+          </div>
+          <t t-foreach="props.rows" t-as="row" t-key="row.key">
+            <GanttRow row="row" range="range" scale="state.scale"
+                      dateStartField="props.dateStartField" dateStopField="props.dateStopField"
+                      colorField="props.colorField" todayColumnIndex="todayColumnIndex" columnWidthPx="columnWidthPx" fields="props.fields" timelineWidthPx="timelineWidthPx"
+                      onOpenRecord="props.onOpenRecord" onDragStart.bind="setDragged"
+                      onDrop.bind="onRowDrop" onEmptyClick.bind="onRowEmptyClick"/>
+          </t>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

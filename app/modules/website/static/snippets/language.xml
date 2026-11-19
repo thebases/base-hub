@@ -1,0 +1,5 @@
+<templates name="Language selector" group="social" sequence="135" class="bh-language" keywords="translate,locale,lang" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2270%22 y=%2228%22 width=%2216%22 height=%2212%22 rx=%226%22 fill=%22%236ea8fe%22/%3E%3Crect x=%2290%22 y=%2228%22 width=%2216%22 height=%2212%22 rx=%226%22 fill=%22%23e9ecef%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.language">
+    <section class="bh-language py-3" data-snippet="language"><div class="container text-end"><div data-bh-lang-switch=""><a class="btn btn-sm btn-primary me-1" href="/">EN</a><a class="btn btn-sm btn-outline-secondary me-1" href="/">VI</a></div></div></section>
+  </t>
+</templates>

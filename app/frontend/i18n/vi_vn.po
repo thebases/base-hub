@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Unknown render error"
+msgstr "Lỗi hiển thị không xác định"
+
+msgid "Frontend runtime error"
+msgstr "Lỗi chạy giao diện"
+
+msgid "Frontend async error"
+msgstr "Lỗi bất đồng bộ của giao diện"
+
+msgid "Could not start the app"
+msgstr "Không thể khởi động ứng dụng"
+
+msgid "Route not found"
+msgstr "Không tìm thấy đường dẫn"
+
+msgid "No frontend route matched \"{path}\"."
+msgstr "Không có đường dẫn giao diện nào khớp với \"{path}\"."
+
+msgid "Route module \"{module}\" did not export \"{name}\"."
+msgstr "Mô-đun đường dẫn \"{module}\" không xuất \"{name}\"."
+
+msgid "Could not render this page"
+msgstr "Không thể hiển thị trang này"
+
+msgid "Response error: {status} - {body}"
+msgstr "Lỗi phản hồi: {status} - {body}"
+
+msgid "Response error: empty response body"
+msgstr "Lỗi phản hồi: nội dung phản hồi trống"
+
+msgid "No response received from server"
+msgstr "Không nhận được phản hồi từ máy chủ"
+
+msgid "Request setup error: {message}"
+msgstr "Lỗi thiết lập yêu cầu: {message}"
+
+msgid "OAuth token request failed: {status} - {body}"
+msgstr "Yêu cầu token OAuth thất bại: {status} - {body}"
+
+msgid "Session info failed: {status}"
+msgstr "Lấy thông tin phiên thất bại: {status}"
+
+msgid "ui.view {id} not found"
+msgstr "Không tìm thấy ui.view {id}"
+
+msgid "No {viewType} view found for {model}"
+msgstr "Không tìm thấy giao diện {viewType} cho {model}"
+
+msgid "Action XMLID is required"
+msgstr "XMLID hành động là bắt buộc"
+
+msgid "Action XMLID \"{xmlID}\" was not found"
+msgstr "Không tìm thấy hành động XMLID \"{xmlID}\""
+
+msgid "Action XMLID \"{xmlID}\" does not reference a valid action"
+msgstr "Action XMLID \"{xmlID}\" không trỏ tới hành động hợp lệ"
+
+msgid "Action XMLID \"{xmlID}\" resolves to unsupported model \"{model}\""
+msgstr "Action XMLID \"{xmlID}\" trỏ tới model không được hỗ trợ \"{model}\""
+
+msgid "ui.actions.window {id} is missing res_model"
+msgstr "ui.actions.window {id} thiếu res_model"
+
+msgid "ui.actions.client {id} not found"
+msgstr "Không tìm thấy ui.actions.client {id}"
+
+msgid "ui.actions.client {id} is missing tag"
+msgstr "ui.actions.client {id} thiếu tag"
+
+msgid "Object button method is required"
+msgstr "Nút đối tượng cần có phương thức"
+
+msgid "Model method is required"
+msgstr "Cần có phương thức của model"
+
+msgid "\"{method}\" requires at least one selected record"
+msgstr "\"{method}\" cần chọn ít nhất một bản ghi"
+
+msgid "Failed to write {model} {id}"
+msgstr "Ghi {model} {id} thất bại"
+
+msgid "Failed to create {model}"
+msgstr "Tạo {model} thất bại"
+
+msgid "Delete requires at least one record"
+msgstr "Thao tác xóa yêu cầu ít nhất một bản ghi"
+
+msgid "Open the Share menu in Safari."
+msgstr "Mở menu Chia sẻ trong Safari."
+
+msgid "Choose \"Add to Home Screen\"."
+msgstr "Chọn \"Thêm vào Màn hình chính\"."
+
+msgid "Confirm the app name and save it."
+msgstr "Xác nhận tên ứng dụng và lưu lại."
+
+msgid "Open the File menu in Safari."
+msgstr "Mở menu Tệp trong Safari."
+
+msgid "Choose \"Add to Dock\"."
+msgstr "Chọn \"Thêm vào Dock\"."
+
+msgid "Confirm the app name to finish installation."
+msgstr "Xác nhận tên ứng dụng để hoàn tất cài đặt."
+
+msgid "Use your browser install action to add this app."
+msgstr "Dùng tùy chọn cài đặt của trình duyệt để thêm ứng dụng này."
+
+msgid "If no install action is shown, make sure the manifest and service worker are available."
+msgstr "Nếu không thấy tùy chọn cài đặt, hãy kiểm tra manifest và service worker đã sẵn sàng."
+
+msgid "Failed to load script {src}"
+msgstr "Không tải được tập lệnh {src}"
+
+msgid "You do not have permission to perform this action."
+msgstr "Bạn không có quyền thực hiện thao tác này."
+
+msgid "The server did not respond in time. The change may or may not have been saved; refresh and check before trying again."
+msgstr "Máy chủ không phản hồi kịp thời. Thay đổi có thể đã hoặc chưa được lưu; hãy tải lại trang và kiểm tra trước khi thử lại."

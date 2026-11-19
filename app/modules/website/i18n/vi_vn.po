@@ -1,0 +1,347 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* website
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: website
+#: field
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: website
+#: field
+msgid "Alt Text"
+msgstr "Văn bản thay thế"
+
+#. module: website
+#: field
+msgid "Attachment"
+msgstr "Tệp đính kèm"
+
+#. module: website
+#: view
+msgid "Audit"
+msgstr "Kiểm toán"
+
+#. module: website
+#: field
+msgid "Base Path"
+msgstr "Đường dẫn gốc"
+
+#. module: website
+#: field
+msgid "Built-in"
+msgstr "Tích hợp sẵn"
+
+#. module: website
+#: field
+msgid "Canonical Base URL"
+msgstr "URL gốc chuẩn"
+
+#. module: website
+#: field
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: website
+#: field
+msgid "Company"
+msgstr "Công ty"
+
+#. module: website
+#: field
+msgid "Default Robots"
+msgstr "Robots mặc định"
+
+#. module: website
+#: field
+msgid "Default SEO"
+msgstr "SEO mặc định"
+
+#. module: website
+#: field
+msgid "Default SEO Description"
+msgstr "Mô tả SEO mặc định"
+
+#. module: website
+#: field
+msgid "Default SEO Title"
+msgstr "Tiêu đề SEO mặc định"
+
+#. module: website
+#: field
+msgid "Definition"
+msgstr "Định nghĩa"
+
+#. module: website
+#: field
+msgid "Deploy Path"
+msgstr "Đường dẫn triển khai"
+
+#. module: website
+#: field
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: website
+#: field, selection
+msgid "Document"
+msgstr "Tài liệu"
+
+#. module: website
+#: menu
+msgid "Domains"
+msgstr "Miền"
+
+#. module: website
+#: field
+msgid "Favicon"
+msgstr "Favicon"
+
+#. module: website
+#: field
+msgid "Filename"
+msgstr "Tên tệp"
+
+#. module: website
+#: field
+msgid "Focal Point"
+msgstr "Tiêu điểm"
+
+#. module: website
+#: selection
+msgid "Font"
+msgstr "Phông chữ"
+
+#. module: website
+#: view
+msgid "General"
+msgstr "Chung"
+
+#. module: website
+#: field
+msgid "Hash"
+msgstr "Hash"
+
+#. module: website
+#: field
+msgid "Home Page"
+msgstr "Trang chủ"
+
+#. module: website
+#: field
+msgid "Homepage"
+msgstr "Trang chủ"
+
+#. module: website
+#: field
+msgid "Host"
+msgstr "Máy chủ"
+
+#. module: website
+#: selection
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: website
+#: field
+msgid "Kind"
+msgstr "Loại"
+
+#. module: website
+#: field
+msgid "Last Published At"
+msgstr "Xuất bản lần cuối lúc"
+
+#. module: website
+#: field
+msgid "MIME Type"
+msgstr "Loại MIME"
+
+#. module: website
+#: field
+msgid "Name"
+msgstr "Tên"
+
+#. module: website
+#: field
+msgid "Navigation"
+msgstr "Điều hướng"
+
+#. module: website
+#: action
+msgid "Open Website Studio"
+msgstr "Mở Website Studio"
+
+#. module: website
+#: selection
+msgid "PDF"
+msgstr "PDF"
+
+#. module: website
+#: menu
+msgid "Pages"
+msgstr "Trang"
+
+#. module: website
+#: field
+msgid "Primary"
+msgstr "Chính"
+
+#. module: website
+#: view
+msgid "Publish"
+msgstr "Xuất bản"
+
+#. module: website
+#: field
+msgid "Published At"
+msgstr "Xuất bản lúc"
+
+#. module: website
+#: field
+msgid "Revision"
+msgstr "Bản sửa đổi"
+
+#. module: website
+#: view
+msgid "Robots"
+msgstr "Robots"
+
+#. module: website
+#: field
+msgid "Robots TXT"
+msgstr "Robots TXT"
+
+#. module: website
+#: field
+msgid "Route Path"
+msgstr "Đường dẫn tuyến"
+
+#. module: website
+#: field
+msgid "SEO"
+msgstr "SEO"
+
+#. module: website
+#: view
+msgid "SEO Defaults"
+msgstr "Mặc định SEO"
+
+#. module: website
+#: field
+msgid "SPA Manifest"
+msgstr "SPA Manifest"
+
+#. module: website
+#: view
+msgid "Set Homepage"
+msgstr "Đặt làm trang chủ"
+
+#. module: website
+#: field
+msgid "Site"
+msgstr "Trang web"
+
+#. module: website
+#: field
+msgid "Sitemap Enabled"
+msgstr "Bật sơ đồ trang web"
+
+#. module: website
+#: menu
+msgid "Sites"
+msgstr "Trang web"
+
+#. module: website
+#: field
+msgid "Size (Bytes)"
+msgstr "Kích thước (byte)"
+
+#. module: website
+#: field
+msgid "Slug"
+msgstr "Slug"
+
+#. module: website
+#: field
+msgid "Supported Languages"
+msgstr "Ngôn ngữ được hỗ trợ"
+
+#. module: website
+#: field
+msgid "Theme"
+msgstr "Giao diện"
+
+#. module: website
+#: field
+msgid "Title Text"
+msgstr "Văn bản tiêu đề"
+
+#. module: website
+#: view
+msgid "Unpublish"
+msgstr "Hủy xuất bản"
+
+#. module: website
+#: selection
+msgid "Video"
+msgstr "Video"
+
+#. module: website
+#: menu
+msgid "Website"
+msgstr "Website"
+
+#. module: website
+#: label, view
+msgid "Website Assets"
+msgstr "Tài nguyên trang web"
+
+#. module: website
+#: label, view
+msgid "Website Domains"
+msgstr "Tên miền trang web"
+
+#. module: website
+#: view
+msgid "Website Page"
+msgstr "Trang web"
+
+#. module: website
+#: label, view
+msgid "Website Pages"
+msgstr "Các trang web"
+
+#. module: website
+#: view
+msgid "Website Site"
+msgstr "Site trang web"
+
+#. module: website
+#: label, view
+msgid "Website Sites"
+msgstr "Các site trang web"
+
+#. module: website
+#: label, view
+msgid "Website Snippets"
+msgstr "Đoạn mã trang web"
+
+#. module: website
+#: label, view
+msgid "Website Themes"
+msgstr "Giao diện trang web"

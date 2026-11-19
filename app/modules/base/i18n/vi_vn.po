@@ -1,0 +1,3985 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base
+#
+# Translators:
+# Base Hub Team, 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-09 00:00+0000\n"
+"PO-Revision-Date: 2026-05-09 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: base
+#: model:tbl.lang,label:
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+#. module: base
+#: model:tbl.lang,field:iso_code
+msgid "ISO Code"
+msgstr "Mã ISO"
+
+#. module: base
+#: model:tbl.lang,field:active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: base
+#: model:tbl.lang,field:date_format
+msgid "Date Format"
+msgstr "Định dạng ngày"
+
+#. module: base
+#: model:tbl.lang,field:time_format
+msgid "Time Format"
+msgstr "Định dạng giờ"
+
+#. module: base
+#: model:tbl.country,label:
+msgid "Country"
+msgstr "Quốc gia"
+
+#. module: base
+#: model:tbl.country,field:code
+msgid "Country Code"
+msgstr "Mã quốc gia"
+
+#. module: base
+#: model:tbl.country,field:phone_code
+msgid "Phone Code"
+msgstr "Mã điện thoại"
+
+#. module: base
+#: model:tbl.partner,label:
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: base
+#: model:tbl.partner,field:name
+msgid "Name"
+msgstr "Tên"
+
+#. module: base
+#: model:tbl.partner,field:email
+msgid "Email"
+msgstr "Email"
+
+#. module: base
+#: model:tbl.partner,field:phone
+msgid "Phone"
+msgstr "Điện thoại"
+
+#. module: base
+#: model:tbl.partner,field:website
+msgid "Website"
+msgstr "Website"
+
+#. module: base
+#: model:tbl.partner,field:street
+msgid "Street"
+msgstr "Địa chỉ"
+
+#. module: base
+#: model:tbl.partner,field:city
+msgid "City"
+msgstr "Thành phố"
+
+#. module: base
+#: model:tbl.partner,field:zip
+msgid "Zip"
+msgstr "Mã bưu chính"
+
+#. module: base
+#: model:tbl.partner,field:country_id
+msgid "Country"
+msgstr "Quốc gia"
+
+#. module: base
+#: model:res.users,label:
+msgid "User"
+msgstr "Người dùng"
+
+#. module: base
+#: model:res.users,field:login
+msgid "Login"
+msgstr "Đăng nhập"
+
+#. module: base
+#: model:res.users,field:password
+msgid "Password"
+msgstr "Mật khẩu"
+
+#. module: base
+#: model:res.users,field:email
+msgid "Email"
+msgstr "Email"
+
+#. module: base
+#: model:res.users,field:active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: base
+#: model:tbl.groups,label:
+msgid "Access Group"
+msgstr "Nhóm quyền"
+
+#. module: base
+#: model:tbl.groups,field:full_name
+msgid "Full Name"
+msgstr "Tên đầy đủ"
+
+#. module: base
+#: model:tbl.company,label:
+msgid "Company"
+msgstr "Công ty"
+
+#. module: base
+#: model:tbl.company,field:email
+msgid "Email"
+msgstr "Email"
+
+#. module: base
+#: model:tbl.company,field:phone
+msgid "Phone"
+msgstr "Điện thoại"
+
+#. module: base
+#: model:tbl.company,field:website
+msgid "Website"
+msgstr "Website"
+
+#. module: base
+#: model:sys.config_param,field:key
+msgid "Key"
+msgstr "Khóa"
+
+#. module: base
+#: model:sys.config_param,field:value
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: base
+#: ui:button
+msgid "Save"
+msgstr "Lưu"
+
+#. module: base
+#: ui:button
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: base
+#: ui:button
+msgid "Delete"
+msgstr "Xóa"
+
+#. module: base
+#: ui:button
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+#. module: base
+#: ui:button
+msgid "Create"
+msgstr "Tạo mới"
+
+#. module: base
+#: ui:button
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#. module: base
+#: ui:button
+msgid "Export"
+msgstr "Xuất"
+
+#. module: base
+#: ui:button
+msgid "Import"
+msgstr "Nhập"
+
+#. module: base
+#: ui:button
+msgid "Close"
+msgstr "Đóng"
+
+#. module: base
+#: ui:button
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: base
+#: ui:button
+msgid "Discard"
+msgstr "Bỏ qua"
+
+#. module: base
+#: ui:label
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#. module: base
+#: ui:error
+msgid "Access denied"
+msgstr "Từ chối truy cập"
+
+#. module: base
+#: ui:error
+msgid "Record not found"
+msgstr "Không tìm thấy bản ghi"
+
+#. module: base
+#: ui:error
+msgid "Validation error"
+msgstr "Lỗi xác thực"
+
+#. module: base
+#: ui:label
+msgid "ID"
+msgstr "ID"
+
+#. module: base
+#: ui:label
+msgid "Yes"
+msgstr "Có"
+
+#. module: base
+#: ui:label
+msgid "No"
+msgstr "Không"
+
+#. module: base
+#: selection:tbl.lang,direction:ltr
+msgid "Left-to-Right"
+msgstr "Trái sang phải"
+
+#. module: base
+#: selection:tbl.lang,direction:rtl
+msgid "Right-to-Left"
+msgstr "Phải sang trái"
+
+#. module: base
+#: selection:tbl.lang,week_start:1
+msgid "Monday"
+msgstr "Thứ Hai"
+
+#. module: base
+#: selection:tbl.lang,week_start:2
+msgid "Tuesday"
+msgstr "Thứ Ba"
+
+#. module: base
+#: selection:tbl.lang,week_start:3
+msgid "Wednesday"
+msgstr "Thứ Tư"
+
+#. module: base
+#: selection:tbl.lang,week_start:4
+msgid "Thursday"
+msgstr "Thứ Năm"
+
+#. module: base
+#: selection:tbl.lang,week_start:5
+msgid "Friday"
+msgstr "Thứ Sáu"
+
+#. module: base
+#: selection:tbl.lang,week_start:6
+msgid "Saturday"
+msgstr "Thứ Bảy"
+
+#. module: base
+#: selection:tbl.lang,week_start:7
+msgid "Sunday"
+msgstr "Chủ Nhật"
+
+#. module: base
+#: model:sys.sequence,label:
+msgid "Sequences"
+msgstr "Chuỗi định danh"
+
+#. module: base
+#: model:sys.sequence,field:code
+msgid "Code"
+msgstr "Mã"
+
+#. module: base
+#: model:sys.sequence,field:prefix
+msgid "Prefix"
+msgstr "Tiền tố"
+
+#. module: base
+#: model:sys.sequence,field:suffix
+msgid "Suffix"
+msgstr "Hậu tố"
+
+#. module: base
+#: model:sys.sequence,field:padding
+msgid "Padding"
+msgstr "Độ rộng đệm số"
+
+#. module: base
+#: model:sys.sequence,field:increment
+msgid "Increment"
+msgstr "Bước tăng"
+
+#. module: base
+#: model:sys.sequence,field:number_next
+msgid "Next Number"
+msgstr "Số tiếp theo"
+
+#. module: base
+#: model:sys.sequence,field:implementation
+msgid "Implementation"
+msgstr "Cơ chế cấp số"
+
+#. module: base
+#: model:sys.sequence,field:company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: base
+#: model:sys.attachment,label:
+msgid "Attachments"
+msgstr "Tệp đính kèm"
+
+#. module: base
+#: model:sys.attachment,field:sys_model
+msgid "Resource Model"
+msgstr "Mô hình nguồn"
+
+#. module: base
+#: model:sys.attachment,field:tbl_id
+msgid "Resource ID"
+msgstr "ID bản ghi nguồn"
+
+#. module: base
+#: model:sys.attachment,field:mimetype
+msgid "Mimetype"
+msgstr "Kiểu nội dung"
+
+#. module: base
+#: model:sys.attachment,field:checksum
+msgid "Checksum"
+msgstr "Mã băm nội dung"
+
+#. module: base
+#: model:sys.attachment,field:file_size
+msgid "File Size"
+msgstr "Kích thước tệp"
+
+#. module: base
+#: model:sys.attachment,field:create_uid
+msgid "Created By"
+msgstr "Người tải lên"
+
+#. module: base
+#: model:sys.report,field:name
+msgid "Report"
+msgstr "Báo cáo"
+
+#. module: base
+#: model:sys.report,field:report_name
+msgid "Report Name"
+msgstr "Tên báo cáo"
+
+#. module: base
+#: model:sys.report,field:template_ref
+msgid "Template"
+msgstr "Mẫu in"
+
+#. module: base
+#: model:sys.report,field:paper_format
+msgid "Paper Format"
+msgstr "Khổ giấy"
+
+#. module: base
+#: model:sys.report,field:attach
+msgid "Attach Result"
+msgstr "Lưu kết quả dưới dạng tệp đính kèm"
+
+#. module: base
+#: report:base.user_summary
+msgid "User Summary"
+msgstr "Tóm tắt người dùng"
+
+#. module: base
+#: report:base.user_summary
+msgid "Generated at"
+msgstr "Tạo lúc"
+
+#. module: base
+#: frontend
+msgid "/ API Documentation"
+msgstr "/ Tài liệu API"
+
+#. module: base
+#: frontend, menu
+msgid "API Documentation"
+msgstr "Tài liệu API"
+
+#. module: base
+#: field
+msgid "API Key Duration"
+msgstr "Thời hạn API Key"
+
+#. module: base
+#: field
+msgid "Abandon State"
+msgstr "Trạng thái bị bỏ"
+
+#. module: base
+#: field
+msgid "Acc Holder Name"
+msgstr "Tên chủ tài khoản"
+
+#. module: base
+#: field
+msgid "Acc Number"
+msgstr "Số tài khoản"
+
+#. module: base
+#: field
+msgid "Acc Type"
+msgstr "Loại tài khoản"
+
+#. module: base
+#: frontend, view
+msgid "Access"
+msgstr "Truy cập"
+
+#. module: base
+#: view
+msgid "Access Right"
+msgstr "Quyền truy cập"
+
+#. module: base
+#: view
+msgid "Access Rights"
+msgstr "Quyền truy cập"
+
+#. module: base
+#: field
+msgid "Account Type"
+msgstr "Loại tài khoản"
+
+#. module: base
+#: view
+msgid "Action"
+msgstr "Hành động"
+
+#. module: base
+#: frontend
+msgid "Action Catalog"
+msgstr "Danh mục hành động"
+
+#. module: base
+#: frontend
+msgid "Action Catalog is required."
+msgstr "Danh mục hành động là bắt buộc."
+
+#. module: base
+#: frontend
+msgid "Action XMLID is required"
+msgstr "XMLID hành động là bắt buộc"
+
+#. module: base
+#: frontend
+msgid "Action code"
+msgstr "Mã hành động"
+
+#. module: base
+#: frontend
+msgid "Action failed"
+msgstr "Hành động thất bại"
+
+#. module: base
+#: frontend
+msgid "Actions"
+msgstr "Hành động"
+
+#. module: base
+#: frontend
+msgid "Activity Type"
+msgstr "Loại hoạt động"
+
+#. module: base
+#: frontend
+msgid "Add"
+msgstr "Thêm"
+
+#. module: base
+#: frontend
+msgid "Add a follower…"
+msgstr "Thêm người theo dõi…"
+
+#. module: base
+#: frontend
+msgid "Add action"
+msgstr "Thêm hành động"
+
+#. module: base
+#: view
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: base
+#: field
+msgid "Address Format"
+msgstr "Định dạng địa chỉ"
+
+#. module: base
+#: field, view
+msgid "Address View ID"
+msgstr "ID giao diện địa chỉ"
+
+#. module: base
+#: menu
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#. module: base
+#: frontend
+msgid "Alias Route"
+msgstr "Tuyến bí danh"
+
+#. module: base
+#: field, view
+msgid "All Config Allowed"
+msgstr "Cho phép mọi cấu hình"
+
+#. module: base
+#: field, view
+msgid "All Devices Allowed"
+msgstr "Cho phép mọi thiết bị"
+
+#. module: base
+#: frontend
+msgid "All events"
+msgstr "Tất cả sự kiện"
+
+#. module: base
+#: frontend
+msgid "Allow"
+msgstr "Cho phép"
+
+#. module: base
+#: frontend
+msgid "Allow browser notifications"
+msgstr "Cho phép thông báo trình duyệt"
+
+#. module: base
+#: frontend
+msgid "Allow notifications"
+msgstr "Cho phép thông báo"
+
+#. module: base
+#: frontend
+msgid "Always — regardless of source outcome"
+msgstr "Luôn luôn — bất kể kết quả nguồn"
+
+#. module: base
+#: view
+msgid "Amount must not be negative."
+msgstr "Số tiền không được âm."
+
+#. module: base
+#: frontend
+msgid "Any (GET, POST, PUT, …)"
+msgstr "Bất kỳ (GET, POST, PUT, …)"
+
+#. module: base
+#: view
+msgid "Apply"
+msgstr "Áp dụng"
+
+#. module: base
+#: view
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: base
+#: view
+msgid "Attachment"
+msgstr "Tệp đính kèm"
+
+#. module: base
+#: view
+msgid "Audit"
+msgstr "Kiểm toán"
+
+#. module: base
+#: field
+msgid "Auth Data"
+msgstr "Dữ liệu xác thực"
+
+#. module: base
+#: frontend
+msgid "Available fields"
+msgstr "Các trường khả dụng"
+
+#. module: base
+#: frontend
+msgid "Average"
+msgstr "Trung bình"
+
+#. module: base
+#: field
+msgid "BID"
+msgstr "BID"
+
+#. module: base
+#: frontend
+msgid "Backend notifications retained for seven days on this device."
+msgstr "Thông báo từ máy chủ được giữ trong bảy ngày trên thiết bị này."
+
+#. module: base
+#: label, view
+msgid "Bank Account"
+msgstr "Tài khoản ngân hàng"
+
+#. module: base
+#: field
+msgid "Bank Account IDs"
+msgstr "ID tài khoản ngân hàng"
+
+#. module: base
+#: menu
+msgid "Bank Accounts"
+msgstr "Tài khoản ngân hàng"
+
+#. module: base
+#: field
+msgid "Bank BIC"
+msgstr "BIC ngân hàng"
+
+#. module: base
+#: frontend
+msgid "Base Hub"
+msgstr "Base Hub"
+
+#. module: base
+#: field
+msgid "Bid"
+msgstr "Bid"
+
+#. module: base
+#: view
+msgid "Binding"
+msgstr "Liên kết"
+
+#. module: base
+#: view
+msgid "Branch"
+msgstr "Chi nhánh"
+
+#. module: base
+#: field, view
+msgid "Branches"
+msgstr "Chi nhánh"
+
+#. module: base
+#: frontend
+msgid "Breadcrumb"
+msgstr "Đường dẫn điều hướng"
+
+#. module: base
+#: frontend
+msgid "Browse documented runtime models and inspect their available fields and methods."
+msgstr "Duyệt các mô hình runtime đã có tài liệu và xem các trường và phương thức khả dụng của chúng."
+
+#. module: base
+#: view
+msgid "Business"
+msgstr "Doanh nghiệp"
+
+#. module: base
+#: frontend
+msgid "Button failed"
+msgstr "Nút thất bại"
+
+#. module: base
+#: frontend
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+#. module: base
+#: frontend
+msgid "CSV template"
+msgstr "Mẫu CSV"
+
+#. module: base
+#: view
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: base
+#: field
+msgid "Category BID"
+msgstr "BID danh mục"
+
+#. module: base
+#: field, view
+msgid "Category ID"
+msgstr "ID danh mục"
+
+#. module: base
+#: field
+msgid "Category IDs"
+msgstr "ID danh mục"
+
+#. module: base
+#: frontend, view
+msgid "Change Password"
+msgstr "Đổi mật khẩu"
+
+#. module: base
+#: frontend
+msgid "Chatter"
+msgstr "Trao đổi"
+
+#. module: base
+#: field
+msgid "Child IDs"
+msgstr "ID con"
+
+#. module: base
+#: frontend
+msgid "Choose which modules should be enabled on"
+msgstr "Chọn các mô-đun sẽ được bật trên"
+
+#. module: base
+#: frontend
+msgid "Clear"
+msgstr "Xóa"
+
+#. module: base
+#: frontend
+msgid "Clear all filters"
+msgstr "Xóa tất cả bộ lọc"
+
+#. module: base
+#: frontend
+msgid "Click or drop a file here"
+msgstr "Nhấp hoặc thả tệp vào đây"
+
+#. module: base
+#: frontend
+msgid "Click to choose another file"
+msgstr "Nhấp để chọn tệp khác"
+
+#. module: base
+#: view
+msgid "Client Actions"
+msgstr "Hành động phía máy khách"
+
+#. module: base
+#: frontend
+msgid "Client ID"
+msgstr "Client ID"
+
+#. module: base
+#: frontend
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#. module: base
+#: frontend
+msgid "Cohort"
+msgstr "Nhóm đối tượng"
+
+#. module: base
+#: frontend
+msgid "Cohort interval"
+msgstr "Khoảng thời gian nhóm đối tượng"
+
+#. module: base
+#: frontend
+msgid "Cohort measure"
+msgstr "Chỉ số nhóm đối tượng"
+
+#. module: base
+#: frontend
+msgid "Cohort mode"
+msgstr "Chế độ nhóm đối tượng"
+
+#. module: base
+#: frontend
+msgid "Cohort timeline"
+msgstr "Dòng thời gian nhóm đối tượng"
+
+#. module: base
+#: field
+msgid "Comment"
+msgstr "Bình luận"
+
+#. module: base
+#: label, view
+msgid "Companies"
+msgstr "Công ty"
+
+#. module: base
+#: field, view
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: base
+#: field
+msgid "Company IDs"
+msgstr "ID công ty"
+
+#. module: base
+#: field
+msgid "Company Rate"
+msgstr "Tỷ giá công ty"
+
+#. module: base
+#: field
+msgid "Company Ref Code"
+msgstr "Mã tham chiếu công ty"
+
+#. module: base
+#: field
+msgid "Company Registry"
+msgstr "Đăng ký kinh doanh công ty"
+
+#. module: base
+#: field
+msgid "Company Type"
+msgstr "Loại công ty"
+
+#. module: base
+#: field
+msgid "Complete Name"
+msgstr "Tên đầy đủ"
+
+#. module: base
+#: frontend
+msgid "Condition Expression (JSON)"
+msgstr "Biểu thức điều kiện (JSON)"
+
+#. module: base
+#: frontend
+msgid "Condition — evaluates condition_expr"
+msgstr "Điều kiện — đánh giá condition_expr"
+
+#. module: base
+#: frontend
+msgid "Configure the node inputs persisted into the workflow action sequence on canvas save."
+msgstr "Cấu hình đầu vào của nút được lưu vào chuỗi hành động quy trình khi lưu canvas."
+
+#. module: base
+#: frontend
+msgid "Configure the workflow trigger transport. Webhook stays implicit; Kafka, MQTT and Model triggers persist through trigger rows."
+msgstr "Cấu hình phương thức truyền của trình kích hoạt quy trình. Webhook được ngầm định; trình kích hoạt Kafka, MQTT và Mô hình được lưu qua các dòng trình kích hoạt."
+
+#. module: base
+#: frontend
+msgid "Configured (hidden)"
+msgstr "Đã cấu hình (ẩn)"
+
+#. module: base
+#: frontend
+msgid "Confirm action"
+msgstr "Xác nhận hành động"
+
+#. module: base
+#: view
+msgid "Constraint Type"
+msgstr "Loại ràng buộc"
+
+#. module: base
+#: frontend
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#. module: base
+#: frontend
+msgid "Controls how many steps run concurrently per frontier batch and how a failed step affects the rest of the run."
+msgstr "Điều khiển số bước chạy đồng thời trong mỗi lô frontier và cách một bước thất bại ảnh hưởng đến phần còn lại của lần chạy."
+
+#. module: base
+#: frontend
+msgid "Controls when this connection is followed during DAG execution."
+msgstr "Điều khiển thời điểm kết nối này được đi theo trong quá trình thực thi DAG."
+
+#. module: base
+#: frontend
+msgid "Copy"
+msgstr "Sao chép"
+
+#. module: base
+#: frontend
+msgid "Copy Client ID"
+msgstr "Sao chép Client ID"
+
+#. module: base
+#: frontend
+msgid "Copy Client Secret"
+msgstr "Sao chép Client Secret"
+
+#. module: base
+#: frontend
+msgid "Copy Link"
+msgstr "Sao chép liên kết"
+
+#. module: base
+#: frontend
+msgid "Copy the public link or open the shared document in a new tab."
+msgstr "Sao chép liên kết công khai hoặc mở tài liệu được chia sẻ trong tab mới."
+
+#. module: base
+#: frontend
+msgid "Copy this secret now for"
+msgstr "Hãy sao chép mã bí mật này ngay cho"
+
+#. module: base
+#: frontend
+msgid "Copy to clipboard"
+msgstr "Sao chép vào bộ nhớ tạm"
+
+#. module: base
+#: frontend
+msgid "Could not render this page"
+msgstr "Không thể hiển thị trang này"
+
+#. module: base
+#: frontend
+msgid "Could not schedule activity."
+msgstr "Không thể lên lịch hoạt động."
+
+#. module: base
+#: frontend
+msgid "Could not upload file."
+msgstr "Không thể tải tệp lên."
+
+#. module: base
+#: frontend
+msgid "Count"
+msgstr "Số lượng"
+
+#. module: base
+#: menu
+msgid "Countries"
+msgstr "Quốc gia"
+
+#. module: base
+#: label, view
+msgid "Country Group"
+msgstr "Nhóm quốc gia"
+
+#. module: base
+#: field
+msgid "Country Group Codes"
+msgstr "Mã nhóm quốc gia"
+
+#. module: base
+#: field
+msgid "Country Group IDs"
+msgstr "ID nhóm quốc gia"
+
+#. module: base
+#: menu
+msgid "Country Groups"
+msgstr "Nhóm quốc gia"
+
+#. module: base
+#: field, view
+msgid "Country ID"
+msgstr "ID quốc gia"
+
+#. module: base
+#: field
+msgid "Country IDs"
+msgstr "ID quốc gia"
+
+#. module: base
+#: label, view
+msgid "Country State"
+msgstr "Tỉnh/Bang"
+
+#. module: base
+#: menu
+msgid "Country States"
+msgstr "Tỉnh/Bang"
+
+#. module: base
+#: label, view
+msgid "Country Ward"
+msgstr "Phường/Xã"
+
+#. module: base
+#: view
+msgid "Create UI"
+msgstr "Tạo giao diện"
+
+#. module: base
+#: frontend
+msgid "Create a new database by cloning"
+msgstr "Tạo cơ sở dữ liệu mới bằng cách nhân bản"
+
+#. module: base
+#: frontend
+msgid "Create markdown file"
+msgstr "Tạo tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Create or update"
+msgstr "Tạo hoặc cập nhật"
+
+#. module: base
+#: frontend
+msgid "Create returned no id"
+msgstr "Thao tác tạo không trả về id"
+
+#. module: base
+#: frontend
+msgid "Credentials:"
+msgstr "Thông tin xác thực:"
+
+#. module: base
+#: label
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: base
+#: field
+msgid "Currency Code"
+msgstr "Mã tiền tệ"
+
+#. module: base
+#: field, view
+msgid "Currency ID"
+msgstr "ID tiền tệ"
+
+#. module: base
+#: label
+msgid "Currency Rate"
+msgstr "Tỷ giá tiền tệ"
+
+#. module: base
+#: field
+msgid "Currency Subunit Label"
+msgstr "Nhãn đơn vị nhỏ của tiền tệ"
+
+#. module: base
+#: field
+msgid "Currency Unit Label"
+msgstr "Nhãn đơn vị tiền tệ"
+
+#. module: base
+#: field
+msgid "Customer Status"
+msgstr "Trạng thái khách hàng"
+
+#. module: base
+#: frontend
+msgid "DAG Settings"
+msgstr "Cài đặt DAG"
+
+#. module: base
+#: frontend
+msgid "DAG settings"
+msgstr "Cài đặt DAG"
+
+#. module: base
+#: frontend
+msgid "Daily"
+msgstr "Hằng ngày"
+
+#. module: base
+#: view
+msgid "Data Type"
+msgstr "Kiểu dữ liệu"
+
+#. module: base
+#: frontend
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+#. module: base
+#: field
+msgid "Date"
+msgstr "Ngày"
+
+#. module: base
+#: frontend
+msgid "Day"
+msgstr "Ngày"
+
+#. module: base
+#: frontend
+msgid "Day of month"
+msgstr "Ngày trong tháng"
+
+#. module: base
+#: frontend
+msgid "Days of week"
+msgstr "Các ngày trong tuần"
+
+#. module: base
+#: frontend
+msgid "Deadline"
+msgstr "Hạn chót"
+
+#. module: base
+#: field
+msgid "Decimal Places"
+msgstr "Số chữ số thập phân"
+
+#. module: base
+#: field
+msgid "Decimal Point"
+msgstr "Dấu thập phân"
+
+#. module: base
+#: frontend
+msgid "Default"
+msgstr "Mặc định"
+
+#. module: base
+#: frontend
+msgid "Default (required fields)"
+msgstr "Mặc định (các trường bắt buộc)"
+
+#. module: base
+#: frontend
+msgid "Default stage"
+msgstr "Giai đoạn mặc định"
+
+#. module: base
+#: frontend
+msgid "Delete Node"
+msgstr "Xóa nút"
+
+#. module: base
+#: frontend
+msgid "Delete Workflow"
+msgstr "Xóa quy trình"
+
+#. module: base
+#: frontend
+msgid "Delete attachment"
+msgstr "Xóa tệp đính kèm"
+
+#. module: base
+#: frontend
+msgid "Delete connection"
+msgstr "Xóa kết nối"
+
+#. module: base
+#: frontend
+msgid "Delete node"
+msgstr "Xóa nút"
+
+#. module: base
+#: frontend
+msgid "Delete record"
+msgstr "Xóa bản ghi"
+
+#. module: base
+#: frontend
+msgid "Delete requires at least one record"
+msgstr "Thao tác xóa yêu cầu ít nhất một bản ghi"
+
+#. module: base
+#: frontend
+msgid "Deleting…"
+msgstr "Đang xóa…"
+
+#. module: base
+#: frontend
+msgid "Describe the workflow action sequence in markdown, then generate the backend action rows from that script."
+msgstr "Mô tả chuỗi hành động quy trình bằng markdown, sau đó tạo các dòng hành động phía máy chủ từ kịch bản đó."
+
+#. module: base
+#: field, frontend
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: base
+#: view
+msgid "Details"
+msgstr "Chi tiết"
+
+#. module: base
+#: field
+msgid "Device Limit"
+msgstr "Giới hạn thiết bị"
+
+#. module: base
+#: field
+msgid "Direction"
+msgstr "Hướng"
+
+#. module: base
+#: view
+msgid "Disable"
+msgstr "Tắt"
+
+#. module: base
+#: frontend
+msgid "Dismiss"
+msgstr "Bỏ qua"
+
+#. module: base
+#: menu
+msgid "Document"
+msgstr "Tài liệu"
+
+#. module: base
+#: frontend
+msgid "Domain must be a valid JSON array of domain tokens."
+msgstr "Miền phải là một mảng JSON hợp lệ gồm các token miền."
+
+#. module: base
+#: frontend
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: base
+#: frontend
+msgid "Download Excel Template"
+msgstr "Tải mẫu Excel"
+
+#. module: base
+#: frontend
+msgid "Download the template"
+msgstr "Tải mẫu xuống"
+
+#. module: base
+#: frontend
+msgid "Drag an action onto the canvas, or use Add to append it."
+msgstr "Kéo một hành động vào canvas, hoặc dùng Thêm để thêm vào cuối."
+
+#. module: base
+#: frontend
+msgid "Drag and drop a file here, or"
+msgstr "Kéo và thả tệp vào đây, hoặc"
+
+#. module: base
+#: frontend
+msgid "Drag handle (reordering not implemented)"
+msgstr "Tay kéo (chưa hỗ trợ sắp xếp lại)"
+
+#. module: base
+#: frontend
+msgid "Drag onto another step to connect"
+msgstr "Kéo vào bước khác để kết nối"
+
+#. module: base
+#: frontend
+msgid "Duplicate"
+msgstr "Nhân bản"
+
+#. module: base
+#: frontend
+msgid "Duplicate Database"
+msgstr "Nhân bản cơ sở dữ liệu"
+
+#. module: base
+#: frontend
+msgid "Duplicate database requires a saved source record"
+msgstr "Nhân bản cơ sở dữ liệu yêu cầu bản ghi nguồn đã được lưu"
+
+#. module: base
+#: frontend
+msgid "Duplicate workflow did not return a valid ID."
+msgstr "Nhân bản quy trình không trả về ID hợp lệ."
+
+#. module: base
+#: frontend
+msgid "Duplicating..."
+msgstr "Đang nhân bản..."
+
+#. module: base
+#: frontend
+msgid "Edge Type"
+msgstr "Loại cạnh"
+
+#. module: base
+#: frontend
+msgid "Edge type"
+msgstr "Loại cạnh"
+
+#. module: base
+#: frontend
+msgid "Edit node"
+msgstr "Sửa nút"
+
+#. module: base
+#: frontend
+msgid "Edit recurring event"
+msgstr "Sửa sự kiện lặp lại"
+
+#. module: base
+#: view
+msgid "Enable"
+msgstr "Bật"
+
+#. module: base
+#: frontend
+msgid "Enable notifications so Base Hub can alert you about updates and important activity."
+msgstr "Bật thông báo để Base Hub có thể cảnh báo bạn về các cập nhật và hoạt động quan trọng."
+
+#. module: base
+#: frontend
+msgid "End date (optional)"
+msgstr "Ngày kết thúc (tùy chọn)"
+
+#. module: base
+#: frontend
+msgid "Enter a new password"
+msgstr "Nhập mật khẩu mới"
+
+#. module: base
+#: frontend
+msgid "Enter the menu label, file name, and an optional folder under the writable public docs. Base documents are read-only and cannot be chosen."
+msgstr "Nhập nhãn menu, tên tệp và thư mục tùy chọn trong tài liệu công khai có thể ghi. Tài liệu Base ở chế độ chỉ đọc và không thể chọn."
+
+#. module: base
+#: frontend
+msgid "Enter the new markdown file path."
+msgstr "Nhập đường dẫn tệp markdown mới."
+
+#. module: base
+#: frontend
+msgid "Events are anchored to"
+msgstr "Sự kiện được neo vào"
+
+#. module: base
+#: frontend
+msgid "Every 2 weeks"
+msgstr "Mỗi 2 tuần"
+
+#. module: base
+#: frontend
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
+
+#. module: base
+#: frontend
+msgid "ExcelJS did not load"
+msgstr "ExcelJS chưa được tải"
+
+#. module: base
+#: frontend
+msgid "Executing request…"
+msgstr "Đang thực thi yêu cầu…"
+
+#. module: base
+#: field
+msgid "Expiry Time"
+msgstr "Thời gian hết hạn"
+
+#. module: base
+#: frontend
+msgid "Export failed"
+msgstr "Xuất thất bại"
+
+#. module: base
+#: frontend
+msgid "Exporting…"
+msgstr "Đang xuất…"
+
+#. module: base
+#: view
+msgid "External Identifier"
+msgstr "Định danh ngoài"
+
+#. module: base
+#: menu, view
+msgid "External Identifiers"
+msgstr "Định danh ngoài"
+
+#. module: base
+#: view
+msgid "External User"
+msgstr "Người dùng bên ngoài"
+
+#. module: base
+#: frontend
+msgid "Fail Branch Only"
+msgstr "Chỉ nhánh lỗi"
+
+#. module: base
+#: frontend
+msgid "Fail Whole Workflow"
+msgstr "Làm lỗi toàn bộ quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to build the template"
+msgstr "Không thể tạo mẫu"
+
+#. module: base
+#: frontend
+msgid "Failed to copy share link"
+msgstr "Không thể sao chép liên kết chia sẻ"
+
+#. module: base
+#: frontend
+msgid "Failed to create edge."
+msgstr "Không thể tạo cạnh."
+
+#. module: base
+#: frontend
+msgid "Failed to create markdown file"
+msgstr "Không thể tạo tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to create recurrence"
+msgstr "Không thể tạo lặp lại"
+
+#. module: base
+#: frontend
+msgid "Failed to create workflow"
+msgstr "Không thể tạo quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to create workflow."
+msgstr "Không thể tạo quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to delete edge."
+msgstr "Không thể xóa cạnh."
+
+#. module: base
+#: frontend
+msgid "Failed to delete markdown file"
+msgstr "Không thể xóa tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to delete record"
+msgstr "Không thể xóa bản ghi"
+
+#. module: base
+#: frontend
+msgid "Failed to delete the template"
+msgstr "Không thể xóa mẫu"
+
+#. module: base
+#: frontend
+msgid "Failed to delete workflow action."
+msgstr "Không thể xóa hành động quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to delete workflow."
+msgstr "Không thể xóa quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate database"
+msgstr "Không thể nhân bản cơ sở dữ liệu"
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate record"
+msgstr "Không thể nhân bản bản ghi"
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate workflow."
+msgstr "Không thể nhân bản quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to export workflow."
+msgstr "Không thể xuất quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to generate workflow actions"
+msgstr "Không thể tạo hành động quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to import workflow."
+msgstr "Không thể nhập quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to load API documentation index"
+msgstr "Không thể tải mục lục tài liệu API"
+
+#. module: base
+#: frontend
+msgid "Failed to load calendar events"
+msgstr "Không thể tải sự kiện lịch"
+
+#. module: base
+#: frontend
+msgid "Failed to load cohort data"
+msgstr "Không thể tải dữ liệu nhóm đối tượng"
+
+#. module: base
+#: frontend
+msgid "Failed to load gantt records"
+msgstr "Không thể tải bản ghi Gantt"
+
+#. module: base
+#: frontend
+msgid "Failed to load grid records"
+msgstr "Không thể tải bản ghi lưới"
+
+#. module: base
+#: frontend
+msgid "Failed to load markdown document"
+msgstr "Không thể tải tài liệu markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to load markdown menu"
+msgstr "Không thể tải menu markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to load menu"
+msgstr "Không thể tải menu"
+
+#. module: base
+#: frontend
+msgid "Failed to load model documentation"
+msgstr "Không thể tải tài liệu mô hình"
+
+#. module: base
+#: frontend
+msgid "Failed to load model fields"
+msgstr "Không thể tải các trường của mô hình"
+
+#. module: base
+#: frontend
+msgid "Failed to load notifications"
+msgstr "Không thể tải thông báo"
+
+#. module: base
+#: frontend
+msgid "Failed to load service health"
+msgstr "Không thể tải tình trạng dịch vụ"
+
+#. module: base
+#: frontend
+msgid "Failed to load templates"
+msgstr "Không thể tải mẫu"
+
+#. module: base
+#: frontend
+msgid "Failed to load the map"
+msgstr "Không thể tải bản đồ"
+
+#. module: base
+#: frontend
+msgid "Failed to load the module catalog"
+msgstr "Không thể tải danh mục mô-đun"
+
+#. module: base
+#: frontend
+msgid "Failed to load the spreadsheet library"
+msgstr "Không thể tải thư viện bảng tính"
+
+#. module: base
+#: frontend
+msgid "Failed to load the website editor"
+msgstr "Không thể tải trình soạn thảo website"
+
+#. module: base
+#: frontend
+msgid "Failed to load view"
+msgstr "Không thể tải chế độ xem"
+
+#. module: base
+#: frontend
+msgid "Failed to load website page"
+msgstr "Không thể tải trang website"
+
+#. module: base
+#: frontend
+msgid "Failed to load website studio"
+msgstr "Không thể tải website studio"
+
+#. module: base
+#: frontend
+msgid "Failed to load workflow canvas"
+msgstr "Không thể tải canvas quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to load workflow script data"
+msgstr "Không thể tải dữ liệu tập lệnh quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to move record"
+msgstr "Không thể di chuyển bản ghi"
+
+#. module: base
+#: frontend
+msgid "Failed to reinit database"
+msgstr "Không thể khởi tạo lại cơ sở dữ liệu"
+
+#. module: base
+#: frontend
+msgid "Failed to reload API documentation index"
+msgstr "Không thể tải lại mục lục tài liệu API"
+
+#. module: base
+#: frontend
+msgid "Failed to rename markdown file"
+msgstr "Không thể đổi tên tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to rename workflow."
+msgstr "Không thể đổi tên quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to reorder columns"
+msgstr "Không thể sắp xếp lại các cột"
+
+#. module: base
+#: frontend
+msgid "Failed to reschedule event"
+msgstr "Không thể lên lịch lại sự kiện"
+
+#. module: base
+#: frontend
+msgid "Failed to reschedule record"
+msgstr "Không thể lên lịch lại bản ghi"
+
+#. module: base
+#: frontend
+msgid "Failed to resolve workflow trigger."
+msgstr "Không thể xác định trình kích hoạt quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to run workflow test."
+msgstr "Không thể chạy thử quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to save grid cell"
+msgstr "Không thể lưu ô lưới"
+
+#. module: base
+#: frontend
+msgid "Failed to save markdown file"
+msgstr "Không thể lưu tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Failed to save node parameters."
+msgstr "Không thể lưu tham số nút."
+
+#. module: base
+#: frontend
+msgid "Failed to save record"
+msgstr "Không thể lưu bản ghi"
+
+#. module: base
+#: frontend
+msgid "Failed to save the template"
+msgstr "Không thể lưu mẫu"
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow canvas"
+msgstr "Không thể lưu canvas quy trình"
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow layout."
+msgstr "Không thể lưu bố cục quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow trigger settings."
+msgstr "Không thể lưu cài đặt trình kích hoạt quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to update DAG settings."
+msgstr "Không thể cập nhật cài đặt DAG."
+
+#. module: base
+#: frontend
+msgid "Failed to update edge type."
+msgstr "Không thể cập nhật loại cạnh."
+
+#. module: base
+#: frontend
+msgid "Failed to update password"
+msgstr "Không thể cập nhật mật khẩu"
+
+#. module: base
+#: frontend
+msgid "Failed to update workflow active state."
+msgstr "Không thể cập nhật trạng thái hoạt động của quy trình."
+
+#. module: base
+#: frontend
+msgid "Failed to update workflow execution mode."
+msgstr "Không thể cập nhật chế độ thực thi của quy trình."
+
+#. module: base
+#: frontend
+msgid "Failure Policy"
+msgstr "Chính sách lỗi"
+
+#. module: base
+#: frontend
+msgid "Failure — only if the source step failed"
+msgstr "Thất bại — chỉ khi bước nguồn thất bại"
+
+#. module: base
+#: frontend
+msgid "Feedback (optional)"
+msgstr "Phản hồi (tùy chọn)"
+
+#. module: base
+#: frontend
+msgid "Field"
+msgstr "Trường"
+
+#. module: base
+#: frontend
+msgid "Field names become"
+msgstr "Tên trường trở thành"
+
+#. module: base
+#: frontend
+msgid "Fields"
+msgstr "Trường"
+
+#. module: base
+#: frontend
+msgid "Fields to export"
+msgstr "Các trường cần xuất"
+
+#. module: base
+#: frontend
+msgid "File name, e.g. api-overview.md"
+msgstr "Tên tệp, ví dụ api-overview.md"
+
+#. module: base
+#: frontend
+msgid "File validation issues"
+msgstr "Vấn đề xác thực tệp"
+
+#. module: base
+#: field
+msgid "Files Dir"
+msgstr "Thư mục tệp"
+
+#. module: base
+#: field
+msgid "First Name"
+msgstr "Tên"
+
+#. module: base
+#: field
+msgid "Flag Image"
+msgstr "Ảnh cờ"
+
+#. module: base
+#: field
+msgid "Flag Image URL"
+msgstr "URL ảnh cờ"
+
+#. module: base
+#: view
+msgid "Flags"
+msgstr "Cờ"
+
+#. module: base
+#: frontend
+msgid "Folder in public docs, e.g. docs/api (leave blank for the public root)"
+msgstr "Thư mục trong tài liệu công khai, ví dụ docs/api (để trống cho thư mục gốc công khai)"
+
+#. module: base
+#: frontend
+msgid "Follow the instructions below to install Base Hub as a PWA on this device."
+msgstr "Làm theo hướng dẫn bên dưới để cài đặt Base Hub dưới dạng PWA trên thiết bị này."
+
+#. module: base
+#: view
+msgid "Formatting"
+msgstr "Định dạng"
+
+#. module: base
+#: frontend
+msgid "Frequency"
+msgstr "Tần suất"
+
+#. module: base
+#: view
+msgid "Frontend Widgets"
+msgstr "Widget giao diện"
+
+#. module: base
+#: field
+msgid "Function"
+msgstr "Hàm"
+
+#. module: base
+#: frontend
+msgid "Gantt scale"
+msgstr "Thang Gantt"
+
+#. module: base
+#: view
+msgid "General"
+msgstr "Chung"
+
+#. module: base
+#: frontend
+msgid "Generate"
+msgstr "Tạo"
+
+#. module: base
+#: frontend
+msgid "Generate Workflow by Script"
+msgstr "Tạo quy trình bằng tập lệnh"
+
+#. module: base
+#: frontend
+msgid "Generate from markdown"
+msgstr "Tạo từ markdown"
+
+#. module: base
+#: frontend
+msgid "Generating…"
+msgstr "Đang tạo…"
+
+#. module: base
+#: view
+msgid "Global"
+msgstr "Toàn cục"
+
+#. module: base
+#: frontend
+msgid "Globals:"
+msgstr "Biến toàn cục:"
+
+#. module: base
+#: frontend
+msgid "Grid range"
+msgstr "Phạm vi lưới"
+
+#. module: base
+#: view
+msgid "Group"
+msgstr "Nhóm"
+
+#. module: base
+#: view
+msgid "Group Based"
+msgstr "Dựa trên nhóm"
+
+#. module: base
+#: field
+msgid "Group ID"
+msgstr "ID nhóm"
+
+#. module: base
+#: field
+msgid "Group IDs"
+msgstr "ID nhóm"
+
+#. module: base
+#: label, view
+msgid "Group Privilege"
+msgstr "Đặc quyền nhóm"
+
+#. module: base
+#: menu
+msgid "Group Privileges"
+msgstr "Đặc quyền nhóm"
+
+#. module: base
+#: field
+msgid "Grouping"
+msgstr "Nhóm theo"
+
+#. module: base
+#: label, menu, view
+msgid "Groups"
+msgstr "Nhóm"
+
+#. module: base
+#: frontend
+msgid "HTTP"
+msgstr "HTTP"
+
+#. module: base
+#: frontend
+msgid "HTTP method"
+msgstr "Phương thức HTTP"
+
+#. module: base
+#: frontend
+msgid "Hide prompt"
+msgstr "Ẩn lời nhắc"
+
+#. module: base
+#: frontend
+msgid "Hierarchy"
+msgstr "Phân cấp"
+
+#. module: base
+#: view
+msgid "INV/%(year)s/"
+msgstr "INV/%(year)s/"
+
+#. module: base
+#: field
+msgid "ISO Numeric"
+msgstr "Mã số ISO"
+
+#. module: base
+#: view
+msgid "Identity"
+msgstr "Danh tính"
+
+#. module: base
+#: field
+msgid "Image 1920"
+msgstr "Hình ảnh 1920"
+
+#. module: base
+#: field
+msgid "Image URL"
+msgstr "URL hình ảnh"
+
+#. module: base
+#: field
+msgid "Implied By IDs"
+msgstr "ID được ngụ ý bởi"
+
+#. module: base
+#: field
+msgid "Implied IDs"
+msgstr "ID ngụ ý"
+
+#. module: base
+#: frontend
+msgid "Import failed"
+msgstr "Nhập thất bại"
+
+#. module: base
+#: frontend
+msgid "Import file"
+msgstr "Tệp nhập"
+
+#. module: base
+#: frontend
+msgid "Importing…"
+msgstr "Đang nhập…"
+
+#. module: base
+#: view
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+#. module: base
+#: field
+msgid "Inactive State"
+msgstr "Trạng thái không hoạt động"
+
+#. module: base
+#: view
+msgid "Inherit ID"
+msgstr "ID kế thừa"
+
+#. module: base
+#: view
+msgid "Install"
+msgstr "Cài đặt"
+
+#. module: base
+#: frontend
+msgid "Install app"
+msgstr "Cài đặt ứng dụng"
+
+#. module: base
+#: frontend
+msgid "Installation steps"
+msgstr "Các bước cài đặt"
+
+#. module: base
+#: view
+msgid "Installed"
+msgstr "Đã cài đặt"
+
+#. module: base
+#: frontend
+msgid "Instructions"
+msgstr "Hướng dẫn"
+
+#. module: base
+#: frontend
+msgid "Interval"
+msgstr "Khoảng thời gian"
+
+#. module: base
+#: frontend
+msgid "Invalid JSON response from API docs endpoint"
+msgstr "Phản hồi JSON không hợp lệ từ endpoint tài liệu API"
+
+#. module: base
+#: frontend
+msgid "Invalid JSON response from health check endpoint"
+msgstr "Phản hồi JSON không hợp lệ từ endpoint kiểm tra tình trạng"
+
+#. module: base
+#: field
+msgid "Inverse Company Rate"
+msgstr "Tỷ giá nghịch đảo của công ty"
+
+#. module: base
+#: field
+msgid "Inverse Rate"
+msgstr "Tỷ giá nghịch đảo"
+
+#. module: base
+#: field
+msgid "Ipn URL Dev"
+msgstr "URL IPN (Dev)"
+
+#. module: base
+#: field
+msgid "Ipn URL Prod"
+msgstr "URL IPN (Prod)"
+
+#. module: base
+#: view
+msgid "Is Active"
+msgstr "Đang hoạt động"
+
+#. module: base
+#: field, view
+msgid "Is Branch"
+msgstr "Là chi nhánh"
+
+#. module: base
+#: field, view
+msgid "Is Company"
+msgstr "Là công ty"
+
+#. module: base
+#: field
+msgid "Is Current Company Currency"
+msgstr "Là tiền tệ của công ty hiện tại"
+
+#. module: base
+#: field, view
+msgid "Is Main Account"
+msgstr "Là tài khoản chính"
+
+#. module: base
+#: view
+msgid "Is Public"
+msgstr "Công khai"
+
+#. module: base
+#: frontend
+msgid "Jump straight into a workspace section"
+msgstr "Chuyển thẳng đến một phần của không gian làm việc"
+
+#. module: base
+#: frontend
+msgid "Kafka"
+msgstr "Kafka"
+
+#. module: base
+#: frontend
+msgid "Kanban board"
+msgstr "Bảng Kanban"
+
+#. module: base
+#: frontend
+msgid "Kanban cards"
+msgstr "Thẻ Kanban"
+
+#. module: base
+#: frontend
+msgid "KnowLedge"
+msgstr "Kiến thức"
+
+#. module: base
+#: frontend
+msgid "Label"
+msgstr "Nhãn"
+
+#. module: base
+#: field
+msgid "Lang"
+msgstr "Ngôn ngữ"
+
+#. module: base
+#: menu
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+#. module: base
+#: field
+msgid "Last Login Fail"
+msgstr "Đăng nhập thất bại gần nhất"
+
+#. module: base
+#: field
+msgid "Last Login Time"
+msgstr "Thời gian đăng nhập gần nhất"
+
+#. module: base
+#: field
+msgid "Last Name"
+msgstr "Họ"
+
+#. module: base
+#: frontend
+msgid "Last run:"
+msgstr "Lần chạy gần nhất:"
+
+#. module: base
+#: frontend
+msgid "Later"
+msgstr "Để sau"
+
+#. module: base
+#: frontend
+msgid "Live snapshot of the backend service and its dependencies. Auto-refreshes every 30s."
+msgstr "Ảnh chụp trực tiếp của dịch vụ backend và các thành phần phụ thuộc. Tự động làm mới mỗi 30 giây."
+
+#. module: base
+#: frontend
+msgid "Load more… ("
+msgstr "Tải thêm… ("
+
+#. module: base
+#: frontend
+msgid "Loading"
+msgstr "Đang tải"
+
+#. module: base
+#: frontend
+msgid "Loading API documentation…"
+msgstr "Đang tải tài liệu API…"
+
+#. module: base
+#: frontend
+msgid "Loading dashboards…"
+msgstr "Đang tải bảng điều khiển…"
+
+#. module: base
+#: frontend
+msgid "Loading markdown content…"
+msgstr "Đang tải nội dung markdown…"
+
+#. module: base
+#: frontend
+msgid "Loading menu…"
+msgstr "Đang tải menu…"
+
+#. module: base
+#: frontend
+msgid "Loading model documentation…"
+msgstr "Đang tải tài liệu mô hình…"
+
+#. module: base
+#: frontend
+msgid "Loading modules…"
+msgstr "Đang tải mô-đun…"
+
+#. module: base
+#: frontend
+msgid "Loading notifications..."
+msgstr "Đang tải thông báo..."
+
+#. module: base
+#: frontend
+msgid "Loading permissions…"
+msgstr "Đang tải quyền…"
+
+#. module: base
+#: frontend
+msgid "Loading website page..."
+msgstr "Đang tải trang website..."
+
+#. module: base
+#: frontend
+msgid "Loading website studio..."
+msgstr "Đang tải website studio..."
+
+#. module: base
+#: frontend
+msgid "Loading workflow guidance…"
+msgstr "Đang tải hướng dẫn quy trình…"
+
+#. module: base
+#: frontend
+msgid "Loading workflow…"
+msgstr "Đang tải quy trình…"
+
+#. module: base
+#: frontend
+msgid "Loading…"
+msgstr "Đang tải…"
+
+#. module: base
+#: view
+msgid "Location"
+msgstr "Vị trí"
+
+#. module: base
+#: frontend
+msgid "Log note"
+msgstr "Ghi chú nội bộ"
+
+#. module: base
+#: frontend
+msgid "Log out"
+msgstr "Đăng xuất"
+
+#. module: base
+#: field
+msgid "Login Date"
+msgstr "Ngày đăng nhập"
+
+#. module: base
+#: frontend
+msgid "Login failed"
+msgstr "Đăng nhập thất bại"
+
+#. module: base
+#: frontend
+msgid "Login response was not valid"
+msgstr "Phản hồi đăng nhập không hợp lệ"
+
+#. module: base
+#: frontend
+msgid "Login with Google"
+msgstr "Đăng nhập bằng Google"
+
+#. module: base
+#: frontend
+msgid "Login with your Google account"
+msgstr "Đăng nhập bằng tài khoản Google của bạn"
+
+#. module: base
+#: frontend
+msgid "Lua Script"
+msgstr "Tập lệnh Lua"
+
+#. module: base
+#: frontend
+msgid "MQTT"
+msgstr "MQTT"
+
+#. module: base
+#: menu
+msgid "Main"
+msgstr "Chính"
+
+#. module: base
+#: frontend
+msgid "Manual — never auto-dispatched"
+msgstr "Thủ công — không bao giờ tự động điều phối"
+
+#. module: base
+#: frontend
+msgid "Mark done"
+msgstr "Đánh dấu hoàn thành"
+
+#. module: base
+#: field
+msgid "Master"
+msgstr "Chính"
+
+#. module: base
+#: frontend
+msgid "Max Parallel Steps"
+msgstr "Số bước song song tối đa"
+
+#. module: base
+#: frontend
+msgid "Menu label"
+msgstr "Nhãn menu"
+
+#. module: base
+#: frontend
+msgid "Methods"
+msgstr "Phương thức"
+
+#. module: base
+#: field
+msgid "Mobile"
+msgstr "Di động"
+
+#. module: base
+#: frontend, view
+msgid "Model"
+msgstr "Mô hình"
+
+#. module: base
+#: menu
+msgid "Model Access"
+msgstr "Quyền truy cập mô hình"
+
+#. module: base
+#: field
+msgid "Model Access IDs"
+msgstr "ID quyền truy cập mô hình"
+
+#. module: base
+#: view
+msgid "Model Action"
+msgstr "Hành động mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Actions"
+msgstr "Các hành động mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Change Log"
+msgstr "Nhật ký thay đổi mô hình"
+
+#. module: base
+#: view
+msgid "Model Constraint"
+msgstr "Ràng buộc mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Constraints"
+msgstr "Các ràng buộc mô hình"
+
+#. module: base
+#: view
+msgid "Model Data ID"
+msgstr "ID dữ liệu mô hình"
+
+#. module: base
+#: view
+msgid "Model Field"
+msgstr "Trường mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Fields"
+msgstr "Các trường mô hình"
+
+#. module: base
+#: view
+msgid "Model Operation"
+msgstr "Thao tác mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Operations"
+msgstr "Các thao tác mô hình"
+
+#. module: base
+#: view
+msgid "Model Relation"
+msgstr "Quan hệ mô hình"
+
+#. module: base
+#: menu, view
+msgid "Model Relations"
+msgstr "Các quan hệ mô hình"
+
+#. module: base
+#: frontend
+msgid "Model name, e.g. tbl.groups"
+msgstr "Tên mô hình, ví dụ tbl.groups"
+
+#. module: base
+#: frontend, menu, view
+msgid "Models"
+msgstr "Mô hình"
+
+#. module: base
+#: frontend, view
+msgid "Module"
+msgstr "Mô-đun"
+
+#. module: base
+#: menu, view
+msgid "Module Categories"
+msgstr "Danh mục mô-đun"
+
+#. module: base
+#: view
+msgid "Module Category"
+msgstr "Danh mục mô-đun"
+
+#. module: base
+#: frontend, menu, view
+msgid "Modules"
+msgstr "Mô-đun"
+
+#. module: base
+#: frontend
+msgid "Month"
+msgstr "Tháng"
+
+#. module: base
+#: frontend
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+#. module: base
+#: field
+msgid "Name Position"
+msgstr "Vị trí tên"
+
+#. module: base
+#: frontend
+msgid "New"
+msgstr "Mới"
+
+#. module: base
+#: label
+msgid "New Password"
+msgstr "Mật khẩu mới"
+
+#. module: base
+#: frontend
+msgid "New database name"
+msgstr "Tên cơ sở dữ liệu mới"
+
+#. module: base
+#: frontend
+msgid "New password"
+msgstr "Mật khẩu mới"
+
+#. module: base
+#: frontend
+msgid "No action selected"
+msgstr "Chưa chọn hành động"
+
+#. module: base
+#: frontend
+msgid "No attachments"
+msgstr "Không có tệp đính kèm"
+
+#. module: base
+#: frontend
+msgid "No content"
+msgstr "Không có nội dung"
+
+#. module: base
+#: frontend
+msgid "No dashboards configured yet."
+msgstr "Chưa cấu hình bảng điều khiển nào."
+
+#. module: base
+#: frontend
+msgid "No events in this range."
+msgstr "Không có sự kiện nào trong khoảng này."
+
+#. module: base
+#: frontend
+msgid "No extra settings for this trigger type."
+msgstr "Loại trình kích hoạt này không có cài đặt bổ sung."
+
+#. module: base
+#: frontend
+msgid "No field matches."
+msgstr "Không có trường nào khớp."
+
+#. module: base
+#: frontend
+msgid "No followers yet."
+msgstr "Chưa có người theo dõi."
+
+#. module: base
+#: frontend
+msgid "No geolocated records found."
+msgstr "Không tìm thấy bản ghi có vị trí địa lý."
+
+#. module: base
+#: frontend
+msgid "No headings found."
+msgstr "Không tìm thấy tiêu đề nào."
+
+#. module: base
+#: frontend
+msgid "No image"
+msgstr "Không có hình ảnh"
+
+#. module: base
+#: frontend
+msgid "No menu items available."
+msgstr "Không có mục menu nào."
+
+#. module: base
+#: frontend
+msgid "No messages yet."
+msgstr "Chưa có tin nhắn."
+
+#. module: base
+#: frontend
+msgid "No model access rows for this group."
+msgstr "Nhóm này chưa có dòng quyền truy cập mô hình nào."
+
+#. module: base
+#: frontend
+msgid "No models match this search."
+msgstr "Không có mô hình nào khớp với tìm kiếm này."
+
+#. module: base
+#: frontend
+msgid "No modules found by the scan."
+msgstr "Quá trình quét không tìm thấy mô-đun nào."
+
+#. module: base
+#: frontend
+msgid "No notifications have been stored on this device yet."
+msgstr "Chưa có thông báo nào được lưu trên thiết bị này."
+
+#. module: base
+#: frontend
+msgid "No parameters configured — runs with its defaults."
+msgstr "Chưa cấu hình tham số — chạy với giá trị mặc định."
+
+#. module: base
+#: frontend
+msgid "No public methods are documented for this model."
+msgstr "Mô hình này chưa có tài liệu về phương thức công khai."
+
+#. module: base
+#: frontend
+msgid "No records"
+msgstr "Không có bản ghi"
+
+#. module: base
+#: frontend
+msgid "No records found."
+msgstr "Không tìm thấy bản ghi nào."
+
+#. module: base
+#: frontend
+msgid "No related records"
+msgstr "Không có bản ghi liên quan"
+
+#. module: base
+#: frontend
+msgid "No response received from server"
+msgstr "Không nhận được phản hồi từ máy chủ"
+
+#. module: base
+#: frontend
+msgid "No results for \""
+msgstr "Không có kết quả cho \""
+
+#. module: base
+#: frontend
+msgid "None"
+msgstr "Không có"
+
+#. module: base
+#: view
+msgid "Not Active"
+msgstr "Không hoạt động"
+
+#. module: base
+#: view
+msgid "Not All Config Allowed"
+msgstr "Không cho phép tất cả cấu hình"
+
+#. module: base
+#: view
+msgid "Not All Devices Allowed"
+msgstr "Không cho phép tất cả thiết bị"
+
+#. module: base
+#: view
+msgid "Not Installed"
+msgstr "Chưa cài đặt"
+
+#. module: base
+#: view
+msgid "Not Is Active"
+msgstr "Không hoạt động"
+
+#. module: base
+#: view
+msgid "Not Is Branch"
+msgstr "Không phải chi nhánh"
+
+#. module: base
+#: view
+msgid "Not Is Company"
+msgstr "Không phải công ty"
+
+#. module: base
+#: view
+msgid "Not Is Main Account"
+msgstr "Không phải tài khoản chính"
+
+#. module: base
+#: view
+msgid "Not State Required"
+msgstr "Không yêu cầu tỉnh/thành"
+
+#. module: base
+#: view
+msgid "Not Superadmin"
+msgstr "Không phải siêu quản trị"
+
+#. module: base
+#: view
+msgid "Not ZIP Required"
+msgstr "Không yêu cầu mã bưu chính"
+
+#. module: base
+#: frontend
+msgid "Not enabled for this deployment."
+msgstr "Chưa được bật cho bản triển khai này."
+
+#. module: base
+#: frontend
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: base
+#: view
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: base
+#: frontend
+msgid "Notification"
+msgstr "Thông báo"
+
+#. module: base
+#: frontend
+msgid "Notifications"
+msgstr "Thông báo"
+
+#. module: base
+#: frontend
+msgid "OAuth Client Already Exists"
+msgstr "Ứng dụng khách OAuth đã tồn tại"
+
+#. module: base
+#: frontend
+msgid "OAuth Client Created"
+msgstr "Đã tạo ứng dụng khách OAuth"
+
+#. module: base
+#: frontend
+msgid "On error"
+msgstr "Khi có lỗi"
+
+#. module: base
+#: frontend
+msgid "On this page"
+msgstr "Trên trang này"
+
+#. module: base
+#: frontend
+msgid "Open install prompt"
+msgstr "Mở lời nhắc cài đặt"
+
+#. module: base
+#: frontend
+msgid "OpenAPI JSON"
+msgstr "OpenAPI JSON"
+
+#. module: base
+#: frontend
+msgid "Or continue with"
+msgstr "Hoặc tiếp tục với"
+
+#. module: base
+#: view
+msgid "Others"
+msgstr "Khác"
+
+#. module: base
+#: frontend
+msgid "Overall Status"
+msgstr "Trạng thái tổng thể"
+
+#. module: base
+#: view
+msgid "Pages"
+msgstr "Trang"
+
+#. module: base
+#: frontend
+msgid "Parameters"
+msgstr "Tham số"
+
+#. module: base
+#: field, view
+msgid "Parent Company"
+msgstr "Công ty mẹ"
+
+#. module: base
+#: field, view
+msgid "Parent ID"
+msgstr "ID cha"
+
+#. module: base
+#: field
+msgid "Parent Name"
+msgstr "Tên cha"
+
+#. module: base
+#: view
+msgid "Partner"
+msgstr "Liên hệ"
+
+#. module: base
+#: field, view
+msgid "Partner ID"
+msgstr "ID liên hệ"
+
+#. module: base
+#: label, menu, view
+msgid "Partners"
+msgstr "Liên hệ"
+
+#. module: base
+#: field
+msgid "Password Reset"
+msgstr "Đặt lại mật khẩu"
+
+#. module: base
+#: field
+msgid "Pause State"
+msgstr "Trạng thái tạm dừng"
+
+#. module: base
+#: view
+msgid "Payload"
+msgstr "Payload"
+
+#. module: base
+#: view
+msgid "Permissions"
+msgstr "Quyền"
+
+#. module: base
+#: frontend
+msgid "Pick a model from the catalog to inspect its contract."
+msgstr "Chọn một mô hình từ danh mục để xem hợp đồng của nó."
+
+#. module: base
+#: frontend
+msgid "Pick at least one field."
+msgstr "Chọn ít nhất một trường."
+
+#. module: base
+#: field
+msgid "Placeholder"
+msgstr "Văn bản gợi ý"
+
+#. module: base
+#: field
+msgid "Position"
+msgstr "Vị trí"
+
+#. module: base
+#: frontend
+msgid "PouchDB script has not loaded"
+msgstr "Tập lệnh PouchDB chưa được tải"
+
+#. module: base
+#: view
+msgid "Preferences"
+msgstr "Tùy chọn"
+
+#. module: base
+#: frontend
+msgid "Preparing the markdown editor…"
+msgstr "Đang chuẩn bị trình soạn thảo markdown…"
+
+#. module: base
+#: frontend
+msgid "Preparing…"
+msgstr "Đang chuẩn bị…"
+
+#. module: base
+#: frontend
+msgid "Preview"
+msgstr "Xem trước"
+
+#. module: base
+#: field, view
+msgid "Privilege ID"
+msgstr "ID đặc quyền"
+
+#. module: base
+#: frontend
+msgid "Processing the file…"
+msgstr "Đang xử lý tệp…"
+
+#. module: base
+#: view
+msgid "Profile"
+msgstr "Hồ sơ"
+
+#. module: base
+#: field
+msgid "Proxy Bid"
+msgstr "BID proxy"
+
+#. module: base
+#: field
+msgid "Proxy Name"
+msgstr "Tên proxy"
+
+#. module: base
+#: field
+msgid "Proxy Type"
+msgstr "Loại proxy"
+
+#. module: base
+#: field
+msgid "Proxy Value"
+msgstr "Giá trị proxy"
+
+#. module: base
+#: view
+msgid "Publish"
+msgstr "Xuất bản"
+
+#. module: base
+#: frontend
+msgid "Quick links"
+msgstr "Liên kết nhanh"
+
+#. module: base
+#: field
+msgid "Rate"
+msgstr "Tỷ lệ"
+
+#. module: base
+#: field
+msgid "Rate IDs"
+msgstr "ID tỷ lệ"
+
+#. module: base
+#: field
+msgid "Rate String"
+msgstr "Chuỗi tỷ lệ"
+
+#. module: base
+#: frontend
+msgid "Re-init"
+msgstr "Khởi tạo lại"
+
+#. module: base
+#: frontend
+msgid "Re-init Modules"
+msgstr "Khởi tạo lại mô-đun"
+
+#. module: base
+#: frontend
+msgid "Re-initializing…"
+msgstr "Đang khởi tạo lại…"
+
+#. module: base
+#: frontend
+msgid "Read only"
+msgstr "Chỉ đọc"
+
+#. module: base
+#: field
+msgid "Realm"
+msgstr "Realm"
+
+#. module: base
+#: frontend
+msgid "Received"
+msgstr "Đã nhận"
+
+#. module: base
+#: view
+msgid "Reconciliation"
+msgstr "Đối soát"
+
+#. module: base
+#: view
+msgid "Record Rule"
+msgstr "Quy tắc bản ghi"
+
+#. module: base
+#: menu, view
+msgid "Record Rules"
+msgstr "Các quy tắc bản ghi"
+
+#. module: base
+#: field
+msgid "Ref"
+msgstr "Tham chiếu"
+
+#. module: base
+#: view
+msgid "Ref ID"
+msgstr "ID tham chiếu"
+
+#. module: base
+#: frontend
+msgid "Refresh"
+msgstr "Làm mới"
+
+#. module: base
+#: field
+msgid "Registration Time"
+msgstr "Thời gian đăng ký"
+
+#. module: base
+#: view
+msgid "Reinit"
+msgstr "Khởi tạo lại"
+
+#. module: base
+#: view
+msgid "Relations"
+msgstr "Quan hệ"
+
+#. module: base
+#: frontend
+msgid "Remove"
+msgstr "Gỡ bỏ"
+
+#. module: base
+#: frontend
+msgid "Remove follower"
+msgstr "Gỡ người theo dõi"
+
+#. module: base
+#: frontend
+msgid "Rename"
+msgstr "Đổi tên"
+
+#. module: base
+#: frontend
+msgid "Rename Workflow"
+msgstr "Đổi tên quy trình"
+
+#. module: base
+#: frontend
+msgid "Rename markdown file"
+msgstr "Đổi tên tệp markdown"
+
+#. module: base
+#: frontend
+msgid "Rename workflow"
+msgstr "Đổi tên quy trình"
+
+#. module: base
+#: view
+msgid "Rendering"
+msgstr "Đang kết xuất"
+
+#. module: base
+#: frontend
+msgid "Repeat event"
+msgstr "Lặp lại sự kiện"
+
+#. module: base
+#: frontend
+msgid "Repeat this event"
+msgstr "Lặp lại sự kiện này"
+
+#. module: base
+#: menu, view
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: base
+#: frontend
+msgid "Request execution failed"
+msgstr "Không thể thực thi yêu cầu"
+
+#. module: base
+#: frontend
+msgid "Requests / Errors"
+msgstr "Yêu cầu / Lỗi"
+
+#. module: base
+#: frontend
+msgid "Required columns:"
+msgstr "Các cột bắt buộc:"
+
+#. module: base
+#: field
+msgid "Reset Token"
+msgstr "Mã đặt lại"
+
+#. module: base
+#: frontend
+msgid "Reset to default"
+msgstr "Đặt lại về mặc định"
+
+#. module: base
+#: frontend
+msgid "Response"
+msgstr "Phản hồi"
+
+#. module: base
+#: frontend
+msgid "Response error: empty response body"
+msgstr "Lỗi phản hồi: nội dung phản hồi trống"
+
+#. module: base
+#: field
+msgid "Rounding"
+msgstr "Làm tròn"
+
+#. module: base
+#: frontend
+msgid "Route"
+msgstr "Tuyến"
+
+#. module: base
+#: frontend
+msgid "Row action failed"
+msgstr "Không thể thực hiện hành động trên dòng"
+
+#. module: base
+#: view
+msgid "Rule Definition"
+msgstr "Định nghĩa quy tắc"
+
+#. module: base
+#: frontend
+msgid "Run to get a response."
+msgstr "Chạy để nhận phản hồi."
+
+#. module: base
+#: frontend
+msgid "Running"
+msgstr "Đang chạy"
+
+#. module: base
+#: frontend
+msgid "Running..."
+msgstr "Đang chạy..."
+
+#. module: base
+#: frontend
+msgid "Runs when"
+msgstr "Chạy khi"
+
+#. module: base
+#: frontend
+msgid "Runtime Catalog"
+msgstr "Danh mục runtime"
+
+#. module: base
+#: frontend
+msgid "Sample Payload"
+msgstr "Payload mẫu"
+
+#. module: base
+#: frontend
+msgid "Save Name"
+msgstr "Lưu tên"
+
+#. module: base
+#: frontend
+msgid "Save Node"
+msgstr "Lưu nút"
+
+#. module: base
+#: frontend
+msgid "Save Password"
+msgstr "Lưu mật khẩu"
+
+#. module: base
+#: frontend
+msgid "Save Trigger"
+msgstr "Lưu trình kích hoạt"
+
+#. module: base
+#: frontend
+msgid "Save as new"
+msgstr "Lưu thành mới"
+
+#. module: base
+#: frontend
+msgid "Save the record first to attach files."
+msgstr "Hãy lưu bản ghi trước để đính kèm tệp."
+
+#. module: base
+#: frontend
+msgid "Save the record first to manage permissions."
+msgstr "Hãy lưu bản ghi trước để quản lý quyền."
+
+#. module: base
+#: frontend
+msgid "Save the record first to use chatter."
+msgstr "Hãy lưu bản ghi trước để sử dụng trao đổi."
+
+#. module: base
+#: frontend
+msgid "Saved"
+msgstr "Đã lưu"
+
+#. module: base
+#: frontend
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+#. module: base
+#: frontend
+msgid "Saving…"
+msgstr "Đang lưu…"
+
+#. module: base
+#: view
+msgid "Scan"
+msgstr "Quét"
+
+#. module: base
+#: frontend
+msgid "Schedule"
+msgstr "Lịch trình"
+
+#. module: base
+#: frontend
+msgid "Schedule Activity"
+msgstr "Lên lịch hoạt động"
+
+#. module: base
+#: view
+msgid "Search View ID"
+msgstr "ID khung nhìn tìm kiếm"
+
+#. module: base
+#: frontend
+msgid "Search field"
+msgstr "Trường tìm kiếm"
+
+#. module: base
+#: frontend
+msgid "Search fields…"
+msgstr "Tìm trường…"
+
+#. module: base
+#: frontend
+msgid "Search menu..."
+msgstr "Tìm menu..."
+
+#. module: base
+#: frontend
+msgid "Search models..."
+msgstr "Tìm mô hình..."
+
+#. module: base
+#: frontend
+msgid "Search receivers…"
+msgstr "Tìm người nhận…"
+
+#. module: base
+#: frontend
+msgid "Search sys.model…"
+msgstr "Tìm sys.model…"
+
+#. module: base
+#: frontend
+msgid "Search to add…"
+msgstr "Tìm để thêm…"
+
+#. module: base
+#: frontend
+msgid "Searching…"
+msgstr "Đang tìm kiếm…"
+
+#. module: base
+#: frontend
+msgid "Search…"
+msgstr "Tìm kiếm…"
+
+#. module: base
+#: view
+msgid "Security"
+msgstr "Bảo mật"
+
+#. module: base
+#: frontend
+msgid "Select a node to see its details."
+msgstr "Chọn một nút để xem chi tiết."
+
+#. module: base
+#: frontend
+msgid "Select or create a markdown file to begin."
+msgstr "Chọn hoặc tạo một tệp markdown để bắt đầu."
+
+#. module: base
+#: frontend
+msgid "Selected file is not valid JSON."
+msgstr "Tệp đã chọn không phải JSON hợp lệ."
+
+#. module: base
+#: frontend
+msgid "Selects the base.workflow.action.catalog row this node executes — change it to repair a node whose Action Code no longer matches a known catalog entry."
+msgstr "Chọn dòng base.workflow.action.catalog mà nút này thực thi — hãy thay đổi để sửa nút có Mã hành động không còn khớp với mục danh mục nào đã biết."
+
+#. module: base
+#: frontend
+msgid "Select…"
+msgstr "Chọn…"
+
+#. module: base
+#: frontend
+msgid "Send"
+msgstr "Gửi"
+
+#. module: base
+#: frontend
+msgid "Send message"
+msgstr "Gửi tin nhắn"
+
+#. module: base
+#: field, view
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: base
+#: frontend, menu
+msgid "Service Health Check"
+msgstr "Kiểm tra tình trạng dịch vụ"
+
+#. module: base
+#: frontend
+msgid "Set a new password for"
+msgstr "Đặt mật khẩu mới cho"
+
+#. module: base
+#: menu
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: base
+#: field, frontend
+msgid "Share"
+msgstr "Chia sẻ"
+
+#. module: base
+#: frontend
+msgid "Share link"
+msgstr "Liên kết chia sẻ"
+
+#. module: base
+#: frontend
+msgid "Share markdown document"
+msgstr "Chia sẻ tài liệu markdown"
+
+#. module: base
+#: frontend
+msgid "Show Document"
+msgstr "Hiển thị tài liệu"
+
+#. module: base
+#: frontend
+msgid "Sign up"
+msgstr "Đăng ký"
+
+#. module: base
+#: field
+msgid "Signature"
+msgstr "Chữ ký"
+
+#. module: base
+#: frontend
+msgid "Signed in"
+msgstr "Đã đăng nhập"
+
+#. module: base
+#: frontend
+msgid "Signed in as"
+msgstr "Đăng nhập với tên"
+
+#. module: base
+#: field
+msgid "Signup Status"
+msgstr "Trạng thái đăng ký"
+
+#. module: base
+#: field
+msgid "Signup Token"
+msgstr "Mã đăng ký"
+
+#. module: base
+#: view
+msgid "Sites"
+msgstr "Trang web"
+
+#. module: base
+#: field
+msgid "Size Limit"
+msgstr "Giới hạn kích thước"
+
+#. module: base
+#: frontend
+msgid "Specific day of month"
+msgstr "Ngày cụ thể trong tháng"
+
+#. module: base
+#: frontend
+msgid "Specific day(s) of week"
+msgstr "Ngày cụ thể trong tuần"
+
+#. module: base
+#: frontend
+msgid "Stage (optional)"
+msgstr "Giai đoạn (tùy chọn)"
+
+#. module: base
+#: frontend
+msgid "Start date"
+msgstr "Ngày bắt đầu"
+
+#. module: base
+#: field, view
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: base
+#: field, view
+msgid "State ID"
+msgstr "ID tỉnh/thành"
+
+#. module: base
+#: field
+msgid "State IDs"
+msgstr "ID tỉnh/thành"
+
+#. module: base
+#: field, view
+msgid "State Required"
+msgstr "Bắt buộc tỉnh/thành"
+
+#. module: base
+#: view
+msgid "Static Assets"
+msgstr "Tài nguyên tĩnh"
+
+#. module: base
+#: frontend, view
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: base
+#: frontend
+msgid "Step key"
+msgstr "Khóa bước"
+
+#. module: base
+#: view
+msgid "Storage Backend"
+msgstr "Backend lưu trữ"
+
+#. module: base
+#: field
+msgid "Street 2"
+msgstr "Địa chỉ 2"
+
+#. module: base
+#: frontend
+msgid "Submit"
+msgstr "Gửi"
+
+#. module: base
+#: frontend
+msgid "Success — only if the source step succeeded"
+msgstr "Thành công — chỉ khi bước nguồn thành công"
+
+#. module: base
+#: frontend
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#. module: base
+#: field, view
+msgid "Superadmin"
+msgstr "Siêu quản trị viên"
+
+#. module: base
+#: frontend
+msgid "Supported actions:"
+msgstr "Các hành động được hỗ trợ:"
+
+#. module: base
+#: frontend
+msgid "Switch workflow…"
+msgstr "Chuyển quy trình…"
+
+#. module: base
+#: field
+msgid "Symbol"
+msgstr "Ký hiệu"
+
+#. module: base
+#: view
+msgid "System Config Parameter"
+msgstr "Tham số cấu hình hệ thống"
+
+#. module: base
+#: menu
+msgid "System Config Params"
+msgstr "Tham số cấu hình hệ thống"
+
+#. module: base
+#: field
+msgid "TZ"
+msgstr "Múi giờ"
+
+#. module: base
+#: frontend
+msgid "Tap"
+msgstr "Chạm"
+
+#. module: base
+#: frontend
+msgid "Template name"
+msgstr "Tên mẫu"
+
+#. module: base
+#: view
+msgid "The code must be unique per company."
+msgstr "Mã phải là duy nhất trong mỗi công ty."
+
+#. module: base
+#: frontend
+msgid "The page is out of date. Save your work and refresh to get the latest updates and avoid potential issues."
+msgstr "Trang đã cũ. Hãy lưu công việc và tải lại để nhận bản cập nhật mới nhất, tránh các sự cố tiềm ẩn."
+
+#. module: base
+#: frontend
+msgid "This action requires a saved database record"
+msgstr "Hành động này yêu cầu một bản ghi cơ sở dữ liệu đã lưu"
+
+#. module: base
+#: frontend
+msgid "This action requires a saved user record"
+msgstr "Hành động này yêu cầu một bản ghi người dùng đã lưu"
+
+#. module: base
+#: frontend
+msgid "This action's code ("
+msgstr "Mã của hành động này ("
+
+#. module: base
+#: frontend
+msgid "This and following events"
+msgstr "Sự kiện này và các sự kiện sau"
+
+#. module: base
+#: view
+msgid "This deletes all data seeded by this module. This cannot be undone."
+msgstr "Thao tác này xóa toàn bộ dữ liệu được khởi tạo bởi mô-đun này. Không thể hoàn tác."
+
+#. module: base
+#: frontend
+msgid "This event"
+msgstr "Sự kiện này"
+
+#. module: base
+#: frontend
+msgid "This method does not declare request parameters."
+msgstr "Phương thức này không khai báo tham số yêu cầu."
+
+#. module: base
+#: frontend
+msgid "This permanently deletes"
+msgstr "Thao tác này sẽ xóa vĩnh viễn"
+
+#. module: base
+#: field
+msgid "Thousands Sep"
+msgstr "Dấu phân cách hàng nghìn"
+
+#. module: base
+#: field
+msgid "Tid"
+msgstr "Tid"
+
+#. module: base
+#: frontend
+msgid "Timeout"
+msgstr "Hết thời gian chờ"
+
+#. module: base
+#: frontend
+msgid "Timezone mismatch"
+msgstr "Múi giờ không khớp"
+
+#. module: base
+#: frontend
+msgid "To"
+msgstr "Đến"
+
+#. module: base
+#: frontend
+msgid "Today"
+msgstr "Hôm nay"
+
+#. module: base
+#: frontend
+msgid "Total"
+msgstr "Tổng"
+
+#. module: base
+#: frontend
+msgid "Traits"
+msgstr "Thuộc tính"
+
+#. module: base
+#: frontend
+msgid "Trigger Type"
+msgstr "Loại trình kích hoạt"
+
+#. module: base
+#: frontend
+msgid "Trigger settings"
+msgstr "Cài đặt trình kích hoạt"
+
+#. module: base
+#: frontend
+msgid "Trigger topic"
+msgstr "Chủ đề kích hoạt"
+
+#. module: base
+#: frontend
+msgid "Try Request"
+msgstr "Thử yêu cầu"
+
+#. module: base
+#: field
+msgid "Two Factor Accepted"
+msgstr "Xác thực hai yếu tố đã chấp nhận"
+
+#. module: base
+#: field
+msgid "Two Factor Secret"
+msgstr "Khóa bí mật xác thực hai yếu tố"
+
+#. module: base
+#: field, frontend
+msgid "Type"
+msgstr "Loại"
+
+#. module: base
+#: view
+msgid "UI Client Action"
+msgstr "Hành động client UI"
+
+#. module: base
+#: menu
+msgid "UI Client Actions"
+msgstr "Hành động client UI"
+
+#. module: base
+#: view
+msgid "UI Menu"
+msgstr "Menu UI"
+
+#. module: base
+#: menu
+msgid "UI Menus"
+msgstr "Menu UI"
+
+#. module: base
+#: view
+msgid "UI View"
+msgstr "Khung nhìn UI"
+
+#. module: base
+#: menu, view
+msgid "UI View Custom"
+msgstr "Khung nhìn UI tùy chỉnh"
+
+#. module: base
+#: menu
+msgid "UI View Types"
+msgstr "Loại khung nhìn UI"
+
+#. module: base
+#: menu
+msgid "UI Views"
+msgstr "Khung nhìn UI"
+
+#. module: base
+#: view
+msgid "UI Window Action"
+msgstr "Hành động cửa sổ UI"
+
+#. module: base
+#: menu
+msgid "UI Window Actions"
+msgstr "Hành động cửa sổ UI"
+
+#. module: base
+#: view
+msgid "company_id, code"
+msgstr "company_id, code"
+
+#. module: base
+#: frontend
+msgid "Unexpected token at the end of the domain."
+msgstr "Token không mong đợi ở cuối domain."
+
+#. module: base
+#: view
+msgid "Uninstall"
+msgstr "Gỡ cài đặt"
+
+#. module: base
+#: frontend
+msgid "Unknown API docs request error"
+msgstr "Lỗi yêu cầu tài liệu API không xác định"
+
+#. module: base
+#: frontend
+msgid "Unknown health check request error"
+msgstr "Lỗi yêu cầu kiểm tra tình trạng không xác định"
+
+#. module: base
+#: view
+msgid "Unpublish"
+msgstr "Hủy xuất bản"
+
+#. module: base
+#: frontend
+msgid "Unsaved"
+msgstr "Chưa lưu"
+
+#. module: base
+#: frontend
+msgid "Unsaved changes"
+msgstr "Thay đổi chưa lưu"
+
+#. module: base
+#: frontend
+msgid "Unterminated escape sequence in string literal."
+msgstr "Chuỗi thoát chưa kết thúc trong chuỗi ký tự."
+
+#. module: base
+#: frontend
+msgid "Unterminated string literal in domain."
+msgstr "Chuỗi ký tự chưa kết thúc trong domain."
+
+#. module: base
+#: frontend
+msgid "Update"
+msgstr "Cập nhật"
+
+#. module: base
+#: frontend
+msgid "Update the workflow name shown in the selector and canvas header."
+msgstr "Cập nhật tên quy trình hiển thị trong bộ chọn và tiêu đề canvas."
+
+#. module: base
+#: frontend
+msgid "Upload the completed file"
+msgstr "Tải lên tệp đã hoàn thành"
+
+#. module: base
+#: frontend
+msgid "Uptime"
+msgstr "Thời gian hoạt động"
+
+#. module: base
+#: frontend
+msgid "Use the backend database name you want this session to open."
+msgstr "Nhập tên cơ sở dữ liệu backend mà phiên này sẽ mở."
+
+#. module: base
+#: field, view
+msgid "User ID"
+msgstr "ID người dùng"
+
+#. module: base
+#: field
+msgid "User IDs"
+msgstr "ID người dùng"
+
+#. module: base
+#: label, menu, view
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: base
+#: field
+msgid "VAT"
+msgstr "VAT"
+
+#. module: base
+#: field
+msgid "VAT Label"
+msgstr "Nhãn VAT"
+
+#. module: base
+#: frontend
+msgid "Version"
+msgstr "Phiên bản"
+
+#. module: base
+#: frontend
+msgid "Version:"
+msgstr "Phiên bản:"
+
+#. module: base
+#: view
+msgid "View ID"
+msgstr "ID khung nhìn"
+
+#. module: base
+#: view
+msgid "View Modes"
+msgstr "Chế độ xem"
+
+#. module: base
+#: view
+msgid "View Type"
+msgstr "Loại khung nhìn"
+
+#. module: base
+#: view
+msgid "View Types"
+msgstr "Loại khung nhìn"
+
+#. module: base
+#: frontend
+msgid "View details"
+msgstr "Xem chi tiết"
+
+#. module: base
+#: frontend
+msgid "View mode"
+msgstr "Chế độ xem"
+
+#. module: base
+#: view
+msgid "Visibility Scope"
+msgstr "Phạm vi hiển thị"
+
+#. module: base
+#: frontend
+msgid "Visible"
+msgstr "Hiển thị"
+
+#. module: base
+#: field
+msgid "Ward ID"
+msgstr "ID phường/xã"
+
+#. module: base
+#: frontend
+msgid "Website page has no site"
+msgstr "Trang web chưa có site"
+
+#. module: base
+#: frontend
+msgid "Week"
+msgstr "Tuần"
+
+#. module: base
+#: field
+msgid "Week Start"
+msgstr "Ngày bắt đầu tuần"
+
+#. module: base
+#: frontend
+msgid "Weekly"
+msgstr "Hằng tuần"
+
+#. module: base
+#: frontend
+msgid "Welcome back"
+msgstr "Chào mừng trở lại"
+
+#. module: base
+#: frontend
+msgid "What it does"
+msgstr "Chức năng"
+
+#. module: base
+#: view
+msgid "Window Actions"
+msgstr "Hành động cửa sổ"
+
+#. module: base
+#: menu
+msgid "Workflow"
+msgstr "Quy trình"
+
+#. module: base
+#: frontend
+msgid "Workflow Name"
+msgstr "Tên quy trình"
+
+#. module: base
+#: frontend
+msgid "Workflow Script"
+msgstr "Tập lệnh quy trình"
+
+#. module: base
+#: frontend
+msgid "Write markdown…"
+msgstr "Viết markdown…"
+
+#. module: base
+#: frontend
+msgid "Year"
+msgstr "Năm"
+
+#. module: base
+#: frontend
+msgid "Yearly"
+msgstr "Hằng năm"
+
+#. module: base
+#: field
+msgid "ZIP"
+msgstr "Mã bưu chính"
+
+#. module: base
+#: field, view
+msgid "ZIP Required"
+msgstr "Bắt buộc mã bưu chính"
+
+#. module: base
+#: view
+msgid "[\"amount\"]"
+msgstr "[\"amount\"]"
+
+#. module: base
+#: view
+msgid "[[\"amount\", \"<\", 0]]"
+msgstr "[[\"amount\", \"<\", 0]]"
+
+#. module: base
+#: frontend
+msgid "already exists. Generate a new secret if the original one is lost."
+msgstr "đã tồn tại. Hãy tạo khóa bí mật mới nếu khóa gốc bị mất."
+
+#. module: base
+#: frontend
+msgid "and cannot be rescheduled by dragging."
+msgstr "và không thể lên lịch lại bằng cách kéo thả."
+
+#. module: base
+#: view
+msgid "base/reports/demo.html"
+msgstr "base/reports/demo.html"
+
+#. module: base
+#: frontend
+msgid "decimal hours"
+msgstr "giờ thập phân"
+
+#. module: base
+#: frontend
+msgid "docs/example.md"
+msgstr "docs/example.md"
+
+#. module: base
+#: view
+msgid "e.g. Kanban"
+msgstr "VD: Kanban"
+
+#. module: base
+#: frontend
+msgid "e.g. Monthly report columns"
+msgstr "VD: Các cột báo cáo hằng tháng"
+
+#. module: base
+#: view
+msgid "e.g. Recompute Balances"
+msgstr "VD: Tính lại số dư"
+
+#. module: base
+#: view
+msgid "e.g. base.demo_report"
+msgstr "VD: base.demo_report"
+
+#. module: base
+#: view
+msgid "e.g. kanban"
+msgstr "VD: kanban"
+
+#. module: base
+#: view
+msgid "e.g. square-kanban"
+msgstr "VD: square-kanban"
+
+#. module: base
+#: view
+msgid "e.g. unique_partner_code"
+msgstr "VD: unique_partner_code"
+
+#. module: base
+#: view
+msgid "e.g. zap"
+msgstr "VD: zap"
+
+#. module: base
+#: frontend
+msgid "in bulk from a spreadsheet (matched by ID)."
+msgstr "hàng loạt từ bảng tính (khớp theo ID)."
+
+#. module: base
+#: frontend
+msgid "in your browser prompt."
+msgstr "trong hộp thoại của trình duyệt."
+
+#. module: base
+#: frontend
+msgid "m@example.com"
+msgstr "m@example.com"
+
+#. module: base
+#: frontend
+msgid "remaining)"
+msgstr "còn lại)"
+
+#. module: base
+#: frontend
+msgid "suggestions in string params."
+msgstr "gợi ý trong tham số chuỗi."
+
+#. module: base
+#: frontend
+msgid "workflow export response was missing a result"
+msgstr "Phản hồi xuất quy trình thiếu kết quả"
+
+#. module: base
+#: frontend
+msgid "workflow import response was missing a result"
+msgstr "Phản hồi nhập quy trình thiếu kết quả"
+
+#. module: base
+#: frontend
+msgid "workflow validate-graph response was missing a result"
+msgstr "Phản hồi validate-graph quy trình thiếu kết quả"

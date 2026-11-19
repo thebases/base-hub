@@ -1,0 +1,108 @@
+<templates xml:space="preserve">
+  <t t-name="MarkdownPage">
+    <main class="basehub-md-page">
+      <header class="basehub-md-page-header d-flex flex-wrap align-items-start justify-content-between gap-3">
+        <div class="basehub-md-page-title">
+          <h1 class="h4 fw-semibold mb-0" t-esc="selectedItem ? selectedItem.name : t('Markdown Viewer')"/>
+          <p class="text-body-secondary small mb-0" t-esc="state.selectedPath || t('Choose a markdown file from the list.')"/>
+        </div>
+
+        <div class="basehub-md-page-actions d-flex flex-wrap align-items-center gap-2">
+          <Badge t-if="selectedItem and selectedItem.readonly" variant="'secondary'"><t t-esc="t('Read only')"/></Badge>
+          <Badge variant="state.isEditing ? 'primary' : 'secondary'">
+            <t t-esc="state.isEditing ? t('Edit') : t('View')"/>
+          </Badge>
+          <Badge t-if="isDirty" variant="'muted'"><t t-esc="t('Unsaved')"/></Badge>
+
+          <Button variant="'outline'" size="'icon-sm'" title="t('New')" ariaLabel="t('New')" icon="'plus'"
+                  onClick="() => this.openCreateDialog()" disabled="state.isMutating"/>
+          <Button t-if="!state.isEditing" variant="'outline'" size="'icon-sm'" title="t('Edit')" ariaLabel="t('Edit')" icon="'pencil'"
+                  onClick="() => this.startEdit()" disabled="!state.selectedPath or !canEditSelected"/>
+          <Button t-if="state.isEditing" variant="'outline'" size="'icon-sm'" title="t('Preview')" ariaLabel="t('Preview')" icon="'eye'"
+                  onClick="() => this.stopEdit()" disabled="!state.selectedPath or !canEditSelected"/>
+          <Button t-if="state.isEditing" size="'icon-sm'" title="t('Save')" ariaLabel="t('Save')" icon="'save'"
+                  onClick="() => this.handleSave()"
+                  disabled="!state.selectedPath or !canEditSelected or !isDirty or state.isMutating"/>
+          <Button variant="'outline'" size="'icon-sm'" title="t('Rename')" ariaLabel="t('Rename')" icon="'pen-line'"
+                  onClick="() => this.openRenameDialog()" disabled="!state.selectedPath or !canEditSelected or state.isMutating"/>
+          <Button variant="'outline'" size="'icon-sm'" title="t('Share')" ariaLabel="t('Share')" icon="'share-2'"
+                  onClick="() => this.openShareDialog()" disabled="!state.selectedPath"/>
+          <Button variant="'destructive'" size="'icon-sm'" title="t('Delete')" ariaLabel="t('Delete')" icon="'trash-2'"
+                  onClick="() => this.handleDelete()" disabled="!state.selectedPath or !canEditSelected or state.isMutating"/>
+        </div>
+      </header>
+
+      <div class="basehub-md-page-body">
+        <!-- Document list nav is rendered by KnowledgeTree in Shell's sidebar
+             (mounted for /web/markdown routes), not duplicated here. -->
+
+        <div class="basehub-md-page-content">
+          <t t-if="state.documentState.status === 'loading'">
+            <div class="d-flex align-items-center gap-2 text-body-secondary py-4">
+              <Spinner label="t('Loading')"/>
+              <span t-esc="t('Loading markdown content…')"/>
+            </div>
+          </t>
+          <t t-elif="state.documentState.status === 'error'">
+            <Alert variant="'danger'" t-esc="state.documentState.message"/>
+          </t>
+          <t t-elif="!state.selectedPath">
+            <Alert variant="'secondary'"><t t-esc="t('Select or create a markdown file to begin.')"/></Alert>
+          </t>
+          <t t-elif="state.isEditing">
+            <MarkdownEdit t-key="state.selectedPath" value="state.draft" path="state.selectedPath" onChange.bind="setDraft"/>
+          </t>
+          <t t-else="">
+            <MarkdownViewer content="state.draft" headings="headings" showHeadingRail="true"/>
+          </t>
+        </div>
+      </div>
+
+      <Dialog open="state.createDialogOpen" onOpenChange="(open) => this.state.createDialogOpen = open">
+        <DialogContent className="'basehub-form-dialog__panel'">
+          <h2 class="h5 mb-1" t-esc="t('Create markdown file')"/>
+          <p class="text-body-secondary small mb-3" t-esc="t('Enter the menu label, file name, and an optional folder under the writable public docs. Base documents are read-only and cannot be chosen.')"/>
+          <div class="basehub-md-dialog-fields d-flex flex-column gap-2">
+            <Input placeholder="t('Menu label')" value="state.newFileLabel"
+                   onInput="(value) => this.state.newFileLabel = value" disabled="state.isMutating"/>
+            <Input placeholder="t('File name, e.g. api-overview.md')" value="state.newFileName"
+                   onInput="(value) => this.state.newFileName = value" disabled="state.isMutating"/>
+            <Input placeholder="t('Folder in public docs, e.g. docs/api (leave blank for the public root)')" value="state.newFilePath"
+                   onInput="(value) => this.state.newFilePath = value" disabled="state.isMutating"/>
+          </div>
+          <div class="d-flex justify-content-end gap-2 mt-3">
+            <Button variant="'outline'" onClick="() => this.closeCreateDialog()" label="t('Cancel')"/>
+            <Button disabled="state.isMutating" onClick="() => this.handleCreate()" label="t('Create')"/>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open="state.renameDialogOpen" onOpenChange="(open) => this.state.renameDialogOpen = open">
+        <DialogContent className="'basehub-form-dialog__panel'">
+          <h2 class="h5 mb-1" t-esc="t('Rename markdown file')"/>
+          <p class="text-body-secondary small mb-3" t-esc="t('Enter the new markdown file path.')"/>
+          <Input placeholder="t('docs/example.md')" value="state.renamePath"
+                 onInput="(value) => this.state.renamePath = value" disabled="state.isMutating"/>
+          <div class="d-flex justify-content-end gap-2 mt-3">
+            <Button variant="'outline'" onClick="() => this.closeRenameDialog()" label="t('Cancel')"/>
+            <Button disabled="state.isMutating" onClick="() => this.handleRename()" label="t('Rename')"/>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open="state.shareDialogOpen" onOpenChange="(open) => this.state.shareDialogOpen = open">
+        <DialogContent className="'basehub-form-dialog__panel'">
+          <h2 class="h5 mb-1" t-esc="t('Share markdown document')"/>
+          <p class="text-body-secondary small mb-3" t-esc="t('Copy the public link or open the shared document in a new tab.')"/>
+          <label class="visually-hidden" t-esc="t('Share link')"/>
+          <Input readonly="true" value="shareURL"/>
+          <div class="d-flex justify-content-end gap-2 mt-3">
+            <Button variant="'outline'" onClick="() => this.closeShareDialog()" label="t('Close')"/>
+            <Button variant="'outline'" onClick="() => this.handleCopyShareLink()" label="t('Copy Link')"/>
+            <Button onClick="() => this.handleOpenShareTarget()" label="t('Show Document')"/>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </main>
+  </t>
+</templates>

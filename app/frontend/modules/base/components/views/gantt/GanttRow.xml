@@ -1,0 +1,23 @@
+<templates xml:space="preserve">
+  <t t-name="GanttRow">
+    <div class="d-flex align-items-stretch border-bottom">
+      <div class="d-flex align-items-center px-2 py-2 text-truncate" style="width: 180px; flex: 0 0 180px;" t-esc="props.row.label"/>
+      <div class="position-relative" t-ref="timeline"
+           t-att-style="'width:' + props.timelineWidthPx + 'px; min-height: 2.5rem;'"
+           t-on-dragover.prevent="() => true"
+           t-on-drop="(ev) => this.onTimelineDrop(ev)"
+           t-on-click="(ev) => this.onTimelineClick(ev)">
+        <div t-if="props.todayColumnIndex >= 0" class="position-absolute top-0 bottom-0 bg-primary-subtle opacity-50 pe-none"
+             t-att-style="'left:' + (props.todayColumnIndex * props.columnWidthPx) + 'px; width:' + props.columnWidthPx + 'px;'"/>
+        <t t-foreach="pills" t-as="pill" t-key="pill.record.id">
+          <div class="position-absolute text-white text-truncate px-2 rounded" role="button" tabindex="0" draggable="true"
+               t-att-style="'left:' + pill.left + 'px; width:' + pill.width + 'px; top: 0.375rem; height: 1.75rem; line-height: 1.75rem; background-color:' + pill.color"
+               t-att-title="pill.label"
+               t-on-dragstart="(ev) => this.onPillDragStart(pill.record, ev)"
+               t-on-click.stop="() => this.props.onOpenRecord(pill.record)"
+               t-esc="pill.label"/>
+        </t>
+      </div>
+    </div>
+  </t>
+</templates>

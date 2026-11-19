@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_ui_view_list" model="ui.view">
+    <field name="name">ui.view.list</field>
+    <field name="model">ui.view</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="UI View" sample="1" multi_edit="1">
+        <field name="name"/>
+        <field name="key"/>
+        <field name="model"/>
+        <field name="type" optional="show"/>
+        <field name="active" optional="show"/>
+        <field name="created_at" optional="hide"/>
+        <field name="inherit_id" optional="hide"/>
+        <field name="model_data_id" optional="hide"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_ui_view_form" model="ui.view">
+    <field name="name">ui.view.form</field>
+    <field name="model">ui.view</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="UI View">
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1"/>
+              </h1>
+            </main>
+          </div>
+          <group>
+            <group label="General">
+              <field name="model"/>
+              <field name="type" widget="ui_view_type"/>
+              <field name="model_id"/>
+              <field name="inherit_id"/>
+              <field name="model_data_id"/>
+            </group>
+            <group label="Others">
+              <field name="mode"/>
+              <field name="priority"/>
+              <field name="statusbar_visible"/>
+              <field name="key"/>
+              <field name="bid" />
+              <field name="active"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Details" name="details">
+              <field name="arch" invisible="not arch or arch =='' " widget="code-xml" />
+              <field name="arch_base" invisible="arch" widget="code-xml"/>
+              <!-- <field name="arch_db" invisible="not arch_db" widget="code"/>
+              <field name="arch_fs" invisible="not arch_fs or arch_fs==''" widget="code" />
+              <field name="arch_prev" invisible="not arch_prev or arch_prev ==''" widget="code"/>
+              <field name="arch_updated" invisible="not arch_updated or arch_updated ==''" widget="code"/> -->
+            </page>
+            <page string="Relations" name="relations">
+              <field name="inherit_children_ids"/>
+            </page>
+            <page string="Access" name="access">
+              <field name="group_ids" widget="many2many_tags"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_ui_view_search" model="ui.view">
+    <field name="name">ui.view.search</field>
+    <field name="model">ui.view</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="UI View">
+        <field name="name"/>
+        <field name="model"/>
+        <field name="type"/>
+        <field name="key"/>
+        <field name="inherit_id"/>
+        <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+        <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+        <group>
+          <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+          <filter string="Inherit ID" name="group_by_inherit_id" domain="[]" context="{'group_by': 'inherit_id'}"/>
+          <filter string="Model Data ID" name="group_by_model_data_id" domain="[]" context="{'group_by': 'model_data_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

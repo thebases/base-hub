@@ -1,0 +1,15 @@
+[
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "credential.automation.cron.refresh_due_credentials",
+    "force_update": false,
+    "data": {
+      "name": "Credential: Refresh Due Tokens",
+      "action_id": "credential.automation.action.refresh_due_credentials",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

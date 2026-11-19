@@ -1,0 +1,24 @@
+@import url("../../components/MarkdownViewer.css");
+
+html, body {
+  background: #0f172a;
+}
+
+.basehub-md-public-page {
+  min-height: 100svh;
+  background: #0f172a;
+}
+.basehub-md-public-page .basehub-md-viewer {
+  min-height: 100svh;
+  border-radius: 0;
+}
+.basehub-md-public-page-status {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+.basehub-md-public-page-status.is-error {
+  color: #fca5a5;
+}

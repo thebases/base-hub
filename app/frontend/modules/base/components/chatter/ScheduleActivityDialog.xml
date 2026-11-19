@@ -1,0 +1,38 @@
+<templates xml:space="preserve">
+  <t t-name="ScheduleActivityDialog">
+    <Dialog open="props.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Schedule Activity')"/></DialogTitle>
+        </DialogHeader>
+
+        <div class="basehub-chatter-schedule-form">
+          <t t-if="state.error">
+            <p class="basehub-chatter-schedule-error" t-esc="state.error"/>
+          </t>
+
+          <label class="basehub-chatter-schedule-label" t-esc="t('Activity Type')"/>
+          <select class="form-select" t-on-change="onActivityTypeChange">
+            <t t-foreach="state.activityTypes" t-as="activityType" t-key="activityType.id">
+              <option t-att-value="activityType.id" t-att-selected="activityType.id === state.activityTypeId" t-esc="activityType.name"/>
+            </t>
+          </select>
+
+          <label class="basehub-chatter-schedule-label" t-esc="t('Summary')"/>
+          <Input value="state.summary" onInput="(v) => this.state.summary = v" placeholder="t('Summary')"/>
+
+          <label class="basehub-chatter-schedule-label" t-esc="t('Note')"/>
+          <Textarea value="state.note" onInput="(v) => this.state.note = v" rows="2"/>
+
+          <label class="basehub-chatter-schedule-label" t-esc="t('Deadline')"/>
+          <Input type="'date'" value="state.dateDeadline" onInput="(v) => this.state.dateDeadline = v"/>
+        </div>
+
+        <DialogFooter>
+          <Button variant="'outline'" size="'sm'" onClick="() => props.onOpenChange(false)" label="t('Cancel')"/>
+          <Button variant="'default'" size="'sm'" disabled="state.submitting" onClick="() => this.submit()" label="t('Schedule')"/>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

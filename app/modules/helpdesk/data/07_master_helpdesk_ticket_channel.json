@@ -1,0 +1,30 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_channel",
+    "external_id": "helpdesk.channel.web",
+    "force_update": false,
+    "data": { "name": "Web", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_channel",
+    "external_id": "helpdesk.channel.email",
+    "force_update": false,
+    "data": { "name": "Email", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_channel",
+    "external_id": "helpdesk.channel.phone",
+    "force_update": false,
+    "data": { "name": "Phone", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_channel",
+    "external_id": "helpdesk.channel.chat",
+    "force_update": false,
+    "data": { "name": "Chat", "active": true }
+  }
+]

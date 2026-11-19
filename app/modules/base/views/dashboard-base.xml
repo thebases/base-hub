@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <!-- Ports pages/Home/Home.js's METRICS + QUICK_LINKS arrays into the
+         generic type="dashboard" ui.view arch so /web's master dashboard
+         renders the same first tab that the old hardcoded Home page used to
+         show. -->
+    <record id="dashboard_base" model="ui.view">
+      <field name="name">Base</field>
+      <field name="type">dashboard</field>
+      <field name="module">base</field>
+      <field name="sequence">10</field>
+      <field name="arch" type="xml">
+        <dashboard>
+          <cards>
+            <card model="tbl.partner" icon="users" label="Partners" href="/web/tbl.partner"/>
+            <card model="base.users" icon="user-round" label="Users" href="/web/base.users"/>
+            <card model="tbl.website_site" icon="globe" label="Sites" href="/web/tbl.website_site"/>
+            <card model="tbl.website_page" icon="file-text" label="Pages" href="/web/tbl.website_page"/>
+          </cards>
+          <quicklinks>
+            <link model="tbl.company" icon="building-2" label="Company" href="/web/tbl.company"/>
+            <link model="tbl.partner" icon="users" label="Partners" href="/web/tbl.partner"/>
+            <link model="tbl.website_site" icon="globe" label="Sites" href="/web/tbl.website_site"/>
+            <link model="tbl.website_page" icon="file-text" label="Pages" href="/web/tbl.website_page"/>
+            <link model="base.users" icon="user-round" label="Users" href="/web/base.users"/>
+          </quicklinks>
+        </dashboard>
+      </field>
+    </record>
+</data>

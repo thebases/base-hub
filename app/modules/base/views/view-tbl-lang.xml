@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_lang_list" model="ui.view">
+      <field name="name">tbl.lang.list</field>
+      <field name="model">tbl.lang</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Language" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="active"/>
+          <field name="created_at" optional="show"/>
+          <field name="date_format" optional="show"/>
+          <field name="decimal_point" optional="hide"/>
+          <field name="direction" optional="hide"/>
+          <field name="flag_image" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_lang_form" model="ui.view">
+      <field name="name">tbl.lang.form</field>
+      <field name="model">tbl.lang</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Language">
+          <sheet>
+            <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="code" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="active"/>
+                <field name="date_format"/>
+                <field name="decimal_point"/>
+                <field name="direction"/>
+                <field name="flag_image"/>
+                <field name="flag_image_url"/>
+                <field name="grouping"/>
+                <field name="iso_code"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_lang_search" model="ui.view">
+      <field name="name">tbl.lang.search</field>
+      <field name="model">tbl.lang</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Language">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="date_format"/>
+          <field name="decimal_point"/>
+          <field name="direction"/>
+          <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+          <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+          <group>
+            <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

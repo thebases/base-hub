@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_blog_blog_list" model="ui.view">
+      <field name="name">tbl.website_blog_blog.list</field>
+      <field name="model">tbl.website_blog_blog</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Blog">
+          <field name="name"/>
+          <field name="subtitle"/>
+          <field name="slug"/>
+          <field name="site_id"/>
+          <field name="sequence"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_blog_blog_form" model="ui.view">
+      <field name="name">tbl.website_blog_blog.form</field>
+      <field name="model">tbl.website_blog_blog</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Blog">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="subtitle"/>
+                <field name="slug"/>
+                <field name="description"/>
+                <field name="site_id"/>
+                <field name="company_id"/>
+                <field name="sequence"/>
+                <field name="cover_url"/>
+                <field name="meta_title"/>
+                <field name="meta_description"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_website_blog_blog_search" model="ui.view">
+      <field name="name">tbl.website_blog_blog.search</field>
+      <field name="model">tbl.website_blog_blog</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Blog">
+          <field name="name"/>
+          <field name="slug"/>
+        </search>
+      </field>
+    </record>
+</data>

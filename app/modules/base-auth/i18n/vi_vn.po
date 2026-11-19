@@ -1,0 +1,242 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base-auth
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: base-auth
+#: label
+msgid "Activation Code"
+msgstr "Mã kích hoạt"
+
+#. module: base-auth
+#: view
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: base-auth
+#: field
+msgid "Allowed Grants"
+msgstr "Loại cấp quyền được phép"
+
+#. module: base-auth
+#: view
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#. module: base-auth
+#: view
+msgid "Audit"
+msgstr "Kiểm toán"
+
+#. module: base-auth
+#: view
+msgid "Client"
+msgstr "Máy khách"
+
+#. module: base-auth
+#: field
+msgid "Client ID"
+msgstr "Client ID"
+
+#. module: base-auth
+#: field
+msgid "Client Secret Hash"
+msgstr "Hash Client Secret"
+
+#. module: base-auth
+#: field
+msgid "Code Challenge"
+msgstr "Code Challenge"
+
+#. module: base-auth
+#: field
+msgid "Code Challenge Method"
+msgstr "Phương thức Code Challenge"
+
+#. module: base-auth
+#: field
+msgid "Code Hash"
+msgstr "Hash mã"
+
+#. module: base-auth
+#: field
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: base-auth
+#: view
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+#. module: base-auth
+#: field
+msgid "Database Name"
+msgstr "Tên cơ sở dữ liệu"
+
+#. module: base-auth
+#: field
+msgid "Expires At"
+msgstr "Hết hạn lúc"
+
+#. module: base-auth
+#: field
+msgid "Family ID"
+msgstr "ID họ"
+
+#. module: base-auth
+#: view
+msgid "Generate Client Secret"
+msgstr "Tạo Client Secret"
+
+#. module: base-auth
+#: view
+msgid "Grants"
+msgstr "Cấp quyền"
+
+#. module: base-auth
+#: view
+msgid "Identity"
+msgstr "Danh tính"
+
+#. module: base-auth
+#: field
+msgid "Is Superadmin"
+msgstr "Là siêu quản trị"
+
+#. module: base-auth
+#: field
+msgid "Issued At"
+msgstr "Phát hành lúc"
+
+#. module: base-auth
+#: field
+msgid "Issued By"
+msgstr "Phát hành bởi"
+
+#. module: base-auth
+#: label
+msgid "OAuth Authorization Code"
+msgstr "Mã ủy quyền OAuth"
+
+#. module: base-auth
+#: label, view
+msgid "OAuth Client"
+msgstr "Ứng dụng khách OAuth"
+
+#. module: base-auth
+#: menu, view
+msgid "OAuth Clients"
+msgstr "Ứng dụng khách OAuth"
+
+#. module: base-auth
+#: label
+msgid "OAuth Refresh Token"
+msgstr "Mã làm mới OAuth"
+
+#. module: base-auth
+#: view
+msgid "OAuth Token"
+msgstr "Mã thông báo OAuth"
+
+#. module: base-auth
+#: menu, view
+msgid "OAuth Tokens"
+msgstr "Mã thông báo OAuth"
+
+#. module: base-auth
+#: field
+msgid "Public Client"
+msgstr "Client công khai"
+
+#. module: base-auth
+#: field
+msgid "Redirect URI"
+msgstr "URI chuyển hướng"
+
+#. module: base-auth
+#: field, view
+msgid "Redirect URIs"
+msgstr "URI chuyển hướng"
+
+#. module: base-auth
+#: view
+msgid "Revoked"
+msgstr "Đã thu hồi"
+
+#. module: base-auth
+#: field
+msgid "Revoked At"
+msgstr "Thu hồi lúc"
+
+#. module: base-auth
+#: field, view
+msgid "Role"
+msgstr "Vai trò"
+
+#. module: base-auth
+#: field
+msgid "Scope"
+msgstr "Phạm vi"
+
+#. module: base-auth
+#: field
+msgid "Service Name"
+msgstr "Tên dịch vụ"
+
+#. module: base-auth
+#: view
+msgid "Subject"
+msgstr "Chủ đề"
+
+#. module: base-auth
+#: field
+msgid "Subject ID"
+msgstr "ID đối tượng"
+
+#. module: base-auth
+#: field
+msgid "Subject Model"
+msgstr "Mô hình đối tượng"
+
+#. module: base-auth
+#: field
+msgid "Token Hash"
+msgstr "Mã băm token"
+
+#. module: base-auth
+#: view
+msgid "Token State"
+msgstr "Trạng thái token"
+
+#. module: base-auth
+#: field
+msgid "Used"
+msgstr "Đã dùng"
+
+#. module: base-auth
+#: field
+msgid "Used At"
+msgstr "Dùng lúc"
+
+#. module: base-auth
+#: field, view
+msgid "User"
+msgstr "Người dùng"
+
+#. module: base-auth
+#: view
+msgid "third-party-client-id"
+msgstr "third-party-client-id"

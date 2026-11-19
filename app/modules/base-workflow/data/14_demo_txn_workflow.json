@@ -1,0 +1,118 @@
+[
+  {
+    "action": "c",
+    "model": "base.workflow",
+    "external_id": "workflow.flow.demo_txn_forward_v1",
+    "force_update": true,
+    "data": {
+      "name": "demo_txn_forward_v1",
+      "topic": "demo",
+      "version": 1,
+      "is_active": false,
+      "is_template": true,
+      "group_id": "base.group_system",
+      "description": "Demo workflow: receive transaction webhook via /wh/demo, transform txn_amount into {value1}, and forward to an outbound URL. Ships inactive as a template: set target_ref to your endpoint, then activate.",
+      "layout": {
+        "nodes": [
+          {
+            "id": "trigger:webhook",
+            "position": { "x": 80, "y": 180 }
+          },
+          {
+            "id": "action:parse_txn_payload",
+            "position": { "x": 340, "y": 180 }
+          },
+          {
+            "id": "action:map_value1",
+            "position": { "x": 620, "y": 180 }
+          },
+          {
+            "id": "action:post_to_webhook_site",
+            "position": { "x": 900, "y": 180 }
+          }
+        ],
+        "edges": [
+          {
+            "id": "trigger:webhook->action:parse_txn_payload",
+            "source": "trigger:webhook",
+            "target": "action:parse_txn_payload"
+          },
+          {
+            "id": "action:parse_txn_payload->action:map_value1",
+            "source": "action:parse_txn_payload",
+            "target": "action:map_value1"
+          },
+          {
+            "id": "action:map_value1->action:post_to_webhook_site",
+            "source": "action:map_value1",
+            "target": "action:post_to_webhook_site"
+          }
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        }
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_txn_forward_v1.action.parse_txn_payload",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_txn_forward_v1",
+      "catalog_id": "workflow.action_catalog.parse_payload",
+      "sequence": 10,
+      "name": "Parse Transaction Payload",
+      "step_key": "parse_txn_payload",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_txn_forward_v1.action.map_value1",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_txn_forward_v1",
+      "catalog_id": "workflow.action_catalog.transform_data",
+      "sequence": 20,
+      "name": "Map Amount to value1",
+      "step_key": "map_value1",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "template": {
+        "value1": "#txn_amount"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_txn_forward_v1.action.post_to_webhook_site",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_txn_forward_v1",
+      "catalog_id": "workflow.action_catalog.post_output_object",
+      "sequence": 30,
+      "name": "Forward to Webhook.site",
+      "step_key": "post_to_webhook_site",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 3,
+        "backoff_seconds": 60
+      },
+      "continue_on_error": false,
+      "target_ref": "https://example.invalid/replace-with-your-endpoint"
+    }
+  }
+]

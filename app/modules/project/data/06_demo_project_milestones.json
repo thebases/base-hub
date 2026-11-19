@@ -1,0 +1,41 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_milestone",
+    "external_id": "project.milestone.demo_redesign_wireframes",
+    "force_update": true,
+    "data": {
+      "name": "Wireframes Approved",
+      "sequence": 10,
+      "project_id": "project.project.demo_website_redesign",
+      "deadline": "2026-08-20",
+      "is_reached": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_milestone",
+    "external_id": "project.milestone.demo_redesign_launch",
+    "force_update": true,
+    "data": {
+      "name": "Site Launch",
+      "sequence": 20,
+      "project_id": "project.project.demo_website_redesign",
+      "deadline": "2026-11-30",
+      "is_reached": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_milestone",
+    "external_id": "project.milestone.demo_mobile_beta_release",
+    "force_update": true,
+    "data": {
+      "name": "Beta Release to Cohort 1",
+      "sequence": 10,
+      "project_id": "project.project.demo_mobile_app",
+      "deadline": "2026-12-15",
+      "is_reached": false
+    }
+  }
+]

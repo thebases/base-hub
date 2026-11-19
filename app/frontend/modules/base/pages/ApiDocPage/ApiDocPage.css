@@ -1,0 +1,19 @@
+/* API doc method markdown popup: 80% wide, 95% on mobile. */
+.basehub-doc-dialog__panel,
+.basehub-doc-dialog__panel[b-dialog-panel] {
+  width: 90vw;
+  max-width: 90vw;
+}
+
+.basehub-doc-dialog__body {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 767.98px) {
+  .basehub-doc-dialog__panel,
+  .basehub-doc-dialog__panel[b-dialog-panel] {
+    width: 95vw;
+    max-width: 95vw;
+  }
+}

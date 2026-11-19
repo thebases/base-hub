@@ -1,0 +1,160 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Anonymous"
+msgstr "Ẩn danh"
+
+msgid "Write markdown…"
+msgstr "Viết markdown…"
+
+msgid "Mermaid render error: {message}"
+msgstr "Lỗi hiển thị Mermaid: {message}"
+
+msgid "On this page"
+msgstr "Trên trang này"
+
+msgid "No headings found."
+msgstr "Không tìm thấy tiêu đề nào."
+
+msgid "Failed to load markdown menu"
+msgstr "Không thể tải menu markdown"
+
+msgid "Failed to load markdown document"
+msgstr "Không thể tải tài liệu markdown"
+
+msgid "Enter a markdown file name"
+msgstr "Nhập tên tệp markdown"
+
+msgid "Enter a menu label"
+msgstr "Nhập nhãn menu"
+
+msgid "Markdown file created"
+msgstr "Đã tạo tệp markdown"
+
+msgid "Failed to create markdown file"
+msgstr "Không thể tạo tệp markdown"
+
+msgid "Base markdown documents are read-only"
+msgstr "Tài liệu markdown gốc chỉ đọc"
+
+msgid "Markdown file saved"
+msgstr "Đã lưu tệp markdown"
+
+msgid "Failed to save markdown file"
+msgstr "Không thể lưu tệp markdown"
+
+msgid "Markdown file renamed"
+msgstr "Đã đổi tên tệp markdown"
+
+msgid "Failed to rename markdown file"
+msgstr "Không thể đổi tên tệp markdown"
+
+msgid "Markdown file deleted"
+msgstr "Đã xóa tệp markdown"
+
+msgid "Failed to delete markdown file"
+msgstr "Không thể xóa tệp markdown"
+
+msgid "Share link copied"
+msgstr "Đã sao chép liên kết chia sẻ"
+
+msgid "Failed to copy share link"
+msgstr "Không thể sao chép liên kết chia sẻ"
+
+msgid "Markdown Viewer"
+msgstr "Trình xem Markdown"
+
+msgid "Choose a markdown file from the list."
+msgstr "Chọn một tệp markdown từ danh sách."
+
+msgid "Read only"
+msgstr "Chỉ đọc"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "Unsaved"
+msgstr "Chưa lưu"
+
+msgid "New"
+msgstr "Mới"
+
+msgid "Preview"
+msgstr "Xem trước"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Rename"
+msgstr "Đổi tên"
+
+msgid "Share"
+msgstr "Chia sẻ"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Loading"
+msgstr "Đang tải"
+
+msgid "Loading markdown content…"
+msgstr "Đang tải nội dung markdown…"
+
+msgid "Select or create a markdown file to begin."
+msgstr "Chọn hoặc tạo một tệp markdown để bắt đầu."
+
+msgid "Create markdown file"
+msgstr "Tạo tệp markdown"
+
+msgid "Enter the menu label, file name, and an optional folder under the writable public docs. Base documents are read-only and cannot be chosen."
+msgstr "Nhập nhãn menu, tên tệp và thư mục tùy chọn trong tài liệu công khai có thể ghi. Tài liệu Base ở chế độ chỉ đọc và không thể chọn."
+
+msgid "Menu label"
+msgstr "Nhãn menu"
+
+msgid "File name, e.g. api-overview.md"
+msgstr "Tên tệp, ví dụ api-overview.md"
+
+msgid "Folder in public docs, e.g. docs/api (leave blank for the public root)"
+msgstr "Thư mục trong tài liệu công khai, ví dụ docs/api (để trống cho thư mục gốc công khai)"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Rename markdown file"
+msgstr "Đổi tên tệp markdown"
+
+msgid "Enter the new markdown file path."
+msgstr "Nhập đường dẫn tệp markdown mới."
+
+msgid "docs/example.md"
+msgstr "docs/example.md"
+
+msgid "Share markdown document"
+msgstr "Chia sẻ tài liệu markdown"
+
+msgid "Copy the public link or open the shared document in a new tab."
+msgstr "Sao chép liên kết công khai hoặc mở tài liệu được chia sẻ trong tab mới."
+
+msgid "Share link"
+msgstr "Liên kết chia sẻ"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Copy Link"
+msgstr "Sao chép liên kết"
+
+msgid "Show Document"
+msgstr "Hiển thị tài liệu"
+
+msgid "Markdown path is missing."
+msgstr "Thiếu đường dẫn markdown."

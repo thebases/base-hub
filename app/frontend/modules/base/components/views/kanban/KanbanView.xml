@@ -1,0 +1,68 @@
+<templates xml:space="preserve">
+  <t t-name="KanbanView">
+    <div class="basehub-kanban-root" t-ref="root">
+      <t t-if="isGrouped">
+        <div class="basehub-kanban-board" role="region" t-att-aria-label="t('Kanban board')">
+          <t t-foreach="columns" t-as="column" t-key="column.id">
+            <div t-att-class="isFolded(column) ? 'basehub-kanban-col is-folded' : 'basehub-kanban-col'"
+                 t-on-dragover.prevent="() => true"
+                 t-on-drop.prevent="() => this.dropOnColumn(column)">
+              <div class="basehub-kanban-col-header"
+                   t-att-draggable="props.canMoveColumns ? 'true' : 'false'"
+                   t-on-dragstart="() => this.onColumnDragStart(column)"
+                   t-on-dragend="() => { this.draggingColumn = null; }">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="basehub-kanban-col-title" t-esc="column.label"/>
+                  <Badge variant="'secondary'" label="'' + recordsInColumn(column).length"/>
+                </div>
+                <Button variant="'ghost'" size="'sm'"
+                        aria-label="isFolded(column) ? t('Unfold column') : t('Fold column')"
+                        onClick="() => this.toggleFold(column)">
+                  <t t-esc="isFolded(column) ? '»' : '«'"/>
+                </Button>
+              </div>
+
+              <t t-if="!isFolded(column)">
+                <div class="basehub-kanban-col-cards">
+                  <t t-if="recordsInColumn(column).length === 0">
+                    <NoContent label="t('No records')" className="'basehub-kanban-col-empty'"/>
+                  </t>
+                  <t t-foreach="recordsInColumn(column)" t-as="record" t-key="record.id">
+                    <KanbanRecord record="record" fieldMap="fieldMap" layout="props.layout"
+                                  canMove="canMoveRecords"
+                                  onOpen="props.onOpenRecord"
+                                  onDelete="props.onDeleteRecord"
+                                  onDragStart.bind="onDragStart"
+                                  onDropOnRecord="(target) => this.dropOnRecord(column, target)"/>
+                  </t>
+                  <t t-if="remainingIn(column) > 0">
+                    <Button variant="'outline'" size="'sm'" className="'w-100 mt-2'"
+                            onClick="() => this.props.onLoadMoreColumn(column)">
+                      <t t-esc="t('Load more… ({count} remaining)', { count: remainingIn(column) })"/>
+                    </Button>
+                  </t>
+                </div>
+              </t>
+            </div>
+          </t>
+        </div>
+      </t>
+
+      <t t-else="">
+        <div class="basehub-kanban-grid" role="region" t-att-aria-label="t('Kanban cards')">
+          <t t-if="props.records.length === 0">
+            <NoContent label="t('No records found.')"/>
+          </t>
+          <t t-foreach="props.records" t-as="record" t-key="record.id">
+            <KanbanRecord record="record" fieldMap="fieldMap" layout="props.layout"
+                          canMove="false"
+                          onOpen="props.onOpenRecord"
+                          onDelete="props.onDeleteRecord"
+                          onDragStart.bind="onDragStart"
+                          onDropOnRecord="() => true"/>
+          </t>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

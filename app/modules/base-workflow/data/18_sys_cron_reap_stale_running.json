@@ -1,0 +1,19 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "workflow.cron_reap_stale_running",
+    "force_update": true,
+    "data": {
+      "name": "Workflow Reap Stale Running Runs",
+      "handler": "workflow.reap_stale_running",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": false,
+      "payload": {
+        "limit": 50,
+        "stale_after_seconds": 300
+      }
+    }
+  }
+]

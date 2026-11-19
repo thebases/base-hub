@@ -1,0 +1,72 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_stage",
+    "external_id": "helpdesk.stage.new",
+    "force_update": false,
+    "data": {
+      "name": "New",
+      "sequence": 1,
+      "fold": false,
+      "is_closed": false,
+      "unattended": true,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_stage",
+    "external_id": "helpdesk.stage.in_progress",
+    "force_update": false,
+    "data": {
+      "name": "In Progress",
+      "sequence": 2,
+      "fold": false,
+      "is_closed": false,
+      "unattended": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_stage",
+    "external_id": "helpdesk.stage.on_hold",
+    "force_update": false,
+    "data": {
+      "name": "On Hold",
+      "sequence": 3,
+      "fold": false,
+      "is_closed": false,
+      "unattended": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_stage",
+    "external_id": "helpdesk.stage.solved",
+    "force_update": false,
+    "data": {
+      "name": "Solved",
+      "sequence": 4,
+      "fold": true,
+      "is_closed": true,
+      "unattended": false,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_stage",
+    "external_id": "helpdesk.stage.cancelled",
+    "force_update": false,
+    "data": {
+      "name": "Cancelled",
+      "sequence": 5,
+      "fold": true,
+      "is_closed": true,
+      "unattended": false,
+      "active": true
+    }
+  }
+]

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_company_list" model="ui.view">
+      <field name="name">tbl.company.list</field>
+      <field name="model">tbl.company</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Companies" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="parent_id"/>
+          <field name="country_id"/>
+          <field name="state_id" optional="show"/>
+          <field name="sequence" optional="show"/>
+          <field name="active" optional="hide"/>
+          <field name="created_at" optional="hide"/>
+          <field name="email" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_company_form" model="ui.view">
+      <field name="name">tbl.company.form</field>
+      <field name="model">tbl.company</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Company">
+          <sheet>
+            <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+            <widget name="web_ribbon" title="Branch" bg_color="bg-sky-100 text-sky-700" invisible="not is_branch"/>
+            <div class="d-flex flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1"/>
+              </h1>
+                <div class="d-flex flex-wrap align-items-start gap-3">
+                  <field name="email" string="Email" class="basehub-field-third"/>
+                  <field name="phone" widget="phone" string="Phone" class="basehub-field-third"/>
+                  <field name="website" widget="url" string="Website" class="basehub-field-third"/>
+                </div>
+            </div>
+            <group>
+              <group string="Company">
+                <field name="sequence"/>
+                <field name="parent_id"/>
+                <field name="partner_id"/>
+                <field name="currency_code"/>
+                <field name="company_registry"/>
+                <field name="vat"/>
+                <field name="is_branch"/>
+              </group>
+              <group string="Location">
+                <field name="street"/>
+                <field name="street2"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+                <field name="city"/>
+                <field name="zip"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Branches" name="branches">
+                <field name="child_ids"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_company_search" model="ui.view">
+      <field name="name">tbl.company.search</field>
+      <field name="model">tbl.company</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Companies">
+          <field name="name"/>
+          <field name="email"/>
+          <field name="parent_id"/>
+          <field name="phone"/>
+          <field name="sequence"/>
+          <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+          <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+          <filter string="Is Branch" name="is_branch_true" domain="[('is_branch', '=', True)]"/>
+          <filter string="Not Is Branch" name="is_branch_false" domain="[('is_branch', '=', False)]"/>
+          <group>
+            <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+            <filter string="Country" name="group_by_country_id" domain="[]" context="{'group_by': 'country_id'}"/>
+            <filter string="Parent Company" name="group_by_parent_id" domain="[]" context="{'group_by': 'parent_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,9 @@
+<templates xml:space="preserve">
+  <t t-name="UserPicker">
+    <div class="basehub-chatter-user-picker">
+      <RemoteCombobox t-key="state.comboKey" options="comboOptions" loading="state.loading" clearOnSelect="true"
+                      placeholder="props.placeholder || t('Search users…')" onSearch="(query) => this.loadOptions(query)"
+                      onChange="(value) => this.onChange(value)"/>
+    </div>
+  </t>
+</templates>

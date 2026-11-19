@@ -1,0 +1,43 @@
+<templates>
+  <t t-name="AppRoot">
+    <t t-if="state.error">
+      <main role="alert" style="min-height:100vh;padding:32px;background:#f8fafc;color:#0f172a;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+        <section style="max-width:760px;border:1px solid #fecaca;background:#fff1f2;border-radius:12px;padding:20px;box-shadow:0 12px 30px rgba(15,23,42,.08);">
+          <h1 style="margin:0 0 8px;font-size:20px;line-height:1.3;" t-esc="t('Could not render this page')"/>
+          <p style="margin:0;color:#9f1239;font-size:14px;line-height:1.5;" t-esc="state.error"/>
+          <pre t-if="state.errorDetails"
+               style="margin:16px 0 0;max-height:280px;overflow:auto;white-space:pre-wrap;border-radius:8px;background:#111827;color:#f9fafb;padding:12px;font-size:12px;line-height:1.45;"
+               t-esc="state.errorDetails"/>
+        </section>
+      </main>
+    </t>
+    <t t-elif="state.entry and state.entry.shell">
+      <t t-if="state.Shell">
+        <t t-component="state.Shell" page="state.PageComponent" params="state.params" currentPath="state.path" loading="state.navigating"/>
+      </t>
+      <t t-else="">
+        <div class="basehub-content-skeleton" aria-busy="true" aria-live="polite">
+          <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-title'"/>
+          <Skeleton className="'basehub-content-skeleton-bar'"/>
+          <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-short'"/>
+        </div>
+      </t>
+    </t>
+    <t t-elif="state.entry">
+      <t t-if="state.navigating or !state.PageComponent">
+        <!-- Shell.css's .basehub-content-skeleton* classes are safe to reuse
+             here: Shell.css is linked unconditionally in index.html (not
+             swapped per-route via #page-css), so it's available even before
+             any shell:true route has mounted. -->
+        <div class="basehub-content-skeleton" aria-busy="true" aria-live="polite">
+          <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-title'"/>
+          <Skeleton className="'basehub-content-skeleton-bar'"/>
+          <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-short'"/>
+        </div>
+      </t>
+      <t t-else="">
+        <t t-component="state.PageComponent" params="state.params"/>
+      </t>
+    </t>
+  </t>
+</templates>

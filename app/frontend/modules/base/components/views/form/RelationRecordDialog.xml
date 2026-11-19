@@ -1,0 +1,19 @@
+<templates xml:space="preserve">
+  <t t-name="RelationRecordDialog">
+    <Dialog open="true" onOpenChange="(open) => !open and this.props.onClose()">
+      <DialogContent className="'basehub-widget-dialog__panel basehub-widget-dialog__panel--xl'">
+        <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+        <div t-if="state.viewData" class="basehub-widget-dialog__body">
+          <FormView model="props.model"
+                    viewData="state.viewData"
+                    fields="state.fields"
+                    record="state.record"
+                    isNew="false"
+                    canDelete="false"
+                    onSave.bind="save"
+                    onRemoteValueChange="remoteChange"/>
+        </div>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

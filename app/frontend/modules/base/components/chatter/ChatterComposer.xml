@@ -1,0 +1,53 @@
+<templates xml:space="preserve">
+  <t t-name="ChatterComposer">
+    <div class="basehub-chatter-composer">
+      <div class="basehub-chatter-composer-tabs">
+        <Button variant="props.mode === 'comment' ? 'default' : 'ghost'" size="'sm'" onClick="() => this.onTabClick('comment')" label="t('Send message')"/>
+        <Button variant="props.mode === 'note' ? 'default' : 'ghost'" size="'sm'" onClick="() => this.onTabClick('note')" >
+          <Icon name="'sticky-note'"/>
+          <t t-esc="t('Log note')"/>
+        </Button>
+        <Button variant="'ghost'" size="'sm'" onClick="() => props.onScheduleActivity()">
+          <Icon name="'calendar-plus'"/>
+          <t t-esc="t('Schedule Activity')"/>
+        </Button>
+        
+      </div>
+
+      <t t-if="!state.collapsed">
+        <t t-if="requiresRecipients">
+          <div class="basehub-chatter-recipients">
+            <label class="basehub-chatter-recipients-label"><t t-esc="t('To')"/> <span class="basehub-chatter-required">*</span></label>
+            <div class="basehub-chatter-recipients-chips">
+              <t t-foreach="state.recipients" t-as="recipient" t-key="recipient.id">
+                <span class="badge text-bg-secondary basehub-form-chip">
+                  <t t-esc="recipient.name"/>
+                  <button type="button" class="basehub-form-chip-remove" t-att-aria-label="t('Remove')"
+                          t-on-click="() => this.removeRecipient(recipient.id)">×</button>
+                </span>
+              </t>
+            </div>
+            <UserPicker selected="state.recipients" onAdd="(user) => this.addRecipient(user)" placeholder="t('Search receivers…')"/>
+          </div>
+        </t>
+
+        <Textarea value="state.text" placeholder="placeholder" rows="2" onInput="(v) => this.onInput(v)"/>
+
+        <t t-if="state.suggestions.length > 0">
+          <ul class="basehub-chatter-suggestions">
+            <t t-foreach="state.suggestions" t-as="suggestion" t-key="suggestion.id">
+              <li class="basehub-chatter-suggestion" t-on-click="() => this.pickSuggestion(suggestion)">
+                <strong t-esc="suggestion.source"/>
+                <span t-esc="suggestion.substitution"/>
+              </li>
+            </t>
+          </ul>
+        </t>
+
+        <div class="basehub-chatter-composer-actions">
+          <Button variant="'default'" size="'sm'" disabled="!canSubmit" onClick="() => this.submit()" label="t('Send')"/>
+        </div>
+      </t>
+    </div>
+  </t>
+</templates>

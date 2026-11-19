@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_website_site_list" model="ui.view">
+    <field name="name">tbl.website_site.list</field>
+    <field name="model">tbl.website_site</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Website Sites">
+        <field name="name"/>
+        <field name="company_id"/>
+        <field name="slug"/>
+        <field name="is_active"/>
+        <field name="published_at"/>
+        <field name="deploy_path"/>
+        <action>
+          <button string="Publish" type="object" name="action_publish"/>
+          <button string="Unpublish" type="object" name="action_unpublish"/>
+        </action>
+      </list>
+    </field>
+  </record>
+  <record id="view_website_site_form" model="ui.view">
+    <field name="name">tbl.website_site.form</field>
+    <field name="model">tbl.website_site</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Website Site">
+        <sheet>
+          <group>
+            <group string="General">
+              <field name="name"/>
+              <field name="slug"/>
+              <field name="company_id"/>
+              <field name="description"/>
+              <field name="is_active"/>
+              <field name="home_page_id"/>
+              <field name="deploy_path" readonly="1"/>
+              <button name="action_publish" type="object" string="Publish"/>
+              <button name="action_unpublish" type="object" string="Unpublish" invisible="not deploy_path"/>
+            </group>
+            <group string="SEO Defaults">
+              <field name="default_seo_name"/>
+              <field name="default_seo_desc"/>
+              <field name="default_canonical_base"/>
+              <field name="default_robots"/>
+              <field name="sitemap_enabled"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Languages">
+              <field name="default_language"/>
+              <field name="supported_languages"/>
+            </page>
+            <page string="Robots">
+              <field name="robots_txt"/>
+            </page>
+            <page string="Custom Code">
+              <field name="custom_head_html"/>
+              <field name="custom_footer_html"/>
+            </page>
+            <page string="Audit">
+              <field name="published_at" readonly="1"/>
+              <field name="created_at" readonly="1"/>
+              <field name="updated_at" readonly="1"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</data>

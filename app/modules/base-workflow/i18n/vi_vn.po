@@ -1,0 +1,1325 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* workflow
+#
+# Translators:
+# Base Hub Team, 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-09 00:00+0000\n"
+"PO-Revision-Date: 2026-05-09 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: workflow
+#: model:base.workflow,label:
+msgid "Workflow"
+msgstr "Quy trình"
+
+#. module: workflow
+#: model:base.workflow,field:name
+msgid "Workflow Name"
+msgstr "Tên quy trình"
+
+#. module: workflow
+#: model:base.workflow,field:topic
+msgid "Topic"
+msgstr "Chủ đề"
+
+#. module: workflow
+#: model:base.workflow,field:version
+msgid "Version"
+msgstr "Phiên bản"
+
+#. module: workflow
+#: model:base.workflow,field:active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: workflow
+#: model:base.workflow,field:timeout
+msgid "Timeout (seconds)"
+msgstr "Thời gian chờ (giây)"
+
+#. module: workflow
+#: model:base.workflow,field:retry
+msgid "Max Retries"
+msgstr "Số lần thử lại tối đa"
+
+#. module: workflow
+#: model:base.workflow.run,label:
+msgid "Workflow Run"
+msgstr "Lần chạy quy trình"
+
+#. module: workflow
+#: model:base.workflow.run,field:state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: workflow
+#: model:base.workflow.run,field:request_id
+msgid "Request ID"
+msgstr "Mã yêu cầu"
+
+#. module: workflow
+#: model:base.workflow.run,field:created_at
+msgid "Created At"
+msgstr "Ngày tạo"
+
+#. module: workflow
+#: model:base.workflow.run,field:updated_at
+msgid "Updated At"
+msgstr "Cập nhật lần cuối"
+
+#. module: workflow
+#: selection:base.workflow.run,state:pending
+msgid "Pending"
+msgstr "Chờ xử lý"
+
+#. module: workflow
+#: selection:base.workflow.run,state:running
+msgid "Running"
+msgstr "Đang chạy"
+
+#. module: workflow
+#: selection:base.workflow.run,state:done
+msgid "Done"
+msgstr "Hoàn thành"
+
+#. module: workflow
+#: selection:base.workflow.run,state:failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: workflow
+#: selection:base.workflow.run,state:cancelled
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: workflow
+#: model:base.outbound_delivery,label:
+msgid "Outbound Delivery"
+msgstr "Giao hàng đi"
+
+#. module: workflow
+#: model:base.outbound_delivery,field:channel
+msgid "Channel"
+msgstr "Kênh"
+
+#. module: workflow
+#: model:base.outbound_delivery,field:event_type
+msgid "Event Type"
+msgstr "Loại sự kiện"
+
+#. module: workflow
+#: model:base.outbound_delivery,field:state
+msgid "Delivery State"
+msgstr "Trạng thái giao hàng"
+
+#. module: workflow
+#: selection:base.outbound_delivery,state:pending
+msgid "Pending"
+msgstr "Chờ xử lý"
+
+#. module: workflow
+#: selection:base.outbound_delivery,state:sent
+msgid "Sent"
+msgstr "Đã gửi"
+
+#. module: workflow
+#: selection:base.outbound_delivery,state:failed
+msgid "Failed"
+msgstr "Thất bại"
+
+#. module: workflow
+#: view
+msgid "AES"
+msgstr "AES"
+
+#. module: workflow
+#: label
+msgid "AES Action"
+msgstr "Hành động AES"
+
+#. module: workflow
+#: label
+msgid "AES Decrypt Action"
+msgstr "Hành động giải mã AES"
+
+#. module: workflow
+#: field, label
+msgid "AES Key"
+msgstr "Khóa AES"
+
+#. module: workflow
+#: label
+msgid "Access Group"
+msgstr "Nhóm quyền"
+
+#. module: workflow
+#: field
+msgid "Action Catalog"
+msgstr "Danh mục hành động"
+
+#. module: workflow
+#: field
+msgid "Action Code"
+msgstr "Mã hành động"
+
+#. module: workflow
+#: view
+msgid "Action Inputs"
+msgstr "Đầu vào hành động"
+
+#. module: workflow
+#: field
+msgid "Action Name"
+msgstr "Tên hành động"
+
+#. module: workflow
+#: view
+msgid "Action Sequence"
+msgstr "Thứ tự hành động"
+
+#. module: workflow
+#: field
+msgid "Action Steps"
+msgstr "Các bước hành động"
+
+#. module: workflow
+#: field
+msgid "Action Version"
+msgstr "Phiên bản hành động"
+
+#. module: workflow
+#: view
+msgid "Action step name"
+msgstr "Tên bước hành động"
+
+#. module: workflow
+#: view
+msgid "Advanced Params"
+msgstr "Tham số nâng cao"
+
+#. module: workflow
+#: label
+msgid "After Create"
+msgstr "Sau khi tạo"
+
+#. module: workflow
+#: label
+msgid "After Delete"
+msgstr "Sau khi xóa"
+
+#. module: workflow
+#: label
+msgid "After Update"
+msgstr "Sau khi cập nhật"
+
+#. module: workflow
+#: field
+msgid "Attempt Count"
+msgstr "Số lần thử"
+
+#. module: workflow
+#: view
+msgid "Attempts"
+msgstr "Lần thử"
+
+#. module: workflow
+#: view
+msgid "Audit"
+msgstr "Kiểm toán"
+
+#. module: workflow
+#: field, label
+msgid "Authorization"
+msgstr "Ủy quyền"
+
+#. module: workflow
+#: label
+msgid "Before Create"
+msgstr "Trước khi tạo"
+
+#. module: workflow
+#: label
+msgid "Before Delete"
+msgstr "Trước khi xóa"
+
+#. module: workflow
+#: label
+msgid "Before Update"
+msgstr "Trước khi cập nhật"
+
+#. module: workflow
+#: field
+msgid "Branch Label"
+msgstr "Nhãn chi nhánh"
+
+#. module: workflow
+#: label
+msgid "CRUD Model"
+msgstr "Mô hình CRUD"
+
+#. module: workflow
+#: view
+msgid "Canvas"
+msgstr "Canvas"
+
+#. module: workflow
+#: field
+msgid "Canvas Layout"
+msgstr "Bố cục canvas"
+
+#. module: workflow
+#: view
+msgid "Catalog"
+msgstr "Danh mục"
+
+#. module: workflow
+#: view
+msgid "Catalog Defaults"
+msgstr "Mặc định danh mục"
+
+#. module: workflow
+#: view
+msgid "Catalog selection controls the runtime handler and default parameter set for this workflow step."
+msgstr "Lựa chọn danh mục điều khiển trình xử lý runtime và bộ tham số mặc định cho bước quy trình này."
+
+#. module: workflow
+#: view
+msgid "Common"
+msgstr "Chung"
+
+#. module: workflow
+#: field
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: workflow
+#: label
+msgid "Condition"
+msgstr "Điều kiện"
+
+#. module: workflow
+#: field
+msgid "Condition Expression"
+msgstr "Biểu thức điều kiện"
+
+#. module: workflow
+#: field
+msgid "Condition Step Key"
+msgstr "Khóa bước điều kiện"
+
+#. module: workflow
+#: field
+msgid "Config"
+msgstr "Cấu hình"
+
+#. module: workflow
+#: label
+msgid "Consumer Group"
+msgstr "Nhóm consumer"
+
+#. module: workflow
+#: field
+msgid "Continue On Error"
+msgstr "Tiếp tục khi lỗi"
+
+#. module: workflow
+#: view
+msgid "Contracts"
+msgstr "Hợp đồng"
+
+#. module: workflow
+#: label
+msgid "Create"
+msgstr "Tạo mới"
+
+#. module: workflow
+#: field
+msgid "Credential Type"
+msgstr "Loại thông tin xác thực"
+
+#. module: workflow
+#: field, view
+msgid "Current Step"
+msgstr "Bước hiện tại"
+
+#. module: workflow
+#: field
+msgid "Current Steps"
+msgstr "Các bước hiện tại"
+
+#. module: workflow
+#: field
+msgid "DAG Failure Policy"
+msgstr "Chính sách lỗi DAG"
+
+#. module: workflow
+#: view
+msgid "Dead Letter"
+msgstr "Thư chết"
+
+#. module: workflow
+#: field, view
+msgid "Default Params"
+msgstr "Tham số mặc định"
+
+#. module: workflow
+#: view
+msgid "Definition"
+msgstr "Định nghĩa"
+
+#. module: workflow
+#: view
+msgid "Delivered"
+msgstr "Đã gửi"
+
+#. module: workflow
+#: view
+msgid "Delivery"
+msgstr "Gửi"
+
+#. module: workflow
+#: field, view
+msgid "Delivery Type"
+msgstr "Loại gửi"
+
+#. module: workflow
+#: field
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: workflow
+#: label
+msgid "Domain"
+msgstr "Miền"
+
+#. module: workflow
+#: field
+msgid "Edge Type"
+msgstr "Loại cạnh"
+
+#. module: workflow
+#: field
+msgid "Encrypted Value"
+msgstr "Giá trị đã mã hóa"
+
+#. module: workflow
+#: view
+msgid "Execution"
+msgstr "Thực thi"
+
+#. module: workflow
+#: field
+msgid "Execution Mode"
+msgstr "Chế độ thực thi"
+
+#. module: workflow
+#: field
+msgid "Extra Params"
+msgstr "Tham số bổ sung"
+
+#. module: workflow
+#: label
+msgid "Find Or Create"
+msgstr "Tìm hoặc tạo"
+
+#. module: workflow
+#: field, label
+msgid "Flatten Input"
+msgstr "Làm phẳng đầu vào"
+
+#. module: workflow
+#: label
+msgid "Flatten JSON"
+msgstr "Làm phẳng JSON"
+
+#. module: workflow
+#: field, view
+msgid "Flow Map"
+msgstr "Sơ đồ luồng"
+
+#. module: workflow
+#: field, view
+msgid "Flow Version"
+msgstr "Phiên bản luồng"
+
+#. module: workflow
+#: field
+msgid "From Step"
+msgstr "Từ bước"
+
+#. module: workflow
+#: view
+msgid "Generate Flow Map"
+msgstr "Tạo sơ đồ luồng"
+
+#. module: workflow
+#: view
+msgid "Generate WorkFlow by Script"
+msgstr "Tạo quy trình bằng tập lệnh"
+
+#. module: workflow
+#: action
+msgid "Generate Workflow by Script"
+msgstr "Tạo quy trình bằng tập lệnh"
+
+#. module: workflow
+#: view
+msgid "Generated markdown and Mermaid diagram for the current workflow action sequence."
+msgstr "Đã tạo markdown và sơ đồ Mermaid cho chuỗi hành động quy trình hiện tại."
+
+#. module: workflow
+#: view
+msgid "Group"
+msgstr "Nhóm"
+
+#. module: workflow
+#: field
+msgid "Group ID"
+msgstr "ID nhóm"
+
+#. module: workflow
+#: view
+msgid "HMAC"
+msgstr "HMAC"
+
+#. module: workflow
+#: label
+msgid "HMAC Action"
+msgstr "Hành động HMAC"
+
+#. module: workflow
+#: field, label
+msgid "HMAC Key"
+msgstr "Khóa HMAC"
+
+#. module: workflow
+#: view
+msgid "Handler"
+msgstr "Trình xử lý"
+
+#. module: workflow
+#: field
+msgid "Handler Key"
+msgstr "Khóa trình xử lý"
+
+#. module: workflow
+#: field
+msgid "Handler Version"
+msgstr "Phiên bản trình xử lý"
+
+#. module: workflow
+#: field, label
+msgid "Headers"
+msgstr "Header"
+
+#. module: workflow
+#: view
+msgid "Implementation"
+msgstr "Cơ chế cấp số"
+
+#. module: workflow
+#: view
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+#. module: workflow
+#: field, label
+msgid "Include Key"
+msgstr "Bao gồm khóa"
+
+#. module: workflow
+#: field
+msgid "Include Raw"
+msgstr "Bao gồm dữ liệu thô"
+
+#. module: workflow
+#: field
+msgid "Input Contract"
+msgstr "Hợp đồng đầu vào"
+
+#. module: workflow
+#: label
+msgid "Input Field"
+msgstr "Trường đầu vào"
+
+#. module: workflow
+#: field
+msgid "Input Payload"
+msgstr "Payload đầu vào"
+
+#. module: workflow
+#: field
+msgid "Is Active"
+msgstr "Đang hoạt động"
+
+#. module: workflow
+#: label
+msgid "Kafka Topic"
+msgstr "Kafka Topic"
+
+#. module: workflow
+#: label
+msgid "Key Field"
+msgstr "Trường khóa"
+
+#. module: workflow
+#: field
+msgid "Key List"
+msgstr "Danh sách khóa"
+
+#. module: workflow
+#: field
+msgid "Last Attempt At"
+msgstr "Lần thử cuối lúc"
+
+#. module: workflow
+#: field
+msgid "Last Error"
+msgstr "Lỗi gần nhất"
+
+#. module: workflow
+#: label, view
+msgid "Lua Script"
+msgstr "Tập lệnh Lua"
+
+#. module: workflow
+#: label
+msgid "MQTT Topic"
+msgstr "Chủ đề MQTT"
+
+#. module: workflow
+#: field
+msgid "Max Attempts"
+msgstr "Số lần thử tối đa"
+
+#. module: workflow
+#: field
+msgid "Max Parallel Steps"
+msgstr "Số bước song song tối đa"
+
+#. module: workflow
+#: label
+msgid "Merge Result"
+msgstr "Kết quả gộp"
+
+#. module: workflow
+#: label
+msgid "Model"
+msgstr "Mô hình"
+
+#. module: workflow
+#: label
+msgid "Model Event"
+msgstr "Sự kiện mô hình"
+
+#. module: workflow
+#: field, label
+msgid "Model Name"
+msgstr "Tên mô hình"
+
+#. module: workflow
+#: field, view
+msgid "Name"
+msgstr "Tên"
+
+#. module: workflow
+#: field
+msgid "Next Attempt At"
+msgstr "Lần thử tiếp theo lúc"
+
+#. module: workflow
+#: field
+msgid "Next Retry At"
+msgstr "Lần thử lại tiếp theo lúc"
+
+#. module: workflow
+#: label
+msgid "No Label"
+msgstr "Không có nhãn"
+
+#. module: workflow
+#: view
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: workflow
+#: label
+msgid "Notify"
+msgstr "Thông báo"
+
+#. module: workflow
+#: label
+msgid "Operation"
+msgstr "Thao tác"
+
+#. module: workflow
+#: field
+msgid "Output Contract"
+msgstr "Hợp đồng đầu ra"
+
+#. module: workflow
+#: field, label
+msgid "Output Field"
+msgstr "Trường đầu ra"
+
+#. module: workflow
+#: field
+msgid "Output Payload"
+msgstr "Payload đầu ra"
+
+#. module: workflow
+#: label
+msgid "Parse Payload"
+msgstr "Phân tích payload"
+
+#. module: workflow
+#: view
+msgid "Payload"
+msgstr "Payload"
+
+#. module: workflow
+#: view
+msgid "Permanent Failed"
+msgstr "Thất bại vĩnh viễn"
+
+#. module: workflow
+#: view
+msgid "Persistence"
+msgstr "Lưu trữ bền vững"
+
+#. module: workflow
+#: label
+msgid "Post Output Object"
+msgstr "Đối tượng đầu ra sau xử lý"
+
+#. module: workflow
+#: label
+msgid "QoS"
+msgstr "QoS"
+
+#. module: workflow
+#: view
+msgid "Queued"
+msgstr "Đang xếp hàng"
+
+#. module: workflow
+#: view
+msgid "Recovery"
+msgstr "Khôi phục"
+
+#. module: workflow
+#: field
+msgid "Request Body"
+msgstr "Nội dung yêu cầu"
+
+#. module: workflow
+#: field
+msgid "Authorization Reference"
+msgstr "Tham chiếu ủy quyền"
+
+#. module: workflow
+#: field
+msgid "Response Body"
+msgstr "Nội dung phản hồi"
+
+#. module: workflow
+#: label
+msgid "Result Key"
+msgstr "Khóa kết quả"
+
+#. module: workflow
+#: view
+msgid "Retry"
+msgstr "Thử lại"
+
+#. module: workflow
+#: field
+msgid "Retry Policy"
+msgstr "Chính sách thử lại"
+
+#. module: workflow
+#: view
+msgid "Retry Scheduled"
+msgstr "Đã lên lịch thử lại"
+
+#. module: workflow
+#: view
+msgid "Retryable Failed"
+msgstr "Thất bại có thể thử lại"
+
+#. module: workflow
+#: field
+msgid "Return Saved Record"
+msgstr "Trả về bản ghi đã lưu"
+
+#. module: workflow
+#: field
+msgid "Runs"
+msgstr "Lần chạy"
+
+#. module: workflow
+#: view
+msgid "Sending"
+msgstr "Đang gửi"
+
+#. module: workflow
+#: field
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: workflow
+#: field, view
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: workflow
+#: view
+msgid "Step History"
+msgstr "Lịch sử bước"
+
+#. module: workflow
+#: field
+msgid "Step Key"
+msgstr "Khóa bước"
+
+#. module: workflow
+#: field
+msgid "Step Runs"
+msgstr "Lượt chạy bước"
+
+#. module: workflow
+#: view
+msgid "Succeeded"
+msgstr "Thành công"
+
+#. module: workflow
+#: field
+msgid "Target Ref"
+msgstr "Tham chiếu đích"
+
+#. module: workflow
+#: label, view
+msgid "Target URL"
+msgstr "URL đích"
+
+#. module: workflow
+#: view
+msgid "Target endpoint or channel"
+msgstr "Endpoint hoặc kênh đích"
+
+#. module: workflow
+#: field, label
+msgid "Template"
+msgstr "Mẫu in"
+
+#. module: workflow
+#: view
+msgid "This built-in action does not require extra inputs beyond the shared execution settings."
+msgstr "Hành động tích hợp sẵn này không cần thêm đầu vào nào ngoài các thiết lập thực thi chung."
+
+#. module: workflow
+#: field
+msgid "Timeout Seconds"
+msgstr "Thời gian chờ (giây)"
+
+#. module: workflow
+#: field
+msgid "To Step"
+msgstr "Đến bước"
+
+#. module: workflow
+#: view
+msgid "Transform"
+msgstr "Chuyển đổi"
+
+#. module: workflow
+#: label
+msgid "Transform Data"
+msgstr "Chuyển đổi dữ liệu"
+
+#. module: workflow
+#: label
+msgid "Trigger Domain"
+msgstr "Miền kích hoạt"
+
+#. module: workflow
+#: field, view
+msgid "Trigger Type"
+msgstr "Loại trình kích hoạt"
+
+#. module: workflow
+#: label
+msgid "Update"
+msgstr "Cập nhật"
+
+#. module: workflow
+#: label
+msgid "Upsert"
+msgstr "Upsert"
+
+#. module: workflow
+#: label
+msgid "Use Dedupe"
+msgstr "Dùng khử trùng lặp"
+
+#. module: workflow
+#: view
+msgid "Visual canvas editor for the workflow action chain. Save from inside the canvas to rebuild the action sequence and persist layout metadata."
+msgstr "Trình chỉnh sửa canvas trực quan cho chuỗi hành động của quy trình. Lưu từ bên trong canvas để dựng lại chuỗi hành động và lưu siêu dữ liệu bố cục."
+
+#. module: workflow
+#: view
+msgid "Waiting Retry"
+msgstr "Chờ thử lại"
+
+#. module: workflow
+#: label
+msgid "Webhook"
+msgstr "Webhook"
+
+#. module: workflow
+#: label
+msgid "Webhook Path"
+msgstr "Đường dẫn webhook"
+
+#. module: workflow
+#: action, label, menu, view
+msgid "Workflow Action"
+msgstr "Hành động quy trình"
+
+#. module: workflow
+#: label, view
+msgid "Workflow Action Catalog"
+msgstr "Danh mục hành động quy trình"
+
+#. module: workflow
+#: view
+msgid "Workflow Actions"
+msgstr "Hành động quy trình"
+
+#. module: workflow
+#: action, menu
+msgid "Workflow Canvas"
+msgstr "Canvas quy trình"
+
+#. module: workflow
+#: label
+msgid "Workflow Credential"
+msgstr "Thông tin xác thực quy trình"
+
+#. module: workflow
+#: label
+msgid "Workflow Edge"
+msgstr "Cạnh quy trình"
+
+#. module: workflow
+#: view
+msgid "Workflow Runs"
+msgstr "Lượt chạy quy trình"
+
+#. module: workflow
+#: label
+msgid "Workflow Trigger"
+msgstr "Trình kích hoạt quy trình"
+
+#. module: workflow
+#: view
+msgid "Workflow execution order is defined by the linked base.workflow.action records and their sequence values."
+msgstr "Thứ tự thực thi quy trình được xác định bởi các bản ghi base.workflow.action liên kết và giá trị thứ tự của chúng."
+
+#. module: workflow
+#: view
+msgid "Workflow name"
+msgstr "Tên quy trình"
+
+#. module: workflow
+#: view
+msgid "Workflow run name"
+msgstr "Tên lượt chạy quy trình"
+
+#. module: workflow
+#: view
+msgid "Workflows"
+msgstr "Quy trình"
+
+#. module: workflow
+#: label
+msgid "Yes Label"
+msgstr "Nhãn Có"
+
+#. module: workflow
+#: label
+msgid "TCP"
+msgstr "TCP"
+
+#. module: workflow
+#: label
+msgid "Port"
+msgstr "Cổng"
+
+#. module: workflow
+#: label
+msgid "Framing"
+msgstr "Cách đóng khung"
+
+#. module: workflow
+#: label
+msgid "Length Includes Header"
+msgstr "Độ dài đã gồm phần đầu"
+
+#. module: workflow
+#: label
+msgid "TLS"
+msgstr "TLS"
+
+#. module: workflow
+#: label
+msgid "Reply Timeout (ms)"
+msgstr "Thời gian chờ phản hồi (ms)"
+
+#. module: workflow
+#: label
+msgid "2-byte BCD length"
+msgstr "Độ dài BCD 2 byte"
+
+#. module: workflow
+#: label
+msgid "2-byte binary length"
+msgstr "Độ dài nhị phân 2 byte"
+
+#. module: workflow
+#: label
+msgid "STX ... ETX"
+msgstr "STX ... ETX"
+
+#. module: workflow
+#: label
+msgid "4-digit ASCII length"
+msgstr "Độ dài ASCII 4 chữ số"
+
+#. module: workflow
+#: label
+msgid "None (plain TCP)"
+msgstr "Không (TCP thuần)"
+
+#. module: workflow
+#: label
+msgid "Mutual TLS (client certificate)"
+msgstr "TLS hai chiều (chứng chỉ máy khách)"
+
+#. module: workflow
+#: field
+msgid "Revision"
+msgstr "Phiên bản lưu"
+
+#. module: workflow
+#: field
+msgid "Max Run Seconds"
+msgstr "Thời gian chạy tối đa (giây)"
+
+#. module: workflow
+#: field
+msgid "Max Concurrent Runs"
+msgstr "Số lượt chạy đồng thời tối đa"
+
+#. module: workflow
+#: field
+msgid "Replay Of"
+msgstr "Chạy lại từ"
+
+#. module: workflow
+#: field
+msgid "Cancel Requested"
+msgstr "Đã yêu cầu hủy"
+
+#. module: workflow
+#: view
+msgid "Run Control"
+msgstr "Kiểm soát lượt chạy"
+
+#. module: workflow
+#: field
+msgid "Draft"
+msgstr "Bản nháp"
+
+#. module: workflow
+#: field
+msgid "Published"
+msgstr "Đã xuất bản"
+
+#. module: workflow
+#: field
+msgid "Published Version"
+msgstr "Phiên bản đã xuất bản"
+
+#. module: workflow
+#: field
+msgid "Published At"
+msgstr "Xuất bản lúc"
+
+#. module: workflow
+#: field
+msgid "Published Snapshot"
+msgstr "Ảnh chụp bản xuất bản"
+
+#. module: workflow
+#: model
+msgid "Workflow Version"
+msgstr "Phiên bản quy trình"
+
+#. module: workflow
+#: field
+msgid "Snapshot"
+msgstr "Ảnh chụp"
+
+#. module: workflow
+#: view
+msgid "Publishing"
+msgstr "Xuất bản"
+
+#. module: workflow
+#: field
+msgid "Is Template"
+msgstr "Là mẫu"
+
+#. module: workflow
+#: field
+msgid "Dry Run"
+msgstr "Chạy thử không tác động"
+
+#. module: workflow
+#: view
+msgid "Workflow Credentials"
+msgstr "Thông tin xác thực quy trình"
+
+#. module: workflow
+#: view
+msgid "Credential reference name"
+msgstr "Tên tham chiếu thông tin xác thực"
+
+#. module: workflow
+#: view
+msgid "Workflow Edges"
+msgstr "Cạnh quy trình"
+
+#. module: workflow
+#: view
+msgid "Connection"
+msgstr "Kết nối"
+
+#. module: workflow
+#: view
+msgid "Routing"
+msgstr "Định tuyến"
+
+#. module: workflow
+#: view
+msgid "Workflow Templates"
+msgstr "Mẫu quy trình"
+
+
+#. module: workflow
+#: view
+msgid "Create an editable copy of this template?"
+msgstr "Tạo bản sao có thể chỉnh sửa từ mẫu này?"
+
+#. module: workflow
+#: view
+msgid "Workflow Triggers"
+msgstr "Trigger quy trình"
+
+#. module: workflow
+#: view
+msgid "MQTT"
+msgstr "MQTT"
+
+#. module: workflow
+#: view
+msgid "Workflow Versions"
+msgstr "Phiên bản quy trình"
+
+#. module: workflow
+#: view
+msgid "Replay"
+msgstr "Chạy lại"
+
+#. module: workflow
+#: view
+msgid "Start a new run that replays this one?"
+msgstr "Bắt đầu lần chạy mới phát lại lần chạy này?"
+
+#. module: workflow
+#: view
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: workflow
+#: view
+msgid "Cancel this run?"
+msgstr "Hủy lần chạy này?"
+
+#. module: workflow
+#: view
+msgid "Kafka"
+msgstr "Kafka"
+
+#: label
+msgid "HMAC Verify"
+msgstr "Xác minh HMAC"
+
+#. module: workflow
+#: label
+msgid "Algorithm"
+msgstr "Thuật toán"
+
+#. module: workflow
+#: label
+msgid "HMAC-SHA256"
+msgstr "HMAC-SHA256"
+
+#. module: workflow
+#: label
+msgid "HMAC-SHA512"
+msgstr "HMAC-SHA512"
+
+#. module: workflow
+#: label
+msgid "Signature Field"
+msgstr "Trường chữ ký"
+
+#. module: workflow
+#: label
+msgid "Message Field"
+msgstr "Trường thông điệp"
+
+#. module: workflow
+#: label
+msgid "Encoding"
+msgstr "Mã hóa ký tự"
+
+#. module: workflow
+#: label
+msgid "Hex"
+msgstr "Hex"
+
+#. module: workflow
+#: label
+msgid "Base64"
+msgstr "Base64"
+
+#. module: workflow
+#: label
+msgid "Call Workflow"
+msgstr "Gọi quy trình"
+
+#. module: workflow
+#: label
+msgid "Target Workflow"
+msgstr "Quy trình đích"
+
+#. module: workflow
+#: label
+msgid "Wait"
+msgstr "Chờ"
+
+#. module: workflow
+#: label
+msgid "Wait For Result"
+msgstr "Chờ kết quả"
+
+#. module: workflow
+#: label
+msgid "Payload Mapping"
+msgstr "Ánh xạ payload"
+
+#. module: workflow
+#: label
+msgid "Pass Through"
+msgstr "Chuyển nguyên"
+
+#. module: workflow
+#: field
+msgid "Parent Run"
+msgstr "Lần chạy cha"
+
+#. module: workflow
+#: label
+msgid "For Each"
+msgstr "Lặp từng phần tử"
+
+#. module: workflow
+#: label
+msgid "Items Path"
+msgstr "Đường dẫn danh sách"
+
+#. module: workflow
+#: label
+msgid "Max Concurrency"
+msgstr "Số chạy đồng thời tối đa"
+
+#. module: workflow
+#: label
+msgid "Max Items"
+msgstr "Số phần tử tối đa"
+
+#. module: workflow
+#: label
+msgid "Fail Fast"
+msgstr "Dừng ngay khi lỗi"
+
+#. module: workflow
+#: label
+msgid "Wait For Approval"
+msgstr "Chờ phê duyệt"
+
+#. module: workflow
+#: label
+msgid "Expires In Seconds"
+msgstr "Hết hạn sau (giây)"
+
+#. module: workflow
+#: field
+msgid "Resume Token Hash"
+msgstr "Mã băm token tiếp tục"
+
+#. module: workflow
+#: field
+msgid "Approval Expires At"
+msgstr "Hạn phê duyệt"
+
+#. module: workflow
+#: field
+msgid "Started By User ID"
+msgstr "ID người khởi chạy"
+
+#. module: workflow
+#: field
+msgid "ID of the user whose identity started this run. 0 means a system trigger or an anonymous caller."
+msgstr "ID của người dùng có danh tính đã khởi chạy lần chạy này. 0 nghĩa là trình kích hoạt hệ thống hoặc người gọi ẩn danh."
+
+#. module: workflow
+#: label
+msgid "Approver Group"
+msgstr "Nhóm phê duyệt"
+
+#. module: workflow
+#: field
+msgid "Approval Group"
+msgstr "Nhóm phê duyệt"
+
+#. module: workflow
+#: field
+msgid "Group whose members with the workflow operator role may approve or reject this run's approval wait without the resume token."
+msgstr "Nhóm có các thành viên giữ vai trò vận hành workflow được phê duyệt hoặc từ chối lần chờ phê duyệt của lần chạy này mà không cần token tiếp tục."

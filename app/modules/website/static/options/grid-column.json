@@ -1,0 +1,325 @@
+{
+  "sequence": 60,
+  "selector": ".row > [class*=\"col\"]",
+  "groups": [
+    {
+      "label": "Column width",
+      "controls": [
+        {
+          "id": "col-xs",
+          "label": "Mobile",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "1/12",
+              "class": "col-1"
+            },
+            {
+              "label": "2/12",
+              "class": "col-2"
+            },
+            {
+              "label": "3/12",
+              "class": "col-3"
+            },
+            {
+              "label": "4/12",
+              "class": "col-4"
+            },
+            {
+              "label": "5/12",
+              "class": "col-5"
+            },
+            {
+              "label": "6/12",
+              "class": "col-6"
+            },
+            {
+              "label": "7/12",
+              "class": "col-7"
+            },
+            {
+              "label": "8/12",
+              "class": "col-8"
+            },
+            {
+              "label": "9/12",
+              "class": "col-9"
+            },
+            {
+              "label": "10/12",
+              "class": "col-10"
+            },
+            {
+              "label": "11/12",
+              "class": "col-11"
+            },
+            {
+              "label": "12/12",
+              "class": "col-12"
+            }
+          ]
+        },
+        {
+          "id": "col-md",
+          "label": "Tablet and up",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Auto",
+              "class": "col-md"
+            },
+            {
+              "label": "1/12",
+              "class": "col-md-1"
+            },
+            {
+              "label": "2/12",
+              "class": "col-md-2"
+            },
+            {
+              "label": "3/12",
+              "class": "col-md-3"
+            },
+            {
+              "label": "4/12",
+              "class": "col-md-4"
+            },
+            {
+              "label": "5/12",
+              "class": "col-md-5"
+            },
+            {
+              "label": "6/12",
+              "class": "col-md-6"
+            },
+            {
+              "label": "7/12",
+              "class": "col-md-7"
+            },
+            {
+              "label": "8/12",
+              "class": "col-md-8"
+            },
+            {
+              "label": "9/12",
+              "class": "col-md-9"
+            },
+            {
+              "label": "10/12",
+              "class": "col-md-10"
+            },
+            {
+              "label": "11/12",
+              "class": "col-md-11"
+            },
+            {
+              "label": "12/12",
+              "class": "col-md-12"
+            }
+          ]
+        },
+        {
+          "id": "col-lg",
+          "label": "Desktop and up",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Auto",
+              "class": "col-lg"
+            },
+            {
+              "label": "1/12",
+              "class": "col-lg-1"
+            },
+            {
+              "label": "2/12",
+              "class": "col-lg-2"
+            },
+            {
+              "label": "3/12",
+              "class": "col-lg-3"
+            },
+            {
+              "label": "4/12",
+              "class": "col-lg-4"
+            },
+            {
+              "label": "5/12",
+              "class": "col-lg-5"
+            },
+            {
+              "label": "6/12",
+              "class": "col-lg-6"
+            },
+            {
+              "label": "7/12",
+              "class": "col-lg-7"
+            },
+            {
+              "label": "8/12",
+              "class": "col-lg-8"
+            },
+            {
+              "label": "9/12",
+              "class": "col-lg-9"
+            },
+            {
+              "label": "10/12",
+              "class": "col-lg-10"
+            },
+            {
+              "label": "11/12",
+              "class": "col-lg-11"
+            },
+            {
+              "label": "12/12",
+              "class": "col-lg-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Column position",
+      "controls": [
+        {
+          "id": "col-offset",
+          "label": "Offset (tablet and up)",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "1/12",
+              "class": "offset-md-1"
+            },
+            {
+              "label": "2/12",
+              "class": "offset-md-2"
+            },
+            {
+              "label": "3/12",
+              "class": "offset-md-3"
+            },
+            {
+              "label": "4/12",
+              "class": "offset-md-4"
+            },
+            {
+              "label": "5/12",
+              "class": "offset-md-5"
+            },
+            {
+              "label": "6/12",
+              "class": "offset-md-6"
+            },
+            {
+              "label": "7/12",
+              "class": "offset-md-7"
+            },
+            {
+              "label": "8/12",
+              "class": "offset-md-8"
+            },
+            {
+              "label": "9/12",
+              "class": "offset-md-9"
+            },
+            {
+              "label": "10/12",
+              "class": "offset-md-10"
+            },
+            {
+              "label": "11/12",
+              "class": "offset-md-11"
+            }
+          ]
+        },
+        {
+          "id": "col-order",
+          "label": "Order (tablet and up)",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "First",
+              "class": "order-md-first"
+            },
+            {
+              "label": "Last",
+              "class": "order-md-last"
+            }
+          ]
+        },
+        {
+          "id": "col-self",
+          "label": "Vertical alignment",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Top",
+              "class": "align-self-start"
+            },
+            {
+              "label": "Center",
+              "class": "align-self-center"
+            },
+            {
+              "label": "Bottom",
+              "class": "align-self-end"
+            }
+          ]
+        },
+        {
+          "id": "col-pad",
+          "label": "Inner spacing",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "None",
+              "class": "p-0"
+            },
+            {
+              "label": "Small",
+              "class": "p-2"
+            },
+            {
+              "label": "Medium",
+              "class": "p-3"
+            },
+            {
+              "label": "Large",
+              "class": "p-4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

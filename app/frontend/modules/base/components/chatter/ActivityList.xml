@@ -1,0 +1,16 @@
+<templates xml:space="preserve">
+  <t t-name="ActivityList">
+    <div class="basehub-chatter-activities">
+      <t t-if="props.activities.length > 0">
+        <ul class="basehub-chatter-activity-list">
+          <t t-foreach="props.activities" t-as="activity" t-key="activity.id">
+            <ActivityItem activity="activity" onDone="() => props.onChanged()"/>
+          </t>
+        </ul>
+      </t>
+      <ScheduleActivityDialog open="props.scheduleOpen" onOpenChange="(open) => props.onScheduleOpenChange(open)"
+                              modelName="props.modelName" recordId="props.recordId" currentUserId="props.currentUserId"
+                              onScheduled="() => props.onChanged()"/>
+    </div>
+  </t>
+</templates>

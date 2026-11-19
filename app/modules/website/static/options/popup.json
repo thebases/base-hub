@@ -1,0 +1,23 @@
+{
+  "sequence": 51,
+  "selector": "[data-bh-popup]",
+  "groups": [
+    {
+      "label": "Popup",
+      "controls": [
+        {
+          "id": "popup-id",
+          "label": "Popup id (remembered when dismissed)",
+          "type": "text",
+          "attr": "data-bh-popup"
+        },
+        {
+          "id": "popup-delay",
+          "label": "Show after (seconds)",
+          "type": "text",
+          "attr": "data-bh-popup-delay"
+        }
+      ]
+    }
+  ]
+}

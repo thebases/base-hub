@@ -1,0 +1,44 @@
+<templates xml:space="preserve">
+  <t t-name="TemplatesDialog">
+    <Dialog open="props.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent className="'workflow-templates-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('New workflow from a template')"/></DialogTitle>
+          <DialogDescription><t t-esc="t('The template is copied into a new draft workflow; its Kafka, MQTT, model and TCP triggers start switched off.')"/></DialogDescription>
+        </DialogHeader>
+
+        <div class="d-flex flex-column gap-3 pt-2 workflow-templates-body">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+          <Field>
+            <Input label="t('New workflow name (optional)')" value="state.name" disabled="state.usingID > 0"
+                   onInput="(value) => this.state.name = value"/>
+          </Field>
+          <div t-if="state.loading" class="d-flex align-items-center gap-2">
+            <Spinner label="t('Loading')"/>
+            <span t-esc="t('Loading templates…')"/>
+          </div>
+          <p t-elif="!state.templates.length" class="text-body-secondary mb-0" t-esc="t('No workflow template is available.')"/>
+          <div t-else="" class="d-flex flex-column gap-2">
+            <div t-foreach="state.templates" t-as="item" t-key="item.id" class="workflow-template-row">
+              <div class="d-flex flex-column gap-1" style="min-width: 0">
+                <span class="fw-semibold text-break" t-esc="item.name"/>
+                <span t-if="item.description" class="small text-body-secondary" t-esc="item.description"/>
+                <div class="d-flex flex-wrap gap-1">
+                  <Badge variant="'secondary'" label="t('{count} steps', { count: item.step_count or 0 })"/>
+                  <Badge variant="'info'" label="this.triggerTypesText(item)"/>
+                </div>
+              </div>
+              <Button variant="'default'" size="'sm'" disabled="state.usingID > 0" onClick="() => this.use(item)">
+                <t t-esc="state.usingID === item.id ? t('Creating…') : t('Use template')"/>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <DialogFooter className="'d-flex justify-content-end gap-2'">
+          <Button variant="'outline'" disabled="state.usingID > 0" onClick="() => props.onOpenChange(false)" label="t('Close')"/>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

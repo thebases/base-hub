@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_module_category_list" model="ui.view">
+      <field name="name">sys.module.category.list</field>
+      <field name="model">sys.module.category</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Module Categories">
+          <field name="name"/>
+          <field name="parent_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_module_category_form" model="ui.view">
+      <field name="name">sys.module.category.form</field>
+      <field name="model">sys.module.category</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Module Category">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="parent_id"/>
+              </group>
+              <group>
+                <field name="child_ids"/>
+                <field name="module_ids"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_module_category_search" model="ui.view">
+      <field name="name">sys.module.category.search</field>
+      <field name="model">sys.module.category</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Module Categories">
+          <field name="name"/>
+          <field name="parent_id"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="view_sys_module_module_list" model="ui.view">
+      <field name="name">sys.module.module.list</field>
+      <field name="model">sys.module.module</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Modules">
+          <toolbar>
+            <button string="Scan" type="object" name="action_scan" class="btn-secondary" icon="fa-refresh"/>
+          </toolbar>
+          <field name="name"/>
+          <field name="version"/>
+          <field name="category"/>
+          <field name="state"/>
+          <field name="installable"/>
+          <field name="auto_install"/>
+          <action>
+            <button string="Install" type="object" name="action_install" class="btn-secondary" reload="true" invisible="state == 'installed' or category == 'System'"/>
+            <button string="Reinit" type="object" name="action_reinit" class="btn-secondary" reload="true" invisible="state != 'installed'"/>
+            <button string="Uninstall" type="object" name="action_uninstall" class="btn-destructive" reload="true" confirm="This deletes all data seeded by this module. This cannot be undone." invisible="state != 'installed' or name == 'base' or name.startsWith('base-')"/>
+          </action>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_module_module_form" model="ui.view">
+      <field name="name">sys.module.module.form</field>
+      <field name="model">sys.module.module</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Module">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="version"/>
+                <field name="category"/>
+                <field name="category_id"/>
+              </group>
+              <group>
+                <field name="installable"/>
+                <field name="auto_install"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Frontend Widgets" name="frontend_widgets">
+                <field name="frontend_widgets"/>
+              </page>
+              <page string="Static Assets" name="static_assets">
+                <group>
+                  <field name="static_js_assets"/>
+                  <field name="static_css_assets"/>
+                  <field name="static_html_assets"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_module_module_search" model="ui.view">
+      <field name="name">sys.module.module.search</field>
+      <field name="model">sys.module.module</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Modules">
+          <field name="name"/>
+          <field name="version"/>
+          <field name="category"/>
+          <filter string="Installed" name="installed" domain="[('state', '=', 'installed')]"/>
+          <filter string="Not Installed" name="not_installed" domain="[('state', '=', 'not_installed')]"/>
+          <group>
+            <filter string="Category" name="group_by_category" domain="[]" context="{'group_by': 'category'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

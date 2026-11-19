@@ -1,0 +1,146 @@
+/*
+ * Base stylesheet for published Base HUB websites.
+ *
+ * Publishing copies this file to <deploy_path>/styles.css and then appends the
+ * site's theme-specific CSS (tbl.website_site.theme -> :root overrides, headings,
+ * buttons, inputs...) to the copy. Edit rules that are the same for every site
+ * here; keep per-site values in themeCSSForWebsiteSite.
+ *
+ * Selectors use :root[data-bs-theme="dark"] (higher specificity than the
+ * appended :root overrides) so the dark palette wins regardless of order.
+ */
+:root[data-bs-theme="dark"] {
+  --bs-body-bg: #212529;
+  --bs-body-color: #dee2e6;
+  --bs-tertiary-color: rgba(222, 226, 230, 0.5);
+  --bs-link-color: #6ea8fe;
+  --bs-primary: #3d8bfd;
+  --bs-secondary: #adb5bd;
+}
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select { background-color: var(--bs-body-bg); }
+
+/* Behaviors (static/js/behaviors): start states only apply once the script has run (html.bh-js). */
+html.bh-js [data-bh-animate]:not(.bh-in) { opacity: 0; }
+html.bh-js [data-bh-animate="slide-up"]:not(.bh-in) { transform: translateY(24px); }
+html.bh-js [data-bh-animate="zoom-in"]:not(.bh-in) { transform: scale(0.94); }
+[data-bh-animate] { transition: opacity .6s ease, transform .6s ease; }
+[data-bh-parallax] { background-size: cover; background-attachment: scroll; }
+#bh-lightbox { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, .85); cursor: zoom-out; }
+#bh-lightbox img { max-width: 92vw; max-height: 92vh; }
+[data-bh-popup] { display: none; }
+[data-bh-popup].bh-popup-open { display: block; }
+[data-bh-popup="cookie"] { position: fixed; left: 0; right: 0; bottom: 0; z-index: 1900; }
+[data-bh-popup]:not([data-bh-popup="cookie"]) { position: fixed; z-index: 1900; right: 1rem; bottom: 1rem; max-width: 22rem; }
+
+/* Header/footer templates (static/chrome). Options write bh-* classes on #site-header / #site-footer; behavior: behaviors/chrome.js. */
+.bh-container-small { width: 100%; max-width: 720px; margin-inline: auto; padding-inline: calc(var(--bs-gutter-x, 1.5rem) * .5); }
+#site-header.bh-effect-standard, #site-header.bh-effect-fixed, #site-header.bh-effect-disappears, #site-header.bh-effect-fade-out { position: sticky; top: 0; z-index: 1030; transition: transform .3s ease, opacity .2s linear; }
+#site-header.bh-effect-fixed { transform: none; }
+#site-header.bh-header-hidden { transform: translateY(-100%); }
+#site-header.bh-header-sidebar { position: static; transform: none; opacity: 1 !important; }
+/* Link styles */
+.bh-header #site-nav-menu .nav-link { transition: background-color .15s, color .15s, border-color .15s; }
+.bh-links-fill #site-nav-menu .nav-link { border-radius: .375rem; }
+.bh-links-fill #site-nav-menu .nav-link:hover, .bh-links-fill #site-nav-menu .nav-link.active { background: var(--bs-primary); color: #fff; }
+.bh-links-outline #site-nav-menu .nav-link { border: 1px solid transparent; border-radius: .375rem; }
+.bh-links-outline #site-nav-menu .nav-link:hover, .bh-links-outline #site-nav-menu .nav-link.active { border-color: var(--bs-primary); }
+.bh-links-pills #site-nav-menu .nav-link { border-radius: 50rem; }
+.bh-links-pills #site-nav-menu .nav-link:hover, .bh-links-pills #site-nav-menu .nav-link.active { background: var(--bs-tertiary-bg); }
+.bh-links-block #site-nav-menu .nav-link { padding-block: 1rem; border-radius: 0; }
+.bh-links-block #site-nav-menu .nav-link:hover, .bh-links-block #site-nav-menu .nav-link.active { background: var(--bs-tertiary-bg); }
+.bh-links-border-bottom #site-nav-menu .nav-link { border-bottom: 2px solid transparent; }
+.bh-links-border-bottom #site-nav-menu .nav-link:hover, .bh-links-border-bottom #site-nav-menu .nav-link.active { border-bottom-color: var(--bs-primary); }
+.bh-links-underline #site-nav-menu .nav-link:hover, .bh-links-underline #site-nav-menu .nav-link.active { text-decoration: underline; text-underline-offset: .35em; }
+.bh-links-bold #site-nav-menu .nav-link { font-weight: 700; }
+/* Accent color of dropdown items */
+.bh-accent-primary .dropdown-menu { --bs-dropdown-link-hover-bg: var(--bs-primary-bg-subtle); --bs-dropdown-link-active-bg: var(--bs-primary); }
+.bh-accent-secondary .dropdown-menu { --bs-dropdown-link-hover-bg: var(--bs-secondary-bg-subtle); --bs-dropdown-link-active-bg: var(--bs-secondary); }
+/* Sub menus open on hover (large screens only: touch devices keep click) */
+@media (min-width: 992px) {
+  .bh-hover-dropdown .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; }
+  .bh-header-sidebar { position: fixed !important; inset: 0 auto 0 0; width: 16rem; overflow-y: auto; z-index: 1030; }
+  .bh-header-sidebar.bh-pos-right { inset: 0 0 0 auto; }
+  .bh-header-sidebar.bh-sidebar-sm { width: 12rem; }
+  .bh-header-sidebar.bh-sidebar-lg { width: 20rem; }
+  body:has(.bh-header-sidebar) { padding-left: 16rem; }
+  body:has(.bh-header-sidebar.bh-sidebar-sm) { padding-left: 12rem; }
+  body:has(.bh-header-sidebar.bh-sidebar-lg) { padding-left: 20rem; }
+  body:has(.bh-header-sidebar.bh-pos-right) { padding-left: 0; padding-right: 16rem; }
+  body:has(.bh-header-sidebar.bh-pos-right.bh-sidebar-sm) { padding-right: 12rem; padding-left: 0; }
+  body:has(.bh-header-sidebar.bh-pos-right.bh-sidebar-lg) { padding-right: 20rem; padding-left: 0; }
+}
+/* Mobile menu alignment */
+@media (max-width: 991.98px) {
+  .bh-mobile-center #site-nav-menu, .bh-mobile-center .navbar-collapse { text-align: center; }
+  .bh-mobile-right #site-nav-menu, .bh-mobile-right .navbar-collapse { text-align: end; }
+  .bh-toggler-left .navbar-toggler { order: -1; margin-right: auto; }
+}
+/* Hamburger template: the panel is a full-width drop-down on every screen size. */
+.bh-header-hamburger .bh-hamburger-panel { padding-top: .75rem; }
+.bh-header-hamburger.bh-pos-left .navbar-toggler { order: -1; margin-left: 0; margin-right: .5rem; }
+.bh-header-hamburger.bh-pos-left .bh-header-tools { margin-left: auto; }
+/* Footer: slide-out reveals the footer from behind the page, scroll-top button */
+#site-footer.bh-footer-slideout { position: sticky; bottom: 0; z-index: 0; }
+body:has(#site-footer.bh-footer-slideout) :is(main, #site-header) { position: relative; z-index: 1; background: var(--bs-body-bg); }
+body:has(#site-footer.bh-footer-slideout-shadow) main { box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+.bh-footer-scrolltop { position: relative; margin-top: -1.5rem; margin-bottom: .75rem; }
+/* Owl page wrapper (published SPA): a short page still pushes the footer to the bottom of the viewport. */
+.owl-page { display: flex; flex-direction: column; min-height: 100svh; }
+
+:root {
+  --bs-primary: #0d1117;
+  --bs-secondary: #f0ad4e;
+  --bs-tertiary-color: #ffffff;
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #0d1117;
+  --bs-link-color: #0d1117;
+  --bs-success: #28a745;
+  --bs-info: #17a2b8;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-700: #495057;
+  --bs-gray-900: #212529;
+  --bs-body-font-family: Inter, system-ui, sans-serif;
+  --bs-body-font-size: 16px;
+  --bs-body-line-height: 1.5;
+  --bs-border-radius: 6.4px;
+}
+body { margin-top: 0px; }
+p { margin-top: 0px; margin-bottom: 16px; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  line-height: 1.2;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+h1 { font-size: calc(48px * 1); }
+h2 { font-size: calc(48px * 0.83); }
+h3 { font-size: calc(48px * 0.7); }
+h4 { font-size: calc(48px * 0.58); }
+h5 { font-size: calc(48px * 0.5); }
+h6 { font-size: calc(48px * 0.42); }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+.btn {
+  --bs-btn-font-family: Inter, system-ui, sans-serif;
+  --bs-btn-padding-y: 6px;
+  --bs-btn-padding-x: 16px;
+  --bs-btn-font-size: 16px;
+  --bs-btn-border-radius: 6.4px;
+}
+.btn-primary { --bs-btn-bg: var(--bs-primary); --bs-btn-color: #fff; --bs-btn-border-color: var(--bs-primary); }
+.btn-secondary { --bs-btn-bg: var(--bs-secondary); --bs-btn-color: #fff; --bs-btn-border-color: var(--bs-secondary); }
+
+.form-control, .form-select {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 6.4px;
+  background-color: #ffffff;
+}
+
+

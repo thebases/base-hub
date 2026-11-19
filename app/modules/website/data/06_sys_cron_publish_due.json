@@ -1,0 +1,16 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "website.cron_publish_due_pages",
+    "force_update": true,
+    "data": {
+      "name": "Website Publish Due Pages",
+      "handler": "website.publish_due_pages",
+      "interval_seconds": 60,
+      "max_failures": 5,
+      "active": true,
+      "payload": {}
+    }
+  }
+]

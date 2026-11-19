@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_tbl_partner_list" model="ui.view">
+    <field name="name">tbl.partner.list</field>
+    <field name="model">tbl.partner</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Partners" sample="1" multi_edit="1">
+        <field name="image_1920" widget="contact_image"/>
+        <field name="name"/>
+        <field name="complete_name"/>
+        <field name="type" optional="show"/>
+        <field name="company_id" optional="show"/>
+        <field name="parent_id" optional="hide"/>
+        <field name="country_id" optional="hide"/>
+        <field name="state_id" optional="hide"/>
+        <field name="active" optional="hide"/>
+        <field name="customerstatus" optional="hide"/>
+        <field name="signupstatus" optional="hide"/>
+        <field name="created_at" optional="hide"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_tbl_partner_form" model="ui.view">
+    <field name="name">tbl.partner.form</field>
+    <field name="model">tbl.partner</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Partner">
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active" />
+          <div class="d-flex flex-column flex-md-row align-items-start gap-4" colspan="8">
+            
+            <main class="d-flex flex-fill flex-column gap-2">
+
+              <h1>
+                <field name="name" nolabel="1" />
+              </h1>
+              <span class="small text-muted">
+                <label for="complete_name">Full name</label>
+                <field name="complete_name" nolabel="1" />
+              </span>
+             
+            </main>
+            <div class="contact-image">
+            <field name="image_1920" widget="contact_image" nolabel="1" />
+            </div>
+          </div>
+          <group>
+            <group string="Business">
+              <field name="company_type" />
+              <field name="type" />
+              <field name="function" invisible="1" />
+              <field name="vat" />
+              <field name="company_registry" />
+              <field name="company_id" />
+            </group>
+            <group string="Profile">
+              <widget name="address_view" label="Address" street="street" street2="street2" city="city" ward="ward_id" state="state_id" country="country_id" invisible="not context.get('readonly')" />
+              <div class="d-flex flex-column gap-2" invisible="context.get('readonly')">
+                <field name="street" />
+                <field name="street2" />
+                <field name="country_id" />
+                <field name="state_id" domain="[('country_id', '=', country_id)]" />
+                <field name="ward_id" domain="[('state_id', '=', state_id)]" />
+                <field name="city" invisible="country_id == 241" />
+                <field name="zip" invisible="country_id == 241" />
+              </div>
+              <field name="website" widget="url" />
+              <field name="email" />
+              <field name="phone" widget="phone" />
+              <field name="mobile" widget="phone" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Relations" name="relations">
+              <field name="parent_id" />
+              <field name="child_ids" />
+            </page>
+            <page string="Bank Account" name="bank_account">
+              <field name="bank_account_ids" />
+            </page>
+            <page string="User" name="relations">
+              <field name="user_id" />
+              <field name="user_ids" />
+            </page>
+            <page string="Notes" name="notes">
+              <field name="comment" />
+              <field name="description" />
+              <field name="lang" />
+              <field name="language" />
+              <field name="tz" />
+              <field name="ref" />
+              <field name="prefix" />
+              <field name="devicelimit" />
+              <field name="accounttype" />
+              <field name="customerstatus" />
+              <field name="signupstatus" />
+            </page>
+            <page string="Attachments" name="attachments">
+              <attachment multi="1" />
+            </page>
+            <page string="Audit" name="audit">
+              <field name="created_at" />
+              <field name="updated_at" />
+              <field name="registrationtime" />
+              <field name="lastlogintime" />
+              <field name="expirytime" />
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_tbl_partner_search" model="ui.view">
+    <field name="name">tbl.partner.search</field>
+    <field name="model">tbl.partner</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Partners">
+        <field name="name"/>
+        <field name="complete_name"/>
+        <field name="email"/>
+        <field name="type"/>
+        <field name="company_id"/>
+        <field name="parent_id"/>
+        <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+        <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+        <filter string="Is Company" name="is_company_true" domain="[('is_company', '=', True)]"/>
+        <filter string="Not Is Company" name="is_company_false" domain="[('is_company', '=', False)]"/>
+        <group>
+          <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+          <filter string="Company ID" name="group_by_company_id" domain="[]" context="{'group_by': 'company_id'}"/>
+          <filter string="Country ID" name="group_by_country_id" domain="[]" context="{'group_by': 'country_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

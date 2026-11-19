@@ -1,0 +1,44 @@
+[
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "workflow.automation.action.resume_due_runs",
+    "force_update": false,
+    "data": {
+      "name": "Workflow: Resume Due Runs",
+      "action_type": "go_handler",
+      "handler_key": "workflow.resume_due_runs",
+      "values": { "limit": 50 },
+      "description": "Resumes base.workflow.run rows waiting on a retry whose next attempt is due (SRS-F-015).",
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "workflow.automation.action.reap_stale_running",
+    "force_update": false,
+    "data": {
+      "name": "Workflow: Reap Stale Running Runs",
+      "action_type": "go_handler",
+      "handler_key": "workflow.reap_stale_running",
+      "values": { "limit": 50, "stale_after_seconds": 300 },
+      "description": "Reclaims base.workflow.run rows stranded at status=running by a dead worker or hung step handler.",
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "workflow.automation.action.sweep_outbound",
+    "force_update": false,
+    "data": {
+      "name": "Workflow: Sweep Outbound Deliveries",
+      "action_type": "go_handler",
+      "handler_key": "workflow.sweep_outbound",
+      "values": { "limit": 20 },
+      "description": "Sends queued notify deliveries the worker never sent, reclaims deliveries stuck at sending and retries due retryable_failed deliveries with exponential backoff (plan T53).",
+      "active": true
+    }
+  }
+]

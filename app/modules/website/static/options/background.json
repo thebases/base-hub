@@ -1,0 +1,74 @@
+{
+  "sequence": 20,
+  "selector": "[data-snippet], :is(#site-header, #site-footer, #site-header *, #site-footer *)",
+  "groups": [
+    {
+      "label": "Background",
+      "controls": [
+        {
+          "id": "bg",
+          "label": "Color",
+          "type": "select",
+          "values": [
+            {
+              "label": "None",
+              "class": ""
+            },
+            {
+              "label": "Light",
+              "class": "bg-light"
+            },
+            {
+              "label": "White",
+              "class": "bg-white"
+            },
+            {
+              "label": "Dark",
+              "class": "bg-dark text-white"
+            },
+            {
+              "label": "Primary",
+              "class": "bg-primary text-white"
+            },
+            {
+              "label": "Secondary",
+              "class": "bg-secondary text-white"
+            }
+          ]
+        },
+        {
+          "id": "bg-custom",
+          "label": "Custom color",
+          "type": "color",
+          "style": "background-color"
+        },
+        {
+          "id": "bg-image",
+          "label": "Image",
+          "type": "image",
+          "style": "background-image"
+        },
+        {
+          "id": "bg-fit",
+          "label": "Image fit",
+          "type": "select",
+          "style": "background-size",
+          "values": [
+            {
+              "label": "Default",
+              "value": ""
+            },
+            {
+              "label": "Cover",
+              "value": "cover"
+            },
+            {
+              "label": "Contain",
+              "value": "contain"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

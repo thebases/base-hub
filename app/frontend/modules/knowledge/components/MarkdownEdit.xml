@@ -1,0 +1,13 @@
+<templates xml:space="preserve">
+  <t t-name="MarkdownEdit">
+    <div id="markdown-editor" class="basehub-md-editor">
+      <TextEditor className="'basehub-md-editor-textarea'"
+                  content="state.html"
+                  placeholder="t('Write markdown…')"
+                  collaborative="collaborative"
+                  room="room"
+                  user="collaborationUser"
+                  onChange="handleTextEditorChange"/>
+    </div>
+  </t>
+</templates>

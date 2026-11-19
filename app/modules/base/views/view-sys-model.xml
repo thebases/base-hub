@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_sys_model_list" model="ui.view">
+    <field name="name">sys.model.list</field>
+    <field name="model">sys.model</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Models">
+        <field name="name"/>
+        <field name="label"/>
+        <field name="status"/>
+        <field name="storage_backend"/>
+        <field name="storage_name"/>
+        <action>
+          <button string="Create UI" type="object" name="create_ui" class="btn-secondary" invisible="not bid or status != 'PUBLISHED' or has_ui"/>
+          <button string="Publish" type="object" name="publish" class="btn-secondary" invisible="not bid or storage_name or status == 'PUBLISHING' or status == 'UNPUBLISHING'"/>
+          <button string="Unpublish" type="object" name="unpublish" class="btn-secondary" invisible="not bid or not storage_name or status == 'PUBLISHING' or status == 'UNPUBLISHING'"/>
+        </action>
+      </list>
+    </field>
+  </record>
+  <record id="view_sys_model_form" model="ui.view">
+    <field name="name">sys.model.form</field>
+    <field name="model">sys.model</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Model">
+        <sheet>
+          <group>
+            <group>
+              <field name="name" readonly="not bid"/>
+              <field name="bid"/>
+              <field name="label" readonly="not bid"/>
+              <field name="description" readonly="not bid"/>
+            </group>
+            <group>
+              <field name="storage_backend" readonly="not bid"/>
+              <field name="storage_name" readonly="not bid"/>
+              <field name="status" readonly="1"/>
+              <field name="has_ui" readonly="1"/>
+              <button string="Publish" type="object" name="publish" class="btn-secondary" invisible="not bid or storage_name or status == 'PUBLISHING' or status == 'UNPUBLISHING'"/>
+              <button string="Unpublish" type="object" name="unpublish" class="btn-secondary" invisible="not bid or not storage_name or status == 'PUBLISHING' or status == 'UNPUBLISHING'"/>
+              <button string="Create UI" type="object" name="create_ui" class="btn-secondary" invisible="not bid or status != 'PUBLISHED' or has_ui"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_sys_model_search" model="ui.view">
+    <field name="name">sys.model.search</field>
+    <field name="model">sys.model</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Models">
+        <field name="name"/>
+        <field name="label"/>
+        <field name="storage_backend"/>
+        <field name="storage_name"/>
+        <field name="status"/>
+        <group>
+          <filter string="Storage Backend" name="group_by_storage_backend" domain="[]" context="{'group_by': 'storage_backend'}"/>
+          <filter string="Status" name="group_by_status" domain="[]" context="{'group_by': 'status'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

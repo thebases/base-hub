@@ -1,0 +1,8 @@
+<templates xml:space="preserve">
+  <t t-name="NoContent">
+    <div t-attf-class="basehub-no-content {{props.className}}">
+      <Icon name="'inbox'" className="'basehub-no-content-icon'"/>
+      <span t-esc="props.label"/>
+    </div>
+  </t>
+</templates>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_role_list" model="ui.view">
+      <field name="name">tbl.project_role.list</field>
+      <field name="model">tbl.project_role</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Project Roles">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="color"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_role_form" model="ui.view">
+      <field name="name">tbl.project_role.form</field>
+      <field name="model">tbl.project_role</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Project Roles">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="color"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_role_search" model="ui.view">
+      <field name="name">tbl.project_role.search</field>
+      <field name="model">tbl.project_role</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Project Roles">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+</data>

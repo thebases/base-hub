@@ -1,0 +1,128 @@
+<templates xml:space="preserve">
+  <t t-name="ImportDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => this.onOpenChange(open)">
+      <DialogContent className="'basehub-widget-dialog__panel basehub-widget-dialog__panel--lg'">
+        <DialogHeader>
+          <div class="d-flex align-items-start gap-2">
+            <span class="d-inline-flex flex-shrink-0 align-items-center justify-content-center rounded-3 bg-warning-subtle text-warning-emphasis" style="width: 2rem; height: 2rem;">
+              <Icon name="'upload'"/>
+            </span>
+            <div style="min-width: 0;">
+              <DialogTitle><t t-esc="t('Import {title}', { title: props.title })"/></DialogTitle>
+              <p class="small text-body-secondary mb-0" t-esc="t('Create or update {title} in bulk from a spreadsheet (matched by ID).', { title: props.title })"/>
+            </div>
+          </div>
+        </DialogHeader>
+
+        <div class="basehub-widget-dialog__body d-flex flex-column gap-4">
+          <section class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge rounded-pill text-bg-warning">1</span>
+              <h2 class="h6 fw-semibold mb-0" t-esc="t('Download the template')"/>
+            </div>
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <Button variant="'ghost'" icon="'download'" disabled="state.downloading" onClick="() => this.downloadTemplate('xlsx')">
+                <t t-if="state.downloading" t-esc="t('Preparing…')"/>
+                <t t-else="" t-esc="t('Download Excel Template')"/>
+              </Button>
+              <Button variant="'ghost'" icon="'download'" label="t('CSV template')" onClick="() => this.downloadTemplate('csv')"/>
+              <t t-if="state.templates.length">
+                <div class="ms-sm-auto" style="min-width: 12rem;">
+                  <NativeSelect size="'sm'" ariaLabel="t('Import template')" value="state.templateId" onChange="(value) => this.selectTemplate(value)">
+                    <option value="" t-esc="t('Default (required fields)')"/>
+                    <t t-foreach="state.templates" t-as="tpl" t-key="tpl.id">
+                      <option t-att-value="String(tpl.id)" t-esc="tpl.name"/>
+                    </t>
+                  </NativeSelect>
+                </div>
+              </t>
+            </div>
+            <div class="rounded-3 bg-body-tertiary p-3 small text-body-secondary">
+              <t t-esc="t('Required columns:')"/>
+              <div class="d-flex flex-wrap gap-2 mt-2">
+                <t t-foreach="this.templateColumns" t-as="column" t-key="column.name">
+                  <span t-att-class="column.required ? 'badge text-bg-danger' : 'badge text-bg-secondary'" t-esc="column.header"/>
+                </t>
+              </div>
+            </div>
+          </section>
+
+          <section class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge rounded-pill text-bg-warning">2</span>
+              <h2 class="h6 fw-semibold mb-0" t-esc="t('Upload the completed file')"/>
+            </div>
+            <button type="button" class="d-flex flex-column align-items-center gap-2 w-100 p-4 border border-2 rounded-3 bg-transparent text-center"
+                    style="border-style: dashed !important;"
+                    t-att-disabled="state.processing or state.submitting"
+                    t-on-click="() => this.pickFile()"
+                    t-on-dragover.prevent="() => {}"
+                    t-on-drop.prevent="(ev) => this.onDrop(ev)">
+              <Icon name="'file-spreadsheet'"/>
+              <t t-if="state.fileName">
+                <span class="small fw-medium text-break" t-esc="state.fileName"/>
+                <span class="small text-body-secondary" t-esc="t('Click to choose another file')"/>
+              </t>
+              <t t-else="">
+                <span class="small fw-medium" t-esc="t('Click or drop a file here')"/>
+                <span class="small text-body-secondary" t-esc="t('`.xlsx` (template) or `.csv` with the same header row.')"/>
+              </t>
+            </button>
+            <input t-ref="fileInput" type="file" class="d-none" t-att-aria-label="t('Import file')"
+                   accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv"
+                   t-on-change="(ev) => this.onFileChange(ev)"/>
+          </section>
+
+          <Alert t-if="state.processing" variant="'info'"><t t-esc="t('Processing the file…')"/></Alert>
+
+          <div t-if="state.errors.length" class="border border-danger-subtle bg-danger-subtle rounded-3 p-3">
+            <div class="d-flex align-items-center gap-2 small fw-semibold text-danger-emphasis mb-2">
+              <Icon name="'alert-circle'"/>
+              <t t-esc="t('File validation issues')"/>
+            </div>
+            <ul class="small text-danger-emphasis mb-0 ps-3">
+              <t t-foreach="this.visibleErrors" t-as="error" t-key="error_index">
+                <li t-esc="error"/>
+              </t>
+            </ul>
+          </div>
+
+          <div t-if="this.isValid" class="border border-success-subtle bg-success-subtle rounded-3 p-3 d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-2 small fw-semibold text-success-emphasis">
+              <Icon name="'check-circle'"/>
+              <span t-esc="this.validSummary"/>
+            </div>
+            <div class="table-responsive bg-body rounded-3 border border-success-subtle">
+              <table class="table table-sm mb-0 small">
+                <thead>
+                  <tr>
+                    <t t-foreach="state.columns" t-as="column" t-key="column.name">
+                      <th class="text-uppercase text-body-secondary text-nowrap" t-esc="column.header"/>
+                    </t>
+                  </tr>
+                </thead>
+                <tbody>
+                  <t t-foreach="this.previewSlice" t-as="row" t-key="row_index">
+                    <tr>
+                      <t t-foreach="state.columns" t-as="column" t-key="column.name">
+                        <td t-esc="row[column.name]"/>
+                      </t>
+                    </tr>
+                  </t>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <DialogFooter>
+          <Button variant="'ghost'" label="t('Cancel')" disabled="state.submitting" onClick="() => this.close()"/>
+          <Button disabled="!this.canSubmit" onClick="() => this.submit()">
+            <t t-if="state.submitting" t-esc="t('Importing…')"/>
+            <t t-else="" t-esc="t('Import {title}', { title: props.title })"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

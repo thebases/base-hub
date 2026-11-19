@@ -1,0 +1,96 @@
+{
+  "sequence": 61,
+  "selector": ".row",
+  "groups": [
+    {
+      "label": "Row",
+      "controls": [
+        {
+          "id": "row-gap",
+          "label": "Gap between columns",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "None",
+              "class": "g-0"
+            },
+            {
+              "label": "Small",
+              "class": "g-2"
+            },
+            {
+              "label": "Medium",
+              "class": "g-3"
+            },
+            {
+              "label": "Large",
+              "class": "g-4"
+            },
+            {
+              "label": "Extra large",
+              "class": "g-5"
+            }
+          ]
+        },
+        {
+          "id": "row-justify",
+          "label": "Horizontal alignment",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Start",
+              "class": "justify-content-start"
+            },
+            {
+              "label": "Center",
+              "class": "justify-content-center"
+            },
+            {
+              "label": "End",
+              "class": "justify-content-end"
+            },
+            {
+              "label": "Space between",
+              "class": "justify-content-between"
+            },
+            {
+              "label": "Space around",
+              "class": "justify-content-around"
+            }
+          ]
+        },
+        {
+          "id": "row-align",
+          "label": "Vertical alignment",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Top",
+              "class": "align-items-start"
+            },
+            {
+              "label": "Center",
+              "class": "align-items-center"
+            },
+            {
+              "label": "Bottom",
+              "class": "align-items-end"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

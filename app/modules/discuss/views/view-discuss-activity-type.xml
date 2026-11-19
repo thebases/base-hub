@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_discuss_activity_type_list" model="ui.view">
+      <field name="name">tbl.discuss_activity_type.list</field>
+      <field name="model">tbl.discuss_activity_type</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Activity Types">
+          <field name="name"/>
+          <field name="delay_count"/>
+          <field name="delay_unit"/>
+          <field name="delay_from"/>
+          <field name="chaining_type"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_discuss_activity_type_form" model="ui.view">
+      <field name="name">tbl.discuss_activity_type.form</field>
+      <field name="model">tbl.discuss_activity_type</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Activity Type">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="res_model"/>
+                <field name="icon"/>
+                <field name="decoration_type"/>
+              </group>
+              <group>
+                <field name="delay_count"/>
+                <field name="delay_unit"/>
+                <field name="delay_from"/>
+                <field name="chaining_type"/>
+                <field name="triggered_next_type_id"/>
+              </group>
+            </group>
+            <group>
+              <field name="summary"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_discuss_activity_type_search" model="ui.view">
+      <field name="name">tbl.discuss_activity_type.search</field>
+      <field name="model">tbl.discuss_activity_type</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Activity Types">
+          <field name="name"/>
+          <field name="res_model"/>
+          <group>
+            <filter string="Chaining Type" name="group_by_chaining_type" domain="[]" context="{'group_by': 'chaining_type'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

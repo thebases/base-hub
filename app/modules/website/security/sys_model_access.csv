@@ -1,0 +1,13 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+website.access_website_site_system,Website Site system,base.group_system,tbl.website_site,true,true,true,true,true
+website.access_website_page_system,Website Page system,base.group_system,tbl.website_page,true,true,true,true,true
+website.access_website_domain_system,Website Domain system,base.group_system,tbl.website_domain,true,true,true,true,true
+website.access_website_asset_system,Website Asset system,base.group_system,tbl.website_asset,true,true,true,true,true
+website.access_website_theme_system,Website Theme system,base.group_system,tbl.website_theme,true,true,true,true,true
+website.access_website_snippet_system,Website Snippet system,base.group_system,tbl.website_snippet,true,true,true,true,true
+website.access_website_contact_request_system,Website Contact Request system,base.group_system,tbl.website_contact_request,true,true,true,true,true
+website.access_website_menu_system,Website Menu system,base.group_system,tbl.website_menu,true,true,true,true,true
+website.access_website_redirect_system,Website Redirect system,base.group_system,tbl.website_redirect,true,true,true,true,true
+website.access_website_page_version_system,Website Page Version system,base.group_system,tbl.website_page_version,true,false,false,true,true
+website.access_website_form_submission_system,Website Form Submission system,base.group_system,tbl.website_form_submission,true,true,false,true,true
+website.access_website_page_translation_system,Website Page Translation system,base.group_system,tbl.website_page_translation,true,true,true,true,true

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.main" name="Main" sequence="10" route_path="/web/dashboard" icon="house"/>
+    <menuitem id="menu.setting" name="Settings" sequence="20" icon="settings-2" groups="base.group_system,base.group_no_one"/>
+    <menuitem id="menu.admin" name="Admin" sequence="30" icon="shield"/>
+    <menuitem id="menu.workflow" name="Workflow" sequence="20" icon="settings-2"/>
+    <menuitem id="menu.document" name="Document" sequence="40" icon="file-text"/>
+
+    <menuitem id="menu.tbl_company" name="Company" parent="menu.main" sequence="10" route_path="/web/tbl.company" icon="company" groups="base.group_multi_company,base.group_no_one"/>
+    <menuitem id="menu.tbl_partner" name="Partners" parent="menu.main" sequence="10" route_path="/web/tbl.partner" icon="users"/>
+    <menuitem id="menu.tbl_partner_bank" name="Bank Accounts" parent="menu.main" sequence="30" route_path="/web/tbl.partner.bank" icon="file-text"/>
+
+    <menuitem id="menu.base_users" name="Users" parent="menu.setting" sequence="20" route_path="/web/base.users" icon="user-gear"/>
+    <menuitem id="menu.tbl_country" name="Countries" parent="menu.setting" sequence="40" route_path="/web/tbl.country" icon="globe"/>
+    <menuitem id="menu.tbl_country_group" name="Country Groups" parent="menu.setting" sequence="50" route_path="/web/tbl.country.group" icon="map"/>
+    <menuitem id="menu.tbl_country_state" name="Country States" parent="menu.setting" sequence="60" route_path="/web/tbl.country.state" icon="map-pinned"/>
+    <menuitem id="menu.tbl_country_ward" name="Country Wards" parent="menu.setting" sequence="65" route_path="/web/tbl.country.ward" icon="map-pin"/>
+    <menuitem id="menu.tbl_lang" name="Languages" parent="menu.setting" sequence="70" route_path="/web/tbl.lang" icon="languages"/>
+    <menuitem id="menu.tbl_groups" name="Groups" parent="menu.setting" sequence="80" route_path="/web/tbl.groups" icon="users"/>
+    <menuitem id="menu.base_groups_privilege" name="Group Privileges" parent="menu.setting" sequence="10" route_path="/web/base.groups.privilege" icon="shield"/>
+    <menuitem id="menu.sys_attachment" name="Attachments" parent="menu.setting" sequence="90" route_path="/web/sys.attachment" icon="file"/>
+    <menuitem id="menu.sys_report" name="Reports" parent="menu.setting" sequence="100" route_path="/web/sys.report" icon="file-text"/>
+    <menuitem id="menu.sys_sequence" name="Sequences" parent="menu.setting" sequence="110" route_path="/web/sys.sequence" icon="list"/>
+
+    <menuitem id="menu.sys_config" name="System Config Params" parent="menu.admin" sequence="10" route_path="/web/sys.config_param" icon="shield"/>
+    <menuitem id="menu.base_kvt" name="Key Values" parent="menu.admin" sequence="11" route_path="/web/base.kvt" icon="shield"/>
+    <menuitem id="menu.sys_model_access" name="Model Access" parent="menu.admin" sequence="20" route_path="/web/sys.model.access" icon="shield"/>
+    <menuitem id="menu.sys_model" name="Models" parent="menu.admin" sequence="25" route_path="/web/sys.model" icon="shield"/>
+    <menuitem id="menu.sys_module_category" name="Module Categories" parent="menu.admin" sequence="22" route_path="/web/sys.module.category" icon="folder-tree"/>
+    <menuitem id="menu.sys_module_module" name="Modules" parent="menu.admin" sequence="23" route_path="/web/sys.module.module" icon="blocks"/>
+    <menuitem id="menu.sys_model_field" name="Model Fields" parent="menu.admin" sequence="27" route_path="/web/sys.model.field" icon="shield"/>
+    <menuitem id="menu.sys_model_data" name="External Identifiers" parent="menu.admin" sequence="30" route_path="/web/sys.model.data" icon="shield"/>
+    <menuitem id="menu.sys_rule" name="Record Rules" parent="menu.admin" sequence="35" route_path="/web/sys.rule" icon="shield-check"/>
+    <menuitem id="menu.sys_model_relation" name="Model Relations" parent="menu.admin" sequence="40" route_path="/web/sys.model.relation" icon="shield"/>
+    <menuitem id="menu.sys_model_operation" name="Model Operations" parent="menu.admin" sequence="41" route_path="/web/sys.model.operation" icon="shield"/>
+    <menuitem id="menu.sys_model_constraint" name="Model Constraints" parent="menu.admin" sequence="42" route_path="/web/sys.model.constraint" icon="shield"/>
+    <menuitem id="menu.sys_model_action" name="Model Actions" parent="menu.admin" sequence="43" route_path="/web/sys.model.action" icon="zap"/>
+    <menuitem id="menu.ui_actions_client" name="UI Client Actions" parent="menu.admin" sequence="50" route_path="/web/ui.actions.client" icon="file-text"/>
+    <menuitem id="menu.ui_actions_window" name="UI Window Actions" parent="menu.admin" sequence="60" route_path="/web/ui.actions.window" icon="file-text"/>
+    <menuitem id="menu.ui_menu" name="UI Menus" parent="menu.admin" sequence="70" route_path="/web/ui.menu" icon="file-text"/>
+    <menuitem id="menu.ui_view" name="UI Views" parent="menu.admin" sequence="80" route_path="/web/ui.view" icon="file-text"/>
+    <menuitem id="menu.ui_view_type" name="UI View Types" parent="menu.admin" sequence="85" route_path="/web/ui.view.type" icon="layout-grid"/>
+    <menuitem id="menu.ui_view_custom" name="UI View Custom" parent="menu.admin" sequence="90" route_path="/web/ui.view.custom" icon="file-text"/>
+    <menuitem id="menu.service_health" name="Service Health Check" parent="menu.admin" sequence="100" route_path="/web/system-health" icon="chart-bar"/>
+    <menuitem id="menu.sys_model_log" name="Model Change Log" parent="menu.admin" sequence="110" route_path="/web/sys.model.log" icon="file-text"/>
+
+    <menuitem id="menu.apidoc" name="API Documentation" parent="menu.document" sequence="10" route_path="/web/apidoc" icon="file-text"/>
+    <menuitem id="menu.instruction" name="Instruction" parent="menu.document" sequence="20" route_path="/web/instruction" icon="book"/>
+</data>

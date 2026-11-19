@@ -1,0 +1,373 @@
+/* BaseUI's `Shell` compound (shell.component.js/shell.xml/shell.css) now
+   owns the app-shell grid, sidebar chrome, header/content scroll regions,
+   and desktop-collapse mechanics natively — `.b-shell .b-sidebar-
+   root`/`.b-sidebar`/`-nav`/`-main`/`-header`/`-content` and the
+   `[b-att-collapsed="true"]` overrides all come from
+   nodexui's nodexui.min.css. `<Shell className="'basehub-shell'">` renders
+   both `b-shell` and `basehub-shell` on the same root element, so the
+   rules below only add this app's visual details that `Shell`'s own CSS
+   deliberately leaves unopinionated (background/border/color/padding —
+   Shell doesn't hardcode a color scheme) rather than re-declaring layout. */
+.basehub-shell .b-sidebar-root {
+  background: var(--b-background);
+  border: 1px solid var(--b-border);
+  color: var(--b-foreground);
+}
+
+.basehub-shell .b-sidebar {
+  background: var(--b-sidebar, var(--b-muted));
+  border-right: 1px solid var(--b-border);
+  color: var(--b-sidebar-foreground, var(--b-foreground));
+  padding: 0.5rem;
+}
+
+.basehub-shell[b-att-collapsed="true"] .b-sidebar {
+  border-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 992px) {
+  .basehub-shell-header .b-sidebar-trigger {
+    display: none;
+  }
+}
+
+.basehub-shell-sidebar-header .b-sidebar-close {
+  background: none;
+  border: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+@media (min-width: 992px) {
+  .basehub-shell-sidebar-header .b-sidebar-close {
+    display: none;
+  }
+}
+
+.basehub-shell-nav {
+  height: calc(100svh - 168px);
+}
+
+/* Sidebar brand row (sidebar-05 template) — icon mark box + wordmark, sits
+   above the search box inside ShellSidebarHeader. */
+.basehub-shell-brand {
+  align-items: center;
+  color: var(--b-surface-foreground);
+  display: flex;
+  flex: 1 1 auto;
+  gap: 0.625rem;
+  padding: 0.375rem 0.5rem;
+  text-decoration: none;
+}
+
+.basehub-shell-brand-mark {
+  align-items: center;
+  background: var(--b-primary);
+  border-radius: var(--b-radius);
+  color: var(--b-primary-foreground);
+  display: inline-flex;
+  flex: none;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.basehub-shell-brand-text {
+  font-weight: 600;
+}
+
+/* Sidebar search box (sidebar-05 template) — filters the ui.menu/knowledge
+   trees client-side via Shell.js's state.menuSearch. */
+.basehub-shell-search {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
+  opacity: 0.7;
+}
+
+.basehub-shell-search:focus-within {
+  opacity: 1;
+}
+
+.basehub-shell-search input {
+  flex: 1 1 auto;
+}
+
+/* vendor .b-shell-header sets align-items/display/gap/position:sticky/
+   top but has no opinion on background/z-index/height/padding — this app
+   wants the header pinned above the scrollable content area with its own
+   surface color. */
+.basehub-shell-header {
+  background: var(--b-surface);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  height: 2.75rem !important;
+  padding: 0rem 1rem !important;
+}
+
+/* vendor .b-shell-content sets flex/min-width/overflow-y; this app's
+   routed page owns its own inner scroll region and needs an explicit
+   viewport-relative height under the sticky header. */
+.basehub-shell-content {
+  min-width: 0;
+  overflow-y: auto;
+  height: calc(100svh - 4rem);
+  padding: 0 !important;
+}
+
+.basehub-shell-sidebar-version {
+  margin: 0;
+  padding: 0.5rem 0.75rem 0.75rem;
+  text-align: center;
+  font-size: 0.6875rem;
+  color: var(--b-muted-foreground);
+}
+
+/* Phase 6 dialogs/x2many/PWA pass: install/notification drawers
+   (PWAInstallDrawer.js/.xml), mounted once from Shell so they can appear on
+   any authenticated route. */
+.basehub-pwa-launcher {
+  position: fixed;
+  right: 1rem;
+  z-index: 1030;
+  pointer-events: none;
+}
+
+.basehub-pwa-launcher > button {
+  pointer-events: auto;
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.35);
+}
+
+.basehub-pwa-launcher-install {
+  bottom: 1rem;
+}
+
+.basehub-pwa-launcher-notification {
+  bottom: 5rem;
+}
+
+/* BaseUI's `sheet` only ships a compiled right/left side; a bottom-anchored
+   panel (the natural shape for a mobile-style install prompt) is a hand-port
+   here — `[b-att-side="bottom"]` has no compiled rule in nodexui's nodexui.min.css. */
+.basehub-pwa-sheet[b-att-side="bottom"] [b-sheet-panel] {
+  bottom: 0;
+  top: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: var(--b-radius, 0.5rem) var(--b-radius, 0.5rem) 0 0;
+  padding: 0;
+}
+
+.basehub-pwa-sheet-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.basehub-pwa-sheet-header {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  color: #f8fafc;
+}
+
+.basehub-pwa-sheet-desc {
+  color: #cbd5e1;
+  max-width: 32rem;
+}
+
+.basehub-pwa-sheet-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.basehub-pwa-sheet-card {
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  background: var(--b-muted);
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.basehub-pwa-steps {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-pwa-steps > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.basehub-pwa-step-index {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  /* --bs-primary-bg-subtle is only declared on baseui.css's light :root
+     block and is never redefined by themes/baseui-dark.css (unlike
+     --bs-primary, which is), so it stayed a fixed pale blue in dark mode —
+     color-mix off the theme-aware --b-primary token instead. */
+  background: color-mix(in oklab, var(--b-primary) 15%, transparent);
+  color: var(--b-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.basehub-pwa-sheet-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--b-border);
+}
+
+/* Global bus toast (Shell.xml's <Toast className="'basehub-toast'">) —
+   shadcn/ui-style row: title+description block on the left, the optional
+   action button and BaseUI's own hardcoded close button grouped on the
+   right, all vertically centered. baseui.Toast's template appends its
+   close button as a plain sibling of the default slot with `float:right`
+   (see nodexui.min.css's `.b-toast-close`); overriding that to `float:none`
+   here is what lets it join this flex row instead of floating above it. */
+.basehub-toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: min(23rem, calc(100vw - 2rem));
+}
+
+/* Overrides the ghost-variant Button baked into baseui.Toast's template
+   (ghost = transparent bg/border via .btn-light's --bs-btn-* vars) so the
+   close button reads as an outlined square icon button, matching the
+   reference design, without needing a prop the component doesn't expose. */
+.basehub-toast .b-toast-close {
+  float: none;
+  flex: none;
+  --bs-btn-bg: var(--b-background, #fff);
+  --bs-btn-border-color: var(--b-border);
+  --bs-btn-hover-bg: var(--b-accent);
+  --bs-btn-hover-border-color: var(--b-border);
+}
+
+.basehub-toast-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.basehub-toast-title {
+  font-weight: 600;
+}
+
+.basehub-toast-desc {
+  color: var(--b-muted-foreground, var(--b-surface-foreground));
+  font-size: 0.8125rem;
+  margin-top: 0.125rem;
+}
+
+.basehub-toast-action {
+  flex: none;
+}
+
+/* Shown inside `.basehub-shell-content` (the routed-page slot) while AppRoot
+   is mid-navigation (see router/AppRoot.js's `state.navigating`/`PageComponent
+   === null` and this file's own header comment for why Shell persists across
+   navigations) — BaseUI's pure Owl <Skeleton shape="'block'"> already
+   provides the pulse animation/color (baseui.css's .b-skeleton rules);
+   these classes only set per-bar width/height/spacing. */
+.basehub-content-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.basehub-content-skeleton-bar {
+  height: 1rem;
+  width: 100%;
+}
+
+.basehub-content-skeleton-title {
+  height: 1.5rem;
+  width: 40%;
+}
+
+.basehub-content-skeleton-short {
+  width: 60%;
+}
+
+/* Drawer band 768-991.98px: BaseUI's off-canvas sidebar rules only apply
+   below 768px, so port them here to make the drawer the layout up to 992px. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .b-shell .b-sidebar-root,
+  .b-shell[b-att-collapsed="true"] .b-sidebar-root {
+    grid-template-columns: 1fr;
+  }
+
+  .b-shell[b-att-collapsed="true"] .b-sidebar {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .basehub-shell .b-sidebar {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-linear;
+    width: var(--b-sidebar-width-mobile);
+    z-index: 9999;
+  }
+
+  .basehub-shell .b-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .basehub-shell .b-sidebar-backdrop {
+    background: var(--b-overlay);
+    display: block;
+    inset: 0;
+    position: fixed;
+    z-index: 1039;
+  }
+}
+
+/* Touch devices: 44px minimum targets for the header icon buttons and compact selects. */
+@media (pointer: coarse) {
+  .basehub-shell-header .btn.b-button,
+  .basehub-shell-header .b-sidebar-trigger {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+
+  .basehub-shell .form-select-sm {
+    min-height: 2.75rem;
+  }
+}
+
+/* Navbar company switcher: keep a long current-company name from pushing the header icons. */
+.basehub-company-switcher-label {
+  max-width: 10rem;
+}

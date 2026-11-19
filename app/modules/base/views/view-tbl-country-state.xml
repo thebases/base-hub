@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_country_state_list" model="ui.view">
+      <field name="name">tbl.country.state.list</field>
+      <field name="model">tbl.country.state</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Country State" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="country_id"/>
+          <field name="tz" optional="show"/>
+          <field name="created_at" optional="show"/>
+          <field name="updated_at" optional="show"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_country_state_form" model="ui.view">
+      <field name="name">tbl.country.state.form</field>
+      <field name="model">tbl.country.state</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Country State">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="code" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group string="Address">
+              <div class="d-flex flex-column gap-2">
+                <field name="country_id"/>
+                <field name="tz"/>
+              </div>
+            </group>
+            <notebook>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_country_state_search" model="ui.view">
+      <field name="name">tbl.country.state.search</field>
+      <field name="model">tbl.country.state</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Country State">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="country_id"/>
+          <field name="created_at"/>
+          <field name="updated_at"/>
+          <group>
+            <filter string="Country ID" name="group_by_country_id" domain="[]" context="{'group_by': 'country_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

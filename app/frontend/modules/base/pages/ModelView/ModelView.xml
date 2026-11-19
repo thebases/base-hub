@@ -1,0 +1,290 @@
+<templates xml:space="preserve">
+  <t t-name="ModelView">
+    <div t-att-class="modelViewClassName" t-ref="modelViewRoot">
+      <header class="basehub-modelview-header d-flex align-items-middle mb-4">
+        
+        <!-- <div t-if="isFormMode" class="basehub-modelview-record-tags">
+          <span class="basehub-modelview-record-tag" t-esc="state.actionModel"/>
+          <span class="basehub-modelview-record-tag" t-esc="isNewRecord ? 'New record' : (state.title + ' #' + state.route.recordId)"/>
+        </div>
+        <t t-else=""> -->
+          <ControlPanel breadcrumbs="controlPanelBreadcrumbs"
+                        viewModes="state.viewModes"
+                        activeViewMode="state.route.mode"
+                        onViewModeChange.bind="switchMode"
+                        pager="controlPanelPager"
+                        onPagerUpdate.bind="updatePager"
+                        canCreate="true"
+                        onClickCreate.bind="createRecord"
+                        toolbarActions="state.toolbarActions"
+                        onToolbarAction.bind="runToolbarAction"
+                        onRefresh.bind="reload"
+                        onImport="() => this.openImexDialog('importDialog')"
+                        onExport="() => this.openImexDialog('exportDialog')"
+                        onViewInactive="viewInactiveHandler"
+                        showingInactive="state.showInactive"
+                        menuActions="state.menuActions"
+                        searchPlaceholder="t('Search {title}', { title: state.title })"
+                        searchFields="controlPanelSearchFields"
+                        searchFacets="state.search.facets"
+                        activeSearchField="state.search.activeField"
+                        onSearchFieldChange.bind="setSearchField"
+                        onSearch.bind="commitSearch"
+                        onRemoveFacet.bind="removeSearchFacet"
+                        onClearSearch.bind="clearSearch"/>
+        <!-- </t> -->
+      </header>
+
+      <t t-if="state.loading">
+        <div class="d-flex align-items-center gap-2 text-body-secondary py-4">
+          <Spinner label="t('Loading')"/>
+          <span t-esc="t('Loading…')"/>
+        </div>
+      </t>
+
+      <t t-elif="state.error">
+        <Alert variant="'danger'">
+          <t t-esc="state.error"/>
+        </Alert>
+      </t>
+
+      <!--
+        JS-side (route-segment validation, load()/refreshData() dispatch, and
+        the components map) is fully driven by
+        view-mount-registry.js's VIEW_MOUNT_REGISTRY — see ModelView.js.
+        This t-elif chain itself stays hand-written per registered view type
+        because each mode's component needs a genuinely different prop shape
+        (list: columns/records/rowActions, kanban: fields/layout/columns/
+        groupBy, calendar: anchor/amount/occurrences, form: viewData/fields/
+        record/...) — there is no existing precedent for spreading a dynamic
+        props object onto a dynamically-resolved `t-component` in this
+        codebase's Owl usage (only same-shaped `params` props are passed
+        dynamically elsewhere, e.g. Shell.xml/AppRoot.xml), so unifying this
+        chain into one dynamic mount was not attempted to avoid guessing at
+        an unverified Owl API. Add one more t-elif here (and its state slice
+        above) when registering a new view type; keep it in this same
+        loading/error-checked position.
+      -->
+      <t t-elif="isFormMode">
+        <FormView model="state.actionModel"
+                  viewData="state.formView"
+                  fields="state.formFields"
+                  record="state.formRecord"
+                  isNew="isNewRecord"
+                  canDelete="!isNewRecord and state.canDelete"
+                  onSave.bind="saveRecord"
+                  onDelete="() => this.deleteRecords([state.route.recordId])"
+                  onDuplicate.bind="duplicateRecord"
+                  onToggleActive.bind="setRecordActive"
+                  onCreate.bind="createRecord"
+                  onRefresh.bind="reload"
+                  onDiscardNew.bind="backToList"
+                  onBack.bind="backToList"
+                  onArchButton.bind="runArchButton"
+                  menuActions="state.menuActions"
+                  onMenuAction.bind="runToolbarAction"
+                  onRemoteValueChange="onRemoteValueChange"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'kanban'">
+        <KanbanView fields="state.kanbanFields"
+                    records="state.kanbanRecords"
+                    layout="state.kanbanLayout"
+                    groupByField="state.kanbanGroupBy"
+                    columns="state.kanbanColumns"
+                    columnRemainingCounts="state.kanbanRemaining"
+                    onOpenRecord.bind="openRecord"
+                    onDeleteRecord.bind="deleteRecordFromBoard"
+                    onLoadMoreColumn.bind="loadMoreKanbanColumn"
+                    canMoveColumns="!!state.kanbanColumnModel"
+                    onMoveColumn.bind="moveKanbanColumn"
+                    onMoveRecord.bind="moveKanbanRecord"/>
+      </t>
+
+      <t t-elif="isCalendarMode">
+        <CalendarView model="state.actionModel"
+                      fields="state.calendarFields"
+                      anchorField="state.calendarAnchor"
+                      amountField="state.calendarAmountField"
+                      occurrences="state.calendarOccurrences"
+                      onOpenRecord.bind="openRecord"
+                      onRangeChange.bind="loadCalendarRange"
+                      onReschedule.bind="rescheduleOccurrence"
+                      onCreated.bind="refreshCalendarRange"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'hierarchy'">
+        <HierarchyView roots="state.hierarchyRoots"
+                       layout="state.hierarchyLayout"
+                       onOpenRecord.bind="openRecord"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'gantt'">
+        <GanttView fields="state.ganttFields"
+                   rows="state.ganttRows"
+                   title="state.ganttTitle"
+                   dateStartField="state.ganttDateStartField"
+                   dateStopField="state.ganttDateStopField"
+                   colorField="state.ganttColorField"
+                   defaultScale="state.ganttDefaultScale"
+                   onOpenRecord.bind="openRecordDialog"
+                   onRangeChange.bind="loadGanttRange"
+                   onReschedule.bind="rescheduleGanttRecord"
+                   onCreateRecord.bind="createGanttRecord"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'map'">
+        <MapView markers="state.mapMarkers"
+                 panelTitle="state.mapPanelTitle"
+                 hideName="state.mapHideName"
+                 hideAddress="state.mapHideAddress"
+                 popupFields="state.mapPopupFields"
+                 onOpenRecord.bind="openRecord"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'grid'">
+        <GridView title="state.gridTitle"
+                  rowFields="state.gridRowFields"
+                  columns="state.gridColumns"
+                  rows="state.gridRows"
+                  matrix="state.gridMatrix"
+                  measureLabel="state.gridMeasureLabel"
+                  ranges="state.gridRanges"
+                  activeRange="state.gridActiveRange"
+                  onRangeChange.bind="loadGridRange"
+                  onCommitCell.bind="writeGridCell"/>
+      </t>
+
+      <t t-elif="state.route.mode === 'cohort'">
+        <CohortView title="state.cohortTitle"
+                    interval="state.cohortInterval"
+                    timeline="state.cohortTimeline"
+                    mode="state.cohortMode"
+                    measure="state.cohortMeasure"
+                    measureOptions="state.cohortMeasureOptions"
+                    disableLinking="state.cohortDisableLinking"
+                    columnCount="state.cohortColumnCount"
+                    rows="state.cohortRows"
+                    onIntervalChange.bind="setCohortInterval"
+                    onTimelineChange.bind="setCohortTimeline"
+                    onModeChange.bind="setCohortMode"
+                    onMeasureChange.bind="setCohortMeasure"
+                    onOpenBucket.bind="openCohortBucket"/>
+      </t>
+
+      <t t-else="">
+        <ListView columns="state.columns"
+                  records="state.records"
+                  dashboard="state.listDashboard"
+                  rowActions="listRowActions"
+                  rowActionsColumn="state.rowActionsColumn"
+                  onOpenRecord.bind="openRecord"
+                  onRowAction.bind="runRowAction"/>
+      </t>
+
+      <Dialog open="!!state.confirmMessage" onOpenChange="(open) => !open and this.resolveConfirm(false)">
+        <DialogContent className="'basehub-form-dialog__panel'">
+          <DialogHeader>
+            <DialogTitle><t t-esc="t('Confirm action')"/></DialogTitle>
+            <p class="text-body-secondary mb-0" t-esc="state.confirmMessage"/>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="'outline'" onClick="() => this.resolveConfirm(false)" label="t('Cancel')"/>
+            <Button variant="'destructive'" onClick="() => this.resolveConfirm(true)" label="t('Continue')"/>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open="state.recordDialog.open" onOpenChange="(open) => !open and this.closeRecordDialog()">
+        <DialogContent className="'basehub-widget-dialog__panel basehub-widget-dialog__panel--xl'">
+          <div t-if="state.recordDialog.open and state.recordDialog.viewData" class="basehub-widget-dialog__body">
+            <FormView model="state.actionModel"
+                      viewData="state.recordDialog.viewData"
+                      fields="state.recordDialog.fields"
+                      record="state.recordDialog.record"
+                      isNew="false"
+                      canDelete="state.canDelete"
+                      onSave.bind="saveRecordDialog"
+                      onDelete.bind="deleteRecordDialog"
+                      onArchButton.bind="runArchButton"
+                      onRemoteValueChange="recordDialogRemoteChange"/>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <!-- Widget host: list type="widget" row actions and ui.actions.client
+           `open_widget` actions. `mode` comes from the action's target
+           (dialog | sheet), so the arch never hardcodes the presentation. -->
+      <Dialog open="state.widgetDialog.open and state.widgetDialog.mode === 'dialog'" onOpenChange="(open) => !open and this.closeWidgetDialog()">
+        <DialogContent className="this.widgetHostPanelClass">
+          <DialogHeader>
+            <DialogTitle>
+              <t t-if="state.widgetDialog.heading"><span class="font-monospace fs-6" t-esc="state.widgetDialog.heading"/> — </t>
+              <t t-esc="state.widgetDialog.title"/>
+            </DialogTitle>
+            <DialogDescription t-if="state.widgetDialog.description"><t t-esc="state.widgetDialog.description"/></DialogDescription>
+          </DialogHeader>
+          <div t-if="state.widgetDialog.component and state.widgetDialog.mode === 'dialog'" class="basehub-widget-dialog__body">
+            <t t-component="state.widgetDialog.component" ctx="state.widgetDialog.ctx" node="state.widgetDialog.node"
+               record="state.widgetDialog.record" readonly="true"/>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Sheet open="state.widgetDialog.open and state.widgetDialog.mode === 'sheet'" side="state.widgetDialog.side" onOpenChange="(open) => !open and this.closeWidgetDialog()">
+        <SheetContent style="this.widgetHostSheetStyle">
+          <SheetHeader>
+            <SheetTitle>
+              <t t-if="state.widgetDialog.heading"><span class="font-monospace fs-6" t-esc="state.widgetDialog.heading"/> — </t>
+              <t t-esc="state.widgetDialog.title"/>
+            </SheetTitle>
+            <SheetDescription t-if="state.widgetDialog.description"><t t-esc="state.widgetDialog.description"/></SheetDescription>
+          </SheetHeader>
+          <div t-if="state.widgetDialog.component and state.widgetDialog.mode === 'sheet'" class="basehub-widget-sheet__body">
+            <t t-component="state.widgetDialog.component" ctx="state.widgetDialog.ctx" node="state.widgetDialog.node"
+               record="state.widgetDialog.record" readonly="true"/>
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      <t t-if="state.dialogsReady">
+      <ImportDialog state="state.importDialog" model="state.actionModel" title="state.title" fields="state.imexFields"
+                    onOpenChange="(open) => this.setDialogOpen('importDialog', open)"
+                    onImported.bind="onImported"/>
+      <ExportDialog state="state.exportDialog" model="state.actionModel" title="state.title" fields="state.imexFields"
+                    domain="state.domain" total="state.total"
+                    onOpenChange="(open) => this.setDialogOpen('exportDialog', open)"
+                    onExported.bind="onExported"/>
+      <DatabaseDuplicateDialog state="state.databaseDuplicateDialog"
+                                onOpenChange="(open) => this.setDialogOpen('databaseDuplicateDialog', open)"
+                                onConfirm.bind="confirmDatabaseDuplicate"/>
+      <DatabaseModuleSelectionDialog state="state.databaseModuleSelectionDialog"
+                                      onOpenChange="(open) => this.setDialogOpen('databaseModuleSelectionDialog', open)"
+                                      onConfirm.bind="confirmDatabaseModuleSelection"/>
+      <UserSecurityPasswordDialog state="state.userSecurityPasswordDialog"
+                                   onOpenChange="(open) => this.setDialogOpen('userSecurityPasswordDialog', open)"
+                                   onConfirm.bind="confirmUserSecurityPassword"/>
+      <OauthClientSecretDialog state="state.oauthClientSecretDialog"
+                                onOpenChange="(open) => this.setDialogOpen('oauthClientSecretDialog', open)"/>
+      <UserApiKeyDialog state="state.userApiKeyDialog"
+                        onOpenChange="(open) => this.setDialogOpen('userApiKeyDialog', open)"/>
+      </t>
+      <t t-if="state.busyOverlay.open">
+        <div class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
+             style="z-index: 2000; background: rgba(0, 0, 0, 0.5);" role="alertdialog" aria-busy="true">
+          <div class="bg-body rounded-3 shadow p-4 d-flex align-items-center gap-3">
+            <Spinner label="t('Working')"/>
+            <span t-esc="state.busyOverlay.message"/>
+          </div>
+        </div>
+      </t>
+      <!-- sys.model.action "model" entries whose method declares params:
+           Cancel closes, Submit runs the method with the inputs. -->
+      <t t-if="state.dialogsReady">
+        <ModelActionParamsDialog state="state.modelActionParamsDialog"
+                               onOpenChange="(open) => this.setDialogOpen('modelActionParamsDialog', open)"
+                               onSubmit.bind="submitModelActionParams"/>
+      </t>
+    </div>
+  </t>
+</templates>

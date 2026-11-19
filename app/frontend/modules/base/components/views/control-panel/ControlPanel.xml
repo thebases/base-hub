@@ -1,0 +1,71 @@
+<templates xml:space="preserve">
+  <t t-name="ControlPanel">
+    <div class="basehub-control-panel d-flex flex-column w-100">
+      <div class="basehub-control-panel-row d-flex flex-row align-items-center flex-wrap gap-3">
+        <!-- <Breadcrumbs items="props.breadcrumbs"/> -->
+        <t t-if="showSearchBar">
+          <SearchBar placeholder="props.searchPlaceholder"
+                     fields="props.searchFields"
+                     activeField="props.activeSearchField"
+                     facets="props.searchFacets"
+                     onActiveFieldChange="props.onSearchFieldChange"
+                     onSearch="props.onSearch"
+                     onRemoveFacet="props.onRemoveFacet"
+                     onClearAll="props.onClearSearch"/>
+        </t>
+        <div class="basehub-control-panel-actions d-flex align-items-center gap-2 ms-auto">
+          <t t-foreach="props.toolbarActions" t-as="action" t-key="action.name">
+            <Button variant="'outline'" size="'icon-sm'" icon="action.icon || 'zap'" ariaLabel="action.label" title="action.label"
+                    onClick="() => this.onClickToolbarAction(action)"/>
+          </t>
+          <t t-if="props.canCreate">
+            <Button variant="'default'" size="'icon-sm'" icon="'plus'" ariaLabel="t('New')"
+                    onClick="() => this.onClickCreate()"/>
+          </t>
+          <Button variant="'outline'" size="'icon-sm'" icon="'refresh-cw'" ariaLabel="t('Refresh')"
+                  onClick="() => this.onClickRefresh()"/>
+          <!-- Actions menu, always the last button: the mode's fixed items (list: Import/Export) plus
+               props.menuActions; hidden when it would be empty. -->
+          <t t-if="showActionsMenu">
+            <DropdownMenu>
+              <!-- Icon-only trigger: btn-icon-sm is what Button size="'icon-sm'" maps to, matching the sibling buttons. -->
+              <DropdownMenuTrigger className="'btn-icon-sm basehub-control-panel-actions-menu'">
+                <Icon name="'ellipsis-vertical'"/>
+                <span class="visually-hidden" t-esc="t('Actions')"/>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="'dropdown-menu-end'">
+                <t t-foreach="fixedMenuItems" t-as="fixedItem" t-key="fixedItem.name">
+                  <DropdownMenuItem onSelect="fixedItem.onSelect">
+                    <Icon name="fixedItem.icon"/>
+                    <span t-esc="fixedItem.label"/>
+                  </DropdownMenuItem>
+                </t>
+                <t t-if="props.menuActions.length">
+                  <!-- Separator only between the two groups, never as a leading line. -->
+                  <DropdownMenuSeparator t-if="fixedMenuItems.length"/>
+                  <t t-foreach="props.menuActions" t-as="menuAction" t-key="menuAction.name">
+                    <DropdownMenuItem onSelect="() => this.onClickToolbarAction(menuAction)">
+                      <Icon name="menuAction.icon || 'zap'"/>
+                      <span t-esc="menuAction.label"/>
+                    </DropdownMenuItem>
+                  </t>
+                </t>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </t>
+        </div>
+        <!-- <div class="basehub-control-panel-spacer flex-fill"/> -->
+        <ViewSwitcher modes="props.viewModes" active="props.activeViewMode" onChange="props.onViewModeChange ?? (() => {})"/>
+        <t t-if="props.pager">
+          <Pager offset="props.pager.offset" limit="props.pager.limit" total="props.pager.total"
+                 onUpdate="props.onPagerUpdate"/>
+        </t>
+      </div>
+
+      <!-- <div class="basehub-control-panel-row">
+        
+        
+      </div> -->
+    </div>
+  </t>
+</templates>

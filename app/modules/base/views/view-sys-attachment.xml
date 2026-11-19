@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_attachment_list" model="ui.view">
+      <field name="name">sys.attachment.list</field>
+      <field name="model">sys.attachment</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Attachments" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="active"/>
+          <field name="created_at"/>
+          <field name="mimetype" optional="show"/>
+          <field name="file_size" optional="show"/>
+          <field name="sys_model" optional="show"/>
+          <field name="model_id" optional="show"/>
+          <field name="is_public" optional="show"/>
+          <field name="company_id" optional="hide"/>
+          <field name="checksum" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_attachment_form" model="ui.view">
+      <field name="name">sys.attachment.form</field>
+      <field name="model">sys.attachment</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Attachment">
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="active"/>
+                <field name="sys_model"/>
+                <field name="model_id"/>
+                <field name="mimetype" readonly="1"/>
+                <field name="file_size" readonly="1"/>
+                <field name="checksum" readonly="1"/>
+              </group>
+              <group string="Visibility Scope">
+                <field name="company_id"/>
+                <field name="user_id"/>
+                <field name="group_id"/>
+                <field name="is_public"/>
+                <field name="create_uid" readonly="1"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_attachment_search" model="ui.view">
+      <field name="name">sys.attachment.search</field>
+      <field name="model">sys.attachment</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Attachments">
+          <field name="name"/>
+          <field name="sys_model"/>
+          <field name="mimetype"/>
+          <field name="checksum"/>
+          <filter string="Is Active" name="active_true" domain="[('active', '=', True)]"/>
+          <filter string="Not Is Active" name="active_false" domain="[('active', '=', False)]"/>
+          <filter string="Is Public" name="is_public_true" domain="[('is_public', '=', True)]"/>
+          <group>
+            <filter string="Resource Model" name="group_by_sys_model" domain="[]" context="{'group_by': 'sys_model'}"/>
+            <filter string="Company" name="group_by_company_id" domain="[]" context="{'group_by': 'company_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

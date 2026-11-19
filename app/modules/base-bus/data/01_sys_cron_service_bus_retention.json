@@ -1,0 +1,16 @@
+[
+  {
+    "action": "c",
+    "model": "sys.cron",
+    "external_id": "base_bus.cron_service_bus_retention",
+    "force_update": false,
+    "data": {
+      "name": "Service Bus Retention",
+      "handler": "base_bus.retention",
+      "interval_seconds": 3600,
+      "max_failures": 5,
+      "active": true,
+      "payload": {"retention_days": 7}
+    }
+  }
+]

@@ -1,0 +1,35 @@
+<templates xml:space="preserve">
+  <t t-name="DagSettingsDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <DialogContent className="'workflow-dag-settings-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('DAG Settings')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary" t-esc="t('Controls how many steps run concurrently per frontier batch and how a failed step affects the rest of the run.')"/>
+        </DialogHeader>
+        <div class="d-flex flex-column gap-3 pt-2">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+          <Field>
+            <Input label="t('Max Parallel Steps')" type="'number'" value="state.maxParallel" disabled="props.state.saving"
+                     onInput="(value) => this.state.maxParallel = value"/>
+            
+          </Field>
+          <Field>
+            <NativeSelect label="t('Failure Policy')" value="state.failurePolicy" disabled="props.state.saving"
+                            onChange="(value) => this.state.failurePolicy = value">
+                <option value="fail_branch"><t t-esc="t('Fail Branch Only')"/></option>
+                <option value="fail_workflow"><t t-esc="t('Fail Whole Workflow')"/></option>
+              </NativeSelect>
+            
+          </Field>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="props.state.saving" onClick="() => this.cancel()" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="props.state.saving" onClick="() => this.save()">
+            <t t-if="props.state.saving" t-esc="t('Saving…')"/>
+            <t t-else="" t-esc="t('Save')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

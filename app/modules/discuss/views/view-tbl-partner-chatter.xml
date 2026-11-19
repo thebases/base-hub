@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="base.view_tbl_partner_form" model="ui.view">
+    <field name="use_chatter" eval="True"/>
+  </record>
+</data>

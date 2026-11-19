@@ -1,0 +1,54 @@
+[
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "helpdesk.automation.cron.sla_sweep",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk SLA Breach Sweep",
+      "action_id": "helpdesk.automation.action.sla_sweep",
+      "interval_seconds": 300,
+      "max_failures": 5,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "helpdesk.automation.cron.auto_close",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk Auto-Close Stale Tickets",
+      "action_id": "helpdesk.automation.action.auto_close",
+      "interval_seconds": 3600,
+      "max_failures": 5,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "helpdesk.automation.cron.close_inactive_tickets",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk Close Inactive Tickets",
+      "action_id": "helpdesk.automation.action.close_inactive_tickets",
+      "interval_seconds": 3600,
+      "max_failures": 5,
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "helpdesk.automation.cron.digest",
+    "force_update": false,
+    "data": {
+      "name": "Helpdesk Daily KPI Digest",
+      "action_id": "helpdesk.automation.action.digest",
+      "interval_seconds": 86400,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

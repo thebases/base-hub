@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_tbl_country_list" model="ui.view">
+      <field name="name">tbl.country.list</field>
+      <field name="model">tbl.country</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Country" sample="1" multi_edit="1">
+          <field name="image_url" widget="image_url"/>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="tz" optional="show"/>
+          <field name="created_at" optional="show"/>
+          <field name="address_view_id" optional="show"/>
+          <field name="currency_id" optional="hide"/>
+          <field name="state_required" optional="hide"/>
+          <field name="zip_required" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_tbl_country_form" model="ui.view">
+      <field name="name">tbl.country.form</field>
+      <field name="model">tbl.country</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Country">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <field name="image_url" widget="image_url" nolabel="1"/>
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+                <div class="d-inline-flex flex-wrap align-items-center gap-2 small text-muted">
+                  <field name="code" nolabel="1"/>
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="address_view_id"/>
+                <field name="currency_id"/>
+                <field name="state_required"/>
+                <field name="zip_required"/>
+                <field name="address_format"/>
+                <field name="name_position"/>
+                <field name="phone_code"/>
+                <field name="tz"/>
+                <field name="vat_label"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details" name="details">
+                <field name="country_group_codes"/>
+              </page>
+              <page string="Relations" name="relations">
+                <field name="country_group_ids" widget="many2many_tags"/>
+                <field name="state_ids"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_tbl_country_search" model="ui.view">
+      <field name="name">tbl.country.search</field>
+      <field name="model">tbl.country</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Country">
+          <field name="name"/>
+          <field name="code"/>
+          <field name="address_view_id"/>
+          <field name="currency_id"/>
+          <field name="address_format"/>
+          <filter string="State Required" name="state_required_true" domain="[('state_required', '=', True)]"/>
+          <filter string="Not State Required" name="state_required_false" domain="[('state_required', '=', False)]"/>
+          <filter string="ZIP Required" name="zip_required_true" domain="[('zip_required', '=', True)]"/>
+          <filter string="Not ZIP Required" name="zip_required_false" domain="[('zip_required', '=', False)]"/>
+          <group>
+            <filter string="Address View ID" name="group_by_address_view_id" domain="[]" context="{'group_by': 'address_view_id'}"/>
+            <filter string="Currency ID" name="group_by_currency_id" domain="[]" context="{'group_by': 'currency_id'}"/>
+            <filter string="State Required" name="group_by_state_required" domain="[]" context="{'group_by': 'state_required'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

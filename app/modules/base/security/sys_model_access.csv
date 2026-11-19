@@ -1,0 +1,44 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+base.access_ui_menu_system,UI Menu system,base.group_system,ui.menu,true,true,true,true,true
+base.access_ui_view_system,UI View system,base.group_system,ui.view,true,true,true,true,true
+base.access_ui_view_custom_system,UI View Custom system,base.group_system,ui.view.custom,true,true,true,true,true
+base.access_ui_action_window_system,UI Action Window system,base.group_system,ui.actions.window,true,true,true,true,true
+base.access_ui_action_client_system,UI Action Client system,base.group_system,ui.actions.client,true,true,true,true,true
+base.access_base_users_system,Users system,base.group_system,base.users,true,true,true,true,true
+base.access_base_company_system,Companies system,base.group_system,tbl.company,true,true,true,true,true
+base.access_base_service_bus_system,Service Bus system,base.group_system,base.service.bus,true,true,true,true,true
+base.access_group_privilege_system,Group Privilege system,base.group_system,base.groups.privilege,true,true,true,true,true
+base.access_tbl_groups_system,Groups system,base.group_system,tbl.groups,true,true,true,true,true
+base.access_tbl_partner_system,Partners system,base.group_system,tbl.partner,true,true,true,true,true
+base.access_tbl_partner_bank_system,Partner Banks system,base.group_system,tbl.partner.bank,true,true,true,true,true
+base.access_tbl_country_system,Countries system,base.group_system,tbl.country,true,true,true,true,true
+base.access_tbl_country_group_system,Country Groups system,base.group_system,tbl.country.group,true,true,true,true,true
+base.access_tbl_country_state_system,Country State system,base.group_system,tbl.country.state,true,true,true,true,true
+base.access_tbl_country_ward_system,Country Wards system,base.group_system,tbl.country.ward,true,true,true,true,true
+base.access_tbl_currency_system,Currencies system,base.group_system,tbl.currency,true,true,true,true,true
+base.access_tbl_currency_rate_system,Currency Rates system,base.group_system,tbl.currency.rate,true,true,true,true,true
+base.access_tbl_lang_system,Languages system,base.group_system,tbl.lang,true,true,true,true,true
+base.access_sys_config_param_system,Config Params system,base.group_system,sys.config_param,true,true,true,true,true
+base.access_sys_model_access_system,Model Access system,base.group_system,sys.model.access,true,true,true,true,true
+base.access_sys_model_system,Models system,base.group_system,sys.model,true,true,true,true,true
+base.access_sys_model_field_system,Model Fields system,base.group_system,sys.model.field,true,true,true,true,true
+base.access_sys_model_data_system,Model Data system,base.group_system,sys.model.data,true,true,true,true,true
+base.access_sys_model_log_system,Model Logs system,base.group_system,sys.model.log,true,true,true,true,true
+base.access_sys_model_relation_system,Model Relations system,base.group_system,sys.model.relation,true,true,true,true,true
+base.access_sys_model_operation_system,Model Operations system,base.group_system,sys.model.operation,true,true,true,true,true
+base.access_sys_model_constraint_system,Model Constraints system,base.group_system,sys.model.constraint,true,true,true,true,true
+base.access_sys_module_category_system,Module Categories system,base.group_system,sys.module.category,true,true,true,true,true
+base.access_sys_module_module_system,Modules system,base.group_system,sys.module.module,true,true,true,true,true
+base.access_sys_rule_system,Record Rules system,base.group_system,sys.rule,true,true,true,true,true
+base.access_ui_view_user,UI View user,base.group_user,ui.view,true,false,false,false,true
+base.access_ui_menu_user,UI Menu user,base.group_user,ui.menu,true,false,false,false,true
+base.access_sys_model_user,Models user,base.group_user,sys.model,false,false,false,false,true
+base.access_sys_model_field_user,Model Fields user,base.group_user,sys.model.field,false,false,false,false,true
+base.access_sys_model_data_user,Model Data user,base.group_user,sys.model.data,false,false,false,false,true
+base.access_sys_model_imex_system,Model Import/Export Templates system,base.group_system,sys.model.imex,true,true,true,true,true
+base.access_sys_model_imex_user,Model Import/Export Templates user,base.group_user,sys.model.imex,true,true,true,true,true
+base.access_sys_model_action_system,Model Actions system,base.group_system,sys.model.action,true,true,true,true,true
+base.access_sys_model_action_user,Model Actions user,base.group_user,sys.model.action,true,false,false,false,true
+base.access_ui_view_type_system,View Types system,base.group_system,ui.view.type,true,true,true,true,true
+base.access_ui_view_type_user,View Types user,base.group_user,ui.view.type,true,false,false,false,true
+base.access_base_kvt_system,Key Values system,base.group_system,base.kvt,true,true,true,true,true

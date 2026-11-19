@@ -1,0 +1,40 @@
+<templates xml:space="preserve">
+  <t t-name="DatabaseModuleSelectionDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => this.props.onOpenChange(open)">
+      <DialogContent>
+        <DialogHeader>
+          <h2 class="h6 mb-1" t-esc="t('Re-init Modules')"/>
+          <p class="mb-0 text-body-secondary">
+            <t t-out="tHtml('Choose which modules should be enabled on &lt;strong&gt;{name}&lt;/strong&gt;. Unchecked modules that were installed are uninstalled; checked modules are installed (or reinitialized) and their master data is replayed.', { name: props.state.databaseName })"/>
+          </p>
+        </DialogHeader>
+        <div class="basehub-module-selection-body">
+          <t t-if="state.error">
+            <Alert variant="'danger'" t-esc="state.error"/>
+          </t>
+          <t t-if="props.state.loadingModules">
+            <p class="text-body-secondary mb-0" t-esc="t('Loading modules…')"/>
+          </t>
+          <t t-elif="(props.state.availableModules || []).length === 0">
+            <p class="text-body-secondary mb-0" t-esc="t('No modules found by the scan.')"/>
+          </t>
+          <t t-else="">
+            <t t-foreach="props.state.availableModules" t-as="name" t-key="name">
+              <Checkbox className="'basehub-module-selection-row'" checked="isSelected(name)"
+                        disabled="state.submitting" onChange="(checked) => this.toggleModule(name, checked)">
+                <t t-esc="name"/>
+              </Checkbox>
+            </t>
+          </t>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="state.submitting" onClick="() => this.cancel()" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="state.submitting or props.state.loadingModules" onClick="() => this.confirm()">
+            <t t-if="state.submitting" t-esc="t('Re-initializing…')"/>
+            <t t-else="" t-esc="t('Re-init')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

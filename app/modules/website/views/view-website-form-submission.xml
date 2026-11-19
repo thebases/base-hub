@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_form_submission_list" model="ui.view">
+      <field name="name">tbl.website_form_submission.list</field>
+      <field name="model">tbl.website_form_submission</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Form Submissions">
+          <field name="created_at" string="Received"/>
+          <field name="form_key"/>
+          <field name="state"/>
+          <field name="site_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_form_submission_form" model="ui.view">
+      <field name="name">tbl.website_form_submission.form</field>
+      <field name="model">tbl.website_form_submission</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Form Submission">
+          <sheet>
+            <group>
+              <group string="Submission">
+                <field name="form_key" readonly="1"/>
+                <field name="data" readonly="1"/>
+              </group>
+              <group string="Handling">
+                <field name="state"/>
+                <field name="site_id" readonly="1"/>
+                <field name="ip" readonly="1"/>
+                <field name="user_agent" readonly="1"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

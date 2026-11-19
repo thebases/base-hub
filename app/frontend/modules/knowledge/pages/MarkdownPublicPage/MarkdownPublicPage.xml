@@ -1,0 +1,15 @@
+<templates xml:space="preserve">
+  <t t-name="MarkdownPublicPage">
+    <main class="basehub-md-public-page">
+      <t t-if="state.status === 'loading'">
+        <div class="basehub-md-public-page-status" t-esc="t('Loading markdown content…')"/>
+      </t>
+      <t t-elif="state.status === 'error'">
+        <div class="basehub-md-public-page-status is-error" t-esc="state.message"/>
+      </t>
+      <t t-else="">
+        <MarkdownViewer content="state.content" headings="headings" showHeadingRail="true" showChrome="false"/>
+      </t>
+    </main>
+  </t>
+</templates>

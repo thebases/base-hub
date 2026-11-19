@@ -1,0 +1,188 @@
+<templates>
+  <t t-name="Shell">
+    <!-- Rendered as a sibling of <Shell> below, NOT as a child of it: a
+         child here would be default-slot content that <Shell>'s own
+         template re-forwards into its internal <Sidebar>'s default slot
+         (nodexui.Shell -> Sidebar -> t-slot="default"), and that double
+         slot-forward does not correctly resolve component tags against
+         *this* class's `static components` — confirmed via a real
+         "Cannot find the definition of component Toast" render error when
+         tried as a child. Rendering it here, outside <Shell> entirely, is a
+         plain top-level tag with no slot forwarding involved, so resolution
+         is unambiguous. `position:fixed` doesn't care about DOM nesting, so
+         this needs no extra CSS. Pinned to the bottom-right corner via
+         Toast's native `position` prop (@thebase/ui 0.0.12+) instead of the
+         old app-authored `.b-shell-toast` class — that class only ever set
+         top-right fixed positioning, which `position` now expresses
+         natively (its `toast-container`/`position-fixed`/corner classes,
+         z-index 1090 via Bootstrap's toast z-index token, same or higher
+         than the old hardcoded 1050). Same always-mounted-instance pattern
+         ModelView.xml/MarkdownPage.xml used before the global-toast
+         consolidation, just hosted once here instead of once per page. -->
+    <Toast open="!!state.busToast"
+           variant="state.busToast ? (state.busToast.variant or 'info') : 'info'"
+           delay="state.busToast and state.busToast.persistent ? 0 : (state.busToast ? (state.busToast.delay or 4000) : 4000)"
+           position="'bottom-right'"
+           className="'basehub-toast'"
+           onOpenChange="(open) => !open and this.dismissBusToast()">
+      <div class="basehub-toast-body">
+        <t t-if="state.busToast and state.busToast.title">
+          <div class="basehub-toast-title" t-esc="state.busToast.title"/>
+        </t>
+        <div class="basehub-toast-desc" t-esc="state.busToast ? state.busToast.message : ''"/>
+      </div>
+      <t t-if="state.busToast and state.busToast.actionLabel">
+        <Button variant="'outline'" size="'sm'" className="'basehub-toast-action'"
+                label="state.busToast.actionLabel" onClick="() => this.runBusToastAction()"/>
+      </t>
+    </Toast>
+
+    <Shell className="'basehub-shell'"
+           collapsed="state.sidebarCollapsed"
+           onCollapsedChange="(collapsed) => this.setSidebarCollapsed(collapsed)"
+           open="state.mobileSidebarOpen"
+           onOpenChange="(open) => this.setMobileSidebarOpen(open)"
+           pwa="this.PWAInstallDrawer">
+      <ShellSidebar>
+        <ShellSidebarHeader className="'basehub-shell-sidebar-header'">
+          <a href="/web" class="basehub-shell-brand">
+            <span class="basehub-shell-brand-mark"><Icon name="'gallery-vertical-end'"/></span>
+            <span class="basehub-shell-brand-text">Base Hub</span>
+          </a>
+          <SidebarClose>
+            <span class="visually-hidden" t-esc="t('Close menu')"/>
+          </SidebarClose>
+        </ShellSidebarHeader>
+
+        <div class="basehub-shell-search">
+          <Icon name="'search'"/>
+          <label for="menu-search" class="visually-hidden" t-esc="t('Search menu')"/>
+          <Input type="'search'" id="'menu-search'" name="'menu-search'" autocomplete="'off'" placeholder="t('Search menu...')" value="state.menuSearch"
+                 onInput="(value) => this.setMenuSearch(value)"/>
+        </div>
+
+        <ShellNav className="'basehub-shell-nav'">
+          <t t-if="state.loading">
+            <div class="text-body-secondary small px-2 py-3" t-esc="t('Loading menu…')"/>
+          </t>
+          <t t-elif="state.error">
+            <Alert variant="'danger'" className="'m-2'"><t t-esc="state.error"/></Alert>
+          </t>
+          <t t-elif="state.menu.length === 0">
+            <div class="text-body-secondary small px-2 py-3" t-esc="t('No menu items available.')"/>
+          </t>
+          <t t-elif="state.menuSearch.trim() and this.filteredMenu.length === 0">
+            <div class="text-body-secondary small px-2 py-3" t-esc="t('No results for {query}.', { query: '&quot;' + state.menuSearch + '&quot;' })"/>
+          </t>
+          <t t-else="">
+            <MenuTree items="this.filteredMenu" currentPath="props.currentPath" expandAll="state.menuSearch.trim() !== ''"/>
+          </t>
+
+          <t t-if="this.filteredKnowledgeTree.length > 0">
+            <SidebarGroupCollapsible label="t('KnowLedge')" defaultOpen="false">
+              <SidebarMenu >
+                <KnowledgeTree items="this.filteredKnowledgeTree" currentPath="props.currentPath"/>
+              </SidebarMenu>
+            </SidebarGroupCollapsible>
+          </t>
+        </ShellNav>
+        <BuildVersionLabel className="'basehub-shell-sidebar-version'"/>
+      </ShellSidebar>
+
+      <ShellMain>
+        <ShellHeader className="'basehub-shell-header'">
+          <SidebarTrigger className="'d-inline-flex'"/>
+          <Separator orientation="'vertical'" className="'d-none d-md-block'"/>
+          <!-- <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem current="!this.currentLabel">Base Hub</BreadcrumbItem>
+              <t t-if="this.currentLabel">
+                <BreadcrumbSeparator/>
+                <BreadcrumbItem current="true"><t t-esc="this.currentLabel"/></BreadcrumbItem>
+              </t>
+            </BreadcrumbList>
+          </Breadcrumb> -->
+          <div class="basehub-shell-header-spacer flex-fill"/>
+          <t t-if="state.languages.length > 1">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="'btn-icon-sm'">
+                <Icon name="'languages'"/>
+                <span class="visually-hidden" t-esc="t('Language')"/>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="'dropdown-menu-end'">
+                <t t-foreach="state.languages" t-as="lang" t-key="lang.code">
+                  <DropdownMenuItem onSelect="() => this.selectLanguage(lang.code)">
+                    <span t-esc="lang.name"/>
+                    <Icon t-if="lang.code === state.currentLang" name="'check'" className="'ms-2'"/>
+                  </DropdownMenuItem>
+                </t>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </t>
+          <ThemeButton variant="'ghost'"/>
+          <Button href="'/web/notifications'" variant="'ghost'" size="'sm'" icon="'bell'"
+                  ariaLabel="t('Notifications')" className="'me-2'"/>
+          <t t-if="companyOptions.length > 0">
+            <DropdownMenu className="'basehub-company-switcher'">
+              <DropdownMenuTrigger className="'btn-icon-sm d-inline-flex align-items-center gap-1'">
+                <Icon name="'building-2'"/>
+                <span class="d-none d-md-inline small text-truncate basehub-company-switcher-label" t-esc="currentCompanyName"/>
+                <span class="visually-hidden" t-esc="t('Companies')"/>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="'dropdown-menu-end'">
+                <DropdownMenuLabel><t t-esc="t('Companies')"/></DropdownMenuLabel>
+                <t t-foreach="companyOptions" t-as="company" t-key="company.id">
+                  <DropdownMenuItem className="company.id === state.currentCompanyId ? 'd-flex align-items-center gap-2 fw-semibold' : 'd-flex align-items-center gap-2'"
+                                    onSelect="() => this.switchCompany(company.id)">
+                    <button type="button" class="btn btn-link p-0 lh-1 text-reset"
+                            t-att-aria-pressed="state.selectedCompanyIds.includes(company.id) ? 'true' : 'false'"
+                            t-att-aria-label="t('Select company')"
+                            t-on-click.stop="() => this.toggleCompany(company.id)">
+                      <Icon name="state.selectedCompanyIds.includes(company.id) ? 'square-check' : 'square'"/>
+                    </button>
+                    <span class="flex-fill text-truncate" t-esc="company.name"/>
+                  </DropdownMenuItem>
+                </t>
+                <t t-if="companySelectionDirty">
+                  <DropdownMenuSeparator/>
+                  <div class="d-flex gap-2 px-2 py-1">
+                    <Button size="'sm'" className="'flex-fill'" onClick="() => this.confirmCompanySelection()"><t t-esc="t('Confirm')"/></Button>
+                    <Button size="'sm'" variant="'outline'" className="'flex-fill'" onClick="() => this.resetCompanySelection()"><t t-esc="t('Reset')"/></Button>
+                  </div>
+                </t>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </t>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="'btn-icon-sm'">
+              <Icon name="'circle-user'"/>
+              <span class="visually-hidden" t-esc="t('User menu')"/>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="'dropdown-menu-end'">
+              <DropdownMenuLabel><t t-esc="state.username"/></DropdownMenuLabel>
+              <DropdownMenuSeparator/>
+              <DropdownMenuItem className="'d-flex align-items-center gap-2'" onSelect="() => this.logout()">
+                <Icon name="'log-out'"/>
+                <span t-esc="t('Log out')"/>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </ShellHeader>
+
+        <ShellContent className="'basehub-shell-content'">
+          <t t-if="props.loading or !props.page">
+            <div class="basehub-content-skeleton" aria-busy="true" aria-live="polite">
+              <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-title'"/>
+              <Skeleton className="'basehub-content-skeleton-bar'"/>
+              <Skeleton className="'basehub-content-skeleton-bar'"/>
+              <Skeleton className="'basehub-content-skeleton-bar basehub-content-skeleton-short'"/>
+            </div>
+          </t>
+          <t t-else="">
+            <t t-component="props.page" params="props.params"/>
+          </t>
+        </ShellContent>
+      </ShellMain>
+    </Shell>
+  </t>
+</templates>

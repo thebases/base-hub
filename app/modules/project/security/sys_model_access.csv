@@ -1,0 +1,11 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+project.access_project_user,Project user,base.group_user,tbl.project,true,true,true,true,true
+project.access_project_stage_user,Project Stages user,base.group_user,tbl.project_stage,true,true,true,true,true
+project.access_project_task_type_user,Task Stages user,base.group_user,tbl.project_task_type,true,true,true,true,true
+project.access_project_task_stage_personal_user,Personal Task Stages user,base.group_user,tbl.project_task_stage_personal,true,true,true,true,true
+project.access_project_tag_user,Project Tags user,base.group_user,tbl.project_tag,true,true,true,true,true
+project.access_project_milestone_user,Project Milestones user,base.group_user,tbl.project_milestone,true,true,true,true,true
+project.access_project_update_user,Project Updates user,base.group_user,tbl.project_update,true,true,true,true,true
+project.access_project_collaborator_user,Project Collaborators user,base.group_user,tbl.project_collaborator,true,true,true,true,true
+project.access_project_role_user,Project Roles user,base.group_user,tbl.project_role,true,true,true,true,true
+project.access_project_task_user,Project Tasks user,base.group_user,tbl.project_task,true,true,true,true,true

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_ticket_activity_link_list" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_activity_link.list</field>
+      <field name="model">tbl.helpdesk_ticket_activity_link</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk Ticket Activity Links">
+          <field name="ticket_id"/>
+          <field name="activity_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_ticket_activity_link_form" model="ui.view">
+      <field name="name">tbl.helpdesk_ticket_activity_link.form</field>
+      <field name="model">tbl.helpdesk_ticket_activity_link</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk Ticket Activity Link">
+          <sheet>
+            <group>
+              <field name="ticket_id"/>
+              <field name="activity_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_rule_list" model="ui.view">
+      <field name="name">sys.rule.list</field>
+      <field name="model">sys.rule</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Record Rules" decoration-muted="not active" decoration-info="global_rule">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="group_bids"/>
+          <field name="domain_force"/>
+          <field name="perm_read"/>
+          <field name="perm_write"/>
+          <field name="perm_create"/>
+          <field name="perm_unlink"/>
+          <field name="active"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_rule_form" model="ui.view">
+      <field name="name">sys.rule.form</field>
+      <field name="model">sys.rule</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Record Rule">
+          <sheet>
+            <group>
+              <group string="General">
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="active"/>
+                <field name="global_rule"/>
+              </group>
+              <group string="Access Rights">
+                <field name="perm_read"/>
+                <field name="perm_write"/>
+                <field name="perm_create"/>
+                <field name="perm_unlink"/>
+              </group>
+            </group>
+            <separator string="Rule Definition"/>
+            <field name="domain_force"/>
+            <group string="Groups">
+              <field name="group_bids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_rule_search" model="ui.view">
+      <field name="name">sys.rule.search</field>
+      <field name="model">sys.rule</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Record Rules">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="domain_force"/>
+          <filter string="Global" name="global_rule" domain="[('global_rule', '=', True)]"/>
+          <filter string="Group Based" name="group_based" domain="[('global_rule', '=', False)]"/>
+          <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+          <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+          <group>
+            <filter string="Model" name="group_by_model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.tbl_helpdesk_ticket" name="Helpdesk Tickets" parent="menu.main" sequence="44" route_path="/web/tbl.helpdesk_ticket" icon="ticket"/>
+    <menuitem id="menu.helpdesk_configuration" name="Helpdesk Configuration" parent="menu.main" sequence="45" icon="settings"/>
+    <menuitem id="menu.tbl_helpdesk_team" name="Teams" parent="menu.helpdesk_configuration" sequence="10" route_path="/web/tbl.helpdesk_team" icon="users"/>
+    <menuitem id="menu.tbl_helpdesk_stage" name="Stages" parent="menu.helpdesk_configuration" sequence="20" route_path="/web/tbl.helpdesk_stage" icon="columns"/>
+    <menuitem id="menu.tbl_helpdesk_tag" name="Tags" parent="menu.helpdesk_configuration" sequence="30" route_path="/web/tbl.helpdesk_tag" icon="tag"/>
+    <menuitem id="menu.tbl_helpdesk_ticket_category" name="Categories" parent="menu.helpdesk_configuration" sequence="40" route_path="/web/tbl.helpdesk_ticket_category" icon="folder"/>
+    <menuitem id="menu.tbl_helpdesk_ticket_channel" name="Channels" parent="menu.helpdesk_configuration" sequence="50" route_path="/web/tbl.helpdesk_ticket_channel" icon="radio"/>
+    <menuitem id="menu.tbl_helpdesk_ticket_type" name="Ticket Types" parent="menu.helpdesk_configuration" sequence="60" route_path="/web/tbl.helpdesk_ticket_type" icon="list"/>
+    <menuitem id="menu.tbl_helpdesk_sla" name="SLA Policies" parent="menu.helpdesk_configuration" sequence="70" route_path="/web/tbl.helpdesk_sla" icon="clock"/>
+    <!-- Own menu entry so readableModelsFromSidebar (app/frontend's
+         DashboardView.js gate) includes tbl.helpdesk_sla_status — otherwise
+         its dashboard card silently never renders. -->
+    <menuitem id="menu.tbl_helpdesk_sla_status" name="SLA Status" parent="menu.helpdesk_configuration" sequence="75" route_path="/web/tbl.helpdesk_sla_status" icon="clock"/>
+    <menuitem id="menu.tbl_helpdesk_digest_log" name="Digest Log" parent="menu.helpdesk_configuration" sequence="80" route_path="/web/tbl.helpdesk_digest_log" icon="file"/>
+    <!-- No separate menu for the ticket-cohort analysis view: the frontend's
+         view switcher already lists every ui.view registered for a model
+         (WINDOW_ACTION_VIEW_ORDER includes "cohort"), so once
+         tbl_helpdesk_ticket_views.xml gains a type=cohort view it appears as
+         a switchable tab on this existing ticket menu — no route_path query
+         param mechanism exists to deep-link a specific view mode. -->
+</data>

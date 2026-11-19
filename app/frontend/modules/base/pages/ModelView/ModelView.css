@@ -1,0 +1,1853 @@
+.basehub-modelview-shell {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.75rem !important;
+}
+
+.basehub-modelview-shell.is-form-mode {
+  max-width: none;
+  margin: 0;
+  padding: 0 !important;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-modelview-header {
+  display: none !important;
+}
+
+/* ControlPanel — search bar / breadcrumbs / view-switcher / pager toolbar
+   rendered by modules/base/components/views/control-panel/ControlPanel.xml.
+   Colocated here (not a standalone CSS file) to match this codebase's
+   convention of keeping every base-view sub-component's styling inside
+   ModelView.css (see .basehub-calendar-toolbar below). */
+.basehub-control-panel-row {
+  min-height: 2.25rem;
+  height: auto;
+  padding: 0;
+}
+
+.basehub-breadcrumbs .breadcrumb {
+  margin-bottom: 0;
+}
+
+.basehub-search-bar {
+  min-width: 16rem;
+}
+
+.basehub-search-input {
+  flex: 1 1 8rem;
+  min-width: 6rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  background: transparent;
+  outline: none;
+  padding: 0.25rem 0.375rem;
+  font-size: 0.8125rem;
+}
+
+.basehub-pager ul {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+.basehub-modelview-shell.is-form-mode
+  .basehub-modelview-header
+  > div:first-child {
+  min-width: 0;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-modelview-header p {
+  margin: 0 !important;
+  font-size: 1rem;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-modelview-header h1 {
+  display: none;
+}
+
+.basehub-modelview-record-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.basehub-modelview-record-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  max-width: 16rem;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--b-border);
+  border-radius: 999px;
+  color: var(--b-foreground);
+  font-size: 0.875rem;
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-root {
+  min-width: 0;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-control-bar {
+  min-height: 3.5rem;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--b-border);
+  background: var(--b-background);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-control-bar > .badge {
+  display: none;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-control-actions {
+  margin-left: auto;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-body {
+  margin-top: 0;
+  padding: 2rem;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-form-body > .basehub-arch-row {
+  width: 100%;
+  align-items: start;
+  padding: 2rem;
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 1.5);
+  background: color-mix(in oklab, var(--b-background) 96%, var(--b-muted) 4%);
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-arch-row {
+  --basehub-arch-gap: 2rem;
+  column-gap: var(--basehub-arch-gap);
+  row-gap: 1.5rem;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-arch-sheet {
+  row-gap: 2rem;
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-arch-heading-xl {
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.basehub-modelview-shell.is-form-mode
+  .basehub-arch-group:has(> .basehub-arch-group-legend) {
+  min-height: 100%;
+  padding: 1.5rem 1.75rem;
+  background: var(--b-background);
+}
+
+.basehub-modelview-shell.is-form-mode .basehub-arch-group-legend {
+  margin: -2.25rem 0 1.25rem;
+  background: var(--b-background);
+}
+
+.basehub-modelview-row-cell {
+  display: block;
+  cursor: pointer;
+}
+
+/* --- form view (Phase 2c) --- */
+
+.basehub-form-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.basehub-form-control-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.basehub-form-body {
+  margin-top: 1.25rem;
+  max-width: 100%;
+}
+
+/* 8-column arch layout, mirroring frontend-admin's form layout tracks.
+   Uses flexbox instead of CSS grid: span widths are computed with calc()
+   so N/8 columns account for the same gap CSS grid would subtract.
+   Named row/col (not "flex") to stay distinct from real Bootstrap "d-flex". */
+.basehub-arch-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  --basehub-arch-gap: 1.75rem;
+  column-gap: var(--basehub-arch-gap);
+  row-gap: 1.25rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.basehub-arch-col {
+  min-width: 0;
+  flex: 1 1 100%;
+}
+
+.basehub-arch-span-1,
+.basehub-arch-span-2,
+.basehub-arch-span-3,
+.basehub-arch-span-4,
+.basehub-arch-span-5,
+.basehub-arch-span-6,
+.basehub-arch-span-7,
+.basehub-arch-span-8 {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+  .basehub-arch-span-1 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 1 + var(--basehub-arch-gap) *
+          0
+      );
+  }
+  .basehub-arch-span-2 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 2 + var(--basehub-arch-gap) *
+          1
+      );
+  }
+  .basehub-arch-span-3 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 3 + var(--basehub-arch-gap) *
+          2
+      );
+  }
+  .basehub-arch-span-4 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 4 + var(--basehub-arch-gap) *
+          3
+      );
+  }
+  .basehub-arch-span-5 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 5 + var(--basehub-arch-gap) *
+          4
+      );
+  }
+  .basehub-arch-span-6 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 6 + var(--basehub-arch-gap) *
+          5
+      );
+  }
+  .basehub-arch-span-7 {
+    flex: 0 0
+      calc(
+        (100% - 7 * var(--basehub-arch-gap)) / 8 * 7 + var(--basehub-arch-gap) *
+          6
+      );
+  }
+  .basehub-arch-span-8 {
+    flex: 0 0 100%;
+  }
+}
+
+.basehub-arch-header,
+.basehub-arch-footer {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.basehub-arch-sheet {
+  flex: 0 0 100%;
+  width: 100%;
+  align-items: start;
+}
+
+.basehub-arch-group {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.basehub-arch-group:has(> .basehub-arch-group-legend) {
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 1.4);
+  background: color-mix(in oklab, var(--b-background) 96%, var(--b-muted) 4%);
+  padding: 1.25rem;
+}
+
+.basehub-arch-group-legend {
+  float: none;
+  width: auto;
+  max-width: max-content;
+  padding: 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 650;
+  margin: -2rem 0 1rem;
+  background: var(--b-background);
+}
+
+.basehub-arch-group-row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.875rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.basehub-arch-group-actions {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.basehub-arch-group-actions > button {
+  flex: 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  /* Approximates the old repeat(2, minmax(min(100%, 20rem), 1fr)) grid: two
+     flex-wrapped columns, each growing equally from a 20rem floor. */
+  .basehub-arch-group-row-2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+  }
+
+  .basehub-arch-group-row-2 > * {
+    flex: 1 1 min(20rem, 100%);
+    min-width: 0;
+  }
+}
+
+.basehub-arch-notebook > .nav-tabs {
+  margin-bottom: 1rem;
+}
+
+.basehub-arch-page {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.basehub-arch-page[hidden] {
+  display: none;
+}
+
+.basehub-arch-separator-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.basehub-arch-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-arch-container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Flex/gap/align/justify/text-size/muted utilities were removed here on
+   purpose — view-arch XML now emits real Bootstrap 5 classes (d-flex,
+   flex-column, gap-2/3/4, align-items-*, justify-content-*, small,
+   text-muted) directly, and nodexui's nodexui.min.css already defines
+   their rules. Do not re-add a basehub-arch-* alias for any of these. */
+
+.basehub-arch-heading-xl {
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1.1;
+  margin: 0;
+  max-width: min(56rem, 100%);
+  overflow-wrap: anywhere;
+}
+
+.basehub-arch-heading-xl .basehub-form-readonly-value,
+.basehub-arch-heading-xl .b-input {
+  font: inherit;
+}
+
+.basehub-arch-heading-xl .basehub-form-field-inline {
+  display: inline;
+  line-height: inherit;
+}
+
+.basehub-arch-title {
+  max-width: 48rem;
+}
+
+.basehub-form-field {
+  min-width: 0;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.basehub-form-field > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.25rem;
+  font-weight: 650;
+}
+
+.basehub-form-field-readonly:not(.basehub-form-field-inline) > label {
+  margin-bottom: 0.25rem;
+  color: var(--b-foreground);
+}
+
+.basehub-form-field .form-control,
+.basehub-form-field .form-select,
+.basehub-form-field textarea,
+.basehub-form-field select {
+  width: 100%;
+  min-width: 0;
+}
+
+.basehub-form-field-inline {
+  display: inline-flex;
+  align-items: baseline;
+  width: auto;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+
+.basehub-form-field-inline.mb-3 {
+  margin-bottom: 0 !important;
+}
+
+.basehub-form-field-inline > label {
+  margin-bottom: 0;
+}
+
+.basehub-form-field-inline .b-field-description {
+  display: none;
+}
+
+.basehub-form-readonly-value {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--b-foreground);
+  overflow-wrap: break-word;
+  font-size: var(--b-text-sm);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* Stacked-label help: a Base UI Tooltip around an info icon. */
+.basehub-form-help {
+  display: inline-flex;
+  align-items: center;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-form-help svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.b-field-description {
+  display: block;
+  max-width: 42rem;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 767.98px) {
+  .basehub-modelview-shell {
+    padding: 0.5rem !important;
+    width: 100%;
+  }
+
+  .basehub-modelview-shell.is-form-mode {
+    padding: 0;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-form-control-bar {
+    padding: 0.75rem 1rem;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-form-body {
+    padding: 1.25rem 1rem;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-form-body > .basehub-arch-row {
+    padding: 1.25rem;
+  }
+}
+
+.basehub-form-readonly-value:empty::before {
+  content: "—";
+  color: var(--b-muted-foreground);
+}
+
+.basehub-arch-unsupported {
+  font-size: 0.875rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-form-m2o {
+  position: relative;
+  width: 100%;
+}
+
+/* Every control in a group stretches to the group's full width (many2one combobox included). */
+.basehub-arch-group-row > *,
+.basehub-arch-group .basehub-form-field:not(.basehub-form-field-inline),
+.basehub-arch-group .bu-field,
+.basehub-arch-group .bu-input,
+.basehub-arch-group .bu-input-group,
+.basehub-arch-group .basehub-remote-combobox {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.basehub-form-m2o-list {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  margin: 0.25rem 0 0;
+  padding: 0.25rem;
+  list-style: none;
+  max-height: 14rem;
+  overflow-y: auto;
+  background: var(--b-background);
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+}
+
+.basehub-form-m2o-list > li {
+  padding: 0.375rem 0.5rem;
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  cursor: pointer;
+}
+
+.basehub-form-m2o-list > li:hover {
+  background: var(--b-accent);
+}
+
+.basehub-remote-combobox {
+  position: relative;
+}
+
+.basehub-form-m2o-list > li.basehub-form-m2o-active {
+  background: var(--b-accent);
+}
+
+.basehub-form-m2o-list > li.basehub-form-m2o-selected {
+  font-weight: 600;
+}
+
+.basehub-form-m2o-hint {
+  cursor: default;
+  color: var(--b-muted-foreground);
+}
+
+/* Doubled class: BaseUI's button rule (position: relative) loads later and would otherwise win. */
+.basehub-form-m2o .basehub-form-m2o-clear.basehub-form-m2o-clear {
+  position: absolute;
+  top: 50%;
+  right: 2.25rem;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* View sits left of Clear (icon-sm ~2rem wide); without Clear (readonly) it takes Clear's slot. */
+.basehub-form-m2o .basehub-form-m2o-view.basehub-form-m2o-view {
+  position: absolute;
+  top: 50%;
+  right: 4.5rem;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* BaseUI's dialog toggles [hidden]; the open state is a centered overlay. */
+.basehub-form-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgb(0 0 0 / 45%);
+}
+
+.basehub-form-dialog[hidden] {
+  display: none;
+}
+
+.basehub-form-dialog > [b-dialog-panel] {
+  width: min(28rem, 100%);
+}
+
+/* List row type="widget" dialog: wide panel, body scrolls inside the viewport. */
+.basehub-widget-dialog__panel,
+.basehub-widget-dialog__panel[b-dialog-panel] {
+  width: min(42rem, calc(100vw - 2rem));
+  max-width: 100%;
+}
+
+.basehub-widget-dialog__body {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+/* ui.actions.client params.size presets for the widget dialog. */
+.basehub-widget-dialog__panel--sm,
+.basehub-widget-dialog__panel--sm[b-dialog-panel] {
+  width: min(24rem, calc(100vw - 2rem));
+}
+
+.basehub-widget-dialog__panel--md,
+.basehub-widget-dialog__panel--md[b-dialog-panel] {
+  width: min(32rem, calc(100vw - 2rem));
+}
+
+.basehub-widget-dialog__panel--lg,
+.basehub-widget-dialog__panel--lg[b-dialog-panel] {
+  width: min(48rem, calc(100vw - 2rem));
+}
+
+.basehub-widget-dialog__panel--xl,
+.basehub-widget-dialog__panel--xl[b-dialog-panel] {
+  width: min(64rem, calc(100vw - 2rem));
+}
+
+/* ui.actions.client target="sheet": side panel, body scrolls inside it. */
+.basehub-widget-sheet__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0 1rem 1rem;
+}
+
+/* --- kanban view (Phase 2d) --- */
+
+.basehub-kanban-board {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.basehub-kanban-col {
+  flex: 0 0 18rem;
+  max-width: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  background: var(--b-accent);
+}
+
+.basehub-kanban-col.is-folded {
+  flex-basis: 3.5rem;
+  max-width: 3.5rem;
+  align-items: center;
+}
+
+.basehub-kanban-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.basehub-kanban-col-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.basehub-kanban-col.is-folded .basehub-kanban-col-title {
+  writing-mode: vertical-rl;
+}
+
+.basehub-kanban-col-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 3rem;
+}
+
+.basehub-kanban-col-empty {
+  font-size: 0.8125rem;
+  color: var(--b-muted-foreground);
+  margin: 0;
+}
+
+.basehub-kanban-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.basehub-kanban-card {
+  cursor: pointer;
+}
+
+.basehub-kanban-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.basehub-kanban-card-title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.basehub-kanban-card-subfields {
+  margin-top: 0.5rem;
+}
+
+.basehub-kanban-card-subfield {
+  font-size: 0.8125rem;
+  margin: 0 0 0.125rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-kanban-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* --- calendar view (Phase 2e) --- */
+
+.basehub-calendar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.basehub-calendar-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.basehub-calendar-hint {
+  font-size: 0.8125rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-calendar-month {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  overflow: hidden;
+}
+
+.basehub-calendar-weekday {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--b-accent);
+  border-bottom: 1px solid var(--b-border);
+}
+
+.basehub-calendar-cell {
+  min-height: 6rem;
+  padding: 0.25rem;
+  border-bottom: 1px solid var(--b-border);
+  border-right: 1px solid var(--b-border);
+}
+
+.basehub-calendar-cell.is-other-month {
+  background: var(--b-accent);
+  color: var(--b-muted-foreground);
+}
+
+.basehub-calendar-daynum {
+  border: 0;
+  background: none;
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+  cursor: pointer;
+}
+
+.basehub-calendar-daynum.is-today {
+  border-radius: 999px;
+  background: var(--b-primary);
+  color: var(--b-primary-foreground);
+}
+
+.basehub-calendar-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  margin-top: 0.25rem;
+}
+
+.basehub-calendar-chip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.basehub-calendar-chip {
+  flex: 1 1 auto;
+  min-width: 0;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background: var(--b-accent);
+}
+
+.basehub-calendar-chip.is-compact {
+  padding: 0 0.25rem;
+  font-size: 0.6875rem;
+}
+
+.basehub-calendar-repeat,
+.basehub-calendar-more {
+  border: 0;
+  background: none;
+  font-size: 0.6875rem;
+  color: var(--b-muted-foreground);
+  cursor: pointer;
+}
+
+.basehub-calendar-timegrid {
+  display: flex;
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  overflow: auto;
+  max-height: 40rem;
+}
+
+.basehub-calendar-hours {
+  width: 3.5rem;
+  flex: 0 0 3.5rem;
+  border-right: 1px solid var(--b-border);
+}
+
+.basehub-calendar-hourlabel,
+.basehub-calendar-slot {
+  border-bottom: 1px solid var(--b-border);
+  font-size: 0.625rem;
+  padding: 0 0.25rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-calendar-daycol {
+  flex: 1 1 0;
+  border-right: 1px solid var(--b-border);
+}
+
+.basehub-calendar-dayhead {
+  height: 2rem;
+  padding: 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--b-border);
+}
+
+.basehub-calendar-dayslots {
+  position: relative;
+}
+
+.basehub-calendar-event {
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+}
+
+.basehub-calendar-year {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.basehub-calendar-yearmonth {
+  border: 1px solid var(--b-border);
+  border-radius: var(--b-radius, 0.5rem);
+  padding: 0.5rem;
+}
+
+.basehub-calendar-yearmonth-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.basehub-calendar-yeargrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.125rem;
+}
+
+.basehub-calendar-yearday {
+  height: 1.5rem;
+  border: 0;
+  background: none;
+  font-size: 0.625rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.basehub-calendar-yearday.is-other-month {
+  color: var(--b-muted-foreground);
+}
+
+.basehub-calendar-yearday.has-events {
+  background: var(--b-accent);
+  font-weight: 600;
+}
+
+.basehub-calendar-schedule-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--b-border);
+}
+
+.basehub-calendar-schedule-date {
+  width: 7rem;
+  flex: 0 0 7rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.basehub-calendar-schedule-events {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Phase 6 field-widget backfill (FormField.xml) */
+.basehub-form-x2many {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  align-items: center;
+}
+
+/* BaseUI's theme layer remaps --bs-secondary(-rgb) to its own near-white
+   "muted" surface token (see baseui-light.css), so Bootstrap's real
+   .text-bg-secondary (white text + var(--bs-secondary-rgb) background) ends
+   up rendering white-on-near-white — unreadable. Override with BaseUI's own
+   muted/muted-foreground pair, which is an actual contrast pair and already
+   flips correctly between light/dark themes. */
+.basehub-form-chip {
+  font-weight: 500;
+  color: var(--b-muted-foreground) !important;
+  background-color: var(--b-muted) !important;
+}
+
+/* Phase 6 dialogs/x2many/PWA pass: inline x2many edit (search-add + remove) */
+.basehub-form-x2many-edit {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.basehub-form-x2many-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.basehub-form-chip-remove {
+  padding: 0;
+  margin-left: 0.25rem;
+  height: auto;
+  line-height: 1;
+  color: inherit;
+}
+
+.basehub-form-x2many-add {
+  position: relative;
+  max-width: 24rem;
+}
+
+.basehub-form-handle {
+  color: var(--b-muted-foreground);
+  cursor: grab;
+}
+
+.basehub-form-tz-alert {
+  gap: 0.375rem;
+}
+
+.basehub-form-image-preview {
+  max-width: 8rem;
+  max-height: 8rem;
+  object-fit: contain;
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  border: 1px solid var(--b-border);
+  display: block;
+  margin-bottom: 0.375rem;
+}
+
+/* Readonly "no image" fallback (FormField.xml) — sized to match
+   .basehub-form-image-preview above. Without an explicit box, this used to
+   render at whatever oversized intrinsic size the surrounding flex row gave
+   it (e.g. a contact_image field inlined next to a name column via
+   ArchNode's shouldInlineChild), starving the sibling text column down to a
+   few px and making it wrap one character per line. flex-shrink: 0 keeps it
+   from being asked to shrink either, so its box stays fixed regardless of
+   what else is in the row. */
+/* tbl_partner_views.xml's <field name="image_1920" ... class="contact-image"/> —
+   an arch-authored hook (reachable via ArchNode's colClass/childNodeClassName
+   passthrough of a field's class= attribute) that caps the contact_image
+   widget at 120px. The class lands on FormField.xml's outer <Field> wrapper,
+   not the <img>/placeholder itself, so the actual size cap must target those
+   descendants directly — a max-width on the wrapper alone would not shrink an
+   <img> that has no width:100%. flex-shrink: 0 on the wrapper keeps it from
+   being squeezed by the sibling name column in the same flex row (same
+   fixed-box reasoning as .basehub-form-image-placeholder above). */
+.contact-image {
+  flex: 0 0 auto;
+  max-width: 120px;
+}
+
+.basehub-form-image-placeholder {
+  width: 8rem;
+  height: 8rem;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  border: 1px dashed var(--b-border);
+  margin-bottom: 0.375rem;
+  font-size: 0.8125rem;
+}
+
+.basehub-form-color-swatch {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--b-border);
+  vertical-align: middle;
+  margin-right: 0.375rem;
+}
+
+.basehub-form-color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.basehub-form-color-swatch-btn {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--b-border);
+  padding: 0;
+  cursor: pointer;
+}
+
+.basehub-form-color-swatch-btn.is-selected {
+  outline: 2px solid var(--b-primary);
+  outline-offset: 1px;
+}
+
+.basehub-form-priority {
+  display: inline-flex;
+  gap: 0.125rem;
+}
+
+.basehub-form-bool-icon-btn {
+  color: var(--b-muted-foreground);
+}
+
+.basehub-bool-icon-active {
+  color: var(--bs-warning, #ffc107);
+}
+
+.basehub-form-json-input,
+.basehub-form-json-readonly {
+  font-family: var(--bs-font-monospace, monospace);
+  font-size: 0.8125rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.basehub-form-json-readonly {
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--b-accent);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  max-height: 24rem;
+  overflow: auto;
+}
+
+/* BaseUI CodeEditor (code / json / lua widgets): the box scrolls (max-height 70svh) but its flex
+   children only stretch to the visible height, so the line-number gutter and the text layer ended
+   mid-scroll on long content. Sizing them to their content keeps the gutter full-height. */
+.b-code-editor-box > .b-code-editor-gutter,
+.b-code-editor-box > .b-code-editor-body {
+  min-height: max-content;
+}
+
+/* Shared empty-state (components/NoContent.js), used by ListView + KanbanView */
+.basehub-no-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-no-content-icon {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+/* Attachment widget (components/attachment/AttachmentWidget.js), wired via
+   ArchNode's <attachment> arch tag. */
+.basehub-attachment-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px dashed var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  margin-bottom: 0.75rem;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.basehub-attachment-dropzone.is-dragging {
+  border-color: var(--b-primary);
+  background: var(--b-accent);
+}
+
+.basehub-attachment-dropzone-icon {
+  font-size: 1.5rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-attachment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.basehub-attachment-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+}
+
+.basehub-attachment-row-icon {
+  color: var(--b-muted-foreground);
+  flex: 0 0 auto;
+}
+
+.basehub-attachment-row-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.basehub-attachment-spin {
+  display: inline-block;
+  animation: basehub-attachment-spin 0.8s linear infinite;
+}
+
+@keyframes basehub-attachment-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Phase 6 dialogs/x2many/PWA pass: base-view app-specific dialogs */
+.basehub-module-selection-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.basehub-module-selection-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.25rem;
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  cursor: pointer;
+}
+
+.basehub-module-selection-row:hover {
+  background: var(--b-accent);
+}
+
+.basehub-oauth-code {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: var(--b-accent);
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+  padding: 0.375rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+/* Chatter (components/chatter/*.js), docked via FormView.xml's
+   .basehub-form-with-chatter two-pane wrapper — see FormView.js's
+   hasChatterNode. Desktop-first row layout; stacks below the form on mobile
+   (see the 767.98px query below) instead of shrinking to unusable width. */
+.basehub-form-with-chatter {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  gap: 0;
+}
+
+.basehub-form-with-chatter > .basehub-form-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Rendered by ChatterPanel.xml only while props.collapsed is true (the
+   docked chatter panel's own collapsed state, toggled by FormView's
+   panel-right header button) — hidden outright since that header button
+   is still there to re-expand it. */
+.basehub-chatter-rail {
+  display: none;
+}
+
+.basehub-chatter-panel {
+  flex: 0 0 24rem;
+  max-width: 24rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--b-border);
+  background: var(--b-background);
+}
+
+.basehub-chatter-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--b-border);
+}
+
+.basehub-chatter-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.basehub-chatter-hint {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--b-muted-foreground);
+}
+
+/* Sheet variant of the chatter panel (FormView.xml's showChatterSheet), used
+   when there's no room to dock it beside the form (see chatterFitsAsSidebar
+   in layout-store.js). Fills the Sheet's panel instead of sitting alongside
+   the form, so the sidebar's fixed width/border-left don't apply. */
+.basehub-chatter-sheet-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.basehub-chatter-sheet-body .basehub-chatter-panel {
+  flex: 1 1 auto;
+  max-width: none;
+  border-left: none;
+}
+
+.basehub-chatter-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.basehub-chatter-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+}
+
+.basehub-chatter-composer-tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.basehub-chatter-composer-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.basehub-chatter-suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-height: 8rem;
+  overflow-y: auto;
+}
+
+.basehub-chatter-suggestion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.375rem 0.5rem;
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.5);
+  cursor: pointer;
+}
+
+.basehub-chatter-suggestion:hover {
+  background: var(--b-accent);
+}
+
+.basehub-chatter-activities {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-activity {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--b-border);
+  border-radius: calc(var(--b-radius, 0.5rem) * 0.6);
+}
+
+.basehub-chatter-activity--overdue {
+  border-color: var(--b-destructive, #dc3545);
+}
+
+.basehub-chatter-activity-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-activity-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.basehub-chatter-activity-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-activity-meta {
+  font-size: 0.8125rem;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-chatter-activity-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.basehub-chatter-messages {
+  flex: 1 1 auto;
+  min-height: 12rem;
+  display: flex;
+}
+
+.basehub-chatter-scroller {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.basehub-chatter-message-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* MessageFeed.xml always renders Avatar before the bubble (single element,
+   no t-if duplication) — normal `row` already puts it on the left for the
+   current user's own ("outgoing") messages. For someone else's ("incoming")
+   message, reversing the flex direction flips the *visual* order without
+   touching the DOM order, moving the avatar to the right instead. */
+.basehub-chatter-message-row--incoming {
+  flex-direction: row-reverse;
+}
+
+/* flex: 0 1 auto (not 1 1 auto) so the bubble sizes to its own content
+   instead of stretching across the remaining row width — that stretch was
+   pulling the meta row (author/time) away from its own avatar for whichever
+   side the row wasn't visually "first" on. Content-sized + capped max-width
+   lets the row's flex-direction (row / row-reverse above) cluster avatar +
+   bubble together at the correct edge, with blank space on the other side. */
+.basehub-chatter-message-bubble {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 0.125rem;
+  min-width: 0;
+  max-width: min(30rem, 78%);
+}
+
+.basehub-chatter-message-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--b-muted-foreground);
+}
+.basehub-chatter-message-content {
+  display: flex;
+}
+/* No margin here: nodexui.min.css owns `[b-ui=message]`'s margin (including
+   margin-left:auto for outgoing alignment) and always loads before this page
+   CSS — an `!important` margin reset previously clobbered that alignment
+   regardless of load order, so only layout-only properties stay here. */
+.basehub-chatter-message-content article {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin: 0 !important;
+}
+
+.basehub-chatter-message-subject {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.basehub-chatter-empty {
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  color: var(--b-muted-foreground);
+  text-align: center;
+}
+
+.basehub-chatter-followers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 12rem;
+}
+
+.basehub-chatter-follower-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.basehub-chatter-follower-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-user-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.basehub-chatter-recipients {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.basehub-chatter-recipients-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--bs-secondary-color, #6c757d);
+  margin: 0;
+}
+
+.basehub-chatter-required {
+  color: var(--bs-danger, #dc3545);
+}
+
+.basehub-chatter-recipients-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.basehub-chatter-schedule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.basehub-chatter-schedule-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--b-muted-foreground);
+}
+
+.basehub-chatter-schedule-error {
+  color: var(--b-destructive, #dc3545);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 767.98px) {
+  .basehub-form-with-chatter {
+    flex-direction: column;
+  }
+
+  .basehub-chatter-panel {
+    flex: 1 1 auto;
+    max-width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--b-border);
+  }
+}
+
+/* View mode renders normal (non-disabled) Base UI controls; selects and comboboxes
+   have no native readonly, so they are made inert instead of greyed out. */
+.basehub-form-field-readonly select,
+.basehub-form-field-readonly .b-combobox,
+.basehub-form-field-readonly .b-select-trigger {
+  pointer-events: none;
+}
+
+/* Inline form fields laid out side by side (company header: email / phone / website). */
+.basehub-form-field.basehub-field-third {
+  flex: 1 1 14rem;
+  inline-size: auto;
+  min-inline-size: 0;
+}
+
+/* View mode: outlined Base UI fields keep their layout but drop the visible border. */
+.basehub-form-field-readonly .b-input-outlined .b-outlined-control,
+.basehub-form-field-readonly .b-input-outlined .b-input-box .b-outlined-control,
+.basehub-form-field-readonly .b-input-outlined .b-select-trigger,
+.basehub-form-field-readonly .b-input-outlined .b-outlined-control:hover,
+.basehub-form-field-readonly .b-input-outlined .b-select-trigger:hover {
+  border-color: transparent;
+}
+
+/* List view on phones: Base UI Field cards replace DataTable's built-in card layout. */
+.basehub-list-cards {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .basehub-list-table .b-data-table__cards {
+    display: none;
+  }
+
+  .basehub-list-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--b3, 0.75rem);
+  }
+
+  .basehub-list-card {
+    display: grid;
+    gap: var(--b2, 0.5rem);
+    padding: var(--b3, 0.75rem);
+    border: 1px solid var(--b-border);
+    border-radius: var(--b-radius-lg);
+    background: var(--b-surface, transparent);
+  }
+
+  .basehub-list-card .basehub-list-card-field-inline {
+    justify-content: space-between;
+    border: 0;
+    border-color: transparent;
+  }
+
+  .basehub-list-card .basehub-list-card-field-inline > [data-slot="field-label"] {
+    flex-shrink: 0;
+    color: var(--b-muted-foreground);
+  }
+
+  .basehub-list-card .basehub-list-card-field-inline > :not([data-slot="field-label"]) {
+    margin-inline-start: auto;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Phone list card: first non-empty value is the title (no label). */
+.basehub-list-card .basehub-list-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* --- responsive pass (2026-10-17 audit) --- */
+
+/* Read-only textareas are not resizable. */
+.basehub-form-field-readonly textarea {
+  resize: none;
+}
+
+/* Phones: reclaim the width lost to nested card/group/field padding and tame the xl heading. */
+@media (max-width: 575.98px) {
+  .basehub-modelview-shell.is-form-mode .basehub-form-body {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-form-body > .basehub-arch-row {
+    padding: 1rem 0.75rem;
+  }
+
+  .basehub-modelview-shell.is-form-mode
+    .basehub-arch-group:has(> .basehub-arch-group-legend) {
+    padding: 1rem 0.75rem;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-arch-heading-xl {
+    font-size: 1.375rem;
+    line-height: 1.2;
+  }
+
+  .basehub-modelview-shell.is-form-mode .basehub-form-control-bar {
+    padding: 0 0.75rem;
+  }
+}
+
+/* Touch devices: 44px minimum targets for control-bar, list and kanban buttons and the search box. */
+@media (pointer: coarse) {
+  .basehub-modelview-shell .btn.b-button {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+
+  .basehub-modelview-shell input.basehub-search-input {
+    min-height: 2.75rem;
+  }
+}
+
+/* Form control bar: back-to-list sits at the start while the actions stay at the end. */
+.basehub-modelview-shell.is-form-mode .basehub-form-back {
+  margin-right: auto;
+}
+
+/* Kanban on phones: columns snap and take most of the viewport so a swipe lands on one column. */
+@media (max-width: 767.98px) {
+  .basehub-kanban-board {
+    scroll-snap-type: x mandatory;
+  }
+
+  .basehub-kanban-col {
+    flex-basis: min(18rem, 85vw);
+    max-width: min(18rem, 85vw);
+    scroll-snap-align: start;
+  }
+}
+
+/* Hierarchy tree (HierarchyCard.xml): full-width rows, indented children. */
+.basehub-hierarchy-node {
+  min-width: 0;
+}
+
+.basehub-hierarchy-node-row {
+  min-width: 0;
+  padding-block: 0.125rem;
+}
+
+.basehub-hierarchy-node-spacer {
+  flex: 0 0 2rem;
+}
+
+.basehub-hierarchy-card {
+  flex: 1 1 auto;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.basehub-hierarchy-card-inner .card-body,
+.basehub-hierarchy-card-inner > * {
+  padding-block: 0.5rem;
+}
+
+.basehub-hierarchy-card-title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.basehub-hierarchy-card-subfields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+.basehub-hierarchy-children {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--b-border);
+}
+
+@media (max-width: 575.98px) {
+  .basehub-hierarchy-children {
+    margin-left: 0.5rem;
+    padding-left: 0.25rem;
+  }
+}
+
+/* Calendar month on phones: day cells are ~50px wide, so events become dots (tap the day for the list). */
+@media (max-width: 575.98px) {
+  .basehub-calendar-chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .basehub-calendar-chip.is-compact {
+    flex: 0 0 auto;
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    font-size: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--b-foreground);
+  }
+
+  .basehub-calendar-chip.is-compact + .basehub-calendar-repeat {
+    display: none;
+  }
+}
+
+/* Translation editor trigger of translate:true fields: language badge beside the input. */
+.basehub-form-translate-btn {
+  gap: 0.25rem;
+}
+
+.basehub-form-translate-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* text_editor widget: BaseUI TextEditor (Milkdown Crepe) needs an explicit surface size/padding inside forms.
+   The whole box is the click target (ProseMirror fills it) and long content scrolls inside it.
+   Select text for the formatting toolbar; type "/" for the block menu. */
+.basehub-form-text-editor {
+  width: 100%;
+}
+.basehub-form-text-editor .b-text-editor {
+  display: block;
+  border: 1px solid var(--bs-border-color, #dee2e6);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.basehub-form-text-editor .b-text-editor-shell,
+.basehub-form-text-editor .b-text-editor-surface {
+  width: 100%;
+  background: #ffffff;
+}
+.basehub-form-text-editor .b-text-editor-surface {
+  height: 18rem;
+  overflow-y: auto;
+}
+.basehub-form-text-editor .milkdown {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.basehub-form-text-editor .milkdown .ProseMirror {
+  flex: 1 1 auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 1rem;
+  outline: none;
+}
+.basehub-form-rich-text {
+  display: block;
+  overflow-wrap: anywhere;
+}

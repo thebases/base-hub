@@ -1,0 +1,5 @@
+<templates name="Video" group="images" sequence="150" class="bh-video" keywords="movie,media" thumbnail="data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2272%22 viewBox=%220 0 120 72%22%3E%3Crect width=%22120%22 height=%2272%22 rx=%224%22 fill=%22%23f8f9fa%22 stroke=%22%23dee2e6%22/%3E%3Crect x=%2214%22 y=%2210%22 width=%2292%22 height=%2252%22 rx=%222%22 fill=%22%236c757d%22/%3E%3Cpolygon points=%2254,28 54,46 70,37%22 fill=%22%23e9ecef%22/%3E%3C/svg%3E">
+  <t t-name="website.snippet.video">
+    <section class="bh-video py-5" data-snippet="video"><div class="container"><video class="w-100 rounded" controls="controls" poster="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27600%27 height=%27400%27%3E%3Crect width=%27600%27 height=%27400%27 fill=%27%23dee2e6%27/%3E%3C/svg%3E"></video></div></section>
+  </t>
+</templates>

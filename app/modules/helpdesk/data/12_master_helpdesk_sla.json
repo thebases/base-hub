@@ -1,0 +1,74 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_sla",
+    "external_id": "helpdesk.sla.customer_support_urgent",
+    "force_update": false,
+    "data": {
+      "name": "Customer Support - Urgent Priority",
+      "team_id": "helpdesk.team.customer_support",
+      "priority": "urgent",
+      "stage_id": "helpdesk.stage.solved",
+      "duration_hours": 4,
+      "tag_ids": [],
+      "ticket_type_ids": [],
+      "partner_ids": [],
+      "exclude_stage_ids": ["helpdesk.stage.cancelled"],
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_sla",
+    "external_id": "helpdesk.sla.customer_support_normal",
+    "force_update": false,
+    "data": {
+      "name": "Customer Support - Normal Priority",
+      "team_id": "helpdesk.team.customer_support",
+      "priority": "normal",
+      "stage_id": "helpdesk.stage.solved",
+      "duration_hours": 24,
+      "tag_ids": [],
+      "ticket_type_ids": [],
+      "partner_ids": [],
+      "exclude_stage_ids": ["helpdesk.stage.cancelled"],
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_sla",
+    "external_id": "helpdesk.sla.technical_support_high",
+    "force_update": false,
+    "data": {
+      "name": "Technical Support - High Priority",
+      "team_id": "helpdesk.team.technical_support",
+      "priority": "high",
+      "stage_id": "helpdesk.stage.solved",
+      "duration_hours": 8,
+      "tag_ids": ["helpdesk.tag.bug"],
+      "ticket_type_ids": [],
+      "partner_ids": [],
+      "exclude_stage_ids": ["helpdesk.stage.cancelled"],
+      "active": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_sla",
+    "external_id": "helpdesk.sla.technical_support_normal",
+    "force_update": false,
+    "data": {
+      "name": "Technical Support - Normal Priority",
+      "team_id": "helpdesk.team.technical_support",
+      "priority": "normal",
+      "stage_id": "helpdesk.stage.solved",
+      "duration_hours": 48,
+      "tag_ids": [],
+      "ticket_type_ids": [],
+      "partner_ids": [],
+      "exclude_stage_ids": ["helpdesk.stage.cancelled"],
+      "active": true
+    }
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_type",
+    "external_id": "helpdesk.ticket_type.question",
+    "force_update": false,
+    "data": { "name": "Question", "show_in_portal": true, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_type",
+    "external_id": "helpdesk.ticket_type.issue",
+    "force_update": false,
+    "data": { "name": "Issue", "show_in_portal": true, "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_type",
+    "external_id": "helpdesk.ticket_type.bug",
+    "force_update": false,
+    "data": { "name": "Bug", "show_in_portal": true, "active": true }
+  }
+]

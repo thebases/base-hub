@@ -1,0 +1,169 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.main",
+    "force_update": true,
+    "data": {
+      "name": "Base Company",
+      "complete_name": "Base Company",
+      "active": true,
+      "is_company": true,
+      "company_type": "company",
+      "type": "contact",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.base1_company",
+    "force_update": true,
+    "data": {
+      "name": "base1",
+      "complete_name": "base1",
+      "active": true,
+      "is_company": true,
+      "company_type": "company",
+      "type": "contact",
+      "email": "contact@base1.local",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.company",
+    "external_id": "company.main",
+    "force_update": true,
+    "data": {
+      "name": "Base Company",
+      "active": true,
+      "sequence": 10,
+      "partner_id": "partner.main",
+      "currency_code": "VND",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.company",
+    "external_id": "company.base1",
+    "force_update": true,
+    "data": {
+      "name": "base1",
+      "active": true,
+      "sequence": 20,
+      "partner_id": "partner.base1_company",
+      "currency_code": "VND",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.main",
+    "force_update": true,
+    "data": {
+      "name": "Base Company",
+      "complete_name": "Base Company",
+      "active": true,
+      "is_company": true,
+      "company_type": "company",
+      "type": "contact",
+      "company_id": "company.main",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.base1_company",
+    "force_update": true,
+    "data": {
+      "name": "base1",
+      "complete_name": "base1",
+      "active": true,
+      "is_company": true,
+      "company_type": "company",
+      "type": "contact",
+      "company_id": "company.base1",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.system",
+    "force_update": true,
+    "data": {
+      "name": "System",
+      "complete_name": "System",
+      "active": false,
+      "is_company": false,
+      "company_type": "person",
+      "type": "contact",
+      "email": "basebot@thebase.vn",
+      "company_id": "company.main",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.admin",
+    "force_update": true,
+    "data": {
+      "name": "Administrator",
+      "complete_name": "Administrator",
+      "active": true,
+      "is_company": false,
+      "company_type": "person",
+      "type": "contact",
+      "company_id": "company.main",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.public",
+    "force_update": true,
+    "data": {
+      "name": "Public user",
+      "complete_name": "Public user",
+      "active": false,
+      "is_company": false,
+      "company_type": "person",
+      "type": "contact",
+      "company_id": "company.main",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.partner",
+    "external_id": "partner.base1_user",
+    "force_update": true,
+    "data": {
+      "name": "base1 User",
+      "complete_name": "base1 User",
+      "active": true,
+      "is_company": false,
+      "company_type": "person",
+      "type": "contact",
+      "email": "base1@thebase.vn",
+      "company_id": "company.base1",
+      "country_id": "vn",
+      "state_id": "state_vn_79"
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project",
+    "external_id": "project.project.demo_website_redesign",
+    "force_update": true,
+    "data": {
+      "name": "Website Redesign",
+      "description": "Redesign the marketing site with the new brand system and a faster page-builder workflow.",
+      "company_id": "company.main",
+      "sequence": 10,
+      "partner_id": "partner.main",
+      "user_id": "user.admin",
+      "color": 1,
+      "privacy_visibility": "employees",
+      "date_start": "2026-08-01",
+      "date": "2026-11-30",
+      "allow_task_dependencies": true,
+      "allow_milestones": true,
+      "allow_recurring_tasks": false,
+      "stage_id": "project.stage.in_progress",
+      "tag_ids": ["project.tag.internal"]
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project",
+    "external_id": "project.project.demo_mobile_app",
+    "force_update": true,
+    "data": {
+      "name": "Mobile App Beta",
+      "description": "Ship the closed-beta build of the mobile app to the first customer cohort.",
+      "company_id": "company.main",
+      "sequence": 20,
+      "partner_id": "partner.base1_company",
+      "user_id": "user.admin",
+      "color": 2,
+      "privacy_visibility": "followers",
+      "date_start": "2026-09-01",
+      "date": "2027-01-15",
+      "allow_task_dependencies": true,
+      "allow_milestones": true,
+      "allow_recurring_tasks": true,
+      "stage_id": "project.stage.to_do",
+      "tag_ids": ["project.tag.research", "project.tag.urgent"]
+    }
+  }
+]

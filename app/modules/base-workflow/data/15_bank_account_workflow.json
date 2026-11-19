@@ -1,0 +1,448 @@
+[
+  {
+    "action": "c",
+    "model": "base.workflow",
+    "external_id": "workflow.flow.bank_account_import_v1",
+    "force_update": true,
+    "data": {
+      "name": "bank_account_import_v1",
+      "topic": "bank",
+      "version": 1,
+      "is_active": false,
+      "is_template": true,
+      "group_id": "base.group_system",
+      "description": "Ships inactive as a template, system group only. Receive bank account data via /wh/bank, ensure owner and proxy partners exist, create tbl.partner.bank, and notify the admin service-bus channel.",
+      "layout": {
+        "nodes": [
+          {
+            "id": "trigger:webhook",
+            "position": { "x": 80, "y": 200 }
+          },
+          {
+            "id": "action:parse_bank_payload",
+            "position": { "x": 340, "y": 200 }
+          },
+          {
+            "id": "action:flatten_bank_payload",
+            "position": { "x": 620, "y": 200 }
+          },
+          {
+            "id": "action:search_owner_partner",
+            "position": { "x": 900, "y": 80 }
+          },
+          {
+            "id": "action:create_owner_partner",
+            "position": { "x": 1180, "y": 80 }
+          },
+          {
+            "id": "action:search_proxy_partner",
+            "position": { "x": 900, "y": 320 }
+          },
+          {
+            "id": "action:create_proxy_partner",
+            "position": { "x": 1180, "y": 320 }
+          },
+          {
+            "id": "action:map_bank_account",
+            "position": { "x": 1460, "y": 200 }
+          },
+          {
+            "id": "action:create_partner_bank_account",
+            "position": { "x": 1740, "y": 200 }
+          },
+          {
+            "id": "action:notify_admin_bank_account",
+            "position": { "x": 2020, "y": 200 }
+          }
+        ],
+        "edges": [
+          {
+            "id": "trigger:webhook->action:parse_bank_payload",
+            "source": "trigger:webhook",
+            "target": "action:parse_bank_payload"
+          },
+          {
+            "id": "action:parse_bank_payload->action:flatten_bank_payload",
+            "source": "action:parse_bank_payload",
+            "target": "action:flatten_bank_payload"
+          },
+          {
+            "id": "action:flatten_bank_payload->action:search_owner_partner",
+            "source": "action:flatten_bank_payload",
+            "target": "action:search_owner_partner"
+          },
+          {
+            "id": "action:search_owner_partner->action:create_owner_partner",
+            "source": "action:search_owner_partner",
+            "target": "action:create_owner_partner"
+          },
+          {
+            "id": "action:create_owner_partner->action:search_proxy_partner",
+            "source": "action:create_owner_partner",
+            "target": "action:search_proxy_partner"
+          },
+          {
+            "id": "action:search_proxy_partner->action:create_proxy_partner",
+            "source": "action:search_proxy_partner",
+            "target": "action:create_proxy_partner"
+          },
+          {
+            "id": "action:create_proxy_partner->action:map_bank_account",
+            "source": "action:create_proxy_partner",
+            "target": "action:map_bank_account"
+          },
+          {
+            "id": "action:map_bank_account->action:create_partner_bank_account",
+            "source": "action:map_bank_account",
+            "target": "action:create_partner_bank_account"
+          },
+          {
+            "id": "action:create_partner_bank_account->action:notify_admin_bank_account",
+            "source": "action:create_partner_bank_account",
+            "target": "action:notify_admin_bank_account"
+          }
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 0.8
+        }
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.parse_payload",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.parse_payload",
+      "sequence": 10,
+      "name": "Parse Bank Payload",
+      "step_key": "parse_bank_payload",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.flatten_payload",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.flatten_json",
+      "sequence": 20,
+      "name": "Flatten Bank Payload",
+      "step_key": "flatten_bank_payload",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.search_owner_partner",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 30,
+      "name": "Search Owner Partner",
+      "step_key": "search_owner_partner",
+      "model_name": "tbl.partner",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "extra_params": {
+        "operation": "search_one",
+        "filter": {
+          "ref": "#bid"
+        },
+        "fields": [
+          "id",
+          "name",
+          "ref"
+        ],
+        "result_key": "owner_partner",
+        "id_field": "owner_partner_id",
+        "merge_result": true
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.create_owner_partner",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 40,
+      "name": "Create Owner Partner",
+      "step_key": "create_owner_partner",
+      "model_name": "tbl.partner",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "extra_params": {
+        "operation": "create",
+        "condition": {
+          "all": [
+            {
+              "field": "bid",
+              "exists": true
+            },
+            {
+              "field": "bid",
+              "empty": false
+            },
+            {
+              "field": "owner_partner_id",
+              "exists": false
+            }
+          ]
+        },
+        "values": {
+          "name": "#acc_holder_name",
+          "ref": "#bid",
+          "active": true,
+          "is_company": true,
+          "company_type": "company",
+          "comment": "Created from /wh/bank workflow for owner account #acc_number"
+        },
+        "result_key": "owner_partner",
+        "id_field": "owner_partner_id",
+        "merge_result": true
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.search_proxy_partner",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 50,
+      "name": "Search Proxy Partner",
+      "step_key": "search_proxy_partner",
+      "model_name": "tbl.partner",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "extra_params": {
+        "operation": "search_one",
+        "condition": {
+          "all": [
+            {
+              "field": "proxy_bid",
+              "exists": true
+            },
+            {
+              "field": "proxy_bid",
+              "empty": false
+            }
+          ]
+        },
+        "filter": {
+          "ref": "#proxy_bid"
+        },
+        "fields": [
+          "id",
+          "name",
+          "ref"
+        ],
+        "result_key": "proxy_partner",
+        "id_field": "proxy_partner_id",
+        "merge_result": true
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.create_proxy_partner",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 60,
+      "name": "Create Proxy Partner",
+      "step_key": "create_proxy_partner",
+      "model_name": "tbl.partner",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "extra_params": {
+        "operation": "create",
+        "condition": {
+          "all": [
+            {
+              "field": "proxy_bid",
+              "exists": true
+            },
+            {
+              "field": "proxy_bid",
+              "empty": false
+            },
+            {
+              "field": "proxy_partner_id",
+              "exists": false
+            }
+          ]
+        },
+        "values": {
+          "name": "#proxy_name",
+          "ref": "#proxy_bid",
+          "active": true,
+          "is_company": true,
+          "company_type": "company",
+          "comment": "Created from /wh/bank workflow for proxy account #proxy_value"
+        },
+        "result_key": "proxy_partner",
+        "id_field": "proxy_partner_id",
+        "merge_result": true
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.map_bank_account",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.transform_data",
+      "sequence": 70,
+      "name": "Map Bank Account",
+      "step_key": "map_bank_account",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "template": {
+        "name": "#acc_number",
+        "partner_id": "#owner_partner_id",
+        "owner_partner_id": "#owner_partner_id",
+        "proxy_partner_id": "#proxy_partner_id",
+        "acc_holder_name": "#acc_holder_name",
+        "acc_number": "#acc_number",
+        "acc_type": "#acc_type",
+        "active": "#active",
+        "bank_bic": "#bank_bic",
+        "company_ref_code": "#company_ref_code",
+        "ipn_url_dev": "#ipn_url_dev",
+        "ipn_url_prod": "#ipn_url_prod",
+        "is_main_account": "#is_main_account",
+        "proxy_name": "#proxy_name",
+        "proxy_type": "#proxy_type",
+        "proxy_value": "#proxy_value",
+        "proxy_bid": "#proxy_bid",
+        "tid": "#tid",
+        "bid": "#bid"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.create_bank_account",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 80,
+      "name": "Create Partner Bank Account",
+      "step_key": "create_partner_bank_account",
+      "model_name": "tbl.partner.bank",
+      "timeout_seconds": 30,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "extra_params": {
+        "operation": "create",
+        "values": {
+          "name": "#name",
+          "partner_id": "#partner_id",
+          "acc_holder_name": "#acc_holder_name",
+          "acc_number": "#acc_number",
+          "acc_type": "#acc_type",
+          "active": "#active",
+          "bank_bic": "#bank_bic",
+          "company_ref_code": "#company_ref_code",
+          "ipn_url_dev": "#ipn_url_dev",
+          "ipn_url_prod": "#ipn_url_prod",
+          "is_main_account": "#is_main_account",
+          "proxy_name": "#proxy_name",
+          "proxy_type": "#proxy_type",
+          "proxy_value": "#proxy_value",
+          "proxy_bid": "#proxy_bid",
+          "tid": "#tid",
+          "bid": "#bid"
+        },
+        "result_key": "bank_account",
+        "id_field": "bank_account_id",
+        "merge_result": true
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.bank_account_import_v1.action.notify_admin",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.bank_account_import_v1",
+      "catalog_id": "workflow.action_catalog.crud_model",
+      "sequence": 90,
+      "name": "Notify Admin",
+      "step_key": "notify_admin_bank_account",
+      "model_name": "base.service.bus",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "continue_on_error": true,
+      "extra_params": {
+        "operation": "create",
+        "values": {
+          "channel": "servicebus:user:1",
+          "event_type": "workflow.bank_account.created",
+          "payload": {
+            "status": "created",
+            "workflow_topic": "bank",
+            "owner_partner_id": "#owner_partner_id",
+            "proxy_partner_id": "#proxy_partner_id",
+            "bank_account_id": "#bank_account_id",
+            "acc_number": "#acc_number",
+            "proxy_value": "#proxy_value",
+            "bid": "#bid",
+            "proxy_bid": "#proxy_bid"
+          }
+        },
+        "result_key": "admin_notification",
+        "merge_result": true
+      }
+    }
+  }
+]

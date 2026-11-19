@@ -1,0 +1,56 @@
+.basehub-build-version {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.625rem;
+  color: var(--b-muted-foreground);
+}
+
+/* shadcn "login-01" is a plain simple form (no muted page background, no
+   brand header) — override the login-03 block's muted-background page
+   styling locally rather than editing the vendored block CSS. */
+[b-block="login-03"].basehub-login-01 {
+  background: var(--b-background);
+}
+
+.basehub-login-01-divider {
+  position: relative;
+}
+
+.basehub-login-01-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--b-border);
+}
+
+.basehub-login-01-divider span {
+  position: relative;
+  padding: 0 0.5rem;
+  background: var(--b-card);
+}
+
+.basehub-login-password {
+  position: relative;
+}
+
+.basehub-login-password .b-input,
+.basehub-login-password input {
+  padding-right: 2.5rem;
+}
+
+.basehub-login-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--b-muted-foreground, inherit);
+  cursor: pointer;
+}

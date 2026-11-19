@@ -1,0 +1,30 @@
+{
+  "sequence": 6,
+  "selector": "#site-header.bh-header-sidebar",
+  "groups": [
+    {
+      "label": "Sidebar",
+      "controls": [
+        {
+          "id": "hs-width",
+          "label": "Sidebar width",
+          "type": "select",
+          "values": [
+            {
+              "label": "Narrow",
+              "class": "bh-sidebar-sm"
+            },
+            {
+              "label": "Regular",
+              "class": ""
+            },
+            {
+              "label": "Wide",
+              "class": "bh-sidebar-lg"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

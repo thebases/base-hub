@@ -1,0 +1,31 @@
+<templates xml:space="preserve">
+  <t t-name="DatabaseDuplicateDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => this.props.onOpenChange(open)">
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Duplicate Database')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary">
+            <t t-out="tHtml('Create a new database by cloning &lt;strong&gt;{name}&lt;/strong&gt;.', { name: props.state.sourceName })"/>
+          </p>
+        </DialogHeader>
+        <div class="d-flex flex-column gap-2 pt-2">
+          <t t-if="state.error">
+            <Alert variant="'danger'" t-esc="state.error"/>
+          </t>
+          <Field>
+            <Input label="t('New database name')" value="state.name" disabled="state.submitting"
+                     placeholder="t('tenant-copy')" onInput="(value) => this.onNameInput(value)"/>
+            
+          </Field>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="state.submitting" onClick="() => this.cancel()" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="state.submitting" onClick="() => this.confirm()">
+            <t t-if="state.submitting" t-esc="t('Duplicating...')"/>
+            <t t-else="" t-esc="t('Duplicate')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

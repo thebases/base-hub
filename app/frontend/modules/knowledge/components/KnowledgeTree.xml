@@ -1,0 +1,20 @@
+<templates xml:space="preserve">
+  <t t-name="KnowledgeTree">
+    <t t-foreach="props.items" t-as="item" t-key="item.key">
+      <t t-if="item.kind === 'leaf'">
+        <SidebarMenuItem className="'ps-1'">
+          <SidebarMenuButton href="item.href" active="this.isActive(item)" onClick="() => this.onLeafClick()">
+            <t t-esc="item.label"/>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </t>
+      <t t-else="">
+        <SidebarGroupCollapsible label="item.label" defaultOpen="true">
+          <SidebarMenu className="'ps-1'">
+            <KnowledgeTree items="item.children" currentPath="props.currentPath"/>
+          </SidebarMenu>
+        </SidebarGroupCollapsible>
+      </t>
+    </t>
+  </t>
+</templates>

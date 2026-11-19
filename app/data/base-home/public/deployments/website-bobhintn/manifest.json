@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "icons": [],
+  "name": "My Website",
+  "orientation": "any",
+  "scope": "./",
+  "short_name": "My Site",
+  "start_url": "/",
+  "theme_color": "#0d6efd"
+}

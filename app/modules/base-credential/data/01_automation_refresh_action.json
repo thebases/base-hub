@@ -1,0 +1,16 @@
+[
+  {
+    "action": "c",
+    "model": "automation.action",
+    "external_id": "credential.automation.action.refresh_due_credentials",
+    "force_update": false,
+    "data": {
+      "name": "Credential: Refresh Due Tokens",
+      "action_type": "go_handler",
+      "handler_key": "credential.refresh_due_credentials",
+      "values": {},
+      "description": "Re-authenticates sys.credential rows whose access token is within refresh_before_seconds of expiring.",
+      "active": true
+    }
+  }
+]

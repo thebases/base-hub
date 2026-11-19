@@ -1,0 +1,26 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_collaborator",
+    "external_id": "project.collaborator.demo_website_redesign_customer",
+    "force_update": true,
+    "data": {
+      "project_id": "project.project.demo_website_redesign",
+      "partner_id": "partner.main",
+      "partner_email": "sample.no.one.main.1@example.com",
+      "limited_access": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_collaborator",
+    "external_id": "project.collaborator.demo_mobile_app_customer",
+    "force_update": true,
+    "data": {
+      "project_id": "project.project.demo_mobile_app",
+      "partner_id": "partner.base1_company",
+      "partner_email": "sample.no.one.main.2@example.com",
+      "limited_access": false
+    }
+  }
+]

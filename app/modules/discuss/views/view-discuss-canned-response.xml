@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_discuss_canned_response_list" model="ui.view">
+      <field name="name">tbl.discuss_canned_response.list</field>
+      <field name="model">tbl.discuss_canned_response</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Canned Responses">
+          <field name="source"/>
+          <field name="substitution"/>
+          <field name="last_used_at"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_discuss_canned_response_form" model="ui.view">
+      <field name="name">tbl.discuss_canned_response.form</field>
+      <field name="model">tbl.discuss_canned_response</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Canned Response">
+          <sheet>
+            <group>
+              <group>
+                <field name="source"/>
+                <field name="group_ids"/>
+                <field name="last_used_at"/>
+              </group>
+              <group>
+                <field name="substitution"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_discuss_canned_response_search" model="ui.view">
+      <field name="name">tbl.discuss_canned_response.search</field>
+      <field name="model">tbl.discuss_canned_response</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Canned Responses">
+          <field name="source"/>
+          <field name="substitution"/>
+          <group>
+            <filter string="Groups" name="group_by_group_ids" domain="[]" context="{'group_by': 'group_ids'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

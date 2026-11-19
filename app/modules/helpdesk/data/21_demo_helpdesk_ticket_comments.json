@@ -1,0 +1,62 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_login_issue_1",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_login_issue",
+      "body": "Asked the customer to confirm which browser they used and whether autofill may have submitted the old password."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_login_issue_2",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_login_issue",
+      "body": "Customer confirmed it was an autofill issue; login now works after clearing saved credentials."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_billing_question_1",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_billing_question",
+      "body": "Confirmed the duplicate charge in the billing system; refund has been submitted to the payment provider."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_api_integration_error_1",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_api_integration_error",
+      "body": "Root cause: a null pointer in the webhook handler introduced by this morning's deploy. Hotfix deployed."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_api_integration_error_2",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_api_integration_error",
+      "body": "Verified callbacks are returning HTTP 200 again; monitoring for the next 24 hours before closing."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_comment",
+    "external_id": "helpdesk.ticket_comment.demo_account_deletion_1",
+    "force_update": true,
+    "data": {
+      "ticket_id": "helpdesk.ticket.demo_account_deletion",
+      "body": "Account and personal data deleted per the data-privacy policy; confirmation email sent to the customer."
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "action": "c",
+    "model": "base.workflow",
+    "external_id": "workflow.flow.demo_crypto_roundtrip_v1",
+    "force_update": true,
+    "data": {
+      "name": "demo_crypto_roundtrip_v1",
+      "topic": "crypto-demo",
+      "version": 1,
+      "is_active": false,
+      "is_template": true,
+      "group_id": "base.group_system",
+      "description": "Ships inactive as a template, system group only. Demo workflow: parse inbound JSON, generate an HMAC key and signature, generate an AES key and ciphertext, then decrypt the ciphertext back into JSON.",
+      "layout": {
+        "nodes": [
+          {
+            "id": "trigger:webhook",
+            "position": { "x": 80, "y": 180 }
+          },
+          {
+            "id": "action:parse_crypto_payload",
+            "position": { "x": 340, "y": 180 }
+          },
+          {
+            "id": "action:generate_hmac_signature",
+            "position": { "x": 620, "y": 180 }
+          },
+          {
+            "id": "action:generate_aes_ciphertext",
+            "position": { "x": 900, "y": 180 }
+          },
+          {
+            "id": "action:decrypt_aes_ciphertext",
+            "position": { "x": 1180, "y": 180 }
+          }
+        ],
+        "edges": [
+          {
+            "id": "trigger:webhook->action:parse_crypto_payload",
+            "source": "trigger:webhook",
+            "target": "action:parse_crypto_payload"
+          },
+          {
+            "id": "action:parse_crypto_payload->action:generate_hmac_signature",
+            "source": "action:parse_crypto_payload",
+            "target": "action:generate_hmac_signature"
+          },
+          {
+            "id": "action:generate_hmac_signature->action:generate_aes_ciphertext",
+            "source": "action:generate_hmac_signature",
+            "target": "action:generate_aes_ciphertext"
+          },
+          {
+            "id": "action:generate_aes_ciphertext->action:decrypt_aes_ciphertext",
+            "source": "action:generate_aes_ciphertext",
+            "target": "action:decrypt_aes_ciphertext"
+          }
+        ],
+        "viewport": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1
+        }
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_crypto_roundtrip_v1.action.parse_payload",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_crypto_roundtrip_v1",
+      "catalog_id": "workflow.action_catalog.parse_payload",
+      "sequence": 10,
+      "name": "Parse Crypto Payload",
+      "step_key": "parse_crypto_payload",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_crypto_roundtrip_v1.action.generate_hmac_signature",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_crypto_roundtrip_v1",
+      "catalog_id": "workflow.action_catalog.hmac_action",
+      "sequence": 20,
+      "name": "Generate HMAC Signature",
+      "step_key": "generate_hmac_signature",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "output_field": "signature",
+      "include_key": true,
+      "include_raw": true,
+      "key_list": [
+        "merchant_id",
+        "order_id",
+        "amount",
+        "currency"
+      ]
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_crypto_roundtrip_v1.action.generate_aes_ciphertext",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_crypto_roundtrip_v1",
+      "catalog_id": "workflow.action_catalog.aes_action",
+      "sequence": 30,
+      "name": "Generate AES Ciphertext",
+      "step_key": "generate_aes_ciphertext",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "output_field": "ciphertext",
+      "include_key": true,
+      "include_raw": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action",
+    "external_id": "workflow.flow.demo_crypto_roundtrip_v1.action.decrypt_aes_ciphertext",
+    "force_update": true,
+    "data": {
+      "workflow_id": "workflow.flow.demo_crypto_roundtrip_v1",
+      "catalog_id": "workflow.action_catalog.aes_decrypt_action",
+      "sequence": 40,
+      "name": "Decrypt AES Ciphertext",
+      "step_key": "decrypt_aes_ciphertext",
+      "timeout_seconds": 15,
+      "retry_policy": {
+        "max_attempts": 1,
+        "backoff_seconds": 0
+      },
+      "include_key": true,
+      "include_raw": true,
+      "extra_params": {
+        "input_field": "ciphertext",
+        "key_field": "_aes_key"
+      }
+    }
+  }
+]

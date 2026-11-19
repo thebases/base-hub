@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_website_blog_tag_list" model="ui.view">
+      <field name="name">tbl.website_blog_tag.list</field>
+      <field name="model">tbl.website_blog_tag</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Blog Tag">
+          <field name="name"/>
+          <field name="slug"/>
+          <field name="category_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_website_blog_tag_form" model="ui.view">
+      <field name="name">tbl.website_blog_tag.form</field>
+      <field name="model">tbl.website_blog_tag</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Blog Tag">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="slug"/>
+                <field name="category_id"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_website_blog_tag_search" model="ui.view">
+      <field name="name">tbl.website_blog_tag.search</field>
+      <field name="model">tbl.website_blog_tag</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Blog Tag">
+          <field name="name"/>
+          <field name="category_id"/>
+        </search>
+      </field>
+    </record>
+</data>

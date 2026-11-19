@@ -1,0 +1,24 @@
+<templates xml:space="preserve">
+  <t t-name="PageTemplatePicker">
+    <div class="d-flex flex-column gap-3">
+      <div t-if="state.loading" class="text-body-secondary">Loading templates…</div>
+      <div t-elif="state.error" class="alert alert-danger mb-0" t-esc="state.error"/>
+      <div t-else="" class="row g-3">
+        <t t-foreach="state.templates" t-as="tpl" t-key="tpl.key">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <button type="button" class="card h-100 w-100 text-start p-3 border"
+                    t-att-class="{ 'border-primary': state.selected === tpl.key }"
+                    t-on-click="() => this.select(tpl.key)" t-on-dblclick="() => this.confirm(tpl.key)">
+              <span class="fw-semibold" t-esc="tpl.name"/>
+              <small class="text-body-secondary mt-1" t-esc="tpl.description"/>
+            </button>
+          </div>
+        </t>
+      </div>
+      <div class="d-flex justify-content-end gap-2">
+        <button type="button" class="btn btn-outline-secondary" t-on-click="() => this.cancel()">Cancel</button>
+        <button type="button" class="btn btn-primary" t-att-disabled="!state.selected" t-on-click="() => this.confirm(state.selected)">Create page</button>
+      </div>
+    </div>
+  </t>
+</templates>

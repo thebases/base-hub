@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_report_list" model="ui.view">
+      <field name="name">sys.report.list</field>
+      <field name="model">sys.report</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Reports" sample="1" multi_edit="1">
+          <field name="name"/>
+          <field name="active"/>
+          <field name="report_name"/>
+          <field name="model"/>
+          <field name="paper_format" optional="show"/>
+          <field name="attach" optional="show"/>
+          <field name="template_ref" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_report_form" model="ui.view">
+      <field name="name">sys.report.form</field>
+      <field name="model">sys.report</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Report">
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1"/>
+                </h1>
+              </main>
+            </div>
+            <group>
+              <group string="General">
+                <field name="active"/>
+                <field name="report_name" placeholder="e.g. base.demo_report"/>
+                <field name="model" widget="sys_model_name"/>
+                <field name="template_ref" placeholder="base/reports/demo.html"/>
+              </group>
+              <group string="Rendering">
+                <field name="paper_format"/>
+                <field name="attach"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_report_search" model="ui.view">
+      <field name="name">sys.report.search</field>
+      <field name="model">sys.report</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Reports">
+          <field name="name"/>
+          <field name="report_name"/>
+          <field name="model"/>
+          <filter string="Is Active" name="active_true" domain="[('active', '=', True)]"/>
+          <filter string="Not Is Active" name="active_false" domain="[('active', '=', False)]"/>
+          <group>
+            <filter string="Model" name="group_by_model" domain="[]" context="{'group_by': 'model'}"/>
+            <filter string="Paper Format" name="group_by_paper_format" domain="[]" context="{'group_by': 'paper_format'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

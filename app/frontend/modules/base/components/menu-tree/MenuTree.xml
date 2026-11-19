@@ -1,0 +1,48 @@
+<templates xml:space="preserve">
+  <t t-name="MenuTree">
+    <t t-if="(props.depth ?? 0) === 0">
+      <t t-foreach="props.items" t-as="item" t-key="item.id">
+        <t t-if="item.children and item.children.length > 0">
+          <SidebarGroupCollapsible label="item.name" defaultOpen="false">
+            <SidebarMenu className="'ps-1'">
+              <MenuTree items="item.children" currentPath="props.currentPath" expandAll="props.expandAll" depth="1"/>
+            </SidebarMenu>
+          </SidebarGroupCollapsible>
+        </t>
+        <t t-else="">
+          <SidebarMenu className="'ps-1'">
+            <SidebarMenuItem>
+              <SidebarMenuButton href="this.itemHref(item)" icon="item.icon" active="this.isActive(item)" onClick="(ev) => this.onMenuClick(ev, item)">
+                <t t-esc="item.name"/>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </t>
+      </t>
+    </t>
+    <t t-else="">
+      <t t-foreach="props.items" t-as="item" t-key="item.id">
+        
+          <SidebarMenuItem>
+            <t t-if="item.children and item.children.length > 0">
+              <button type="button" class="b-sidebar-menu-button" data-sidebar="menu-button" data-slot="sidebar-menu-button" data-size="default" t-att-aria-expanded="this.isOpen(item) ? 'true' : 'false'" t-on-click="() => this.toggle(item)">
+                <Icon t-if="item.icon" name="item.icon" className="'b-sidebar-menu-icon'"/>
+                <span class="b-sidebar-menu-label">
+                  <t t-esc="item.name"/>
+                </span>
+                <Icon name="'chevron-down'" className="'b-sidebar-group-chevron' + (this.isOpen(item) ? ' is-open' : '')"/>
+              </button>
+              <SidebarMenuSub t-if="this.isOpen(item)">
+                <MenuTree items="item.children" currentPath="props.currentPath" expandAll="props.expandAll" depth="(props.depth ?? 0) + 1"/>
+              </SidebarMenuSub>
+            </t>
+            <t t-else="">
+              <SidebarMenuButton href="this.itemHref(item)" icon="item.icon" active="this.isActive(item)" onClick="(ev) => this.onMenuClick(ev, item)">
+                <t t-esc="item.name"/>
+              </SidebarMenuButton>
+            </t>
+          </SidebarMenuItem>
+      </t>
+    </t>
+  </t>
+</templates>

@@ -1,0 +1,15 @@
+<data noupdate="1">
+    <record id="action_window_automation_action" model="ui.actions.window">
+        <field name="name">Automation Actions</field>
+        <field name="sys_model">automation.action</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_window_automation_cron" model="ui.actions.window">
+        <field name="name">Automation Crons</field>
+        <field name="sys_model">automation.cron</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu.automation_action_view" name="Actions" action="action_window_automation_action" parent="menu.automation"/>
+    <menuitem id="menu.automation_cron_view" name="Crons" action="action_window_automation_cron" parent="menu.automation"/>
+</data>

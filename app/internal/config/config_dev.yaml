@@ -1,0 +1,79 @@
+app:
+    encryptKey: ""
+    deviceProvisioningEnable: true
+    discussInboundWebhookSecret: ""
+    supportApikey: true
+    appName: BASE HUB
+    env: development
+    initImport: false
+    use_multi_tenant: false
+    version: 0.0.1
+authService:
+    audience: ""
+    autoProvision: false
+    clientId: ""
+    clientSecret: ""
+    clockSkewSecs: 60
+    enable: false
+    endpoint: ""
+    issuer: ""
+    jwksUrl: ""
+    loginClaim: ""
+    tenantClaim: ""
+    roleClaim: ""
+    scopes: openid profile email
+    serviceName: ""
+cors:
+    allowCredentials: false
+    allowHeaders: Origin, Content-Type, Accept, Authorization, X-Database-Name, X-Idempotency-Key
+    allowMethods: GET,POST,PUT,DELETE,OPTIONS
+    allowOrigins: '*'
+    exposeHeaders: X-Custom-Header
+kafka:
+    brokers:
+        - 62.146.233.42:9092
+    enable: false
+    isComsumer: true
+    isProducer: true
+    topics:
+        - bank_ipn_topic
+        - ipn_napas
+        - ipn_bidv
+    useDedupe: false
+knowledge:
+    publicDocsPath: public_docs
+tcp:
+    useTcp: false
+logging:
+    level: 1
+    path: ./logs/ipn.log
+    pattern: ${protocol} ${host} ${method} ${path} ${status} [${latency}] [${ua}] [${locals:cleanBody}]
+    reqPath: ./logs/ipn_req.log
+    useFile: true
+mqtt:
+    clientId: base_ipn_service
+    domain: mqtt.thebase.vn
+    enable: true
+    password: theBase15112023@
+    port: "11883"
+    useSsl: false
+    userName: thebase
+postgresql:
+    dbFilter: ^hub([-.a-zA-Z0-9]*)\.thebase\.vn$|^base-home$
+    dbHost: localhost
+    dbPassword: theBase15112023@
+    dbPort: 5432
+    dbSslmode: disable
+    dbUser: thebase
+    enable: true
+    homeDbName: base-home
+    templateDbName: base-template
+server:
+    accessTokenTtlMinutes: 15
+    basePath: /
+    host: localhost
+    issuer: base-hub
+    port: 8382
+    refreshTokenTtlDays: 30
+    staticPath: ./data/files
+    supportFlow: false

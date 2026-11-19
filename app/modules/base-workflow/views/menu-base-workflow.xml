@@ -1,0 +1,60 @@
+<data noupdate="1">
+    <record id="action_window_workflow" model="ui.actions.window">
+        <field name="name">Workflow</field>
+        <field name="sys_model">base.workflow</field>
+        <field name="view_mode">list,kanban,canvas</field>
+        <field name="view_id" eval="ref('view_base_etl_flow_list')"/>
+    </record>
+    <record id="action_window_workflow_action" model="ui.actions.window">
+        <field name="name">Workflow Action</field>
+        <field name="sys_model">base.workflow.action</field>
+        <field name="view_mode">list,kanban</field>
+    </record>
+    <record id="action_window_workflow_run" model="ui.actions.window">
+        <field name="name">Workflow Run</field>
+        <field name="sys_model">base.workflow.run</field>
+        <field name="view_mode">list,kanban</field>
+    </record>
+    <record id="action_window_workflow_trigger" model="ui.actions.window">
+        <field name="name">Workflow Trigger</field>
+        <field name="sys_model">base.workflow.trigger</field>
+        <field name="view_mode">list</field>
+    </record>
+    <record id="action_window_workflow_edge" model="ui.actions.window">
+        <field name="name">Workflow Edge</field>
+        <field name="sys_model">base.workflow.edge</field>
+        <field name="view_mode">list</field>
+    </record>
+    <record id="action_window_workflow_version" model="ui.actions.window">
+        <field name="name">Workflow Version</field>
+        <field name="sys_model">base.workflow.version</field>
+        <field name="view_mode">list</field>
+    </record>
+    <record id="action_window_workflow_credential" model="ui.actions.window">
+        <field name="name">Workflow Credential</field>
+        <field name="sys_model">base.workflow.credential</field>
+        <field name="view_mode">list</field>
+    </record>
+    <record id="action_workflow_canvas_standalone" model="ui.actions.window">
+        <field name="name">Workflow Canvas</field>
+        <field name="sys_model">base.workflow</field>
+        <field name="view_mode">canvas</field>
+        <field name="view_id" eval="ref('view_workflow_canvas_view')"/>
+    </record>
+
+    <menuitem id="menu.workflow_canvas_view" name="Workflow Canvas" action="action_workflow_canvas_standalone" route_path="/web/base.workflow/canvas" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+
+    <menuitem id="menu.workflow_view" name="Workflow" action="action_window_workflow" route_path="/web/base.workflow" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_action_view" name="Workflow Action" action="action_window_workflow_action" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_run_view" name="Workflow Run" action="action_window_workflow_run" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <!-- Route-only (no action, like the MQTT Monitor menu): the SPA ignores a window action's
+         domain/view_id, and an action's generated url overrides route_path, so the templates menu
+         opens the workflow module's template gallery page directly. -->
+    <menuitem id="menu.workflow_template_view" name="Workflow Templates" route_path="/web/workflow/templates" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_trigger_view" name="Workflow Trigger" action="action_window_workflow_trigger" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_edge_view" name="Workflow Edge" action="action_window_workflow_edge" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_version_view" name="Workflow Version" action="action_window_workflow_version" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.workflow_credential_view" name="Workflow Credential" action="action_window_workflow_credential" parent="menu.workflow" groups="base.group_system"/>
+    <menuitem id="menu.outbound_delivery" name="Outbound Delivery" route_path="/web/base.workflow.outbound" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+    <menuitem id="menu.mqtt_monitor" name="MQTT Monitor" route_path="/web/workflow/mqtt-monitor" parent="menu.workflow" groups="workflow.group_workflow_viewer,base.group_system,base.group_no_one"/>
+</data>

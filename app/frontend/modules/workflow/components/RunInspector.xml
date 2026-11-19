@@ -1,0 +1,185 @@
+<templates xml:space="preserve">
+  <t t-name="RunInspector">
+    <Sheet side="'right'" open="props.open" onOpenChange="(open) => props.onOpenChange(open)">
+      <SheetContent>
+        <div class="workflow-run-inspector">
+        <SheetHeader>
+          <SheetTitle><t t-esc="state.runID ? t('Run #{id}', { id: state.runID }) : t('Run history')"/></SheetTitle>
+        </SheetHeader>
+
+        <div class="workflow-run-inspector-body d-flex flex-column gap-3">
+          <Alert t-if="state.error" variant="'danger'" t-esc="state.error"/>
+
+          <t t-if="!state.runID">
+            <div class="d-flex align-items-center gap-2">
+              <Button variant="'outline'" size="'sm'" disabled="state.loading" onClick="() => this.loadList()">
+                <Icon name="'refresh-cw'"/>
+                <span class="ms-1" t-esc="t('Refresh')"/>
+              </Button>
+              <Spinner t-if="state.loading" label="t('Loading')"/>
+              <span class="ms-auto small text-body-secondary" t-esc="this.pageText"/>
+            </div>
+            <p t-if="!state.loading and !state.runs.length" class="text-body-secondary mb-0" t-esc="t('This workflow has not run yet.')"/>
+            <div class="d-flex flex-column gap-2">
+              <div t-foreach="state.runs" t-as="run" t-key="run.id" class="workflow-run-row">
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                  <Button variant="'link'" size="'sm'" className="'p-0 fw-semibold'" onClick="() => this.openRun(run.id)" label="t('Run #{id}', { id: run.id })"/>
+                  <Badge variant="this.statusVariant(run.status)" label="this.statusLabel(run.status)"/>
+                  <Badge t-if="run.dry_run" variant="'info'" label="t('Dry run')"/>
+                  <Badge t-if="this.showCancelling(run)" variant="'warning'" label="t('Cancelling')"/>
+                  <span class="ms-auto small text-body-secondary" t-esc="this.time(run.created_at)"/>
+                </div>
+                <div class="d-flex flex-wrap gap-3 small text-body-secondary">
+                  <span t-esc="this.triggerLabel(run.trigger_type)"/>
+                  <span t-esc="t('Attempts: {count}', { count: run.attempt_count or 0 })"/>
+                  <span t-if="run.flow_version" t-esc="t('Version {version}', { version: run.flow_version })"/>
+                  <span t-else="" t-esc="t('Draft')"/>
+                  <span t-if="this.parentRun(run)" t-esc="t('Replay of #{id}', { id: this.parentRun(run).id })"/>
+                </div>
+                <div t-if="run.last_error" class="small text-danger text-truncate" t-esc="run.last_error"/>
+              </div>
+            </div>
+            <div t-if="this.hasPrev or this.hasNext" class="d-flex justify-content-between gap-2">
+              <Button variant="'outline'" size="'sm'" disabled="!this.hasPrev or state.loading" onClick="() => this.pagePrev()" label="t('Newer')"/>
+              <Button variant="'outline'" size="'sm'" disabled="!this.hasNext or state.loading" onClick="() => this.pageNext()" label="t('Older')"/>
+            </div>
+          </t>
+
+          <t t-else="">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <Button variant="'outline'" size="'sm'" onClick="() => this.backToList()">
+                <Icon name="'arrow-left'"/>
+                <span class="ms-1" t-esc="t('All runs')"/>
+              </Button>
+              <Spinner t-if="state.loading" label="t('Loading')"/>
+              <Button t-if="this.canReplay" variant="'outline'" size="'sm'" disabled="state.busy" onClick="() => this.replay('')">
+                <Icon name="'rotate-ccw'"/>
+                <span class="ms-1" t-esc="t('Replay')"/>
+              </Button>
+              <Button t-if="this.canCancel" variant="'destructive'" size="'sm'" disabled="state.busy" onClick="() => this.cancel()">
+                <Icon name="'circle-stop'"/>
+                <span class="ms-1" t-esc="t('Cancel run')"/>
+              </Button>
+            </div>
+
+            <t t-if="state.run">
+              <dl class="workflow-canvas-detail-list mb-0">
+                <dt t-esc="t('Status')"/>
+                <dd class="d-flex flex-wrap gap-1">
+                  <Badge variant="this.statusVariant(state.run.status)" label="this.statusLabel(state.run.status)"/>
+                  <Badge t-if="state.run.dry_run" variant="'info'" label="t('Dry run')"/>
+                  <Badge t-if="this.showCancelling(state.run)" variant="'warning'" label="t('Cancelling')"/>
+                </dd>
+                <t t-if="this.canDecide">
+                  <dt t-esc="t('Approval expires')"/>
+                  <dd t-esc="this.approvalExpiry"/>
+                  <t t-if="this.approvalGroupName">
+                    <dt t-esc="t('Approvable by group')"/>
+                    <dd t-esc="this.approvalGroupName"/>
+                  </t>
+                </t>
+                <dt t-esc="t('Trigger')"/>
+                <dd t-esc="this.triggerLabel(state.run.trigger_type)"/>
+                <dt t-esc="t('Started')"/>
+                <dd t-esc="this.time(state.run.created_at)"/>
+                <dt t-esc="t('Updated')"/>
+                <dd t-esc="this.time(state.run.updated_at)"/>
+                <dt t-esc="t('Attempts')"/>
+                <dd t-esc="state.run.attempt_count or 0"/>
+                <dt t-esc="t('Version')"/>
+                <dd t-esc="state.run.flow_version ? state.run.flow_version : t('Draft')"/>
+                <t t-if="this.parentRun(state.run)">
+                  <dt t-esc="t('Replay of')"/>
+                  <dd>
+                    <Button variant="'link'" size="'sm'" className="'p-0'" onClick="() => this.openRun(this.parentRun(state.run).id)"
+                            label="'#' + this.parentRun(state.run).id"/>
+                  </dd>
+                </t>
+                <dt t-esc="t('Request ID')"/>
+                <dd class="text-break" t-esc="state.run.name"/>
+              </dl>
+              <Alert t-if="state.run.last_error" variant="'danger'" t-esc="state.run.last_error"/>
+
+              <section t-if="this.canDecide" class="d-flex flex-column gap-2">
+                <h3 class="workflow-canvas-detail-subtitle" t-esc="t('Approval')"/>
+                <Alert t-if="state.approvalMessage" variant="'warning'" t-esc="state.approvalMessage"/>
+                <Field>
+                  <Input label="t('Approval token')" value="state.approvalToken" disabled="state.busy"
+                         placeholder="t('Optional for system administrators')" onInput="(value) => this.state.approvalToken = value"/>
+                </Field>
+                <Field>
+                  <Input label="t('Comment')" value="state.approvalComment" disabled="state.busy"
+                         onInput="(value) => this.state.approvalComment = value"/>
+                </Field>
+                <div class="d-flex flex-wrap gap-2">
+                  <Button variant="'default'" size="'sm'" disabled="state.busy" onClick="() => this.decide(true)" label="t('Approve')"/>
+                  <Button variant="'destructive'" size="'sm'" disabled="state.busy" onClick="() => this.decide(false)" label="t('Reject')"/>
+                </div>
+              </section>
+
+              <section t-if="state.run.dry_run and this.intents.length" class="d-flex flex-column gap-2">
+                <h3 class="workflow-canvas-detail-subtitle" t-esc="t('What the run would have done')"/>
+                <ul class="workflow-dry-run-list list-unstyled mb-0">
+                  <li t-foreach="this.intents" t-as="intent" t-key="intent.key" class="workflow-dry-run-item">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                      <Badge variant="'secondary'" label="intent.effect"/>
+                      <span class="fw-semibold" t-esc="intent.step"/>
+                      <code class="small" t-esc="intent.action"/>
+                    </div>
+                    <div t-if="intent.target" class="small text-break" t-esc="intent.target"/>
+                    <div t-if="intent.reason" class="small text-body-secondary" t-esc="intent.reason"/>
+                  </li>
+                </ul>
+              </section>
+
+              <section class="d-flex flex-column gap-2">
+                <h3 class="workflow-canvas-detail-subtitle" t-esc="t('Steps')"/>
+                <p t-if="!this.steps.length" class="small text-body-secondary mb-0" t-esc="t('No step has run yet.')"/>
+                <div t-foreach="this.steps" t-as="step" t-key="this.stepKey(step, step_index)" class="workflow-run-step">
+                  <t t-set="rowKey" t-value="this.stepKey(step, step_index)"/>
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <Badge variant="this.statusVariant(step.status)" label="this.statusLabel(step.status)"/>
+                    <span class="fw-semibold text-break" t-esc="step.step_name or step.step_key"/>
+                    <code class="small" t-esc="step.action"/>
+                    <span class="ms-auto small text-body-secondary" t-esc="this.duration(step.duration_ms)"/>
+                  </div>
+                  <div class="d-flex flex-wrap gap-3 small text-body-secondary">
+                    <span t-esc="t('Attempt {count}', { count: step.attempt or 0 })"/>
+                    <span t-esc="this.time(step.started_at)"/>
+                    <span t-if="step.next_retry_at" t-esc="t('Next retry {time}', { time: this.time(step.next_retry_at) })"/>
+                  </div>
+                  <div t-if="step.error" class="small text-danger text-break" t-esc="step.error"/>
+                  <div class="d-flex flex-wrap gap-2">
+                    <Button variant="'ghost'" size="'sm'" onClick="() => this.toggleExpanded(rowKey + ':in')"
+                            label="this.isExpanded(rowKey + ':in') ? t('Hide input') : t('Show input')"/>
+                    <Button variant="'ghost'" size="'sm'" onClick="() => this.toggleExpanded(rowKey + ':out')"
+                            label="this.isExpanded(rowKey + ':out') ? t('Hide output') : t('Show output')"/>
+                    <Button t-if="this.canReplayFromStep and step.step_key" variant="'outline'" size="'sm'" disabled="state.busy"
+                            onClick="() => this.replay(step.step_key)" label="t('Replay from this step')"/>
+                  </div>
+                  <pre t-if="this.isExpanded(rowKey + ':in')" class="workflow-run-json" t-esc="this.json(step.input_snapshot)"/>
+                  <pre t-if="this.isExpanded(rowKey + ':out')" class="workflow-run-json" t-esc="this.json(step.output_snapshot)"/>
+                </div>
+              </section>
+
+              <section class="d-flex flex-column gap-2">
+                <h3 class="workflow-canvas-detail-subtitle" t-esc="t('Run payloads')"/>
+                <div class="d-flex flex-wrap gap-2">
+                  <Button variant="'ghost'" size="'sm'" onClick="() => this.toggleExpanded('run:in')"
+                          label="this.isExpanded('run:in') ? t('Hide input') : t('Show input')"/>
+                  <Button variant="'ghost'" size="'sm'" onClick="() => this.toggleExpanded('run:out')"
+                          label="this.isExpanded('run:out') ? t('Hide output') : t('Show output')"/>
+                  <span t-if="state.run.audit_mode and state.run.audit_mode !== 'full'" class="small text-body-secondary align-self-center"
+                        t-esc="t('Audit mode: {mode}', { mode: state.run.audit_mode })"/>
+                </div>
+                <pre t-if="this.isExpanded('run:in')" class="workflow-run-json" t-esc="this.json(state.run.input_payload)"/>
+                <pre t-if="this.isExpanded('run:out')" class="workflow-run-json" t-esc="this.json(state.run.output_payload)"/>
+              </section>
+            </t>
+          </t>
+        </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  </t>
+</templates>

@@ -1,0 +1,14 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+discuss.access_discuss_message_subtype_user,Discuss Message Subtypes user,base.group_user,tbl.discuss_message_subtype,true,true,true,true,true
+discuss.access_discuss_message_user,Discuss Messages user,base.group_user,tbl.discuss_message,true,true,true,true,true
+discuss.access_discuss_followers_user,Discuss Followers user,base.group_user,tbl.discuss_followers,true,true,true,true,true
+discuss.access_discuss_activity_type_user,Discuss Activity Types user,base.group_user,tbl.discuss_activity_type,true,true,true,true,true
+discuss.access_discuss_activity_user,Discuss Activities user,base.group_user,tbl.discuss_activity,true,true,true,true,true
+discuss.access_discuss_canned_response_user,Discuss Canned Responses user,base.group_user,tbl.discuss_canned_response,true,true,true,true,true
+discuss.access_discuss_notification_user,Discuss Notifications user,base.group_user,tbl.discuss_notification,true,true,true,true,true
+discuss.access_discuss_channel_user,Discuss Channels user,base.group_user,tbl.discuss_channel,true,true,true,true,true
+discuss.access_discuss_channel_member_user,Discuss Channel Members user,base.group_user,tbl.discuss_channel_member,true,true,true,true,true
+discuss.access_discuss_mail_user,Discuss Outbound Mail user,base.group_user,tbl.discuss_mail,true,true,true,true,true
+discuss.access_discuss_channel_rtc_session_user,Discuss Channel RTC Sessions user,base.group_user,tbl.discuss_channel_rtc_session,true,true,true,true,true
+discuss.access_discuss_call_history_user,Discuss Call History user,base.group_user,tbl.discuss_call_history,true,true,true,true,true
+discuss.access_discuss_guest_user,Discuss Guests user,base.group_user,tbl.discuss_guest,true,true,true,true,true

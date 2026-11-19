@@ -1,0 +1,147 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base-credential
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: base-credential
+#: field
+msgid "Access Token / API Key"
+msgstr "Mã truy cập / API Key"
+
+#. module: base-credential
+#: field
+msgid "Auth URL"
+msgstr "URL xác thực"
+
+#. module: base-credential
+#: field
+msgid "Client ID"
+msgstr "Client ID"
+
+#. module: base-credential
+#: field
+msgid "Client Secret"
+msgstr "Client Secret"
+
+#. module: base-credential
+#: field
+msgid "Company ID"
+msgstr "ID công ty"
+
+#. module: base-credential
+#: view
+msgid "Connection"
+msgstr "Kết nối"
+
+#. module: base-credential
+#: label, view
+msgid "Credential"
+msgstr "Thông tin xác thực"
+
+#. module: base-credential
+#: field
+msgid "Credential Type"
+msgstr "Loại thông tin xác thực"
+
+#. module: base-credential
+#: view
+msgid "Credential reference name"
+msgstr "Tên tham chiếu thông tin xác thực"
+
+#. module: base-credential
+#: menu, view
+msgid "Credentials"
+msgstr "Thông tin xác thực"
+
+#. module: base-credential
+#: field
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: base-credential
+#: field
+msgid "Expired Time"
+msgstr "Thời gian hết hạn"
+
+#. module: base-credential
+#: view
+msgid "Last Attempt"
+msgstr "Lần thử cuối"
+
+#. module: base-credential
+#: field
+msgid "Last Login At"
+msgstr "Đăng nhập lần cuối lúc"
+
+#. module: base-credential
+#: field
+msgid "Last Login Error"
+msgstr "Lỗi đăng nhập gần nhất"
+
+#. module: base-credential
+#: field
+msgid "Last Login Status"
+msgstr "Trạng thái đăng nhập gần nhất"
+
+#. module: base-credential
+#: field
+msgid "Name"
+msgstr "Tên"
+
+#. module: base-credential
+#: view
+msgid "OIDC Client"
+msgstr "Ứng dụng khách OIDC"
+
+#. module: base-credential
+#: field
+msgid "Password"
+msgstr "Mật khẩu"
+
+#. module: base-credential
+#: view
+msgid "RBAC / OIDC Password"
+msgstr "Mật khẩu RBAC / OIDC"
+
+#. module: base-credential
+#: field
+msgid "Refresh Before Seconds"
+msgstr "Làm mới trước (giây)"
+
+#. module: base-credential
+#: field
+msgid "Refresh Token"
+msgstr "Mã làm mới"
+
+#. module: base-credential
+#: field
+msgid "Scope"
+msgstr "Phạm vi"
+
+#. module: base-credential
+#: view
+msgid "Token State"
+msgstr "Trạng thái token"
+
+#. module: base-credential
+#: view
+msgid "Try"
+msgstr "Thử"
+
+#. module: base-credential
+#: field
+msgid "Username"
+msgstr "Tên đăng nhập"

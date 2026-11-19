@@ -1,0 +1,4 @@
+/* Entry point kept because router.js/AppRoot.js swap a single <link href>
+   per route — split by screen into two files, loaded via @import. */
+@import "./WorkflowCanvasPage.desktop.css";
+@import "./WorkflowCanvasPage.mobile.css";

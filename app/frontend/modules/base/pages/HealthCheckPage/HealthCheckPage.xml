@@ -1,0 +1,148 @@
+<templates xml:space="preserve">
+  <t t-name="HealthCheckPage">
+    <main class="p-3 p-lg-4">
+      <div class="mb-3">
+        <h1 class="h4 fw-semibold mb-0" t-esc="t('Service Health Check')"/>
+      </div>
+
+      <t t-if="state.status === 'loading'">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col-12">
+            <Card>
+              <CardHeader>
+                <div class="placeholder-glow">
+                  <span class="placeholder col-3 d-block mb-2"/>
+                  <span class="placeholder col-5 d-block"/>
+                </div>
+              </CardHeader>
+              <CardBody>
+                <div class="row row-cols-1 row-cols-md-4 g-3 placeholder-glow">
+                  <div class="col"><span class="placeholder col-12" style="height:4rem;"/></div>
+                  <div class="col"><span class="placeholder col-12" style="height:4rem;"/></div>
+                  <div class="col"><span class="placeholder col-12" style="height:4rem;"/></div>
+                  <div class="col"><span class="placeholder col-12" style="height:4rem;"/></div>
+                </div>
+              </CardBody>
+            </Card>
+          </div>
+          <div class="col">
+            <Card>
+              <CardHeader><span class="placeholder col-6 placeholder-glow"/></CardHeader>
+              <CardBody><span class="placeholder col-12 placeholder-glow" style="height:2.5rem;"/></CardBody>
+            </Card>
+          </div>
+          <div class="col">
+            <Card>
+              <CardHeader><span class="placeholder col-6 placeholder-glow"/></CardHeader>
+              <CardBody><span class="placeholder col-12 placeholder-glow" style="height:2.5rem;"/></CardBody>
+            </Card>
+          </div>
+          <div class="col">
+            <Card>
+              <CardHeader><span class="placeholder col-6 placeholder-glow"/></CardHeader>
+              <CardBody><span class="placeholder col-12 placeholder-glow" style="height:2.5rem;"/></CardBody>
+            </Card>
+          </div>
+        </div>
+      </t>
+      <t t-elif="state.status === 'error'">
+        <div class="d-flex align-items-center justify-content-center" style="min-height: 24rem;">
+          <div class="d-flex align-items-center gap-2 border border-danger-subtle rounded-3 bg-body px-3 py-2 text-danger small" style="max-width: 32rem;">
+            <Icon name="'alert-triangle'" className="'flex-shrink-0'"/>
+            <span t-esc="state.message"/>
+          </div>
+        </div>
+      </t>
+      <t t-else="">
+        <div class="d-flex flex-column gap-3">
+          <Card>
+            <CardHeader>
+              <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                <div>
+                  <CardTitle className="'d-flex align-items-center gap-2'">
+                    <Icon name="'activity'"/>
+                    <span t-esc="t('Overall Status')"/>
+                  </CardTitle>
+                  <CardDescription><t t-esc="t('Live snapshot of the backend service and its dependencies. Auto-refreshes every 30s.')"/></CardDescription>
+                </div>
+                <Button variant="'outline'" size="'sm'" onClick="() => this.refresh()">
+                  <Icon name="'refresh-cw'" className="'me-1'"/><t t-esc="t('Refresh')"/>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <div class="row row-cols-1 row-cols-md-4 g-3">
+                <div class="col">
+                  <div class="rounded-3 border bg-body-tertiary px-3 py-2">
+                    <div class="small text-uppercase text-body-secondary" style="letter-spacing: 0.18em;" t-esc="t('Status')"/>
+                    <div class="fs-5 fw-semibold mt-1">
+                      <Badge variant="statusVariant" label="state.detail.status"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 border bg-body-tertiary px-3 py-2">
+                    <div class="small text-uppercase text-body-secondary" style="letter-spacing: 0.18em;" t-esc="t('Version')"/>
+                    <div class="fs-5 fw-semibold mt-1" t-esc="state.detail.version || '-'"/>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 border bg-body-tertiary px-3 py-2">
+                    <div class="small text-uppercase text-body-secondary" style="letter-spacing: 0.18em;" t-esc="t('Uptime')"/>
+                    <div class="fs-5 fw-semibold mt-1" t-esc="uptimeLabel"/>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="rounded-3 border bg-body-tertiary px-3 py-2">
+                    <div class="small text-uppercase text-body-secondary" style="letter-spacing: 0.18em;" t-esc="t('Requests / Errors')"/>
+                    <div class="fs-5 fw-semibold mt-1" t-esc="requestsLabel"/>
+                  </div>
+                </div>
+              </div>
+            </CardBody>
+          </Card>
+
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+            <t t-foreach="dependencies" t-as="item" t-key="item.key">
+              <div class="col">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="'d-flex justify-content-between align-items-center gap-2'">
+                      <span t-esc="item.label"/>
+                      <t t-if="item.dep.status === 'up'">
+                        <Badge variant="'secondary'" className="'d-inline-flex align-items-center gap-1'">
+                          <Icon name="'check-circle-2'"/><t t-esc="t('up')"/>
+                        </Badge>
+                      </t>
+                      <t t-elif="item.dep.status === 'down'">
+                        <Badge variant="'danger'" className="'d-inline-flex align-items-center gap-1'">
+                          <Icon name="'x-circle'"/><t t-esc="t('down')"/>
+                        </Badge>
+                      </t>
+                      <t t-else="">
+                        <Badge variant="'muted'" className="'d-inline-flex align-items-center gap-1'">
+                          <Icon name="'circle-off'"/><t t-esc="t('disabled')"/>
+                        </Badge>
+                      </t>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardBody>
+                    <t t-if="item.dep.status === 'disabled'">
+                      <p class="text-body-secondary small mb-0" t-esc="t('Not enabled for this deployment.')"/>
+                    </t>
+                    <t t-elif="item.dep.status === 'up'">
+                      <p class="text-body-secondary small mb-0" t-esc="this.dependencyBodyText(item.dep)"/>
+                    </t>
+                    <t t-else="">
+                      <p class="text-danger small mb-0" t-esc="this.dependencyBodyText(item.dep)"/>
+                    </t>
+                  </CardBody>
+                </Card>
+              </div>
+            </t>
+          </div>
+        </div>
+      </t>
+    </main>
+  </t>
+</templates>

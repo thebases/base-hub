@@ -1,0 +1,10 @@
+<templates xml:space="preserve">
+  <t t-name="GridCell">
+    <input type="number" step="0.01" class="form-control form-control-sm border-0 text-end basehub-grid-cell-input"
+           t-att-value="state.draft"
+           t-att-disabled="state.saving"
+           t-on-input="(ev) => this.onInput(ev)"
+           t-on-blur="() => this.onCommit()"
+           t-on-keydown.enter="() => this.onCommit()"/>
+  </t>
+</templates>

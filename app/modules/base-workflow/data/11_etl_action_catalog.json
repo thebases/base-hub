@@ -1,0 +1,273 @@
+[
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.parse_payload",
+    "force_update": true,
+    "data": {
+      "name": "Parse Payload",
+      "code": "parse_payload",
+      "version": 1,
+      "is_active": true,
+      "description": "Parse inbound bytes into a JSON object payload for downstream workflow steps.",
+      "handler_key": "parse_payload",
+      "handler_version": 1,
+      "default_params": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.crud_model",
+    "force_update": true,
+    "data": {
+      "name": "CRUD Model",
+      "code": "crud_model",
+      "version": 1,
+      "is_active": true,
+      "description": "Run a generic runtime model CRUD operation and merge the result back into the workflow payload.",
+      "handler_key": "crud_model",
+      "handler_version": 1,
+      "default_params": {
+        "operation": "find_or_create",
+        "merge_result": true,
+        "result_key": "_crud_result"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.notify",
+    "force_update": true,
+    "data": {
+      "name": "Notify",
+      "code": "notify",
+      "version": 1,
+      "is_active": true,
+      "description": "Queue one notification-style outbound JSON delivery for a provider or channel endpoint.",
+      "handler_key": "notify",
+      "handler_version": 1,
+      "default_params": {
+        "channel": "generic_webhook"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.flatten_json",
+    "force_update": true,
+    "data": {
+      "name": "Flatten JSON",
+      "code": "flatten_json",
+      "version": 1,
+      "is_active": true,
+      "description": "Flatten nested JSON fields into one leaf-key map to simplify placeholder binding.",
+      "handler_key": "flatten_json",
+      "handler_version": 1,
+      "default_params": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.transform_data",
+    "force_update": true,
+    "data": {
+      "name": "Transform Data",
+      "code": "transform_data",
+      "version": 1,
+      "is_active": true,
+      "description": "Transform the current JSON object into a DTO or custom JSON document using inline templates.",
+      "handler_key": "transform_data",
+      "handler_version": 1,
+      "default_params": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.post_output_object",
+    "force_update": true,
+    "data": {
+      "name": "Post Output Object",
+      "code": "post_output_object",
+      "version": 1,
+      "is_active": true,
+      "description": "Queue one outbound webhook delivery using the current JSON object payload.",
+      "handler_key": "post_output_object",
+      "handler_version": 1,
+      "default_params": {}
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.hmac_action",
+    "force_update": true,
+    "data": {
+      "name": "HMAC Action",
+      "code": "hmac_action",
+      "version": 1,
+      "is_active": true,
+      "description": "Compute an HMAC signature from the current JSON payload and append it into the output object.",
+      "handler_key": "hmac_action",
+      "handler_version": 1,
+      "default_params": {
+        "output_field": "signature"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.hmac_verify",
+    "force_update": true,
+    "data": {
+      "name": "HMAC Verify",
+      "code": "hmac_verify",
+      "version": 1,
+      "is_active": true,
+      "description": "Verify an HMAC signature carried in the payload against a signed payload field; a mismatch fails the step without retries.",
+      "handler_key": "hmac_verify",
+      "handler_version": 1,
+      "default_params": {
+        "algorithm": "sha256",
+        "encoding": "hex"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.aes_action",
+    "force_update": true,
+    "data": {
+      "name": "AES Action",
+      "code": "aes_action",
+      "version": 1,
+      "is_active": true,
+      "description": "Encrypt the current JSON payload and wrap it into a transport-ready JSON object.",
+      "handler_key": "aes_action",
+      "handler_version": 1,
+      "default_params": {
+        "output_field": "data"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.aes_decrypt_action",
+    "force_update": true,
+    "data": {
+      "name": "AES Decrypt Action",
+      "code": "aes_decrypt_action",
+      "version": 1,
+      "is_active": true,
+      "description": "Decrypt one AES-wrapped payload field and restore the original JSON object.",
+      "handler_key": "aes_decrypt_action",
+      "handler_version": 1,
+      "default_params": {
+        "input_field": "data"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.condition",
+    "force_update": true,
+    "data": {
+      "name": "Condition",
+      "code": "condition",
+      "version": 1,
+      "is_active": true,
+      "description": "Route execution to one of two paths based on a boolean expression evaluated against the current payload.",
+      "handler_key": "condition",
+      "handler_version": 1,
+      "default_params": {
+        "expression": {},
+        "true_label": "Yes",
+        "false_label": "No"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.lua_script",
+    "force_update": true,
+    "data": {
+      "name": "Lua Script",
+      "code": "lua_script",
+      "version": 1,
+      "is_active": true,
+      "description": "Run a Lua custom action saved in Automation > Actions. It receives the previous node's output as payload and this node's custom JSON as data; base.call(model, method, kwargs) reaches model runtime methods in the run's database.",
+      "handler_key": "lua_script",
+      "handler_version": 1,
+      "default_params": {
+        "data": {}
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.call_workflow",
+    "force_update": true,
+    "data": {
+      "name": "Call Workflow",
+      "code": "call_workflow",
+      "version": 1,
+      "is_active": true,
+      "description": "Run another published workflow with the current payload as a child run and continue with its final payload. At most 5 nested calls; a workflow may not call itself through the chain.",
+      "handler_key": "call_workflow",
+      "handler_version": 1,
+      "default_params": {
+        "wait": "sync",
+        "payload_mapping": "pass_through"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.for_each",
+    "force_update": true,
+    "data": {
+      "name": "For Each",
+      "code": "for_each",
+      "version": 1,
+      "is_active": true,
+      "description": "Run a published sub-workflow once per element of a payload array (bounded concurrency) and collect the outputs into an array in input order.",
+      "handler_key": "for_each",
+      "handler_version": 1,
+      "default_params": {
+        "max_concurrency": 1,
+        "max_items": 100,
+        "fail_fast": true,
+        "output_field": "results"
+      }
+    }
+  },
+  {
+    "action": "c",
+    "model": "base.workflow.action.catalog",
+    "external_id": "workflow.action_catalog.wait_approval",
+    "force_update": true,
+    "data": {
+      "name": "Wait For Approval",
+      "code": "wait_approval",
+      "version": 1,
+      "is_active": true,
+      "description": "Pause the run until an operator approves or rejects it (base.workflow.run approve/reject with the resume token). Approval continues with _approval {approved, by, comment} in the payload; rejection fails the run or follows on_error_step_key. Linear workflows only.",
+      "handler_key": "wait_approval",
+      "handler_version": 1,
+      "default_params": {
+        "expires_in_seconds": 0
+      }
+    }
+  }
+]

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_automation_cron_list" model="ui.view">
+      <field name="name">automation.cron.list</field>
+      <field name="model">automation.cron</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Automation Crons" sample="1">
+          <field name="name"/>
+          <field name="action_id"/>
+          <field name="interval_seconds"/>
+          <field name="next_call"/>
+          <field name="last_run_status" optional="show"/>
+          <field name="fail_count" optional="show"/>
+          <field name="active"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_automation_cron_form" model="ui.view">
+      <field name="name">automation.cron.form</field>
+      <field name="model">automation.cron</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Automation Cron">
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1" placeholder="Schedule name"/>
+                </h1>
+                <div class="small text-muted">
+                  Runs the linked automation action on a fixed interval through the internal
+                  scheduler bridge.
+                </div>
+              </main>
+            </div>
+            <group>
+              <group string="Schedule">
+                <field name="action_id"/>
+                <field name="interval_seconds"/>
+                <field name="next_call"/>
+                <field name="active"/>
+              </group>
+              <group string="Failure Handling">
+                <field name="max_failures"/>
+                <field name="fail_count"/>
+                <field name="last_run_status"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

@@ -1,0 +1,1582 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Login response was not valid"
+msgstr "Phản hồi đăng nhập không hợp lệ"
+
+msgid "Login failed"
+msgstr "Đăng nhập thất bại"
+
+msgid "Signed in"
+msgstr "Đã đăng nhập"
+
+msgid "Signed in as"
+msgstr "Đăng nhập với tên"
+
+msgid "Log out"
+msgstr "Đăng xuất"
+
+msgid "Welcome back"
+msgstr "Chào mừng trở lại"
+
+msgid "Login with your Google account"
+msgstr "Đăng nhập bằng tài khoản Google của bạn"
+
+msgid "Login with Google"
+msgstr "Đăng nhập bằng Google"
+
+msgid "Or continue with"
+msgstr "Hoặc tiếp tục với"
+
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+msgid "database"
+msgstr "cơ sở dữ liệu"
+
+msgid "Use the backend database name you want this session to open."
+msgstr "Nhập tên cơ sở dữ liệu backend mà phiên này sẽ mở."
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Hide password"
+msgstr "Ẩn mật khẩu"
+
+msgid "Show password"
+msgstr "Hiện mật khẩu"
+
+msgid "Forgot your password?"
+msgstr "Quên mật khẩu?"
+
+msgid "Logging in..."
+msgstr "Đang đăng nhập..."
+
+msgid "Login"
+msgstr "Đăng nhập"
+
+msgid "Don't have an account?"
+msgstr "Chưa có tài khoản?"
+
+msgid "Sign up"
+msgstr "Đăng ký"
+
+msgid "Request failed with status {status}"
+msgstr "Yêu cầu thất bại với mã trạng thái {status}"
+
+msgid "No response received from server"
+msgstr "Không nhận được phản hồi từ máy chủ"
+
+msgid "Invalid JSON response from API docs endpoint"
+msgstr "Phản hồi JSON không hợp lệ từ endpoint tài liệu API"
+
+msgid "Unknown API docs request error"
+msgstr "Lỗi yêu cầu tài liệu API không xác định"
+
+msgid "(empty response)"
+msgstr "(phản hồi trống)"
+
+msgid "Invalid JSON response from health check endpoint"
+msgstr "Phản hồi JSON không hợp lệ từ endpoint kiểm tra tình trạng"
+
+msgid "Unknown health check request error"
+msgstr "Lỗi yêu cầu kiểm tra tình trạng không xác định"
+
+msgid "Version:"
+msgstr "Phiên bản:"
+
+msgid "No content"
+msgstr "Không có nội dung"
+
+msgid "Could not upload \"{name}\"."
+msgstr "Không thể tải lên \"{name}\"."
+
+msgid "Could not upload file."
+msgstr "Không thể tải tệp lên."
+
+msgid "Could not delete attachment {id}."
+msgstr "Không thể xóa tệp đính kèm {id}."
+
+msgid "Could not delete \"{name}\"."
+msgstr "Không thể xóa \"{name}\"."
+
+msgid "Dismiss"
+msgstr "Bỏ qua"
+
+msgid "Drag and drop a file here, or"
+msgstr "Kéo và thả tệp vào đây, hoặc"
+
+msgid "Uploading…"
+msgstr "Đang tải lên…"
+
+msgid "Upload file"
+msgstr "Tải tệp lên"
+
+msgid "Delete attachment"
+msgstr "Xóa tệp đính kèm"
+
+msgid "No attachments"
+msgstr "Không có tệp đính kèm"
+
+msgid "Activity"
+msgstr "Hoạt động"
+
+msgid "Mark done"
+msgstr "Đánh dấu hoàn thành"
+
+msgid "Feedback (optional)"
+msgstr "Phản hồi (tùy chọn)"
+
+msgid "Done"
+msgstr "Hoàn thành"
+
+msgid "Loading…"
+msgstr "Đang tải…"
+
+msgid "Log an internal note…"
+msgstr "Ghi chú nội bộ…"
+
+msgid "Send a message…"
+msgstr "Gửi tin nhắn…"
+
+msgid "Send message"
+msgstr "Gửi tin nhắn"
+
+msgid "Log note"
+msgstr "Ghi chú nội bộ"
+
+msgid "Schedule Activity"
+msgstr "Lên lịch hoạt động"
+
+msgid "To"
+msgstr "Đến"
+
+msgid "Remove"
+msgstr "Gỡ bỏ"
+
+msgid "Search receivers…"
+msgstr "Tìm người nhận…"
+
+msgid "Send"
+msgstr "Gửi"
+
+msgid "Expand chatter"
+msgstr "Mở rộng trao đổi"
+
+msgid "Chatter"
+msgstr "Trao đổi"
+
+msgid "Save the record first to use chatter."
+msgstr "Hãy lưu bản ghi trước để sử dụng trao đổi."
+
+msgid "User #{id}"
+msgstr "Người dùng #{id}"
+
+msgid "No followers yet."
+msgstr "Chưa có người theo dõi."
+
+msgid "Remove follower"
+msgstr "Gỡ người theo dõi"
+
+msgid "Add a follower…"
+msgstr "Thêm người theo dõi…"
+
+msgid "Unfollow"
+msgstr "Bỏ theo dõi"
+
+msgid "Follow"
+msgstr "Theo dõi"
+
+msgid "Unknown"
+msgstr "Không xác định"
+
+msgid "No messages yet."
+msgstr "Chưa có tin nhắn."
+
+msgid "Select an activity type."
+msgstr "Chọn loại hoạt động."
+
+msgid "Could not schedule activity."
+msgstr "Không thể lên lịch hoạt động."
+
+msgid "Activity Type"
+msgstr "Loại hoạt động"
+
+msgid "Summary"
+msgstr "Tóm tắt"
+
+msgid "Note"
+msgstr "Ghi chú"
+
+msgid "Deadline"
+msgstr "Hạn chót"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Schedule"
+msgstr "Lịch trình"
+
+msgid "Searching…"
+msgstr "Đang tìm kiếm…"
+
+msgid "Search users…"
+msgstr "Tìm người dùng…"
+
+msgid "Overdue"
+msgstr "Quá hạn"
+
+msgid "Today"
+msgstr "Hôm nay"
+
+msgid "Planned"
+msgstr "Đã lên kế hoạch"
+
+msgid "Read"
+msgstr "Đọc"
+
+msgid "Write"
+msgstr "Ghi"
+
+msgid "Create"
+msgstr "Tạo mới"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Create returned no id"
+msgstr "Thao tác tạo không trả về id"
+
+msgid "Could not add permission for \"{name}\"."
+msgstr "Không thể thêm quyền cho \"{name}\"."
+
+msgid "Could not update \"{permission}\" for \"{name}\"."
+msgstr "Không thể cập nhật \"{permission}\" cho \"{name}\"."
+
+msgid "Could not remove permission for \"{name}\"."
+msgstr "Không thể xóa quyền của \"{name}\"."
+
+msgid "Loading permissions…"
+msgstr "Đang tải quyền…"
+
+msgid "Model"
+msgstr "Mô hình"
+
+msgid "No model access rows for this group."
+msgstr "Nhóm này chưa có dòng quyền truy cập mô hình nào."
+
+msgid "Model name, e.g. tbl.groups"
+msgstr "Tên mô hình, ví dụ tbl.groups"
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Tap the Share button in Safari."
+msgstr "Nhấn nút Chia sẻ trong Safari."
+
+msgid "Scroll down and choose \"Add to Home Screen\"."
+msgstr "Cuộn xuống và chọn \"Thêm vào Màn hình chính\"."
+
+msgid "Tap Add to finish installing Base Hub."
+msgstr "Nhấn Thêm để hoàn tất cài đặt Base Hub."
+
+msgid "Add Base Hub to your Home Screen"
+msgstr "Thêm Base Hub vào Màn hình chính"
+
+msgid "Install Base Hub"
+msgstr "Cài đặt Base Hub"
+
+msgid "On iPhone or iPad, Safari installs this app through the Home Screen flow."
+msgstr "Trên iPhone hoặc iPad, Safari cài ứng dụng này qua luồng Thêm vào Màn hình chính."
+
+msgid "Install Base Hub from your browser prompt so you can launch it like an app."
+msgstr "Cài đặt Base Hub từ lời nhắc của trình duyệt để mở như một ứng dụng."
+
+msgid "Continue"
+msgstr "Tiếp tục"
+
+msgid "Open install prompt"
+msgstr "Mở lời nhắc cài đặt"
+
+msgid "Install app"
+msgstr "Cài đặt ứng dụng"
+
+msgid "Allow notifications"
+msgstr "Cho phép thông báo"
+
+msgid "Installation steps"
+msgstr "Các bước cài đặt"
+
+msgid "Follow the instructions below to install Base Hub as a PWA on this device."
+msgstr "Làm theo hướng dẫn bên dưới để cài đặt Base Hub dưới dạng PWA trên thiết bị này."
+
+msgid "Later"
+msgstr "Để sau"
+
+msgid "Hide prompt"
+msgstr "Ẩn lời nhắc"
+
+msgid "Allow browser notifications"
+msgstr "Cho phép thông báo trình duyệt"
+
+msgid "Enable notifications so Base Hub can alert you about updates and important activity."
+msgstr "Bật thông báo để Base Hub có thể cảnh báo bạn về các cập nhật và hoạt động quan trọng."
+
+msgid "Save the record first to attach files."
+msgstr "Hãy lưu bản ghi trước để đính kèm tệp."
+
+msgid "Save the record first to manage permissions."
+msgstr "Hãy lưu bản ghi trước để quản lý quyền."
+
+msgid "Database name is required."
+msgstr "Cần nhập tên cơ sở dữ liệu."
+
+msgid "Failed to duplicate database"
+msgstr "Không thể nhân bản cơ sở dữ liệu"
+
+msgid "Duplicate Database"
+msgstr "Nhân bản cơ sở dữ liệu"
+
+msgid "New database name"
+msgstr "Tên cơ sở dữ liệu mới"
+
+msgid "tenant-copy"
+msgstr "ban-sao-tenant"
+
+msgid "Duplicating..."
+msgstr "Đang nhân bản..."
+
+msgid "Duplicate"
+msgstr "Nhân bản"
+
+msgid "Select at least one module."
+msgstr "Chọn ít nhất một mô-đun."
+
+msgid "Failed to reinit database"
+msgstr "Không thể khởi tạo lại cơ sở dữ liệu"
+
+msgid "Re-init Modules"
+msgstr "Khởi tạo lại mô-đun"
+
+msgid "Loading modules…"
+msgstr "Đang tải mô-đun…"
+
+msgid "No modules found by the scan."
+msgstr "Quá trình quét không tìm thấy mô-đun nào."
+
+msgid "Re-initializing…"
+msgstr "Đang khởi tạo lại…"
+
+msgid "Re-init"
+msgstr "Khởi tạo lại"
+
+msgid "Action failed"
+msgstr "Hành động thất bại"
+
+msgid "{label} is required."
+msgstr "{label} là bắt buộc."
+
+msgid "{label} must be a valid whole number."
+msgstr "{label} phải là số nguyên hợp lệ."
+
+msgid "{label} must be a valid number."
+msgstr "{label} phải là số hợp lệ."
+
+msgid "Running..."
+msgstr "Đang chạy..."
+
+msgid "Submit"
+msgstr "Gửi"
+
+msgid "OAuth Client Already Exists"
+msgstr "Ứng dụng khách OAuth đã tồn tại"
+
+msgid "{name} already exists. Generate a new secret if the original one is lost."
+msgstr "{name} đã tồn tại. Hãy tạo khóa bí mật mới nếu khóa gốc bị mất."
+
+msgid "This OAuth client"
+msgstr "OAuth client này"
+
+msgid "OAuth Client Created"
+msgstr "Đã tạo ứng dụng khách OAuth"
+
+msgid "Copy this secret now for {name} — it will never be shown again."
+msgstr "Hãy sao chép khóa bí mật của {name} ngay — sẽ không hiển thị lại."
+
+msgid "this OAuth client"
+msgstr "OAuth client này"
+
+msgid "Client ID"
+msgstr "Client ID"
+
+msgid "Copy Client ID"
+msgstr "Sao chép Client ID"
+
+msgid "Client Secret"
+msgstr "Client Secret"
+
+msgid "Copy Client Secret"
+msgstr "Sao chép Client Secret"
+
+msgid "API Key Generated"
+msgstr "Đã tạo khóa API"
+
+msgid "Copy this key now for {name} — it will never be shown again. Any previous key no longer works."
+msgstr "Hãy sao chép khóa của {name} ngay — sẽ không hiển thị lại. Khóa cũ không còn hiệu lực."
+
+msgid "this user"
+msgstr "người dùng này"
+
+msgid "Copy API Key"
+msgstr "Sao chép khóa API"
+
+msgid "New password is required."
+msgstr "Cần nhập mật khẩu mới."
+
+msgid "Failed to update password"
+msgstr "Không thể cập nhật mật khẩu"
+
+msgid "Change Password"
+msgstr "Đổi mật khẩu"
+
+msgid "New password"
+msgstr "Mật khẩu mới"
+
+msgid "Enter a new password"
+msgstr "Nhập mật khẩu mới"
+
+msgid "Hide"
+msgstr "Ẩn"
+
+msgid "Show"
+msgstr "Hiện"
+
+msgid "Saving..."
+msgstr "Đang lưu..."
+
+msgid "Save Password"
+msgstr "Lưu mật khẩu"
+
+msgid "Record #{id}"
+msgstr "Bản ghi #{id}"
+
+msgid "Count"
+msgstr "Số lượng"
+
+msgid "Average"
+msgstr "Trung bình"
+
+msgid "Undefined"
+msgstr "Chưa xác định"
+
+msgid "Day"
+msgstr "Ngày"
+
+msgid "Week"
+msgstr "Tuần"
+
+msgid "Month"
+msgstr "Tháng"
+
+msgid "Year"
+msgstr "Năm"
+
+msgid "Sun"
+msgstr "CN"
+
+msgid "Mon"
+msgstr "T2"
+
+msgid "Tue"
+msgstr "T3"
+
+msgid "Wed"
+msgstr "T4"
+
+msgid "Thu"
+msgstr "T5"
+
+msgid "Fri"
+msgstr "T6"
+
+msgid "Sat"
+msgstr "T7"
+
+msgid "Daily"
+msgstr "Hằng ngày"
+
+msgid "Weekly"
+msgstr "Hằng tuần"
+
+msgid "Every 2 weeks"
+msgstr "Mỗi 2 tuần"
+
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+msgid "Yearly"
+msgstr "Hằng năm"
+
+msgid "Specific day(s) of week"
+msgstr "Ngày cụ thể trong tuần"
+
+msgid "Specific day of month"
+msgstr "Ngày cụ thể trong tháng"
+
+msgid "Select at least one day of the week."
+msgstr "Chọn ít nhất một ngày trong tuần."
+
+msgid "Failed to create recurrence"
+msgstr "Không thể tạo lặp lại"
+
+msgid "Previous"
+msgstr "Trước"
+
+msgid "Next"
+msgstr "Sau"
+
+msgid "Calendar mode"
+msgstr "Chế độ lịch"
+
+msgid "Events are anchored to {field} and cannot be rescheduled by dragging."
+msgstr "Sự kiện được neo theo {field} và không thể kéo để đổi lịch."
+
+msgid "Repeat this event"
+msgstr "Lặp lại sự kiện này"
+
+msgid "+{count} more"
+msgstr "+{count} nữa"
+
+msgid "AM"
+msgstr "SA"
+
+msgid "PM"
+msgstr "CH"
+
+msgid "No events in this range."
+msgstr "Không có sự kiện nào trong khoảng này."
+
+msgid "Edit recurring event"
+msgstr "Sửa sự kiện lặp lại"
+
+msgid "This event repeats. Which occurrences should this change apply to?"
+msgstr "Sự kiện này lặp lại. Thay đổi áp dụng cho những lần nào?"
+
+msgid "This event"
+msgstr "Sự kiện này"
+
+msgid "This and following events"
+msgstr "Sự kiện này và các sự kiện sau"
+
+msgid "All events"
+msgstr "Tất cả sự kiện"
+
+msgid "Repeat event"
+msgstr "Lặp lại sự kiện"
+
+msgid "Frequency"
+msgstr "Tần suất"
+
+msgid "Interval"
+msgstr "Khoảng thời gian"
+
+msgid "Days of week"
+msgstr "Các ngày trong tuần"
+
+msgid "Day of month"
+msgstr "Ngày trong tháng"
+
+msgid "Start date"
+msgstr "Ngày bắt đầu"
+
+msgid "End date (optional)"
+msgstr "Ngày kết thúc (tùy chọn)"
+
+msgid "day"
+msgstr "ngày"
+
+msgid "week"
+msgstr "tuần"
+
+msgid "month"
+msgstr "tháng"
+
+msgid "year"
+msgstr "năm"
+
+msgid "forward"
+msgstr "tiến"
+
+msgid "backward"
+msgstr "lùi"
+
+msgid "retention"
+msgstr "giữ chân"
+
+msgid "churn"
+msgstr "rời bỏ"
+
+msgid "Cohort timeline"
+msgstr "Dòng thời gian nhóm đối tượng"
+
+msgid "Cohort interval"
+msgstr "Khoảng thời gian nhóm đối tượng"
+
+msgid "Cohort mode"
+msgstr "Chế độ nhóm đối tượng"
+
+msgid "Cohort measure"
+msgstr "Chỉ số nhóm đối tượng"
+
+msgid "No records found."
+msgstr "Không tìm thấy bản ghi nào."
+
+msgid "Cohort"
+msgstr "Nhóm đối tượng"
+
+msgid "Total"
+msgstr "Tổng"
+
+msgid "Breadcrumb"
+msgstr "Đường dẫn điều hướng"
+
+msgid "Import"
+msgstr "Nhập"
+
+msgid "Export"
+msgstr "Xuất"
+
+msgid "View active"
+msgstr "Xem đang hoạt động"
+
+msgid "View inactive"
+msgstr "Xem không hoạt động"
+
+msgid "New"
+msgstr "Mới"
+
+msgid "Refresh"
+msgstr "Làm mới"
+
+msgid "Actions"
+msgstr "Hành động"
+
+msgid "Search…"
+msgstr "Tìm kiếm…"
+
+msgid "Search field"
+msgstr "Trường tìm kiếm"
+
+msgid "Remove filter: {label}"
+msgstr "Xóa bộ lọc: {label}"
+
+msgid "Search"
+msgstr "Tìm kiếm"
+
+msgid "Clear all filters"
+msgstr "Xóa tất cả bộ lọc"
+
+msgid "List"
+msgstr "Danh sách"
+
+msgid "Kanban"
+msgstr "Kanban"
+
+msgid "Hierarchy"
+msgstr "Phân cấp"
+
+msgid "Gantt"
+msgstr "Gantt"
+
+msgid "Calendar"
+msgstr "Lịch"
+
+msgid "Grid"
+msgstr "Lưới"
+
+msgid "Map"
+msgstr "Bản đồ"
+
+msgid "View mode"
+msgstr "Chế độ xem"
+
+msgid "Quick links"
+msgstr "Liên kết nhanh"
+
+msgid "Jump straight into a workspace section"
+msgstr "Chuyển thẳng đến một phần của không gian làm việc"
+
+msgid "Select a model…"
+msgstr "Chọn model…"
+
+msgid "Select a view type…"
+msgstr "Chọn loại giao diện…"
+
+msgid "Select a timezone…"
+msgstr "Chọn múi giờ…"
+
+msgid "Yes"
+msgstr "Có"
+
+msgid "No"
+msgstr "Không"
+
+msgid "{days}d overdue"
+msgstr "Quá hạn {days} ngày"
+
+msgid "in {days}d"
+msgstr "sau {days} ngày"
+
+msgid "Invalid JSON: {message}"
+msgstr "JSON không hợp lệ: {message}"
+
+msgid "parse error"
+msgstr "lỗi phân tích cú pháp"
+
+msgid "No related records"
+msgstr "Không có bản ghi liên quan"
+
+msgid "Search to add…"
+msgstr "Tìm để thêm…"
+
+msgid "Drag handle (reordering not implemented)"
+msgstr "Tay kéo (chưa hỗ trợ sắp xếp lại)"
+
+msgid "Timezone mismatch"
+msgstr "Múi giờ không khớp"
+
+msgid "None"
+msgstr "Không có"
+
+msgid "No image"
+msgstr "Không có hình ảnh"
+
+msgid "Copy to clipboard"
+msgstr "Sao chép vào bộ nhớ tạm"
+
+msgid "Color {n}"
+msgstr "Màu {n}"
+
+msgid "Clear"
+msgstr "Xóa"
+
+msgid "View"
+msgstr "Xem"
+
+msgid "decimal hours"
+msgstr "giờ thập phân"
+
+msgid "Write something…"
+msgstr "Viết nội dung…"
+
+msgid "Close chatter"
+msgstr "Đóng trao đổi"
+
+msgid "Open chatter"
+msgstr "Mở trao đổi"
+
+msgid "Collapse chatter"
+msgstr "Thu gọn trao đổi"
+
+msgid "{label} must contain valid JSON."
+msgstr "{label} phải chứa JSON hợp lệ."
+
+msgid "Failed to save record"
+msgstr "Không thể lưu bản ghi"
+
+msgid "Failed to duplicate record"
+msgstr "Không thể nhân bản bản ghi"
+
+msgid "Failed to delete record"
+msgstr "Không thể xóa bản ghi"
+
+msgid "Back to list"
+msgstr "Quay lại danh sách"
+
+msgid "Unsaved changes"
+msgstr "Thay đổi chưa lưu"
+
+msgid "Saved"
+msgstr "Đã lưu"
+
+msgid "Create record"
+msgstr "Tạo bản ghi"
+
+msgid "Refresh record"
+msgstr "Làm mới bản ghi"
+
+msgid "Edit"
+msgstr "Chỉnh sửa"
+
+msgid "Edit record"
+msgstr "Sửa bản ghi"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "Save record"
+msgstr "Lưu bản ghi"
+
+msgid "Discard changes"
+msgstr "Hủy thay đổi"
+
+msgid "Delete record"
+msgstr "Xóa bản ghi"
+
+msgid "This permanently deletes the record. Continue?"
+msgstr "Thao tác này sẽ xóa vĩnh viễn bản ghi. Tiếp tục?"
+
+msgid "Unknown widget:"
+msgstr "Widget không xác định:"
+
+msgid "Action"
+msgstr "Hành động"
+
+msgid "Page"
+msgstr "Trang"
+
+msgid "Gantt scale"
+msgstr "Thang Gantt"
+
+msgid "Grid range"
+msgstr "Phạm vi lưới"
+
+msgid "{measure} total"
+msgstr "Tổng {measure}"
+
+msgid "Untitled"
+msgstr "Chưa đặt tên"
+
+msgid "Collapse"
+msgstr "Thu gọn"
+
+msgid "Expand"
+msgstr "Mở rộng"
+
+msgid "Failed to load templates"
+msgstr "Không thể tải mẫu"
+
+msgid "Export {count} record to a spreadsheet."
+msgstr "Xuất {count} bản ghi ra bảng tính."
+
+msgid "Export {count} records to a spreadsheet."
+msgstr "Xuất {count} bản ghi ra bảng tính."
+
+msgid "Failed to save the template"
+msgstr "Không thể lưu mẫu"
+
+msgid "Delete template \"{name}\"?"
+msgstr "Xóa mẫu \"{name}\"?"
+
+msgid "Failed to delete the template"
+msgstr "Không thể xóa mẫu"
+
+msgid "Export failed"
+msgstr "Xuất thất bại"
+
+msgid "Export {title}"
+msgstr "Xuất {title}"
+
+msgid "Template"
+msgstr "Mẫu in"
+
+msgid "Export template"
+msgstr "Mẫu xuất"
+
+msgid "Default (required fields)"
+msgstr "Mặc định (các trường bắt buộc)"
+
+msgid "Template name"
+msgstr "Tên mẫu"
+
+msgid "e.g. Monthly report columns"
+msgstr "VD: Các cột báo cáo hằng tháng"
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "Save as new"
+msgstr "Lưu thành mới"
+
+msgid "Delete template"
+msgstr "Xóa mẫu"
+
+msgid "Available fields"
+msgstr "Các trường khả dụng"
+
+msgid "Search fields…"
+msgstr "Tìm trường…"
+
+msgid "No field matches."
+msgstr "Không có trường nào khớp."
+
+msgid "Fields to export"
+msgstr "Các trường cần xuất"
+
+msgid "Reset to default"
+msgstr "Đặt lại về mặc định"
+
+msgid "Move up"
+msgstr "Chuyển lên"
+
+msgid "Move down"
+msgstr "Chuyển xuống"
+
+msgid "Pick at least one field."
+msgstr "Chọn ít nhất một trường."
+
+msgid "File format"
+msgstr "Định dạng tệp"
+
+msgid "Exporting…"
+msgstr "Đang xuất…"
+
+msgid "…and {count} more."
+msgstr "…và {count} mục nữa."
+
+msgid "Parsed {count} valid rows"
+msgstr "Đã đọc {count} dòng hợp lệ"
+
+msgid "Failed to build the template"
+msgstr "Không thể tạo mẫu"
+
+msgid "The uploaded file has no worksheet."
+msgstr "Tệp tải lên không có trang tính."
+
+msgid "The selected file could not be read. Please use the provided template."
+msgstr "Không đọc được tệp đã chọn. Vui lòng dùng mẫu được cung cấp."
+
+msgid "Import failed"
+msgstr "Nhập thất bại"
+
+msgid "Import {title}"
+msgstr "Nhập {title}"
+
+msgid "Create or update {title} in bulk from a spreadsheet (matched by ID)."
+msgstr "Tạo hoặc cập nhật hàng loạt {title} từ bảng tính (khớp theo ID)."
+
+msgid "Download the template"
+msgstr "Tải mẫu xuống"
+
+msgid "Preparing…"
+msgstr "Đang chuẩn bị…"
+
+msgid "Download Excel Template"
+msgstr "Tải mẫu Excel"
+
+msgid "CSV template"
+msgstr "Mẫu CSV"
+
+msgid "Import template"
+msgstr "Mẫu nhập"
+
+msgid "Required columns:"
+msgstr "Các cột bắt buộc:"
+
+msgid "Upload the completed file"
+msgstr "Tải lên tệp đã hoàn thành"
+
+msgid "Click to choose another file"
+msgstr "Nhấp để chọn tệp khác"
+
+msgid "Click or drop a file here"
+msgstr "Nhấp hoặc thả tệp vào đây"
+
+msgid "`.xlsx` (template) or `.csv` with the same header row."
+msgstr "`.xlsx` (mẫu) hoặc `.csv` có cùng dòng tiêu đề."
+
+msgid "Import file"
+msgstr "Tệp nhập"
+
+msgid "Processing the file…"
+msgstr "Đang xử lý tệp…"
+
+msgid "File validation issues"
+msgstr "Vấn đề xác thực tệp"
+
+msgid "Importing…"
+msgstr "Đang nhập…"
+
+msgid "Unknown column \"{header}\"."
+msgstr "Cột không xác định \"{header}\"."
+
+msgid "Column \"{header}\" is read-only and cannot be imported."
+msgstr "Cột \"{header}\" chỉ đọc và không thể nhập."
+
+msgid "Column \"{header}\" appears more than once."
+msgstr "Cột \"{header}\" xuất hiện nhiều lần."
+
+msgid "The file has no header row."
+msgstr "Tệp không có dòng tiêu đề."
+
+msgid "Row {row}: ID {id} is duplicated in this file."
+msgstr "Dòng {row}: ID {id} bị trùng trong tệp này."
+
+msgid "Row {row}: {field} is required (column missing)."
+msgstr "Dòng {row}: {field} là bắt buộc (thiếu cột)."
+
+msgid "Row {row}: {field} is required."
+msgstr "Dòng {row}: {field} là bắt buộc."
+
+msgid "The uploaded file does not contain any data rows."
+msgstr "Tệp tải lên không có dòng dữ liệu nào."
+
+msgid "ExcelJS did not load"
+msgstr "ExcelJS chưa được tải"
+
+msgid "Failed to load the spreadsheet library"
+msgstr "Không thể tải thư viện bảng tính"
+
+msgid "Kanban board"
+msgstr "Bảng Kanban"
+
+msgid "Unfold column"
+msgstr "Mở cột"
+
+msgid "Fold column"
+msgstr "Thu gọn cột"
+
+msgid "No records"
+msgstr "Không có bản ghi"
+
+msgid "Load more… ({count} remaining)"
+msgstr "Tải thêm… (còn {count})"
+
+msgid "Kanban cards"
+msgstr "Thẻ Kanban"
+
+msgid "Failed to load the map"
+msgstr "Không thể tải bản đồ"
+
+msgid "Open record"
+msgstr "Mở bản ghi"
+
+msgid "No geolocated records found."
+msgstr "Không tìm thấy bản ghi có vị trí địa lý."
+
+msgid "Failed to load the API guide"
+msgstr "Không tải được hướng dẫn API"
+
+msgid "Failed to load API documentation index"
+msgstr "Không thể tải mục lục tài liệu API"
+
+msgid "Failed to reload API documentation index"
+msgstr "Không thể tải lại mục lục tài liệu API"
+
+msgid "Failed to load model documentation"
+msgstr "Không thể tải tài liệu mô hình"
+
+msgid "Invalid JSON body: {message}"
+msgstr "Nội dung JSON không hợp lệ: {message}"
+
+msgid "Invalid JSON body"
+msgstr "Nội dung JSON không hợp lệ"
+
+msgid "Request execution failed"
+msgstr "Không thể thực thi yêu cầu"
+
+msgid "API Documentation"
+msgstr "Tài liệu API"
+
+msgid "Guide"
+msgstr "Hướng dẫn"
+
+msgid "RPC Api"
+msgstr "RPC API"
+
+msgid "Alias Api"
+msgstr "Alias API"
+
+msgid "Loading"
+msgstr "Đang tải"
+
+msgid "Loading API guide…"
+msgstr "Đang tải hướng dẫn API…"
+
+msgid "Loading API documentation…"
+msgstr "Đang tải tài liệu API…"
+
+msgid "Catalog"
+msgstr "Danh mục"
+
+msgid "Search models..."
+msgstr "Tìm mô hình..."
+
+msgid "Modules"
+msgstr "Mô-đun"
+
+msgid "Models"
+msgstr "Mô hình"
+
+msgid "Visible"
+msgstr "Hiển thị"
+
+msgid "No models match this search."
+msgstr "Không có mô hình nào khớp với tìm kiếm này."
+
+msgid "{count} methods"
+msgstr "{count} phương thức"
+
+msgid "Select a model to inspect its documentation."
+msgstr "Chọn một model để xem tài liệu."
+
+msgid "Loading model documentation…"
+msgstr "Đang tải tài liệu mô hình…"
+
+msgid "Pick a model from the catalog to inspect its contract."
+msgstr "Chọn một mô hình từ danh mục để xem hợp đồng của nó."
+
+msgid "Fields"
+msgstr "Trường"
+
+msgid "Methods"
+msgstr "Phương thức"
+
+msgid "Module"
+msgstr "Mô-đun"
+
+msgid "Show Description"
+msgstr "Hiện mô tả"
+
+msgid "Function: {name}"
+msgstr "Hàm: {name}"
+
+msgid "No public methods are documented for this model."
+msgstr "Mô hình này chưa có tài liệu về phương thức công khai."
+
+msgid "Route"
+msgstr "Tuyến"
+
+msgid "Alias Route"
+msgstr "Tuyến bí danh"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Parameters"
+msgstr "Tham số"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Type"
+msgstr "Loại"
+
+msgid "Default"
+msgstr "Mặc định"
+
+msgid "This method does not declare request parameters."
+msgstr "Phương thức này không khai báo tham số yêu cầu."
+
+msgid "No description"
+msgstr "Không có mô tả"
+
+msgid "Try Request"
+msgstr "Thử yêu cầu"
+
+msgid "Running…"
+msgstr "Đang chạy…"
+
+msgid "Run"
+msgstr "Chạy"
+
+msgid "Response"
+msgstr "Phản hồi"
+
+msgid "Run to get a response."
+msgstr "Chạy để nhận phản hồi."
+
+msgid "Running"
+msgstr "Đang chạy"
+
+msgid "Executing request…"
+msgstr "Đang thực thi yêu cầu…"
+
+msgid "Field"
+msgstr "Trường"
+
+msgid "Label"
+msgstr "Nhãn"
+
+msgid "Traits"
+msgstr "Thuộc tính"
+
+msgid "required"
+msgstr "bắt buộc"
+
+msgid "readonly"
+msgstr "chỉ đọc"
+
+msgid "searchable"
+msgstr "có thể tìm kiếm"
+
+msgid "sortable"
+msgstr "có thể sắp xếp"
+
+msgid "compute"
+msgstr "tính toán"
+
+msgid "Alias API reference"
+msgstr "Tham chiếu Alias API"
+
+msgid "Loading dashboards…"
+msgstr "Đang tải bảng điều khiển…"
+
+msgid "No dashboards configured yet."
+msgstr "Chưa cấu hình bảng điều khiển nào."
+
+msgid "Not enabled for this deployment."
+msgstr "Chưa được bật cho bản triển khai này."
+
+msgid "Responding ({ms}ms)"
+msgstr "Đang phản hồi ({ms}ms)"
+
+msgid "Responding"
+msgstr "Đang phản hồi"
+
+msgid "Unreachable"
+msgstr "Không truy cập được"
+
+msgid "Failed to load service health"
+msgstr "Không thể tải tình trạng dịch vụ"
+
+msgid "Service Health Check"
+msgstr "Kiểm tra tình trạng dịch vụ"
+
+msgid "Overall Status"
+msgstr "Trạng thái tổng thể"
+
+msgid "Live snapshot of the backend service and its dependencies. Auto-refreshes every 30s."
+msgstr "Ảnh chụp trực tiếp của dịch vụ backend và các thành phần phụ thuộc. Tự động làm mới mỗi 30 giây."
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "Uptime"
+msgstr "Thời gian hoạt động"
+
+msgid "Requests / Errors"
+msgstr "Yêu cầu / Lỗi"
+
+msgid "up"
+msgstr "hoạt động"
+
+msgid "down"
+msgstr "ngừng"
+
+msgid "disabled"
+msgstr "đã tắt"
+
+msgid "Model \"{model}\" has no {mode} view mode ({viewMode})"
+msgstr "Model \"{model}\" không có chế độ xem {mode} ({viewMode})"
+
+msgid "Failed to load view"
+msgstr "Không thể tải chế độ xem"
+
+msgid "Failed to move record"
+msgstr "Không thể di chuyển bản ghi"
+
+msgid "Failed to reorder columns"
+msgstr "Không thể sắp xếp lại các cột"
+
+msgid "Model \"{model}\" has no calendar view (sys.* models are excluded)"
+msgstr "Model \"{model}\" không có giao diện lịch (không áp dụng cho model sys.*)"
+
+msgid "Model \"{model}\" has no date field the calendar can anchor on"
+msgstr "Model \"{model}\" không có trường ngày để lịch neo vào"
+
+msgid "Failed to load calendar events"
+msgstr "Không thể tải sự kiện lịch"
+
+msgid "Failed to reschedule event"
+msgstr "Không thể lên lịch lại sự kiện"
+
+msgid "Model \"{model}\" has no gantt view (date_start/date_stop fields not found)"
+msgstr "Model \"{model}\" không có giao diện gantt (không tìm thấy trường date_start/date_stop)"
+
+msgid "Failed to load gantt records"
+msgstr "Không thể tải bản ghi Gantt"
+
+msgid "Failed to reschedule record"
+msgstr "Không thể lên lịch lại bản ghi"
+
+msgid "Model \"{model}\" has no map view (latitude_field/longitude_field not found)"
+msgstr "Model \"{model}\" không có giao diện bản đồ (không tìm thấy latitude_field/longitude_field)"
+
+msgid "Model \"{model}\" has no grid view (row/col/measure fields not found)"
+msgstr "Model \"{model}\" không có giao diện lưới (không tìm thấy trường row/col/measure)"
+
+msgid "Failed to load grid records"
+msgstr "Không thể tải bản ghi lưới"
+
+msgid "Failed to save grid cell"
+msgstr "Không thể lưu ô lưới"
+
+msgid "Model \"{model}\" has no cohort view (date_start/date_stop fields not found)"
+msgstr "Model \"{model}\" không có giao diện cohort (không tìm thấy trường date_start/date_stop)"
+
+msgid "Failed to load cohort data"
+msgstr "Không thể tải dữ liệu nhóm đối tượng"
+
+msgid "Failed to open record"
+msgstr "Không mở được bản ghi"
+
+msgid "Activate"
+msgstr "Kích hoạt"
+
+msgid "Could not open the create dialog"
+msgstr "Không mở được hộp thoại tạo mới"
+
+msgid "Button \"{label}\" uses unsupported type \"{type}\""
+msgstr "Nút \"{label}\" dùng loại không được hỗ trợ \"{type}\""
+
+msgid "Button \"{label}\" requires a saved record"
+msgstr "Nút \"{label}\" cần bản ghi đã lưu"
+
+msgid "{label}: started in the background — you'll be notified when it finishes."
+msgstr "{label}: đã chạy nền — bạn sẽ được thông báo khi hoàn tất."
+
+msgid "Button failed"
+msgstr "Nút thất bại"
+
+msgid "Failed to load model fields"
+msgstr "Không thể tải các trường của mô hình"
+
+msgid "Imported {total} records ({created} created, {updated} updated)"
+msgstr "Đã nhập {total} bản ghi ({created} tạo mới, {updated} cập nhật)"
+
+msgid "Exported {count} records"
+msgstr "Đã xuất {count} bản ghi"
+
+msgid "Duplicate database requires a saved source record"
+msgstr "Nhân bản cơ sở dữ liệu yêu cầu bản ghi nguồn đã được lưu"
+
+msgid "Database \"{newName}\" is queued for duplication."
+msgstr "Cơ sở dữ liệu \"{newName}\" đã được xếp hàng chờ sao chép."
+
+msgid "Failed to load the module catalog"
+msgstr "Không thể tải danh mục mô-đun"
+
+msgid "This action requires a saved database record"
+msgstr "Hành động này yêu cầu một bản ghi cơ sở dữ liệu đã lưu"
+
+msgid "This action requires a saved user record"
+msgstr "Hành động này yêu cầu một bản ghi người dùng đã lưu"
+
+msgid "Password updated."
+msgstr "Đã cập nhật mật khẩu."
+
+msgid "Action button \"{label}\" is missing a valid XMLID"
+msgstr "Nút hành động \"{label}\" thiếu XMLID hợp lệ"
+
+msgid "Client button \"{label}\" is missing a valid XMLID"
+msgstr "Nút client \"{label}\" thiếu XMLID hợp lệ"
+
+msgid "Unsupported client action \"{action}\""
+msgstr "Hành động client không được hỗ trợ \"{action}\""
+
+msgid "Client action \"{name}\" is missing a valid ensure id"
+msgstr "Hành động client \"{name}\" thiếu ensure id hợp lệ"
+
+msgid "Client action \"{name}\" is missing a valid route"
+msgstr "Hành động client \"{name}\" thiếu route hợp lệ"
+
+msgid "Client action \"{name}\" is missing params.widget"
+msgstr "Hành động client \"{name}\" thiếu params.widget"
+
+msgid "Client action \"{name}\" requires a saved record"
+msgstr "Hành động client \"{name}\" cần bản ghi đã lưu"
+
+msgid "Client action \"{name}\" has an unknown widget \"{widget}\""
+msgstr "Hành động client \"{name}\" có widget không xác định \"{widget}\""
+
+msgid "Delete this record?"
+msgstr "Xóa bản ghi này?"
+
+msgid "Row action \"{label}\" is missing a valid name"
+msgstr "Hành động dòng \"{label}\" thiếu tên hợp lệ"
+
+msgid "Row action \"{label}\" uses unsupported type \"{type}\""
+msgstr "Hành động dòng \"{label}\" dùng loại không được hỗ trợ \"{type}\""
+
+msgid "Row action \"{label}\" requires a saved record"
+msgstr "Hành động dòng \"{label}\" cần bản ghi đã lưu"
+
+msgid "Reinitializing module, please wait…"
+msgstr "Đang khởi tạo lại mô-đun, vui lòng đợi…"
+
+msgid "Installing module, please wait…"
+msgstr "Đang cài đặt mô-đun, vui lòng đợi…"
+
+msgid "Uninstalling module, please wait…"
+msgstr "Đang gỡ cài đặt mô-đun, vui lòng đợi…"
+
+msgid "Row action failed"
+msgstr "Không thể thực hiện hành động trên dòng"
+
+msgid "Module reinit failed"
+msgstr "Khởi tạo lại mô-đun thất bại"
+
+msgid "Timed out waiting for module reinit; reload the page to check its state."
+msgstr "Hết thời gian chờ khởi tạo lại mô-đun; hãy tải lại trang để kiểm tra trạng thái."
+
+msgid "Toolbar action \"{label}\" needs row selection, which the list table doesn't support yet."
+msgstr "Hành động thanh công cụ \"{label}\" cần chọn dòng, bảng danh sách chưa hỗ trợ."
+
+msgid "{label}: {result}"
+msgstr "{label}: {result}"
+
+msgid "No action selected"
+msgstr "Chưa chọn hành động"
+
+msgid "Action \"{name}\" has no target model"
+msgstr "Hành động \"{name}\" không có model đích"
+
+msgid "Action \"{name}\" has unsupported type \"{type}\""
+msgstr "Hành động \"{name}\" có loại không được hỗ trợ \"{type}\""
+
+msgid "Row action \"{label}\" has an unknown widget \"{widget}\""
+msgstr "Hành động dòng \"{label}\" có widget không xác định \"{widget}\""
+
+msgid "Toolbar action \"{label}\" has an unknown widget \"{widget}\""
+msgstr "Hành động thanh công cụ \"{label}\" có widget không xác định \"{widget}\""
+
+msgid "Search {title}"
+msgstr "Tìm {title}"
+
+msgid "Confirm action"
+msgstr "Xác nhận hành động"
+
+msgid "Working"
+msgstr "Đang xử lý"
+
+msgid "Failed to load notifications"
+msgstr "Không thể tải thông báo"
+
+msgid "Notifications"
+msgstr "Thông báo"
+
+msgid "Backend notifications retained for seven days on this device."
+msgstr "Thông báo từ máy chủ được giữ trong bảy ngày trên thiết bị này."
+
+msgid "Loading notifications..."
+msgstr "Đang tải thông báo..."
+
+msgid "No notifications have been stored on this device yet."
+msgstr "Chưa có thông báo nào được lưu trên thiết bị này."
+
+msgid "Notification"
+msgstr "Thông báo"
+
+msgid "Received"
+msgstr "Đã nhận"
+
+msgid "Failed to load menu"
+msgstr "Không thể tải menu"
+
+msgid "Close menu"
+msgstr "Đóng menu"
+
+msgid "Search menu"
+msgstr "Tìm trong menu"
+
+msgid "Search menu..."
+msgstr "Tìm menu..."
+
+msgid "Loading menu…"
+msgstr "Đang tải menu…"
+
+msgid "No menu items available."
+msgstr "Không có mục menu nào."
+
+msgid "No results for {query}."
+msgstr "Không có kết quả cho {query}."
+
+msgid "KnowLedge"
+msgstr "Kiến thức"
+
+msgid "Language"
+msgstr "Ngôn ngữ"
+
+msgid "Tap <strong>Open install prompt</strong>, then confirm the browser's install flow to add Base Hub to your device."
+msgstr "Nhấn <strong>Mở lời nhắc cài đặt</strong>, rồi xác nhận trong trình duyệt để thêm Base Hub vào thiết bị."
+
+msgid "Tap <strong>Allow notifications</strong>, then choose <strong>Allow</strong> in your browser prompt."
+msgstr "Nhấn <strong>Cho phép thông báo</strong>, rồi chọn <strong>Cho phép</strong> trong lời nhắc của trình duyệt."
+
+msgid "Create a new database by cloning <strong>{name}</strong>."
+msgstr "Tạo cơ sở dữ liệu mới bằng cách sao chép <strong>{name}</strong>."
+
+msgid "Choose which modules should be enabled on <strong>{name}</strong>. Unchecked modules that were installed are uninstalled; checked modules are installed (or reinitialized) and their master data is replayed."
+msgstr "Chọn các mô-đun được bật trên <strong>{name}</strong>. Mô-đun đã cài nhưng bỏ chọn sẽ bị gỡ; mô-đun được chọn sẽ được cài (hoặc khởi tạo lại) và dữ liệu gốc được nạp lại."
+
+msgid "Set a new password for <strong>{name}</strong>."
+msgstr "Đặt mật khẩu mới cho <strong>{name}</strong>."
+
+msgid "Export {count} record matching the current search (first {max}) to a spreadsheet."
+msgstr "Xuất {count} bản ghi khớp với tìm kiếm hiện tại (tối đa {max} đầu tiên) ra bảng tính."
+
+msgid "Export {count} records matching the current search (first {max}) to a spreadsheet."
+msgstr "Xuất {count} bản ghi khớp với tìm kiếm hiện tại (tối đa {max} đầu tiên) ra bảng tính."
+
+msgid "Export {count} record matching the current search to a spreadsheet."
+msgstr "Xuất {count} bản ghi khớp với tìm kiếm hiện tại ra bảng tính."
+
+msgid "Export {count} records matching the current search to a spreadsheet."
+msgstr "Xuất {count} bản ghi khớp với tìm kiếm hiện tại ra bảng tính."
+
+msgid "Export {count} record (first {max}) to a spreadsheet."
+msgstr "Xuất {count} bản ghi (tối đa {max} đầu tiên) ra bảng tính."
+
+msgid "Export {count} records (first {max}) to a spreadsheet."
+msgstr "Xuất {count} bản ghi (tối đa {max} đầu tiên) ra bảng tính."
+
+msgid "Instruction"
+msgstr "Hướng dẫn"
+
+msgid "Loading instructions…"
+msgstr "Đang tải hướng dẫn…"
+
+msgid "No instruction documents available."
+msgstr "Không có tài liệu hướng dẫn nào."
+
+msgid "Failed to load instructions"
+msgstr "Không tải được hướng dẫn"
+
+msgid "Failed to load the document"
+msgstr "Không tải được tài liệu"
+
+msgid "Deactivate"
+msgstr "Ngừng kích hoạt"
+
+msgid "Failed to update record"
+msgstr "Không cập nhật được bản ghi"
+
+msgid "Record activated"
+msgstr "Đã kích hoạt bản ghi"
+
+msgid "Record deactivated"
+msgstr "Đã ngừng kích hoạt bản ghi"
+
+msgid "Companies"
+msgstr "Công ty"
+
+msgid "Select company"
+msgstr "Chọn công ty"
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "Reset"
+msgstr "Đặt lại"
+
+msgid "User menu"
+msgstr "Menu người dùng"

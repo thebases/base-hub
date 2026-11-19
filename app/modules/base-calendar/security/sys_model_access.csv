@@ -1,0 +1,3 @@
+id,name,group_id,model_name,perm_read,perm_write,perm_create,perm_unlink,active
+base_calendar.access_base_calendar_recurrence_user,Calendar Recurrences user,base.group_user,base.calendar.recurrence,true,true,true,true,true
+base_calendar.access_base_calendar_recurrence_exception_user,Calendar Recurrence Exceptions user,base.group_user,base.calendar.recurrence.exception,true,true,true,true,true

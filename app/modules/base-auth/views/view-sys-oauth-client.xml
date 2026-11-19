@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_sys_oauth_client_list" model="ui.view">
+    <field name="name">sys.oauth_client.list</field>
+    <field name="model">sys.oauth_client</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="OAuth Clients" sample="1">
+        <field name="client_id"/>
+        <field name="service_name"/>
+        <field name="role_id" optional="show"/>
+        <field name="is_superadmin" optional="show"/>
+        <field name="is_public" optional="hide"/>
+        <field name="active"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_sys_oauth_client_form" model="ui.view">
+    <field name="name">sys.oauth_client.form</field>
+    <field name="model">sys.oauth_client</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="OAuth Client">
+        <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+        <sheet>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1 class="d-flex align-items-center gap-3">
+                <field name="client_id" nolabel="1" placeholder="third-party-client-id"/>
+                <button
+                  string="Generate Client Secret"
+                  type="object"
+                  name="generate_client_secret"
+                  class="btn-secondary"
+                  invisible="not id"
+                />
+              </h1>
+              <div class="small text-muted">
+                Use this standalone client for MCP, GPT Actions, AI agents, or other third-party integrations.
+              </div>
+            </main>
+          </div>
+          <group>
+            <group string="Client">
+              <field name="service_name"/>
+              <field name="active"/>
+              <field name="client_secret_hash" readonly="1" widget="password"/>
+            </group>
+            <group string="Identity">
+              <field name="role_id"/>
+              <field name="is_superadmin"/>
+            </group>
+            <group string="Grants">
+              <field name="is_public"/>
+              <field name="allowed_grants" placeholder="[&quot;authorization_code&quot;]"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Redirect URIs" name="redirect_uris">
+              <field name="redirect_uris"/>
+            </page>
+            <page string="Audit" name="audit">
+              <field name="created_at"/>
+              <field name="updated_at"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_sys_oauth_client_search" model="ui.view">
+    <field name="name">sys.oauth_client.search</field>
+    <field name="model">sys.oauth_client</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="OAuth Clients">
+        <field name="client_id"/>
+        <field name="service_name"/>
+        <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+        <filter string="Archived" name="active_false" domain="[('active', '=', False)]"/>
+        <group>
+          <filter string="Role" name="group_by_role_id" domain="[]" context="{'group_by': 'role_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

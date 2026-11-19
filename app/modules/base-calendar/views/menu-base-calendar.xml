@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.base_calendar_recurrence" name="Calendar Recurrences" parent="menu.admin" sequence="43" route_path="/web/base.calendar.recurrence" icon="calendar"/>
+</data>

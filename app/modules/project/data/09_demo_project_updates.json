@@ -1,0 +1,30 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.project_update",
+    "external_id": "project.update.demo_website_redesign_kickoff",
+    "force_update": true,
+    "data": {
+      "name": "Kickoff and wireframes approved",
+      "project_id": "project.project.demo_website_redesign",
+      "status": "on_track",
+      "progress": 35,
+      "user_id": "user.admin",
+      "description": "Wireframes approved on schedule; homepage template build is underway."
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.project_update",
+    "external_id": "project.update.demo_mobile_app_status",
+    "force_update": true,
+    "data": {
+      "name": "Beta build in progress",
+      "project_id": "project.project.demo_mobile_app",
+      "status": "at_risk",
+      "progress": 20,
+      "user_id": "user.admin",
+      "description": "Build is behind by a few days; QA pass still needs to be scheduled before the cohort release."
+    }
+  }
+]

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_stage_list" model="ui.view">
+      <field name="name">tbl.project_stage.list</field>
+      <field name="model">tbl.project_stage</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Project Stages">
+          <field name="name"/>
+          <field name="sequence"/>
+          <field name="fold"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_stage_form" model="ui.view">
+      <field name="name">tbl.project_stage.form</field>
+      <field name="model">tbl.project_stage</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Project Stages">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="sequence"/>
+              <field name="fold"/>
+              <field name="company_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_stage_search" model="ui.view">
+      <field name="name">tbl.project_stage.search</field>
+      <field name="model">tbl.project_stage</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Project Stages">
+          <field name="name"/>
+        </search>
+      </field>
+    </record>
+</data>

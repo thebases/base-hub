@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_project_list" model="ui.view">
+      <field name="name">tbl.project.list</field>
+      <field name="model">tbl.project</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Projects">
+          <dashboard>
+            <stat string="Projects" icon="folder-kanban" color="primary" domain="[]"/>
+            <stat string="Off Track" icon="alert-triangle" color="danger" domain="[('last_update_status', '=', 'off_track')]"/>
+            <stat string="At Risk" icon="alert-circle" color="warning" domain="[('last_update_status', '=', 'at_risk')]"/>
+          </dashboard>
+          <field name="sequence"/>
+          <field name="name"/>
+          <field name="partner_id"/>
+          <field name="user_id"/>
+          <field name="stage_id"/>
+          <field name="date_start"/>
+          <field name="date"/>
+          <field name="last_update_status"/>
+          <field name="tag_ids"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_project_form" model="ui.view">
+      <field name="name">tbl.project.form</field>
+      <field name="model">tbl.project</field>
+      <field name="type">form</field>
+      <field name="use_chatter" eval="True"/>
+      <field name="arch" type="xml">
+        <form string="Projects">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+                <field name="tag_ids"/>
+                <field name="privacy_visibility"/>
+                <field name="company_id"/>
+                <field name="sequence"/>
+                <field name="color" widget="kanban_color_picker"/>
+              </group>
+              <group>
+                <field name="date_start"/>
+                <field name="date"/>
+                <field name="last_update_status"/>
+                <field name="last_update_id"/>
+                <field name="allow_task_dependencies"/>
+                <field name="allow_milestones"/>
+                <field name="allow_recurring_tasks"/>
+                <field name="is_template"/>
+                <field name="favorite_user_ids"/>
+                <field name="description"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_project_search" model="ui.view">
+      <field name="name">tbl.project.search</field>
+      <field name="model">tbl.project</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Projects">
+          <field name="name"/>
+          <field name="partner_id"/>
+          <field name="user_id"/>
+          <field name="stage_id"/>
+          <field name="tag_ids"/>
+          <filter string="Templates" name="is_template_true" domain="[('is_template', '=', True)]"/>
+          <filter string="Not Templates" name="is_template_false" domain="[('is_template', '=', False)]"/>
+          <group>
+            <filter string="Stage" name="group_by_stage_id" domain="[]" context="{'group_by': 'stage_id'}"/>
+            <filter string="Project Manager" name="group_by_user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+            <filter string="Customer" name="group_by_partner_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+            <filter string="Status" name="group_by_last_update_status" domain="[]" context="{'group_by': 'last_update_status'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+    <record id="view_project_kanban" model="ui.view">
+      <field name="name">tbl.project.kanban</field>
+      <field name="model">tbl.project</field>
+      <field name="type">kanban</field>
+      <field name="arch" type="xml">
+        <kanban default_group_by="stage_id">
+          <templates>
+            <t t-name="card">
+              <div class="o_kanban_record">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="tag_ids"/>
+                <field name="last_update_status"/>
+                <field name="date"/>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <record id="view_project_gantt" model="ui.view">
+      <field name="name">tbl.project.gantt</field>
+      <field name="model">tbl.project</field>
+      <field name="type">gantt</field>
+      <field name="arch" type="xml">
+        <gantt date_start="date_start" date_stop="date" default_group_by="stage_id" string="Project Timeline" default_scale="month"/>
+      </field>
+    </record>
+</data>

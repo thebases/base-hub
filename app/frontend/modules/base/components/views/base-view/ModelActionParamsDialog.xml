@@ -1,0 +1,55 @@
+<templates xml:space="preserve">
+  <t t-name="ModelActionParamsDialog">
+    <Dialog open="props.state.open" onOpenChange="(open) => this.onOpenChange(open)">
+      <DialogContent className="'basehub-form-dialog__panel'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="props.state.title"/></DialogTitle>
+          <DialogDescription t-if="props.state.description"><t t-esc="props.state.description"/></DialogDescription>
+        </DialogHeader>
+        <div class="d-flex flex-column gap-3 pt-2">
+          <t t-if="state.error">
+            <Alert variant="'danger'" t-esc="state.error"/>
+          </t>
+          <t t-foreach="params" t-as="param" t-key="param.name">
+            <Field>
+              <!-- Boolean: a labelled switch, no separate Label row. -->
+              <t t-if="param.type === 'boolean'">
+                <Switch checked="!!state.values[param.name]" disabled="state.submitting"
+                        onChange="(checked) => this.setValue(param.name, checked)">
+                  <t t-esc="param.label"/>
+                </Switch>
+              </t>
+              <t t-else="">
+                                <t t-if="param.type === 'selection'">
+                  <NativeSelect label="param.required ? param.label + ' *' : param.label" id="inputID(param)" disabled="state.submitting" value="state.values[param.name]"
+                                onChange="(value) => this.setValue(param.name, value)">
+                    <option value=""></option>
+                    <t t-foreach="param.selection" t-as="option" t-key="option.value">
+                      <option t-att-value="option.value" t-att-selected="isSelected(param, option)" t-esc="option.label"/>
+                    </t>
+                  </NativeSelect>
+                </t>
+                <t t-elif="param.type === 'text'">
+                  <Textarea label="param.required ? param.label + ' *' : param.label" id="inputID(param)" rows="3" disabled="state.submitting" value="state.values[param.name]"
+                            onInput="(value) => this.setValue(param.name, value)"/>
+                </t>
+                <t t-else="">
+                  <Input label="param.required ? param.label + ' *' : param.label" id="inputID(param)" type="inputType(param)" step="stepFor(param)" disabled="state.submitting"
+                         value="state.values[param.name]" onInput="(value) => this.setValue(param.name, value)"/>
+                </t>
+              </t>
+              <small t-if="param.help" class="text-body-secondary" t-esc="param.help"/>
+            </Field>
+          </t>
+        </div>
+        <DialogFooter>
+          <Button variant="'outline'" disabled="state.submitting" onClick="() => this.cancel()" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="state.submitting" onClick="() => this.submit()">
+            <t t-if="state.submitting" t-esc="t('Running...')"/>
+            <t t-else="" t-esc="t('Submit')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  </t>
+</templates>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+  <record id="view_base_users_list" model="ui.view">
+    <field name="name">base.users.list</field>
+    <field name="model">base.users</field>
+    <field name="type">list</field>
+    <field name="arch" type="xml">
+      <list string="Users" sample="1" multi_edit="1">
+        <field name="name"/>
+        <field name="login"/>
+        <field name="company_id"/>
+        <field name="active" optional="show"/>
+        <field name="login_date" optional="show"/>
+        <field name="created_at" optional="hide"/>
+        <field name="email" optional="hide"/>
+        <field name="partner_id" optional="hide"/>
+      </list>
+    </field>
+  </record>
+  <record id="view_base_users_form" model="ui.view">
+    <field name="name">base.users.form</field>
+    <field name="model">base.users</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="User">
+        <header>
+          <button string="Change Password" type="object" name="action_set_password" class="btn-secondary" icon="fa-key" invisible="not id"/>
+          <button string="Generate API Key" type="object" name="action_generate_api_key" class="btn-secondary" icon="fa-refresh" invisible="not id"/>
+        </header>
+        <sheet>
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <widget name="web_ribbon" title="External User" bg_color="bg-amber-100 text-amber-700" invisible="not share"/>
+          <div class="d-flex align-items-start gap-4">
+            <main class="d-flex flex-fill flex-column gap-2">
+              <h1>
+                <field name="name" nolabel="1"/>
+              </h1>
+              <div class="d-flex flex-wrap align-items-start gap-3 small text-muted">
+                <label for="login">Username:</label>
+                <field name="login" id="login"/>
+                <label for="email">Email:</label>
+                <field name="email" id="email"/>
+              </div>
+            </main>
+          </div>
+          <group>
+            <group string="Identity">
+              <field name="partner_id"/>
+              <field name="login_date"/>
+              <field name="lastloginfail"/>
+              <field name="share"/>
+              <field name="active"/>
+            </group>
+            <group string="Flags">
+              <field name="alldevicesavailable"/>
+              <field name="allconfigavailable"/>
+              <field name="passwordreset"/>
+              <field name="twofactoraccepted"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Access" name="access">
+              <field name="group_id"/>
+              <field name="company_ids" widget="many2many_tags"/>
+              <field name="company_id"/>
+            </page>
+            <page string="Preferences" name="preferences">
+              <field name="signature"/>
+              <field name="lang_id" string="Language"/>
+              <field name="tz" string="Timezone" widget="timezone"/>
+            </page>
+            <page string="Security" name="security">
+              <div class="d-flex flex-row gap-3">
+                <span>Password:</span>
+                <field name="password" widget="password" />
+              </div>
+              <div class="d-flex flex-row gap-3">
+                <field name="passwordresettoken" />
+                <field name="authdata" />
+                <field name="twofactorsecret" />
+              </div>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="view_base_users_search" model="ui.view">
+    <field name="name">base.users.search</field>
+    <field name="model">base.users</field>
+    <field name="type">search</field>
+    <field name="arch" type="xml">
+      <search string="Users">
+        <field name="name"/>
+        <field name="login"/>
+        <field name="email"/>
+        <field name="company_id"/>
+        <field name="partner_id"/>
+        <filter string="Active" name="active_true" domain="[('active', '=', True)]"/>
+        <filter string="Not Active" name="active_false" domain="[('active', '=', False)]"/>
+        <filter string="All Config Allowed" name="allconfigavailable_true" domain="[('allconfigavailable', '=', True)]"/>
+        <filter string="Not All Config Allowed" name="allconfigavailable_false" domain="[('allconfigavailable', '=', False)]"/>
+        <filter string="All Devices Allowed" name="alldevicesavailable_true" domain="[('alldevicesavailable', '=', True)]"/>
+        <filter string="Not All Devices Allowed" name="alldevicesavailable_false" domain="[('alldevicesavailable', '=', False)]"/>
+        <group>
+          <filter string="Active" name="group_by_active" domain="[]" context="{'group_by': 'active'}"/>
+          <filter string="Company ID" name="group_by_company_id" domain="[]" context="{'group_by': 'company_id'}"/>
+          <filter string="Partner ID" name="group_by_partner_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+        </group>
+      </search>
+    </field>
+  </record>
+</data>

@@ -1,0 +1,360 @@
+<templates xml:space="preserve">
+  <t t-name="WorkflowCanvasPage">
+    <div class="workflow-canvas-page" t-ref="root">
+      <header class="workflow-canvas-header">
+        <div class="workflow-canvas-header-info">
+          <h1 class="workflow-canvas-title">
+            <t t-esc="state.workflowName"/>
+          </h1>
+          <p class="workflow-canvas-subtitle">
+            <t t-esc="t('Trigger topic')"/> <code t-esc="state.workflowTopic"/>
+ ·          <t t-esc="state.executionMode === 'dag' ? t('DAG execution') : t('Linear execution')"/>
+        </p>
+        <div class="workflow-canvas-selector">
+          <Combobox options="workflowComboOptions" placeholder="t('Switch workflow…')" onChange="(value) => this.onWorkflowSelectorChange(value)"/>
+        </div>
+      </div>
+      <div class="workflow-canvas-actions">
+        <div class="workflow-canvas-toggle">
+          <Switch checked="state.isActive" disabled="state.togglingActive" onChange="() => this.toggleActive()"><t t-esc="t('Active')"/></Switch>
+        </div>
+
+        <div class="workflow-canvas-mode">
+          <Switch checked="this.isDag" disabled="state.togglingMode or state.saving" onChange="(checked) => this.toggleExecutionMode(checked ? 'dag' : 'linear')">
+            <t t-esc="this.isDag ? t('DAG mode') : t('Linear mode')"/>
+          </Switch>
+        </div>
+
+        <Button t-if="this.isDag" variant="'outline'" size="'icon'" disabled="state.saving" aria-label="t('DAG settings')" title="t('DAG settings')" onClick="() => this.openDagSettings()">
+          <Icon name="'settings-2'"/>
+        </Button>
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving" aria-label="t('Refresh')" title="t('Refresh')" onClick="() => this.refresh()">
+          <Icon name="'refresh-cw'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="!state.isActive or state.loading or state.saving" aria-label="t('Run Now')" title="t('Run Now')" onClick="() => this.openTestRun()">
+          <Icon name="'play'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading" aria-label="t('Run history')" title="t('Run history')" onClick="() => this.openRunInspector(0)">
+          <Icon name="'history'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving" aria-label="t('Triggers')" title="t('Triggers')" onClick="() => this.openTriggerPanel()">
+          <Icon name="'zap'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving or state.exportingWorkflow" aria-label="state.exportingWorkflow ? t('Exporting…') : t('Export workflow')" title="state.exportingWorkflow ? t('Exporting…') : t('Export workflow')" onClick="() => this.handleExportWorkflow()">
+          <Icon name="state.exportingWorkflow ? 'loader-2' : 'download'" className="state.exportingWorkflow ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+
+        <input type="file" accept="application/json" class="workflow-canvas-hidden-input" t-ref="importFileInput" t-on-change="(ev) => this.onImportFileChange(ev)"/>
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving or state.importingWorkflow" aria-label="state.importingWorkflow ? t('Importing…') : t('Import workflow')" title="state.importingWorkflow ? t('Importing…') : t('Import workflow')" onClick="() => this.triggerImportFile()">
+          <Icon name="state.importingWorkflow ? 'loader-2' : 'upload'" className="state.importingWorkflow ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving" aria-label="t('Generate from markdown')" title="t('Generate from markdown')" onClick="() => this.openGenFlowDialog()">
+          <Icon name="'sparkles'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving" aria-label="t('Rename workflow')" title="t('Rename workflow')" onClick="() => this.openRenameDialog()">
+          <Icon name="'pencil'"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving or state.duplicatingWorkflow" aria-label="state.duplicatingWorkflow ? t('Duplicating…') : t('Duplicate workflow')" title="state.duplicatingWorkflow ? t('Duplicating…') : t('Duplicate workflow')" onClick="() => this.handleDuplicateWorkflow()">
+          <Icon name="state.duplicatingWorkflow ? 'loader-2' : 'copy'" className="state.duplicatingWorkflow ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving or state.creatingWorkflow" aria-label="state.creatingWorkflow ? t('Creating…') : t('New workflow')" title="state.creatingWorkflow ? t('Creating…') : t('New workflow')" onClick="() => this.handleCreateWorkflow()">
+          <Icon name="state.creatingWorkflow ? 'loader-2' : 'git-branch-plus'" className="state.creatingWorkflow ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving" aria-label="t('New workflow from a template')" title="t('New workflow from a template')" onClick="() => this.openTemplates()">
+          <Icon name="'layout-template'"/>
+        </Button>
+
+        <Button variant="'destructive'" size="'icon'" disabled="state.loading or state.saving or state.deletingWorkflow" aria-label="state.deletingWorkflow ? t('Deleting…') : t('Delete workflow')" title="state.deletingWorkflow ? t('Deleting…') : t('Delete workflow')" onClick="() => this.openDeleteWorkflowConfirm()">
+          <Icon name="state.deletingWorkflow ? 'loader-2' : 'trash-2'" className="state.deletingWorkflow ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+
+        <span t-if="state.dirty" class="workflow-canvas-dirty-badge" t-esc="t('Unsaved changes')"/>
+        <Button variant="'default'" disabled="state.saving" onClick="() => this.saveCanvas()">
+          <t t-esc="state.saving ? t('Saving…') : t('Save')"/>
+        </Button>
+        <Badge t-if="this.versionBadge" variant="this.versionBadge.variant" label="this.versionBadge.label"/>
+        <Button variant="'outline'" size="'icon'" disabled="state.loading or state.saving or state.validation.running" aria-label="t('Validate')" title="t('Validate')" onClick="() => this.runValidation({ openPanel: true })">
+          <Icon name="state.validation.running ? 'loader-2' : 'list-checks'" className="state.validation.running ? 'workflow-canvas-spin' : ''"/>
+        </Button>
+        <Button variant="'secondary'" disabled="state.loading or state.saving or state.publishing" onClick="() => this.publish()">
+          <t t-esc="state.publishing ? t('Publishing…') : t('Publish')"/>
+        </Button>
+        <Button variant="'outline'" size="'icon'" disabled="state.loading" aria-label="t('Add action')" title="t('Add action')" onClick="() => this.openActionsSheet()">
+          <Icon name="'list-plus'"/>
+        </Button>
+      </div>
+    </header>
+
+    <div t-if="state.latestRunStatus" t-attf-class="workflow-canvas-run-badge {{ this.latestRunBadgeClass() }}">
+        <t t-esc="t('Last run:')"/> <t t-esc="state.latestRunStatus"/>
+        <Button t-if="state.latestRunID" variant="'link'" size="'sm'" className="'p-0 workflow-canvas-run-badge-link'" onClick="() => this.openRunInspector(state.latestRunID)" label="t('Details')"/>
+    </div>
+
+    <Alert t-if="state.error" variant="'danger'">
+      <t t-esc="state.error"/>
+    </Alert>
+    <ValidationPanel t-if="state.validation.panelOpen" issues="state.validation.issues" onClose="() => this.closeValidationPanel()"/>
+    <div t-if="state.loading" class="workflow-canvas-loading" t-esc="t('Loading workflow…')"/>
+
+    <div t-else="" class="workflow-canvas-body">
+      <Card tag="'aside'" className="'workflow-canvas-palette'">
+        <!-- <h2 class="workflow-canvas-palette-title">Triggers</h2>
+        <p class="workflow-canvas-palette-hint">
+            Choose the inbound transport from the trigger node. Webhook stays implicit at
+          <code t-esc="'/wh/' + state.workflowTopic"/>
+.
+        </p>
+        <div class="workflow-canvas-palette-list">
+          <div t-foreach="state.specs.triggers" t-as="triggerSpec" t-key="triggerSpec.type" t-attf-class="workflow-canvas-palette-item {{ this.currentTrigger and this.currentTrigger.type === triggerSpec.type ? 'is-selected' : '' }}">
+            <div class="workflow-canvas-palette-item-label">
+              <t t-esc="triggerSpec.label"/>
+            </div>
+            <div class="workflow-canvas-palette-item-sub">
+              <t t-if="triggerSpec.type === 'webhook'">
+                <t t-esc="'/wh/' + state.workflowTopic"/>
+              </t>
+              <t t-elif="this.currentTrigger and this.currentTrigger.type === triggerSpec.type">
+                <t t-esc="this.currentTrigger.topic"/>
+              </t>
+              <t t-else="">Select from the trigger node.</t>
+            </div>
+          </div>
+        </div> -->
+
+        <h2 class="workflow-canvas-palette-title" t-esc="t('Actions')"/>
+        <p class="workflow-canvas-palette-hint" t-esc="t('Drag an action onto the canvas, or use Add to append it.')"/>
+        <div class="workflow-canvas-palette-list">
+          <div t-foreach="this.actionSpecs" t-as="actionSpec" t-key="actionSpec.code" class="workflow-canvas-palette-item is-draggable" draggable="true" t-on-dragstart="(ev) => this.onPaletteDragStart(actionSpec, ev)">
+            <div class="workflow-canvas-palette-item-main">
+              <div class="workflow-canvas-palette-item-label">
+                <t t-esc="actionSpec.label"/>
+              </div>
+              <div class="workflow-canvas-palette-item-sub">
+                <t t-esc="actionSpec.category"/>
+ ·                <t t-esc="actionSpec.code"/>
+              </div>
+            </div>
+            <Button variant="'outline'" size="'sm'" onClick="() => this.addActionFromPalette(actionSpec)" label="t('Add')"/>
+          </div>
+        </div>
+      </Card>
+
+      <div class="workflow-canvas-viewport" t-ref="canvasViewport" t-on-dragover="(ev) => this.onCanvasDragOver(ev)" t-on-drop="(ev) => this.onCanvasDrop(ev)">
+        <div class="workflow-canvas-world" t-attf-style="transform: {{ this.worldTransform }};">
+          <svg class="workflow-canvas-edges">
+            <path t-foreach="this.edges" t-as="edge" t-key="edge.id" t-att-d="this.edgePath(edge)" t-attf-class="workflow-canvas-edge-path is-{{ edge.edgeType or 'linear' }} {{ edge.isCyclic ? 'is-cyclic' : '' }}"/>
+            <path t-if="state.connect" t-att-d="this.connectPath()" class="workflow-canvas-edge-path is-pending"/>
+          </svg>
+
+          <!-- DAG connectors carry their own controls (edge type / delete);
+                 linear connectors are a pure derivation of actionOrder, so they
+                 have nothing to edit. -->
+          <t t-foreach="this.edges" t-as="edge" t-key="'ctl-' + edge.id">
+            <div t-if="edge.kind === 'dag'" class="workflow-canvas-edge-controls" t-attf-style="{{ this.edgeMidpointStyle(edge) }}">
+              <span t-if="edge.label" class="workflow-canvas-edge-badge" t-esc="edge.label"/>
+              <button type="button" class="workflow-canvas-edge-button" t-att-title="t('Edge type')" t-on-click="() => this.openEdgeDialog(edge.edgeID)" t-esc="t('type')"/>
+              <button type="button" class="workflow-canvas-edge-button is-danger" t-att-title="t('Delete connection')" t-on-click="() => this.deleteDagEdge(edge.edgeID)">×</button>
+            </div>
+          </t>
+
+          <div t-foreach="state.nodes" t-as="node" t-key="node.id" t-att-data-workflow-node-id="node.id" t-attf-class="workflow-canvas-node  {{ node.colorClassName }} {{ node.id === state.selectedNodeID ? 'is-selected' : '' }} {{ this.isNodeCyclic(node) ? 'is-cyclic' : '' }}" t-attf-style="left: {{ node.x }}px; top: {{ node.y }}px;">
+            <div class="workflow-canvas-node-head">
+              <div class="workflow-canvas-node-heading">
+                <div class="workflow-canvas-node-label">
+                  <t t-esc="node.label"/>
+                </div>
+                <div class="workflow-canvas-node-sub">
+                  <t t-esc="node.subtitle"/>
+                </div>
+              </div>
+              <div class="workflow-canvas-node-marks">
+                <Tooltip t-if="this.nodeIssues(node).length" content="this.nodeIssueText(node)">
+                  <t t-set-slot="trigger"><Badge variant="this.nodeIssueVariant(node)" pill="true" label="this.nodeIssueCount(node)"/></t>
+                </Tooltip>
+                <Tooltip t-if="this.triggerHealthTone(node)" content="this.triggerHealthText(node)">
+                  <t t-set-slot="trigger"><span t-attf-class="workflow-health-dot is-{{ this.triggerHealthTone(node) }}"/></t>
+                </Tooltip>
+                <span t-attf-class="workflow-canvas-node-dot {{ this.nodeDotClass(node) }}"/>
+              </div>
+            </div>
+            <div class="workflow-canvas-node-actions">
+              <button type="button" class="workflow-canvas-node-action" t-on-click="() => this.openNodeDialog(node.id)" t-att-aria-label="node.kind === 'trigger' ? t('Edit trigger settings') : t('Edit parameters')" t-att-title="node.kind === 'trigger' ? t('Edit trigger settings') : t('Edit parameters')">
+                <Icon name="'pencil'"/>
+              </button>
+              <button type="button" class="workflow-canvas-node-action" t-on-click="() => this.openNodeDetailSheet(node.id)" t-att-aria-label="t('View details')" t-att-title="t('View details')">
+                <Icon name="'eye'"/>
+              </button>
+              <button t-if="node.kind === 'trigger'" type="button" class="workflow-canvas-node-action" t-on-click="() => this.openTriggerPanel()" t-att-aria-label="t('All triggers')" t-att-title="t('All triggers')">
+                <Icon name="'list'"/>
+              </button>
+              <button t-if="node.kind === 'action'" type="button" class="workflow-canvas-node-action is-danger" t-on-click="() => this.deleteActionNode(node.action)" t-att-aria-label="t('Delete node')" t-att-title="t('Delete node')">
+                <Icon name="'trash-2'"/>
+              </button>
+            </div>
+            <span t-if="this.isDag and node.kind === 'action'" class="workflow-canvas-node-handle" data-workflow-handle="source" t-att-data-workflow-node-id="node.id" t-att-title="t('Drag onto another step to connect')"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <NodeParamDialog state="state.paramDialog" isDag="this.isDag" stepKeys="this.orderedStepKeys" specs="state.specs" catalog="state.catalog" readonly="false" sampleJSON="state.triggerSampleJSON" onSampleJSONChange="(value) => this.setTriggerSampleJSON(value)" onOpenChange="(open) => this.setParamDialogOpen(open)" onSaveAction="(action) => this.saveNode(action)" onSaveTrigger="(trigger) => this.onParamDialogSaveTrigger(trigger)" onDeleteAction="(action) => this.deleteActionNode(action)" lockTriggerType="state.paramDialog.rowEdit" hasWebhookRow="this.hasWebhookRow"/>
+    <DagSettingsDialog state="state.dagSettings" onOpenChange="(open) => this.setDagSettingsOpen(open)" onSave="(max, policy) => this.saveDagSettings(max, policy)"/>
+    <EdgeTypeDialog state="state.edgeDialog" onOpenChange="(open) => this.setEdgeDialogOpen(open)" onSave="(id, type, expr) => this.saveEdgeType(id, type, expr)"/>
+    <t t-if="state.panelsReady">
+      <RunInspector open="state.runInspector.open" runID="state.runInspector.runID" workflowID="this.workflowID" isDag="this.isDag" onOpenChange="(open) => this.setRunInspectorOpen(open)"/>
+      <TestRunDialog open="state.testRunOpen" workflowID="this.workflowID" sampleJSON="state.triggerSampleJSON" onSampleJSONChange="(value) => this.setTriggerSampleJSON(value)" onOpenChange="(open) => this.setTestRunOpen(open)" onOpenRun="(runID) => this.openRunFromTest(runID)"/>
+      <TemplatesDialog open="state.templatesOpen" onOpenChange="(open) => this.setTemplatesOpen(open)" onCreated="(id) => this.onTemplateCreated(id)"/>
+      <TriggerListPanel open="state.triggerPanelOpen" triggers="state.triggerRecords" specs="state.specs.triggers" health="state.triggerHealth" workflowID="this.workflowID" workflowTopic="state.workflowTopic" onOpenChange="(open) => this.setTriggerPanelOpen(open)" onEdit="(trigger) => this.editTriggerRow(trigger)" onChanged="() => this.reloadTriggers()" onRefreshHealth="() => this.refreshTriggerHealth()"/>
+    </t>
+    <GenActionFlowDialog open="state.genFlowOpen" workflowID="this.workflowID" workflowRecord="state.workflowRecord" onOpenChange="(open) => this.setGenFlowOpen(open)" onGenerated="() => this.onWorkflowGenerated()"/>
+
+    <Dialog open="state.deleteWorkflowConfirmOpen" onOpenChange="(open) => this.setDeleteWorkflowConfirmOpen(open)">
+      <DialogContent className="'workflow-confirm-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Delete Workflow')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary" t-esc="t('This permanently deletes {name}, its actions, and its trigger configuration. This cannot be undone.', { name: state.workflowName or t('this workflow') })"/>
+        </DialogHeader>
+        <DialogFooter className="'d-flex justify-content-end gap-2'">
+          <Button variant="'outline'" disabled="state.deletingWorkflow" onClick="() => this.setDeleteWorkflowConfirmOpen(false)" label="t('Cancel')"/>
+          <Button variant="'destructive'" disabled="state.deletingWorkflow" onClick="() => this.handleDeleteWorkflow()">
+            <t t-if="state.deletingWorkflow" t-esc="t('Deleting…')"/>
+            <t t-else="" t-esc="t('Delete Workflow')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+
+    <Dialog open="state.renameOpen" onOpenChange="(open) => this.setRenameOpen(open)">
+      <DialogContent className="'workflow-confirm-dialog'">
+        <DialogHeader>
+          <DialogTitle><t t-esc="t('Rename Workflow')"/></DialogTitle>
+          <p class="mb-0 text-body-secondary" t-esc="t('Update the workflow name shown in the selector and canvas header.')"/>
+        </DialogHeader>
+        <Field>
+          <Input label="t('Workflow Name')" id="'workflow-canvas-rename-input'" value="state.renameValue" disabled="state.renaming" onInput="(value) => this.setRenameValue(value)"/>
+        </Field>
+        <DialogFooter className="'d-flex justify-content-end gap-2'">
+          <Button variant="'outline'" disabled="state.renaming" onClick="() => this.setRenameOpen(false)" label="t('Cancel')"/>
+          <Button variant="'default'" disabled="state.renaming or !this.canSaveRenameWorkflow" onClick="() => this.handleRenameWorkflow()">
+            <t t-if="state.renaming" t-esc="t('Saving…')"/>
+            <t t-else="" t-esc="t('Save Name')"/>
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+
+    <!-- Quick-view sheet for a node's detail/actions, opened via each node's
+         "View" icon button (see .workflow-canvas-node-action). It is the only
+         node detail view: keep its body inline (a second t-name in this file
+         is not registered, so t-call to it fails at render time). -->
+    <Sheet side="'bottom'" open="state.mobileDetailOpen" onOpenChange="(open) => this.setMobileDetailOpen(open)">
+      <SheetContent className="'workflow-canvas-node-detail-sheet'">
+        <div t-if="!this.selectedNode" class="workflow-canvas-detail-empty" t-esc="t('Select a node to see its details.')"/>
+        <div t-else="">
+          <h2 class="workflow-canvas-detail-title">
+            <t t-esc="this.selectedNode.label"/>
+          </h2>
+          <dl class="workflow-canvas-detail-list">
+            <t t-if="this.selectedNode.kind === 'action'">
+              <dt t-esc="t('Action code')"/>
+              <dd>
+                <t t-esc="this.selectedNode.action.action_code || '—'"/>
+              </dd>
+              <dt t-esc="t('Step key')"/>
+              <dd>
+                <t t-esc="this.selectedNode.action.step_key || '—'"/>
+              </dd>
+              <dt t-esc="t('Description')"/>
+              <dd>
+                <t t-esc="this.selectedActionDetail.description || '—'"/>
+              </dd>
+            </t>
+            <t t-else="">
+              <dt t-esc="t('Type')"/>
+              <dd>
+                <t t-esc="this.selectedNode.trigger.type || '—'"/>
+              </dd>
+              <dt t-esc="this.selectedNode.trigger.type === 'webhook' ? t('Endpoint') : t('Topic')"/>
+              <dd>
+                <t t-esc="this.selectedNode.subtitle || '—'"/>
+              </dd>
+            </t>
+          </dl>
+          <!-- "What it does": lists the action's configured params (secrets masked)
+               from describeActionConfig. -->
+          <section t-if="this.selectedActionDetail" class="workflow-canvas-detail-behavior">
+            <h3 class="workflow-canvas-detail-subtitle" t-esc="t('What it does')"/>
+            <dl t-if="this.selectedActionDetail.configRows.length" class="workflow-canvas-detail-list">
+              <t t-foreach="this.selectedActionDetail.configRows" t-as="row" t-key="row.key">
+                <dt t-esc="row.label"/>
+                <dd>
+                  <pre t-if="row.multiline" class="workflow-canvas-detail-pre" t-esc="row.text"/>
+                  <t t-else="" t-esc="row.text"/>
+                </dd>
+              </t>
+            </dl>
+            <p t-else="" class="workflow-canvas-detail-empty" t-esc="t('No parameters configured — runs with its defaults.')"/>
+          </section>
+          <!-- Trigger settings: the trigger type's configured params (QoS,
+               consumer group, model/operation…) from describeTriggerConfig. -->
+          <section t-if="this.selectedTriggerDetail" class="workflow-canvas-detail-behavior">
+            <h3 class="workflow-canvas-detail-subtitle" t-esc="t('Trigger settings')"/>
+            <dl t-if="this.selectedTriggerDetail.configRows.length" class="workflow-canvas-detail-list">
+              <t t-foreach="this.selectedTriggerDetail.configRows" t-as="row" t-key="row.key">
+                <dt t-esc="row.label"/>
+                <dd>
+                  <pre t-if="row.multiline" class="workflow-canvas-detail-pre" t-esc="row.text"/>
+                  <t t-else="" t-esc="row.text"/>
+                </dd>
+              </t>
+            </dl>
+            <p t-else="" class="workflow-canvas-detail-empty" t-esc="t('No extra settings for this trigger type.')"/>
+          </section>
+          <div class="workflow-canvas-detail-control">
+            <Button variant="'outline'" size="'icon'" aria-label="t('Edit node')" title="t('Edit node')" onClick="() => this.openNodeDialog(this.selectedNode.id)">
+              <Icon name="'pencil'"/>
+            </Button>
+            <Button t-if="this.selectedNode.kind === 'action'" variant="'destructive'" size="'icon'" aria-label="t('Delete node')" title="t('Delete node')" onClick="() => this.deleteActionNode(this.selectedNode.action)">
+              <Icon name="'trash-2'"/>
+            </Button>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+
+    <!-- Actions palette, surfaced as a Sheet since the inline aside
+         (.workflow-canvas-palette) is hidden on mobile — see
+         WorkflowCanvasPage.mobile.css. Body mirrors the desktop palette's
+         Actions section (Triggers section intentionally omitted here). -->
+    <Sheet side="'right'" open="state.actionsSheetOpen" onOpenChange="(open) => this.setActionsSheetOpen(open)">
+      <SheetContent className="'workflow-canvas-actions-sheet'">
+        <h2 class="workflow-canvas-palette-title" t-esc="t('Actions')"/>
+        <p class="workflow-canvas-palette-hint" t-esc="t('Drag an action onto the canvas, or use Add to append it.')"/>
+        <div class="workflow-canvas-palette-list">
+          <div t-foreach="this.actionSpecs" t-as="actionSpec" t-key="actionSpec.code" class="workflow-canvas-palette-item is-draggable" draggable="true" t-on-dragstart="(ev) => this.onPaletteDragStart(actionSpec, ev)">
+            <div class="workflow-canvas-palette-item-main">
+              <div class="workflow-canvas-palette-item-label">
+                <t t-esc="actionSpec.label"/>
+              </div>
+              <div class="workflow-canvas-palette-item-sub">
+                <t t-esc="actionSpec.category"/>
+ ·                <t t-esc="actionSpec.code"/>
+              </div>
+            </div>
+            <Button variant="'outline'" size="'sm'" onClick="() => this.addActionFromPaletteAndCloseSheet(actionSpec)" label="t('Add')"/>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  </div>
+</t>
+</templates>

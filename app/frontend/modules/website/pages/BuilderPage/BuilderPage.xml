@@ -1,0 +1,189 @@
+<templates xml:space="preserve">
+  <t t-name="BuilderPage">
+    <div class="bh-builder d-flex flex-column">
+      <div class="bh-builder-bar d-flex align-items-center gap-2 px-3 py-2 border-bottom">
+        <a class="me-auto fw-bold text-decoration-none text-body" href="/web" title="Back to the admin" t-on-click="(ev) => this.leave(ev)" t-esc="state.title"/>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Part of the site to edit">
+          <button type="button" class="btn" t-att-class="state.scope === 'header' ? 'btn-primary' : 'btn-outline-secondary'" t-on-click="() => this.setScope('header')">Header</button>
+          <button type="button" class="btn" t-att-class="state.scope === 'page' ? 'btn-primary' : 'btn-outline-secondary'" t-on-click="() => this.setScope('page')">Page</button>
+          <button type="button" class="btn" t-att-class="state.scope === 'footer' ? 'btn-primary' : 'btn-outline-secondary'" t-on-click="() => this.setScope('footer')">Footer</button>
+        </div>
+        <select t-if="state.scope === 'page' and state.languages.length" class="form-select form-select-sm w-auto" title="Language" t-on-change="(ev) => this.setLang(ev.target.value)">
+          <option value="" t-att-selected="!state.lang">Default language</option>
+          <option t-foreach="state.languages" t-as="l" t-key="l" t-att-value="l" t-att-selected="l === state.lang" t-esc="l.toUpperCase()"/>
+        </select>
+        <div class="btn-group">
+          <button class="btn btn-sm" title="Desktop" t-att-class="state.device === 'desktop' ? 'btn-secondary' : 'btn-outline-secondary'" t-on-click="() => state.device = 'desktop'" aria-label="Desktop"><Icon name="'monitor'"/></button>
+          <button class="btn btn-sm" title="Tablet" t-att-class="state.device === 'tablet' ? 'btn-secondary' : 'btn-outline-secondary'" t-on-click="() => state.device = 'tablet'" aria-label="Tablet"><Icon name="'tablet'"/></button>
+          <button class="btn btn-sm" title="Mobile" t-att-class="state.device === 'mobile' ? 'btn-secondary' : 'btn-outline-secondary'" t-on-click="() => state.device = 'mobile'" aria-label="Mobile"><Icon name="'smartphone'"/></button>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary" t-att-disabled="!state.canUndo" t-on-click="() => this.undo()" title="Undo" aria-label="Undo"><Icon name="'undo-2'"/></button>
+        <button class="btn btn-sm btn-outline-secondary" t-att-disabled="!state.canRedo" t-on-click="() => this.redo()" title="Redo" aria-label="Redo"><Icon name="'redo-2'"/></button>
+        <button class="btn btn-sm btn-outline-danger" t-att-disabled="!state.hasSelection" t-on-click="() => this.removeSelected()" title="Remove block" aria-label="Remove block"><Icon name="'trash-2'"/></button>
+        <button class="btn btn-sm btn-outline-secondary" t-att-disabled="!state.dirty" t-on-click="() => this.discard()" title="Discard" aria-label="Discard"><Icon name="'rotate-ccw'"/></button>
+        <span class="small text-muted" t-esc="state.message"/>
+        <button class="btn btn-sm btn-secondary" t-att-disabled="!state.dirty || state.busy" t-on-click="() => this.saveClick()" title="Save" aria-label="Save"><Icon name="'save'"/></button>
+        <button class="btn btn-sm btn-primary" t-att-disabled="state.busy" t-on-click="() => this.publish()">Publish</button>
+      </div>
+      <div class="bh-builder-bar bh-builder-format d-flex align-items-center justify-content-end gap-1 px-3 py-1 border-bottom">
+        <button class="btn btn-sm btn-light fw-bold" title="Bold" t-on-mousedown.prevent="() => this.format('bold')">B</button>
+        <button class="btn btn-sm btn-light fst-italic" title="Italic" t-on-mousedown.prevent="() => this.format('italic')">I</button>
+        <button class="btn btn-sm btn-light text-decoration-underline" title="Underline" t-on-mousedown.prevent="() => this.format('underline')">U</button>
+        <button class="btn btn-sm btn-light" title="Bulleted list" aria-label="Bulleted list" t-on-mousedown.prevent="() => this.format('insertUnorderedList')"><Icon name="'list'"/></button>
+        <button class="btn btn-sm btn-light" title="Numbered list" aria-label="Numbered list" t-on-mousedown.prevent="() => this.format('insertOrderedList')"><Icon name="'list-ordered'"/></button>
+        <button class="btn btn-sm btn-light" title="Align left" aria-label="Align left" t-on-mousedown.prevent="() => this.format('justifyLeft')"><Icon name="'align-left'"/></button>
+        <button class="btn btn-sm btn-light" title="Align center" aria-label="Align center" t-on-mousedown.prevent="() => this.format('justifyCenter')"><Icon name="'align-center'"/></button>
+        <button class="btn btn-sm btn-light" title="Align right" aria-label="Align right" t-on-mousedown.prevent="() => this.format('justifyRight')"><Icon name="'align-right'"/></button>
+        <button class="btn btn-sm btn-light" title="Link" t-on-mousedown.prevent="() => this.openLink()">Link</button>
+        <form t-if="state.linkOpen" class="d-flex gap-1" t-on-submit.prevent="() => this.submitLink()">
+          <input class="form-control form-control-sm" placeholder="https://" t-model="state.linkUrl"/>
+          <button class="btn btn-sm btn-primary" type="submit">Apply</button>
+        </form>
+        <button class="btn btn-sm btn-light ms-2" title="Image" aria-label="Image" t-on-click="() => this.pickImage()"><Icon name="'image'"/></button>
+        <input t-ref="file" type="file" accept="image/*" class="d-none" t-on-change="(ev) => this.imageChosen(ev)"/>
+        <span class="mx-2 border-start align-self-stretch"/>
+        <button class="btn btn-sm btn-light" t-att-disabled="!state.canMoveUp" t-on-click="() => this.move(-1)" title="Move up" aria-label="Move up"><Icon name="'arrow-up'"/></button>
+        <button class="btn btn-sm btn-light" t-att-disabled="!state.canMoveDown" t-on-click="() => this.move(1)" title="Move down" aria-label="Move down"><Icon name="'arrow-down'"/></button>
+        <button class="btn btn-sm btn-light" t-att-disabled="!state.hasSelection" t-on-click="() => this.cloneBlock()" title="Clone" aria-label="Clone"><Icon name="'copy'"/></button>
+        <span class="mx-2 border-start align-self-stretch"/>
+        <button class="btn btn-sm" title="Select columns and rows instead of whole blocks" t-att-class="state.grid ? 'btn-secondary' : 'btn-light'" t-on-click="() => this.toggleGrid()" aria-label="Grid"><Icon name="'grid-3x3'"/></button>
+        <button class="btn btn-sm btn-light" title="Select the parent" t-att-disabled="!state.hasSelection" t-on-click="() => this.selectParent()" aria-label="Parent"><Icon name="'corner-left-up'"/></button>
+      </div>
+      <div t-if="state.error" class="alert alert-danger m-3" t-esc="state.error"/>
+      <div class="bh-builder-body d-flex flex-row-reverse flex-grow-1">
+        <aside class="bh-builder-side border-start p-2">
+          <div t-if="state.scope !== 'page'" class="small text-muted mb-2">
+            Editing the site <span t-esc="state.scope"/>: it appears on every page that has no <span t-esc="state.scope"/> of its own.
+          </div>
+          <div t-if="state.scope !== 'page' and state.ownChrome" class="alert alert-warning small py-2">
+            This page carries its own <span t-esc="state.scope"/>, so the site one is not shown on it. To change this page's <span t-esc="state.scope"/>, switch back to Page and select it on the canvas.
+          </div>
+          <Tabs value="state.tab" onChange="(v) => this.setTab(v)">
+            <TabsList className="'flex-wrap mb-2'">
+              <TabTrigger t-if="state.scope !== 'page'" value="'template'">Template</TabTrigger>
+              <TabTrigger value="'blocks'">Blocks</TabTrigger>
+              <TabTrigger value="'customize'">Customize</TabTrigger>
+              <TabTrigger value="'theme'">Theme</TabTrigger>
+              <TabTrigger value="'menu'">Menu</TabTrigger>
+              <TabTrigger t-if="state.scope === 'page' and !state.lang" value="'page'">Page</TabTrigger>
+            </TabsList>
+            <TabsContainer>
+            <TabContent t-if="state.scope !== 'page'" value="'template'">
+            <div t-if="!state.chromeTemplates.length" class="small text-muted">No templates available.</div>
+            <div class="bh-builder-blocks">
+              <button class="btn w-100 text-start p-1" t-att-class="state.chromeCurrent === 'none' ? 'btn-primary' : 'btn-light'"
+                      t-att-title="'Hide the site ' + state.scope" t-on-click="() => this.applyChromeTemplate(this.noChromeTemplate())">
+                <span class="small d-block text-truncate py-3 text-center">None</span>
+              </button>
+              <button t-foreach="state.chromeTemplates" t-as="tpl" t-key="tpl.key" class="btn w-100 text-start p-1"
+                      t-att-class="chromeTemplateName(tpl) === state.chromeCurrent ? 'btn-primary' : 'btn-light'"
+                      t-att-title="tpl.description" t-on-click="() => this.applyChromeTemplate(tpl)">
+                <img t-if="tpl.thumbnail" class="d-block w-100 mb-1 rounded" t-att-src="tpl.thumbnail" alt=""/>
+                <span class="small d-block text-truncate" t-esc="tpl.name"/>
+              </button>
+            </div>
+            </TabContent>
+            <TabContent value="'blocks'">
+            <input class="form-control form-control-sm mb-2" placeholder="Search blocks" t-model="state.blockQuery"/>
+            <t t-foreach="blockGroups" t-as="group" t-key="group.name">
+              <div class="small text-uppercase text-muted mt-2 mb-1" t-esc="group.name"/>
+              <div class="bh-builder-blocks">
+                <div t-foreach="group.blocks" t-as="block" t-key="block.key" class="d-flex flex-column gap-1">
+                  <button class="btn btn-light w-100 text-start p-1" draggable="true"
+                          t-on-click="() => this.insertBlock(block.key)" t-on-dragstart="(ev) => this.dragBlock(ev, block.key)">
+                    <img t-if="block.thumbnail" class="d-block w-100 mb-1 rounded" t-att-src="block.thumbnail" alt=""/>
+                    <span class="small d-block text-truncate" t-att-title="block.name" t-esc="block.name"/>
+                  </button>
+                  <div t-if="block.module === 'custom'" class="d-flex gap-1">
+                    <button class="btn btn-sm btn-light flex-grow-1" title="Rename" aria-label="Rename" t-on-click="() => this.renameBlock(block)"><Icon name="'pencil'"/></button>
+                    <button class="btn btn-sm btn-outline-danger flex-grow-1" title="Delete" aria-label="Delete" t-on-click="() => this.removeBlock(block)"><Icon name="'trash-2'"/></button>
+                  </div>
+                </div>
+              </div>
+            </t>
+            </TabContent>
+            <TabContent value="'customize'">
+            <div t-if="!state.hasSelection" class="small text-muted">Select a block in the page to customize it.</div>
+            <t t-if="state.hasSelection">
+              <t t-foreach="state.optionGroups" t-as="group" t-key="group.key">
+                <div class="small text-uppercase text-muted mt-2 mb-1" t-esc="group.label"/>
+                <div t-foreach="group.controls" t-as="item" t-key="item.control.id" class="mb-2">
+                  <label class="form-label small mb-1" t-esc="item.control.label"/>
+                  <select t-if="item.control.type === 'select'" class="form-select form-select-sm" t-on-change="(ev) => this.setOption(item.control, ev.target.value)">
+                    <option t-foreach="item.options" t-as="opt" t-key="opt.key" t-att-value="opt.key" t-att-selected="opt.selected" t-esc="opt.label"/>
+                  </select>
+                  <div t-elif="item.control.type === 'toggle'" class="form-check">
+                    <input class="form-check-input" type="checkbox" t-att-checked="item.value" t-on-change="(ev) => this.setOption(item.control, ev.target.checked)"/>
+                  </div>
+                  <input t-elif="item.control.type === 'range'" class="form-range" type="range" t-att-min="item.control.min || 0" t-att-max="item.control.max || 100" t-att-step="item.control.step || 1" t-att-value="item.value" t-on-change="(ev) => this.setOption(item.control, ev.target.value)"/>
+                  <input t-elif="item.control.type === 'color'" class="form-control form-control-color" type="color" t-att-value="item.value || '#ffffff'" t-on-change="(ev) => this.setOption(item.control, ev.target.value)"/>
+                  <t t-elif="item.control.type === 'image'">
+                    <div class="small text-truncate text-muted" t-if="item.value" t-esc="item.value"/>
+                    <input class="form-control form-control-sm" type="file" accept="image/*" t-on-change="(ev) => this.optionImage(item.control, ev)"/>
+                    <button t-if="item.value" class="btn btn-sm btn-link px-0" t-on-click="() => this.setOption(item.control, '')">Remove</button>
+                  </t>
+                  <input t-else="" class="form-control form-control-sm" type="text" t-att-value="item.value" t-on-change="(ev) => this.setOption(item.control, ev.target.value)"/>
+                </div>
+              </t>
+              <div class="border-top mt-3 pt-2">
+                <input class="form-control form-control-sm mb-1" placeholder="Block name" t-model="state.blockName"/>
+                <button class="btn btn-sm btn-outline-secondary w-100" t-on-click="() => this.saveBlock()">Save as block</button>
+              </div>
+            </t>
+            </TabContent>
+            <TabContent value="'theme'">
+            <t t-foreach="state.themeGroups" t-as="group" t-key="group.name">
+              <div class="small text-uppercase text-muted mt-2 mb-1" t-esc="group.name"/>
+              <div t-foreach="group.fields" t-as="f" t-key="f.path" class="mb-2">
+                <label class="form-label small mb-1" t-esc="f.label"/>
+                <select t-if="f.type === 'select'" class="form-select form-select-sm" t-on-change="(ev) => this.setTheme(f.path, ev.target.value)">
+                  <option t-foreach="f.options" t-as="o" t-key="o" t-att-value="o" t-att-selected="o === state.theme[f.path]" t-esc="o"/>
+                </select>
+                <input t-elif="f.type === 'color'" class="form-control form-control-color" type="color" t-att-value="state.theme[f.path]" t-on-input="(ev) => this.setTheme(f.path, ev.target.value)"/>
+                <input t-else="" class="form-control form-control-sm" type="text" t-att-value="state.theme[f.path]" t-on-change="(ev) => this.setTheme(f.path, ev.target.value)"/>
+              </div>
+            </t>
+            <button class="btn btn-sm btn-primary w-100 mt-2" t-on-click="() => this.applyTheme()">Save theme</button>
+            </TabContent>
+            <TabContent value="'menu'">
+            <div class="small text-muted mb-2">The header menu. Changes show on the site after you publish.</div>
+            <div t-foreach="state.menu" t-as="item" t-key="item.id" class="border rounded p-2 mb-2" t-att-style="'margin-left:' + (item.depth * 12) + 'px'">
+              <input class="form-control form-control-sm mb-1" t-att-value="item.name" t-on-change="(ev) => this.menuSet(item, 'name', ev.target.value)"/>
+              <input class="form-control form-control-sm mb-1" placeholder="/path or https://" t-att-value="item.url" t-on-change="(ev) => this.menuSet(item, 'url', ev.target.value)"/>
+              <div class="d-flex align-items-center gap-1">
+                <div class="form-check me-auto"><input class="form-check-input" type="checkbox" t-att-checked="item.is_visible" t-on-change="(ev) => this.menuSet(item, 'is_visible', ev.target.checked)"/><label class="form-check-label small">Visible</label></div>
+                <button class="btn btn-sm btn-light" title="Up" t-on-click="() => this.menuMove(item, -1)">Up</button>
+                <button class="btn btn-sm btn-light" title="Down" t-on-click="() => this.menuMove(item, 1)">Down</button>
+                <button class="btn btn-sm btn-outline-danger" title="Delete (with its sub-entries)" t-on-click="() => this.menuRemove(item)">Delete</button>
+              </div>
+            </div>
+            <div class="border-top pt-2">
+              <input class="form-control form-control-sm mb-1" placeholder="New entry name" t-model="state.menuNew.name"/>
+              <input class="form-control form-control-sm mb-1" placeholder="/path or https://" t-model="state.menuNew.url"/>
+              <select class="form-select form-select-sm mb-1" t-model="state.menuNew.parent">
+                <option value="">Top level</option>
+                <option t-foreach="state.menu" t-as="item" t-key="item.id" t-att-value="item.id" t-esc="'Under: ' + item.name"/>
+              </select>
+              <button class="btn btn-sm btn-primary w-100" t-on-click="() => this.menuAdd()">Add entry</button>
+            </div>
+            </TabContent>
+            <TabContent value="'page'">
+            <div class="mb-2"><label class="form-label small mb-1">Name</label><input class="form-control form-control-sm" t-model="state.props.name"/></div>
+            <div class="small text-muted mb-2">URL: <span t-esc="state.props.route_path"/></div>
+            <div class="form-check mb-2"><input class="form-check-input" type="checkbox" t-model="state.props.redirect_old_url"/><label class="form-check-label small">Redirect the old URL if the name changes</label></div>
+            <div class="form-check mb-2"><input class="form-check-input" type="checkbox" t-model="state.props.is_indexed"/><label class="form-check-label small">Include in sitemap</label></div>
+            <div class="form-check mb-2"><input class="form-check-input" type="checkbox" t-model="state.props.is_in_menu"/><label class="form-check-label small">Candidate for the menu</label></div>
+            <div class="mb-2"><label class="form-label small mb-1">SEO title</label><input class="form-control form-control-sm" t-model="state.props.seo_title"/></div>
+            <div class="mb-2"><label class="form-label small mb-1">SEO description</label><textarea class="form-control form-control-sm" rows="3" t-model="state.props.seo_description"/></div>
+            <div class="mb-2"><label class="form-label small mb-1">Publish at (scheduled)</label><input class="form-control form-control-sm" type="datetime-local" t-model="state.props.publish_at"/></div>
+            <div class="mb-2"><label class="form-label small mb-1">Custom CSS (this page only)</label><textarea class="form-control form-control-sm font-monospace" rows="5" t-model="state.props.custom_css"/></div>
+            <button class="btn btn-sm btn-primary w-100" t-on-click="() => this.applyPageProps()">Apply</button>
+            </TabContent>
+            </TabsContainer>
+          </Tabs>
+        </aside>
+        <div class="bh-builder-stage flex-grow-1 d-flex justify-content-center overflow-auto"><iframe t-ref="canvas" class="bh-builder-canvas border-0" t-att-style="state.device === 'mobile' ? 'width:390px' : state.device === 'tablet' ? 'width:768px' : 'width:100%'" title="Page canvas" sandbox="allow-same-origin"/></div>
+      </div>
+    </div>
+  </t>
+</templates>

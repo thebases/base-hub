@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.project_root" name="Project" sequence="35" icon="folder-kanban"/>
+    <menuitem id="menu.tbl_project" name="Projects" parent="menu.project_root" sequence="10" route_path="/web/tbl.project" icon="folder-kanban"/>
+    <menuitem id="menu.tbl_project_task" name="Tasks" parent="menu.project_root" sequence="20" route_path="/web/tbl.project_task" icon="check-square"/>
+    <menuitem id="menu.tbl_project_milestone" name="Milestones" parent="menu.project_root" sequence="30" route_path="/web/tbl.project_milestone" icon="flag"/>
+    <menuitem id="menu.tbl_project_update" name="Updates" parent="menu.project_root" sequence="40" route_path="/web/tbl.project_update" icon="activity"/>
+    <menuitem id="menu.tbl_project_stage" name="Project Stages" parent="menu.project_root" sequence="50" route_path="/web/tbl.project_stage" icon="columns"/>
+    <menuitem id="menu.tbl_project_task_type" name="Task Stages" parent="menu.project_root" sequence="60" route_path="/web/tbl.project_task_type" icon="columns"/>
+    <menuitem id="menu.tbl_project_tag" name="Tags" parent="menu.project_root" sequence="70" route_path="/web/tbl.project_tag" icon="tag"/>
+    <menuitem id="menu.tbl_project_role" name="Roles" parent="menu.project_root" sequence="80" route_path="/web/tbl.project_role" icon="user-cog"/>
+    <menuitem id="menu.tbl_project_collaborator" name="Collaborators" parent="menu.project_root" sequence="90" route_path="/web/tbl.project_collaborator" icon="users"/>
+</data>

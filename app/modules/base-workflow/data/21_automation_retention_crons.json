@@ -1,0 +1,15 @@
+[
+  {
+    "action": "c",
+    "model": "automation.cron",
+    "external_id": "workflow.automation.cron.purge_retention",
+    "force_update": false,
+    "data": {
+      "name": "Workflow Purge Expired Runs and Deliveries",
+      "action_id": "workflow.automation.action.purge_retention",
+      "interval_seconds": 86400,
+      "max_failures": 5,
+      "active": true
+    }
+  }
+]

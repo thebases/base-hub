@@ -1,0 +1,1252 @@
+msgid ""
+msgstr ""
+"Language: vi\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Success"
+msgstr "Thành công"
+
+msgid "Failure"
+msgstr "Thất bại"
+
+msgid "Condition"
+msgstr "Điều kiện"
+
+msgid "Always"
+msgstr "Luôn luôn"
+
+msgid "Manual"
+msgstr "Thủ công"
+
+msgid "Trigger"
+msgstr "Kích hoạt"
+
+msgid "Trigger topic not configured"
+msgstr "Chưa cấu hình topic kích hoạt"
+
+msgid "Domain must be a valid JSON array of domain tokens."
+msgstr "Miền phải là một mảng JSON hợp lệ gồm các token miền."
+
+msgid "Max Parallel Steps must be a positive number."
+msgstr "Số bước chạy song song tối đa phải là số dương."
+
+msgid "DAG Settings"
+msgstr "Cài đặt DAG"
+
+msgid "Controls how many steps run concurrently per frontier batch and how a failed step affects the rest of the run."
+msgstr "Điều khiển số bước chạy đồng thời trong mỗi lô frontier và cách một bước thất bại ảnh hưởng đến phần còn lại của lần chạy."
+
+msgid "Max Parallel Steps"
+msgstr "Số bước song song tối đa"
+
+msgid "Failure Policy"
+msgstr "Chính sách lỗi"
+
+msgid "Fail Branch Only"
+msgstr "Chỉ nhánh lỗi"
+
+msgid "Fail Whole Workflow"
+msgstr "Làm lỗi toàn bộ quy trình"
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Saving…"
+msgstr "Đang lưu…"
+
+msgid "Save"
+msgstr "Lưu"
+
+msgid "condition_expr must be valid JSON."
+msgstr "condition_expr phải là JSON hợp lệ."
+
+msgid "Edge Type"
+msgstr "Loại cạnh"
+
+msgid "Controls when this connection is followed during DAG execution."
+msgstr "Điều khiển thời điểm kết nối này được đi theo trong quá trình thực thi DAG."
+
+msgid "Type"
+msgstr "Loại"
+
+msgid "Success — only if the source step succeeded"
+msgstr "Thành công — chỉ khi bước nguồn thành công"
+
+msgid "Failure — only if the source step failed"
+msgstr "Thất bại — chỉ khi bước nguồn thất bại"
+
+msgid "Condition — evaluates condition_expr"
+msgstr "Điều kiện — đánh giá condition_expr"
+
+msgid "Always — regardless of source outcome"
+msgstr "Luôn luôn — bất kể kết quả nguồn"
+
+msgid "Manual — never auto-dispatched"
+msgstr "Thủ công — không bao giờ tự động điều phối"
+
+msgid "Condition Expression (JSON)"
+msgstr "Biểu thức điều kiện (JSON)"
+
+msgid "Failed to load workflow script data"
+msgstr "Không thể tải dữ liệu tập lệnh quy trình"
+
+msgid "This action requires a saved workflow record."
+msgstr "Hành động này cần bản ghi workflow đã lưu."
+
+msgid "Failed to generate workflow actions"
+msgstr "Không thể tạo hành động quy trình"
+
+msgid "The markdown script must contain at least one `Step` section."
+msgstr "Kịch bản markdown phải có ít nhất một mục `Step`."
+
+msgid "Field `{key}` must be a non-negative integer."
+msgstr "Trường `{key}` phải là số nguyên không âm."
+
+msgid "Field `{key}` must be `true` or `false`."
+msgstr "Trường `{key}` phải là `true` hoặc `false`."
+
+msgid "Field `{key}` must be a JSON array."
+msgstr "Trường `{key}` phải là mảng JSON."
+
+msgid "Field `{key}` must be a JSON object."
+msgstr "Trường `{key}` phải là đối tượng JSON."
+
+msgid "Each `Step` heading must use a positive sequence number."
+msgstr "Mỗi tiêu đề `Step` phải dùng số thứ tự dương."
+
+msgid "Step {sequence} is missing `action`."
+msgstr "Bước {sequence} thiếu `action`."
+
+msgid "Step {sequence} uses unsupported action `{actionCode}`."
+msgstr "Bước {sequence} dùng hành động không được hỗ trợ `{actionCode}`."
+
+msgid "Generate Workflow by Script"
+msgstr "Tạo quy trình bằng tập lệnh"
+
+msgid "Describe the workflow action sequence in markdown, then generate the backend action rows from that script."
+msgstr "Mô tả chuỗi hành động quy trình bằng markdown, sau đó tạo các dòng hành động phía máy chủ từ kịch bản đó."
+
+msgid "Instructions"
+msgstr "Hướng dẫn"
+
+msgid "Loading workflow guidance…"
+msgstr "Đang tải hướng dẫn quy trình…"
+
+msgid "Workflow Script"
+msgstr "Tập lệnh quy trình"
+
+msgid "Write one `Step` section per workflow action."
+msgstr "Viết một mục `Step` cho mỗi hành động của workflow."
+
+msgid "Refresh"
+msgstr "Làm mới"
+
+msgid "Preparing the markdown editor…"
+msgstr "Đang chuẩn bị trình soạn thảo markdown…"
+
+msgid "Supported actions:"
+msgstr "Các hành động được hỗ trợ:"
+
+msgid "Generating…"
+msgstr "Đang tạo…"
+
+msgid "Generate"
+msgstr "Tạo"
+
+msgid "Unrecognized Action"
+msgstr "Hành động không nhận diện được"
+
+msgid "Node Details"
+msgstr "Chi tiết nút"
+
+msgid "Action Catalog is required."
+msgstr "Danh mục hành động là bắt buộc."
+
+msgid "Failed to save node parameters."
+msgstr "Không thể lưu tham số nút."
+
+msgid "Configure the node inputs persisted into the workflow action sequence on canvas save."
+msgstr "Cấu hình đầu vào của nút được lưu vào chuỗi hành động quy trình khi lưu canvas."
+
+msgid "Configure the workflow trigger transport. Kafka, MQTT, Model and TCP triggers persist as trigger rows; the webhook URL serves while no other trigger exists, or next to them while its webhook row in the trigger list is switched on."
+msgstr "Cấu hình phương thức truyền của trình kích hoạt quy trình. Trình kích hoạt Kafka, MQTT, Mô hình và TCP được lưu thành các dòng trình kích hoạt; URL webhook hoạt động khi không có trình kích hoạt nào khác, hoặc song song với chúng khi dòng webhook trong danh sách trình kích hoạt được bật."
+
+msgid "empty"
+msgstr "trống"
+
+msgid "Trigger Type"
+msgstr "Loại trình kích hoạt"
+
+msgid "Sample Payload"
+msgstr "Payload mẫu"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Action Catalog"
+msgstr "Danh mục hành động"
+
+msgid "— Select an action catalog entry —"
+msgstr "— Chọn một mục trong danh mục hành động —"
+
+msgid "Selects the base.workflow.action.catalog row this node executes — change it to repair a node whose Action Code no longer matches a known catalog entry."
+msgstr "Chọn dòng base.workflow.action.catalog mà nút này thực thi — hãy thay đổi để sửa nút có Mã hành động không còn khớp với mục danh mục nào đã biết."
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Search sys.model…"
+msgstr "Tìm sys.model…"
+
+msgid "Search…"
+msgstr "Tìm kiếm…"
+
+msgid "— No credential —"
+msgstr "— Không có thông tin xác thực —"
+
+msgid "Credentials:"
+msgstr "Thông tin xác thực:"
+
+msgid "clear"
+msgstr "xóa"
+
+msgid "Delete Node"
+msgstr "Xóa nút"
+
+msgid "Close"
+msgstr "Đóng"
+
+msgid "Save Node"
+msgstr "Lưu nút"
+
+msgid "Save Trigger"
+msgstr "Lưu trình kích hoạt"
+
+msgid "Custom Data"
+msgstr "Dữ liệu tùy chỉnh"
+
+msgid "Missing required fields: {fields}"
+msgstr "Thiếu các trường bắt buộc: {fields}"
+
+msgid "{fieldName} must be valid JSON."
+msgstr "{fieldName} phải là JSON hợp lệ."
+
+msgid "{fieldName} must be a JSON object."
+msgstr "{fieldName} phải là đối tượng JSON."
+
+msgid "Yes"
+msgstr "Có"
+
+msgid "No"
+msgstr "Không"
+
+msgid "Configured (hidden)"
+msgstr "Đã cấu hình (ẩn)"
+
+msgid "Runs when"
+msgstr "Chạy khi"
+
+msgid "Timeout"
+msgstr "Hết thời gian chờ"
+
+msgid "On error"
+msgstr "Khi có lỗi"
+
+msgid "Continue"
+msgstr "Tiếp tục"
+
+msgid "HTTP method"
+msgstr "Phương thức HTTP"
+
+msgid "Any (GET, POST, PUT, …)"
+msgstr "Bất kỳ (GET, POST, PUT, …)"
+
+msgid "Access"
+msgstr "Truy cập"
+
+msgid "Authenticated members of {group}"
+msgstr "Thành viên đã xác thực của {group}"
+
+msgid "Public — no access group"
+msgstr "Công khai — không có nhóm truy cập"
+
+msgid "(default)"
+msgstr "(mặc định)"
+
+msgid "never"
+msgstr "chưa bao giờ"
+
+msgid "{s}s ago"
+msgstr "{s} giây trước"
+
+msgid "{m}m {s}s ago"
+msgstr "{m} phút {s} giây trước"
+
+msgid "{h}h {m}m ago"
+msgstr "{h} giờ {m} phút trước"
+
+msgid "{d}d ago"
+msgstr "{d} ngày trước"
+
+msgid "Failed to load MQTT metrics"
+msgstr "Không tải được số liệu MQTT"
+
+msgid "Loading"
+msgstr "Đang tải"
+
+msgid "Disabled"
+msgstr "Đã tắt"
+
+msgid "Connected"
+msgstr "Đã kết nối"
+
+msgid "Reconnecting"
+msgstr "Đang kết nối lại"
+
+msgid "Disconnected"
+msgstr "Đã ngắt kết nối"
+
+msgid "Inbound"
+msgstr "Đến"
+
+msgid "{rate} msg/s"
+msgstr "{rate} tin/giây"
+
+msgid "{frames} frames · {bytes}"
+msgstr "{frames} khung · {bytes}"
+
+msgid "Connection"
+msgstr "Kết nối"
+
+msgid "{count} connects"
+msgstr "{count} lần kết nối"
+
+msgid "{lost} lost · last up {ago}"
+msgstr "mất {lost} lần · lần gần nhất {ago}"
+
+msgid "Resync (self-heal)"
+msgstr "Đồng bộ lại (tự phục hồi)"
+
+msgid "{count} rounds"
+msgstr "{count} vòng"
+
+msgid "{forced} forced re-logins · {refused} refused · {timeouts} timeouts"
+msgstr "{forced} lần đăng nhập lại bắt buộc · {refused} bị từ chối · {timeouts} hết thời gian"
+
+msgid "Resync latency"
+msgstr "Độ trễ đồng bộ lại"
+
+msgid "{ms} ms"
+msgstr "{ms} ms"
+
+msgid "max {max} ms · last {ago}"
+msgstr "tối đa {max} ms · lần gần nhất {ago}"
+
+msgid "Publish"
+msgstr "Xuất bản"
+
+msgid "{count} errors"
+msgstr "{count} lỗi"
+
+msgid "MQTT client is not connected to the broker. Last error: {error}"
+msgstr "MQTT client chưa kết nối tới broker. Lỗi gần nhất: {error}"
+
+msgid "MQTT client is not connected to the broker."
+msgstr "MQTT client chưa kết nối tới broker."
+
+msgid "{count} inbound frame(s) were dropped because a topic queue stayed full. Workflow runs on that topic are too slow for its message rate."
+msgstr "{count} khung đến đã bị loại vì hàng đợi của topic luôn đầy. Workflow chạy trên topic đó quá chậm so với tốc độ tin nhắn."
+
+msgid "Topic {topic}: {error}"
+msgstr "Topic {topic}: {error}"
+
+msgid "Subscribed"
+msgstr "Đã đăng ký"
+
+msgid "Not subscribed"
+msgstr "Chưa đăng ký"
+
+msgid "MQTT Monitor"
+msgstr "Giám sát MQTT"
+
+msgid "Live health of this server's MQTT client: connection churn, subscription self-healing, and per-topic traffic, queue depth and workflow run time. Counters are per server process and reset on restart."
+msgstr "Tình trạng trực tiếp của MQTT client trên máy chủ này: số lần kết nối lại, tự phục hồi đăng ký, lưu lượng từng topic, độ sâu hàng đợi và thời gian chạy workflow. Bộ đếm tính theo tiến trình máy chủ và được đặt lại khi khởi động lại."
+
+msgid "Resume"
+msgstr "Tiếp tục"
+
+msgid "Pause"
+msgstr "Tạm dừng"
+
+msgid "Broker"
+msgstr "Broker"
+
+msgid "client"
+msgstr "client"
+
+msgid "polling every 5s"
+msgstr "thăm dò mỗi 5 giây"
+
+msgid "Inbound msg/s (last 5 minutes)"
+msgstr "Tin đến/giây (5 phút gần nhất)"
+
+msgid "Topic"
+msgstr "Chủ đề"
+
+msgid "State"
+msgstr "Trạng thái"
+
+msgid "Received"
+msgstr "Đã nhận"
+
+msgid "msg/s"
+msgstr "tin/giây"
+
+msgid "Last frame"
+msgstr "Khung gần nhất"
+
+msgid "Queue"
+msgstr "Hàng đợi"
+
+msgid "Processed"
+msgstr "Đã xử lý"
+
+msgid "Dropped"
+msgstr "Đã loại"
+
+msgid "Failed"
+msgstr "Thất bại"
+
+msgid "Avg ms"
+msgstr "TB ms"
+
+msgid "Max ms"
+msgstr "Tối đa ms"
+
+msgid "Triggers"
+msgstr "Trigger"
+
+msgid "Re-asserted"
+msgstr "Đăng ký lại"
+
+msgid "Loading…"
+msgstr "Đang tải…"
+
+msgid "No MQTT topics are subscribed. Activate a workflow with an MQTT trigger."
+msgstr "Chưa đăng ký topic MQTT nào. Hãy kích hoạt workflow có trigger MQTT."
+
+msgid "idle"
+msgstr "nhàn rỗi"
+
+msgid "Workflow #{id}"
+msgstr "Workflow #{id}"
+
+msgid "Failed to load workflow canvas"
+msgstr "Không thể tải canvas quy trình"
+
+msgid "Failed to delete workflow action."
+msgstr "Không thể xóa hành động quy trình."
+
+msgid "Failed to save workflow trigger settings."
+msgstr "Không thể lưu cài đặt trình kích hoạt quy trình."
+
+msgid "Failed to update workflow execution mode."
+msgstr "Không thể cập nhật chế độ thực thi của quy trình."
+
+msgid "Failed to update workflow active state."
+msgstr "Không thể cập nhật trạng thái hoạt động của quy trình."
+
+msgid "Failed to update DAG settings."
+msgstr "Không thể cập nhật cài đặt DAG."
+
+msgid "The trigger node cannot be connected as a DAG step."
+msgstr "Nút kích hoạt không thể được nối như một bước DAG."
+
+msgid "Failed to create edge."
+msgstr "Không thể tạo cạnh."
+
+msgid "Failed to delete edge."
+msgstr "Không thể xóa cạnh."
+
+msgid "Failed to update edge type."
+msgstr "Không thể cập nhật loại cạnh."
+
+msgid "Failed to resolve workflow trigger."
+msgstr "Không thể xác định trình kích hoạt quy trình."
+
+msgid "Workflow graph has a cycle involving: {nodes}. Fix the connections before saving."
+msgstr "Đồ thị workflow có chu trình gồm: {nodes}. Hãy sửa các kết nối trước khi lưu."
+
+msgid "Failed to save workflow layout."
+msgstr "Không thể lưu bố cục quy trình."
+
+msgid "Failed to save workflow canvas"
+msgstr "Không thể lưu canvas quy trình"
+
+msgid "Sample Payload is not valid JSON."
+msgstr "Sample Payload không phải JSON hợp lệ."
+
+msgid "Failed to run workflow test."
+msgstr "Không thể chạy thử quy trình."
+
+msgid "Failed to export workflow."
+msgstr "Không thể xuất quy trình."
+
+msgid "Selected file is not valid JSON."
+msgstr "Tệp đã chọn không phải JSON hợp lệ."
+
+msgid "Failed to import workflow."
+msgstr "Không thể nhập quy trình."
+
+msgid "Failed to create workflow"
+msgstr "Không thể tạo quy trình"
+
+msgid "Failed to create workflow."
+msgstr "Không thể tạo quy trình."
+
+msgid "Duplicate workflow did not return a valid ID."
+msgstr "Nhân bản quy trình không trả về ID hợp lệ."
+
+msgid "Failed to duplicate workflow."
+msgstr "Không thể nhân bản quy trình."
+
+msgid "Failed to delete workflow."
+msgstr "Không thể xóa quy trình."
+
+msgid "Failed to rename workflow."
+msgstr "Không thể đổi tên quy trình."
+
+msgid "Trigger topic"
+msgstr "Chủ đề kích hoạt"
+
+msgid "DAG execution"
+msgstr "Thực thi DAG"
+
+msgid "Linear execution"
+msgstr "Thực thi tuần tự"
+
+msgid "Switch workflow…"
+msgstr "Chuyển quy trình…"
+
+msgid "Active"
+msgstr "Hoạt động"
+
+msgid "DAG mode"
+msgstr "Chế độ DAG"
+
+msgid "Linear mode"
+msgstr "Chế độ tuần tự"
+
+msgid "DAG settings"
+msgstr "Cài đặt DAG"
+
+msgid "Running…"
+msgstr "Đang chạy…"
+
+msgid "Run Now"
+msgstr "Chạy ngay"
+
+msgid "Exporting…"
+msgstr "Đang xuất…"
+
+msgid "Export workflow"
+msgstr "Xuất workflow"
+
+msgid "Importing…"
+msgstr "Đang nhập…"
+
+msgid "Import workflow"
+msgstr "Nhập workflow"
+
+msgid "Generate from markdown"
+msgstr "Tạo từ markdown"
+
+msgid "Rename workflow"
+msgstr "Đổi tên quy trình"
+
+msgid "Duplicating…"
+msgstr "Đang nhân bản…"
+
+msgid "Duplicate workflow"
+msgstr "Nhân bản workflow"
+
+msgid "Creating…"
+msgstr "Đang tạo…"
+
+msgid "New workflow"
+msgstr "Workflow mới"
+
+msgid "Deleting…"
+msgstr "Đang xóa…"
+
+msgid "Delete workflow"
+msgstr "Xóa workflow"
+
+msgid "Unsaved changes"
+msgstr "Thay đổi chưa lưu"
+
+msgid "Add action"
+msgstr "Thêm hành động"
+
+msgid "Last run:"
+msgstr "Lần chạy gần nhất:"
+
+msgid "Loading workflow…"
+msgstr "Đang tải quy trình…"
+
+msgid "Actions"
+msgstr "Hành động"
+
+msgid "Drag an action onto the canvas, or use Add to append it."
+msgstr "Kéo một hành động vào canvas, hoặc dùng Thêm để thêm vào cuối."
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Edge type"
+msgstr "Loại cạnh"
+
+msgid "type"
+msgstr "loại"
+
+msgid "Delete connection"
+msgstr "Xóa kết nối"
+
+msgid "Edit trigger settings"
+msgstr "Sửa cài đặt trigger"
+
+msgid "Edit parameters"
+msgstr "Sửa tham số"
+
+msgid "View details"
+msgstr "Xem chi tiết"
+
+msgid "Delete node"
+msgstr "Xóa nút"
+
+msgid "Drag onto another step to connect"
+msgstr "Kéo vào bước khác để kết nối"
+
+msgid "Select a node to see its details."
+msgstr "Chọn một nút để xem chi tiết."
+
+msgid "Action code"
+msgstr "Mã hành động"
+
+msgid "Step key"
+msgstr "Khóa bước"
+
+msgid "Edit node"
+msgstr "Sửa nút"
+
+msgid "Delete Workflow"
+msgstr "Xóa quy trình"
+
+msgid "This permanently deletes {name}, its actions, and its trigger configuration. This cannot be undone."
+msgstr "Thao tác này xóa vĩnh viễn {name}, các hành động và cấu hình trigger của nó. Không thể hoàn tác."
+
+msgid "this workflow"
+msgstr "workflow này"
+
+msgid "Rename Workflow"
+msgstr "Đổi tên quy trình"
+
+msgid "Update the workflow name shown in the selector and canvas header."
+msgstr "Cập nhật tên quy trình hiển thị trong bộ chọn và tiêu đề canvas."
+
+msgid "Workflow Name"
+msgstr "Tên quy trình"
+
+msgid "Save Name"
+msgstr "Lưu tên"
+
+msgid "Endpoint"
+msgstr "Endpoint"
+
+msgid "What it does"
+msgstr "Chức năng"
+
+msgid "No parameters configured — runs with its defaults."
+msgstr "Chưa cấu hình tham số — chạy với giá trị mặc định."
+
+msgid "Trigger settings"
+msgstr "Cài đặt trình kích hoạt"
+
+msgid "No extra settings for this trigger type."
+msgstr "Loại trình kích hoạt này không có cài đặt bổ sung."
+
+msgid "Lua Script"
+msgstr "Tập lệnh Lua"
+
+msgid "Custom data must be a JSON object"
+msgstr "Dữ liệu tùy chỉnh phải là đối tượng JSON"
+
+msgid "Extra Params is not a valid JSON object. Fix it in the Advanced Params tab before editing this node."
+msgstr "Extra Params không phải đối tượng JSON hợp lệ. Hãy sửa trong tab Advanced Params trước khi sửa nút này."
+
+msgid "Custom Action"
+msgstr "Hành động tùy chỉnh"
+
+msgid "— Select a Lua action —"
+msgstr "— Chọn một hành động Lua —"
+
+msgid "Write the Lua script in Automation > Actions and select it here. It receives payload (previous node output), data (below), raw, topic, step_key and base."
+msgstr "Viết script Lua trong Automation > Actions rồi chọn tại đây. Script nhận payload (đầu ra của nút trước), data (bên dưới), raw, topic, step_key và base."
+
+msgid "Custom Data (JSON)"
+msgstr "Dữ liệu tùy chỉnh (JSON)"
+
+msgid "This action's code (<code>{code}</code>) does not match a known node spec, so its Target URL, Headers and Authorization fields cannot be edited here. Pick a valid entry in the Action Catalog field below to restore this panel."
+msgstr "Mã của hành động này (<code>{code}</code>) không khớp với đặc tả nút nào đã biết, nên không thể sửa Target URL, Headers và Authorization tại đây. Hãy chọn mục hợp lệ trong trường Action Catalog bên dưới để khôi phục bảng này."
+
+msgid "Field names become <code>{{field}}</code> suggestions in string params."
+msgstr "Tên trường trở thành gợi ý <code>{{field}}</code> trong tham số chuỗi."
+
+msgid "Inactive"
+msgstr "Không hoạt động"
+
+msgid "You have unsaved changes on this canvas. Leave without saving?"
+msgstr "Canvas có thay đổi chưa lưu. Rời đi mà không lưu?"
+
+msgid "This workflow was saved by someone else after you opened it. Refresh to load the latest version (your unsaved changes here will be lost), then apply them again."
+msgstr "Quy trình này đã được người khác lưu sau khi bạn mở. Hãy làm mới để tải phiên bản mới nhất (các thay đổi chưa lưu ở đây sẽ bị mất), rồi áp dụng lại."
+
+msgid "Failed to load workflow runs."
+msgstr "Không tải được các lần chạy của quy trình."
+
+msgid "Run #{id} was not found."
+msgstr "Không tìm thấy lần chạy #{id}."
+
+msgid "Failed to load the run."
+msgstr "Không tải được lần chạy."
+
+msgid "{from}–{to} of {total}"
+msgstr "{from}–{to} trên {total}"
+
+msgid "Test run"
+msgstr "Chạy thử"
+
+msgid "Replay started as run #{id}."
+msgstr "Đã bắt đầu chạy lại thành lần chạy #{id}."
+
+msgid "Failed to replay the run."
+msgstr "Không chạy lại được lần chạy."
+
+msgid "Cancellation requested for run #{id}."
+msgstr "Đã yêu cầu hủy lần chạy #{id}."
+
+msgid "Failed to cancel the run."
+msgstr "Không hủy được lần chạy."
+
+msgid "Run #{id}"
+msgstr "Lần chạy #{id}"
+
+msgid "Run history"
+msgstr "Lịch sử chạy"
+
+msgid "This workflow has not run yet."
+msgstr "Quy trình này chưa chạy lần nào."
+
+msgid "Dry run"
+msgstr "Chạy khô"
+
+msgid "Cancelling"
+msgstr "Đang hủy"
+
+msgid "Attempts: {count}"
+msgstr "Số lần thử: {count}"
+
+msgid "Version {version}"
+msgstr "Phiên bản {version}"
+
+msgid "Draft"
+msgstr "Bản nháp"
+
+msgid "Replay of #{id}"
+msgstr "Chạy lại từ #{id}"
+
+msgid "Newer"
+msgstr "Mới hơn"
+
+msgid "Older"
+msgstr "Cũ hơn"
+
+msgid "All runs"
+msgstr "Tất cả lần chạy"
+
+msgid "Replay"
+msgstr "Chạy lại"
+
+msgid "Cancel run"
+msgstr "Hủy lần chạy"
+
+msgid "Status"
+msgstr "Trạng thái"
+
+msgid "Started"
+msgstr "Bắt đầu"
+
+msgid "Updated"
+msgstr "Cập nhật"
+
+msgid "Attempts"
+msgstr "Số lần thử"
+
+msgid "Version"
+msgstr "Phiên bản"
+
+msgid "Replay of"
+msgstr "Chạy lại từ"
+
+msgid "Request ID"
+msgstr "Mã yêu cầu"
+
+msgid "What the run would have done"
+msgstr "Những gì lần chạy lẽ ra đã làm"
+
+msgid "Steps"
+msgstr "Các bước"
+
+msgid "No step has run yet."
+msgstr "Chưa có bước nào chạy."
+
+msgid "Attempt {count}"
+msgstr "Lần thử {count}"
+
+msgid "Next retry {time}"
+msgstr "Thử lại lúc {time}"
+
+msgid "Hide input"
+msgstr "Ẩn đầu vào"
+
+msgid "Show input"
+msgstr "Xem đầu vào"
+
+msgid "Hide output"
+msgstr "Ẩn đầu ra"
+
+msgid "Show output"
+msgstr "Xem đầu ra"
+
+msgid "Replay from this step"
+msgstr "Chạy lại từ bước này"
+
+msgid "Run payloads"
+msgstr "Dữ liệu của lần chạy"
+
+msgid "Audit mode: {mode}"
+msgstr "Chế độ kiểm toán: {mode}"
+
+msgid "Failed to load workflow templates."
+msgstr "Không tải được các mẫu quy trình."
+
+msgid "webhook"
+msgstr "webhook"
+
+msgid "The template did not return a new workflow."
+msgstr "Mẫu không trả về quy trình mới."
+
+msgid "Failed to create a workflow from the template."
+msgstr "Không tạo được quy trình từ mẫu."
+
+msgid "New workflow from a template"
+msgstr "Quy trình mới từ mẫu"
+
+msgid "The template is copied into a new draft workflow; its Kafka, MQTT, model and TCP triggers start switched off."
+msgstr "Mẫu được sao chép thành một quy trình nháp mới; các trình kích hoạt Kafka, MQTT, model và TCP của nó ban đầu ở trạng thái tắt."
+
+msgid "New workflow name (optional)"
+msgstr "Tên quy trình mới (không bắt buộc)"
+
+msgid "Loading templates…"
+msgstr "Đang tải các mẫu…"
+
+msgid "No workflow template is available."
+msgstr "Chưa có mẫu quy trình nào."
+
+msgid "{count} steps"
+msgstr "{count} bước"
+
+msgid "Use template"
+msgstr "Dùng mẫu"
+
+msgid "Runs the saved draft once with the sample payload. Published triggers are not affected."
+msgstr "Chạy bản nháp đã lưu một lần với dữ liệu mẫu. Các trình kích hoạt đã xuất bản không bị ảnh hưởng."
+
+msgid "HTTP calls, messages, record writes and scripts are skipped and only listed below."
+msgstr "Các lệnh gọi HTTP, tin nhắn, thao tác ghi bản ghi và script được bỏ qua và chỉ được liệt kê bên dưới."
+
+msgid "Dry run (no side effects)"
+msgstr "Chạy khô (không có tác động bên ngoài)"
+
+msgid "Result"
+msgstr "Kết quả"
+
+msgid "No step with outside effects ran."
+msgstr "Không có bước nào có tác động bên ngoài đã chạy."
+
+msgid "Open in run history"
+msgstr "Mở trong lịch sử chạy"
+
+msgid "Dry run now"
+msgstr "Chạy khô ngay"
+
+msgid "Run now"
+msgstr "Chạy ngay"
+
+msgid "Failed to update the trigger."
+msgstr "Không cập nhật được trình kích hoạt."
+
+msgid "Remove the {type} trigger \"{topic}\"?"
+msgstr "Xóa trình kích hoạt {type} \"{topic}\"?"
+
+msgid "Failed to remove the trigger."
+msgstr "Không xóa được trình kích hoạt."
+
+msgid "Changes here are saved right away. Triggers always run the published version."
+msgstr "Thay đổi ở đây được lưu ngay. Trình kích hoạt luôn chạy phiên bản đã xuất bản."
+
+msgid "Refresh trigger health"
+msgstr "Làm mới tình trạng trình kích hoạt"
+
+msgid "Serving"
+msgstr "Đang phục vụ"
+
+msgid "Off"
+msgstr "Tắt"
+
+msgid "Built in: the webhook serves this workflow while it has no other trigger."
+msgstr "Có sẵn: webhook phục vụ quy trình này khi nó không có trình kích hoạt nào khác."
+
+msgid "Remove trigger"
+msgstr "Xóa trình kích hoạt"
+
+msgid "New trigger type"
+msgstr "Loại trình kích hoạt mới"
+
+msgid "Add trigger"
+msgstr "Thêm trình kích hoạt"
+
+msgid "The workflow has no steps"
+msgstr "Quy trình chưa có bước nào"
+
+msgid "No active trigger"
+msgstr "Không có trình kích hoạt nào đang bật"
+
+msgid "A step has no step key"
+msgstr "Một bước chưa có khóa bước"
+
+msgid "Duplicate step key"
+msgstr "Khóa bước bị trùng"
+
+msgid "Unknown action"
+msgstr "Hành động không xác định"
+
+msgid "Invalid parameter"
+msgstr "Tham số không hợp lệ"
+
+msgid "A connection points to a missing step"
+msgstr "Một kết nối trỏ tới bước không tồn tại"
+
+msgid "A condition connection has no expression"
+msgstr "Một kết nối điều kiện chưa có biểu thức"
+
+msgid "The graph has a cycle"
+msgstr "Đồ thị có vòng lặp"
+
+msgid "Step can never run"
+msgstr "Bước không bao giờ được chạy"
+
+msgid "Invalid trigger settings"
+msgstr "Cấu hình trình kích hoạt không hợp lệ"
+
+msgid "Issue"
+msgstr "Vấn đề"
+
+msgid "No issues found: the workflow can be published."
+msgstr "Không có vấn đề: quy trình có thể được xuất bản."
+
+msgid "Validation"
+msgstr "Kiểm tra"
+
+msgid "{count} warnings"
+msgstr "{count} cảnh báo"
+
+msgid "{count} on steps (see the badges on the nodes)"
+msgstr "{count} ở các bước (xem huy hiệu trên các nút)"
+
+msgid "Error"
+msgstr "Lỗi"
+
+msgid "Warning"
+msgstr "Cảnh báo"
+
+msgid "You do not have permission to do this on workflows."
+msgstr "Bạn không có quyền thực hiện thao tác này trên quy trình."
+
+msgid "Pending"
+msgstr "Đang chờ"
+
+msgid "Running"
+msgstr "Đang chạy"
+
+msgid "Waiting for retry"
+msgstr "Chờ thử lại"
+
+msgid "Succeeded"
+msgstr "Thành công"
+
+msgid "Dead letter"
+msgstr "Thất bại hẳn"
+
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+msgid "Skipped"
+msgstr "Bỏ qua"
+
+msgid "{value} ms"
+msgstr "{value} ms"
+
+msgid "{value} s"
+msgstr "{value} giây"
+
+msgid "{minutes} min {seconds} s"
+msgstr "{minutes} phút {seconds} giây"
+
+msgid "HTTP call"
+msgstr "Lệnh gọi HTTP"
+
+msgid "Outbound message"
+msgstr "Tin nhắn gửi đi"
+
+msgid "Record write"
+msgstr "Ghi bản ghi"
+
+msgid "Script"
+msgstr "Script"
+
+msgid "Side effect"
+msgstr "Tác động bên ngoài"
+
+msgid "has outside effects"
+msgstr "có tác động bên ngoài"
+
+msgid "needs a credential"
+msgstr "cần thông tin xác thực"
+
+msgid "unknown node type"
+msgstr "loại nút không xác định"
+
+msgid "Automation action #{id}"
+msgstr "Hành động tự động #{id}"
+
+msgid "Listening"
+msgstr "Đang lắng nghe"
+
+msgid "Not listening"
+msgstr "Không lắng nghe"
+
+msgid "Last event: {time}"
+msgstr "Sự kiện gần nhất: {time}"
+
+msgid "Last error ({time}): {error}"
+msgstr "Lỗi gần nhất ({time}): {error}"
+
+msgid "Events: {events}, failures: {failures}"
+msgstr "Sự kiện: {events}, lỗi: {failures}"
+
+msgid "Server: {instance}"
+msgstr "Máy chủ: {instance}"
+
+msgid "Published v{version}"
+msgstr "Đã xuất bản v{version}"
+
+msgid "Draft (v{version} is live)"
+msgstr "Bản nháp (v{version} đang chạy)"
+
+msgid "Draft, never published"
+msgstr "Bản nháp, chưa xuất bản"
+
+msgid "Save the canvas before publishing: only the saved definition is published."
+msgstr "Hãy lưu canvas trước khi xuất bản: chỉ định nghĩa đã lưu mới được xuất bản."
+
+msgid "Published version {version}."
+msgstr "Đã xuất bản phiên bản {version}."
+
+msgid "The workflow cannot be published until the errors shown are fixed."
+msgstr "Không thể xuất bản quy trình cho đến khi các lỗi đang hiển thị được sửa."
+
+msgid "Failed to publish the workflow."
+msgstr "Không xuất bản được quy trình."
+
+msgid "Failed to validate the workflow."
+msgstr "Không kiểm tra được quy trình."
+
+msgid "Failed to reload the workflow triggers."
+msgstr "Không tải lại được các trình kích hoạt của quy trình."
+
+msgid "Validate"
+msgstr "Kiểm tra"
+
+msgid "Publishing…"
+msgstr "Đang xuất bản…"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "All triggers"
+msgstr "Tất cả trình kích hoạt"
+
+msgid "Waiting for approval"
+msgstr "Chờ phê duyệt"
+
+msgid "Approval expires"
+msgstr "Hết hạn phê duyệt"
+
+msgid "Never"
+msgstr "Không bao giờ"
+
+msgid "Approval"
+msgstr "Phê duyệt"
+
+msgid "Approval token"
+msgstr "Mã phê duyệt"
+
+msgid "Optional for system administrators"
+msgstr "Không bắt buộc với quản trị hệ thống"
+
+msgid "Comment"
+msgstr "Ghi chú"
+
+msgid "Approve"
+msgstr "Phê duyệt"
+
+msgid "Reject"
+msgstr "Từ chối"
+
+msgid "Run #{id} approved."
+msgstr "Đã phê duyệt lượt chạy #{id}."
+
+msgid "Run #{id} rejected."
+msgstr "Đã từ chối lượt chạy #{id}."
+
+msgid "The approval token is missing or wrong."
+msgstr "Mã phê duyệt bị thiếu hoặc không đúng."
+
+msgid "The run is no longer waiting for approval, or the approval expired."
+msgstr "Lượt chạy không còn chờ phê duyệt hoặc đã hết hạn phê duyệt."
+
+msgid "Failed to record the decision."
+msgstr "Không ghi nhận được quyết định."
+
+msgid "Copy it now: the token is not shown again."
+msgstr "Hãy sao chép ngay: mã sẽ không hiển thị lại."
+
+msgid "Copy to clipboard"
+msgstr "Sao chép"
+
+msgid "On error, continue at"
+msgstr "Khi lỗi, tiếp tục tại"
+
+msgid "— None (fail the run) —"
+msgstr "— Không (lượt chạy thất bại) —"
+
+msgid "When this step fails for good, the run continues at the chosen later step instead of failing."
+msgstr "Khi bước này thất bại hẳn, lượt chạy tiếp tục ở bước sau đã chọn thay vì thất bại."
+
+msgid "The on-error target step does not exist"
+msgstr "Bước đích khi lỗi không tồn tại"
+
+msgid "The on-error target must be a later step"
+msgstr "Bước đích khi lỗi phải là một bước phía sau"
+
+msgid "Wait for approval works in linear workflows only"
+msgstr "Chờ phê duyệt chỉ dùng được trong quy trình tuyến tính"
+
+msgid "Run #{id}: decision recorded, the run continues shortly."
+msgstr "Lượt chạy #{id}: đã ghi nhận quyết định, lượt chạy sẽ tiếp tục trong giây lát."
+
+msgid "The workflow is at its concurrency limit. Try again shortly."
+msgstr "Quy trình đã đạt giới hạn số lượt chạy đồng thời. Vui lòng thử lại sau ít phút."
+
+msgid "Webhook rows are saved from the webhook settings in the trigger list."
+msgstr "Dòng webhook được lưu từ phần cài đặt webhook trong danh sách trình kích hoạt."
+
+msgid "Only a webhook row can hold webhook settings."
+msgstr "Chỉ dòng webhook mới có thể giữ cài đặt webhook."
+
+msgid "A webhook row cannot be removed: switch it off instead."
+msgstr "Không thể xóa dòng webhook: hãy tắt nó thay vì xóa."
+
+msgid "Serving next to the other triggers while the webhook row is active."
+msgstr "Đang phục vụ cùng các trình kích hoạt khác khi dòng webhook đang bật."
+
+msgid "Off: switch the webhook row on to serve it next to the other triggers."
+msgstr "Tắt: bật dòng webhook để phục vụ cùng các trình kích hoạt khác."
+
+msgid "Off while the workflow has other triggers. Add a Webhook trigger to serve it next to them."
+msgstr "Tắt khi quy trình có trình kích hoạt khác. Thêm trình kích hoạt Webhook để phục vụ cùng chúng."
+
+msgid "{name} (workflow credential)"
+msgstr "{name} (thông tin xác thực của quy trình)"
+
+msgid "{name} (system credential)"
+msgstr "{name} (thông tin xác thực hệ thống)"
+
+msgid "Signed with {ref}"
+msgstr "Ký bằng {ref}"
+
+msgid "Unsigned requests accepted"
+msgstr "Chấp nhận yêu cầu không ký"
+
+msgid "{signature} · body limit {bytes} bytes"
+msgstr "{signature} · giới hạn nội dung {bytes} byte"
+
+msgid "Max body bytes must be a whole number between 1 and {limit}."
+msgstr "Số byte nội dung tối đa phải là số nguyên từ 1 đến {limit}."
+
+msgid "Failed to save the webhook settings."
+msgstr "Không lưu được cài đặt webhook."
+
+msgid "With other triggers present, the webhook serves only while an explicit webhook row is active."
+msgstr "Khi có trình kích hoạt khác, webhook chỉ phục vụ khi có một dòng webhook tường minh đang bật."
+
+msgid "Edit webhook settings"
+msgstr "Sửa cài đặt webhook"
+
+msgid "A webhook row keeps its signature settings: switch it off instead of removing it."
+msgstr "Dòng webhook giữ cài đặt chữ ký: hãy tắt nó thay vì xóa."
+
+msgid "New webhook trigger"
+msgstr "Trình kích hoạt webhook mới"
+
+msgid "Signature secret (HMAC)"
+msgstr "Khóa bí mật ký (HMAC)"
+
+msgid "— No signature —"
+msgstr "— Không ký —"
+
+msgid "Optional. With a secret, callers sign each request (X-Webhook-Timestamp and X-Webhook-Signature headers). The trigger stores only the credential reference."
+msgstr "Không bắt buộc. Khi có khóa bí mật, bên gọi phải ký mỗi yêu cầu (header X-Webhook-Timestamp và X-Webhook-Signature). Trình kích hoạt chỉ lưu tham chiếu thông tin xác thực."
+
+msgid "Max body bytes"
+msgstr "Số byte nội dung tối đa"
+
+msgid "Optional. Blank uses the server default (1 MiB)."
+msgstr "Không bắt buộc. Để trống sẽ dùng mặc định của máy chủ (1 MiB)."
+
+msgid "Approvable by group"
+msgstr "Nhóm được phê duyệt"
+
+msgid "Last error: {error}"
+msgstr "Lỗi gần nhất: {error}"
+
+msgid "Workflow Templates"
+msgstr "Mẫu quy trình"
+
+msgid "Start a new workflow from a template: the template is copied into a new draft workflow that you can edit on the canvas."
+msgstr "Tạo quy trình mới từ một mẫu: mẫu được sao chép thành một quy trình nháp mới mà bạn có thể chỉnh sửa trên canvas."
+
+msgid "Browse templates"
+msgstr "Xem các mẫu"

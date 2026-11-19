@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_model_operation_list" model="ui.view">
+      <field name="name">sys.model.operation.list</field>
+      <field name="model">sys.model.operation</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Model Operations">
+          <field name="model_name"/>
+          <field name="method_name"/>
+          <field name="module"/>
+          <field name="is_public"/>
+          <field name="is_read_only"/>
+          <field name="uses_path_id"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_model_operation_form" model="ui.view">
+      <field name="name">sys.model.operation.form</field>
+      <field name="model">sys.model.operation</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Model Operation" create="false" delete="false">
+          <sheet>
+            <group>
+              <group>
+                <field name="name" readonly="1"/>
+                <field name="module" readonly="1"/>
+                <field name="model_name" readonly="1"/>
+                <field name="method_name" readonly="1"/>
+              </group>
+              <group>
+                <field name="is_public" readonly="1"/>
+                <field name="is_model_only" readonly="1"/>
+                <field name="is_read_only" readonly="1"/>
+                <field name="uses_path_id" readonly="1"/>
+                <field name="operation_index" readonly="1"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_model_operation_search" model="ui.view">
+      <field name="name">sys.model.operation.search</field>
+      <field name="model">sys.model.operation</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Model Operations">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="method_name"/>
+          <field name="module"/>
+          <group>
+            <filter string="Module" name="group_by_module" domain="[]" context="{'group_by': 'module'}"/>
+            <filter string="Model" name="group_by_model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

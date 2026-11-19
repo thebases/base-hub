@@ -1,0 +1,56 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "base.group_no_one",
+      "name": "Technical Features",
+      "full_name": "Technical Features",
+      "sequence": 10,
+      "description": "Super admin role: full access to every model (sys./tbl./base./ui. and any future prefix) and to every record across all companies",
+      "superadmin": true
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "base.group_user",
+      "name": "Internal User",
+      "full_name": "Internal User",
+      "sequence": 20,
+      "description": "Default internal application user role",
+      "superadmin": false
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "base.group_multi_company",
+      "name": "Multi Companies",
+      "full_name": "Multi Companies",
+      "sequence": 30,
+      "description": "base.group_user extended to companies in the user's company_ids, not just their primary company_id",
+      "superadmin": false,
+      "implied_ids": ["base.group_user"]
+    }
+  },
+  {
+    "action": "c",
+    "model": "tbl.groups",
+    "force_update": true,
+    "data": {
+      "bid": "base.group_system",
+      "name": "Settings",
+      "full_name": "Settings",
+      "sequence": 40,
+      "description": "base.group_multi_company extended with full CRUD on ui. and sys. prefix models",
+      "superadmin": false,
+      "implied_ids": ["base.group_multi_company"]
+    }
+  }
+]

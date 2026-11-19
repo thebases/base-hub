@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_helpdesk_sla_list" model="ui.view">
+      <field name="name">tbl.helpdesk_sla.list</field>
+      <field name="model">tbl.helpdesk_sla</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk SLA Policies">
+          <field name="name"/>
+          <field name="team_id"/>
+          <field name="priority"/>
+          <field name="stage_id"/>
+          <field name="duration_hours"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_sla_form" model="ui.view">
+      <field name="name">tbl.helpdesk_sla.form</field>
+      <field name="model">tbl.helpdesk_sla</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk SLA Policy">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="team_id"/>
+              <field name="priority"/>
+              <field name="stage_id"/>
+              <field name="duration_hours"/>
+              <field name="tag_ids"/>
+              <field name="ticket_type_ids"/>
+              <field name="partner_ids"/>
+              <field name="exclude_stage_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_helpdesk_sla_search" model="ui.view">
+      <field name="name">tbl.helpdesk_sla.search</field>
+      <field name="model">tbl.helpdesk_sla</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Helpdesk SLA Policies">
+          <field name="name"/>
+          <field name="team_id"/>
+        </search>
+      </field>
+    </record>
+    <record id="view_helpdesk_sla_status_list" model="ui.view">
+      <field name="name">tbl.helpdesk_sla_status.list</field>
+      <field name="model">tbl.helpdesk_sla_status</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Helpdesk SLA Status" decoration-success="status == 'reached'" decoration-danger="status == 'failed'">
+          <field name="ticket_id"/>
+          <field name="sla_id"/>
+          <field name="deadline"/>
+          <field name="reached_at"/>
+          <field name="status"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_helpdesk_sla_status_form" model="ui.view">
+      <field name="name">tbl.helpdesk_sla_status.form</field>
+      <field name="model">tbl.helpdesk_sla_status</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Helpdesk SLA Status">
+          <sheet>
+            <group>
+              <field name="ticket_id"/>
+              <field name="sla_id"/>
+              <field name="deadline"/>
+              <field name="reached_at"/>
+              <field name="status"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

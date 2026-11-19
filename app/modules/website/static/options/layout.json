@@ -1,0 +1,98 @@
+{
+  "sequence": 10,
+  "selector": "[data-snippet]",
+  "groups": [
+    {
+      "label": "Layout",
+      "controls": [
+        {
+          "id": "width",
+          "label": "Width",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Boxed",
+              "class": "container"
+            },
+            {
+              "label": "Full width",
+              "class": "container-fluid"
+            }
+          ],
+          "target": ":scope > .container, :scope > .container-fluid"
+        },
+        {
+          "id": "align",
+          "label": "Text alignment",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "Left",
+              "class": "text-start"
+            },
+            {
+              "label": "Center",
+              "class": "text-center"
+            },
+            {
+              "label": "Right",
+              "class": "text-end"
+            }
+          ]
+        },
+        {
+          "id": "padding",
+          "label": "Vertical spacing",
+          "type": "select",
+          "values": [
+            {
+              "label": "Default",
+              "class": ""
+            },
+            {
+              "label": "None",
+              "class": "py-0"
+            },
+            {
+              "label": "Small",
+              "class": "py-2"
+            },
+            {
+              "label": "Medium",
+              "class": "py-4"
+            },
+            {
+              "label": "Large",
+              "class": "py-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Visibility",
+      "controls": [
+        {
+          "id": "hide-mobile",
+          "label": "Hide on mobile",
+          "type": "toggle",
+          "class": "d-none d-md-block"
+        },
+        {
+          "id": "hide-desktop",
+          "label": "Hide on desktop",
+          "type": "toggle",
+          "class": "d-lg-none"
+        }
+      ]
+    }
+  ]
+}

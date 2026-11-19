@@ -1,0 +1,3986 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-09 00:00+0000\n"
+"PO-Revision-Date: 2026-05-09 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: base
+#: model:tbl.lang,label:
+msgid "Language"
+msgstr ""
+
+#. module: base
+#: model:tbl.lang,field:iso_code
+msgid "ISO Code"
+msgstr ""
+
+#. module: base
+#: model:tbl.lang,field:active
+msgid "Active"
+msgstr ""
+
+#. module: base
+#: model:tbl.lang,field:date_format
+msgid "Date Format"
+msgstr ""
+
+#. module: base
+#: model:tbl.lang,field:time_format
+msgid "Time Format"
+msgstr ""
+
+#. module: base
+#: model:tbl.country,label:
+msgid "Country"
+msgstr ""
+
+#. module: base
+#: model:tbl.country,field:code
+msgid "Country Code"
+msgstr ""
+
+#. module: base
+#: model:tbl.country,field:phone_code
+msgid "Phone Code"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,label:
+msgid "Contact"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:name
+msgid "Name"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:email
+msgid "Email"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:phone
+msgid "Phone"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:website
+msgid "Website"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:street
+msgid "Street"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:city
+msgid "City"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:zip
+msgid "Zip"
+msgstr ""
+
+#. module: base
+#: model:tbl.partner,field:country_id
+msgid "Country"
+msgstr ""
+
+#. module: base
+#: model:res.users,label:
+msgid "User"
+msgstr ""
+
+#. module: base
+#: model:res.users,field:login
+msgid "Login"
+msgstr ""
+
+#. module: base
+#: model:res.users,field:password
+msgid "Password"
+msgstr ""
+
+#. module: base
+#: model:res.users,field:email
+msgid "Email"
+msgstr ""
+
+#. module: base
+#: model:res.users,field:active
+msgid "Active"
+msgstr ""
+
+#. module: base
+#: model:tbl.groups,label:
+msgid "Access Group"
+msgstr ""
+
+#. module: base
+#: model:tbl.groups,field:full_name
+msgid "Full Name"
+msgstr ""
+
+#. module: base
+#: model:tbl.company,label:
+msgid "Company"
+msgstr ""
+
+#. module: base
+#: model:tbl.company,field:email
+msgid "Email"
+msgstr ""
+
+#. module: base
+#: model:tbl.company,field:phone
+msgid "Phone"
+msgstr ""
+
+#. module: base
+#: model:tbl.company,field:website
+msgid "Website"
+msgstr ""
+
+#. module: base
+#: model:sys.config_param,field:key
+msgid "Key"
+msgstr ""
+
+#. module: base
+#: model:sys.config_param,field:value
+msgid "Value"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Save"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Cancel"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Delete"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Edit"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Create"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Search"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Export"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Import"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Close"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Confirm"
+msgstr ""
+
+#. module: base
+#: ui:button
+msgid "Discard"
+msgstr ""
+
+#. module: base
+#: ui:label
+msgid "Loading..."
+msgstr ""
+
+#. module: base
+#: ui:error
+msgid "Access denied"
+msgstr ""
+
+#. module: base
+#: ui:error
+msgid "Record not found"
+msgstr ""
+
+#. module: base
+#: ui:error
+msgid "Validation error"
+msgstr ""
+
+#. module: base
+#: ui:label
+msgid "ID"
+msgstr ""
+
+#. module: base
+#: ui:label
+msgid "Yes"
+msgstr ""
+
+#. module: base
+#: ui:label
+msgid "No"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,direction:ltr
+msgid "Left-to-Right"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,direction:rtl
+msgid "Right-to-Left"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:1
+msgid "Monday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:2
+msgid "Tuesday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:3
+msgid "Wednesday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:4
+msgid "Thursday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:5
+msgid "Friday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:6
+msgid "Saturday"
+msgstr ""
+
+#. module: base
+#: selection:tbl.lang,week_start:7
+msgid "Sunday"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,label:
+msgid "Sequences"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:name
+msgid "Name"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:code
+msgid "Code"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:prefix
+msgid "Prefix"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:suffix
+msgid "Suffix"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:padding
+msgid "Padding"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:increment
+msgid "Increment"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:number_next
+msgid "Next Number"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:implementation
+msgid "Implementation"
+msgstr ""
+
+#. module: base
+#: model:sys.sequence,field:company_id
+msgid "Company"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,label:
+msgid "Attachments"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:sys_model
+msgid "Resource Model"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:tbl_id
+msgid "Resource ID"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:mimetype
+msgid "Mimetype"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:checksum
+msgid "Checksum"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:file_size
+msgid "File Size"
+msgstr ""
+
+#. module: base
+#: model:sys.attachment,field:create_uid
+msgid "Created By"
+msgstr ""
+
+#. module: base
+#: model:sys.report,field:name
+msgid "Report"
+msgstr ""
+
+#. module: base
+#: model:sys.report,field:report_name
+msgid "Report Name"
+msgstr ""
+
+#. module: base
+#: model:sys.report,field:template_ref
+msgid "Template"
+msgstr ""
+
+#. module: base
+#: model:sys.report,field:paper_format
+msgid "Paper Format"
+msgstr ""
+
+#. module: base
+#: model:sys.report,field:attach
+msgid "Attach Result"
+msgstr ""
+
+#. module: base
+#: report:base.user_summary
+msgid "User Summary"
+msgstr ""
+
+#. module: base
+#: report:base.user_summary
+msgid "Generated at"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "/ API Documentation"
+msgstr ""
+
+#. module: base
+#: frontend, menu
+msgid "API Documentation"
+msgstr ""
+
+#. module: base
+#: field
+msgid "API Key Duration"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Abandon State"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Acc Holder Name"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Acc Number"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Acc Type"
+msgstr ""
+
+#. module: base
+#: frontend, view
+msgid "Access"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Access Right"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Access Rights"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Account Type"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Action"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Action Catalog"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Action Catalog is required."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Action XMLID is required"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Action code"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Action failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Actions"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Activity Type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Add"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Add a follower…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Add action"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Address"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Address Format"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Address View ID"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Admin"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Alias Route"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "All Config Allowed"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "All Devices Allowed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "All events"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Allow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Allow browser notifications"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Allow notifications"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Always — regardless of source outcome"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Amount must not be negative."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Any (GET, POST, PUT, …)"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Apply"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Archived"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Attachment"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Audit"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Auth Data"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Available fields"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Average"
+msgstr ""
+
+#. module: base
+#: field
+msgid "BID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Backend notifications retained for seven days on this device."
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Bank Account"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Bank Account IDs"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Bank Accounts"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Bank BIC"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Base Hub"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Bid"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Binding"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Branch"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Branches"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Breadcrumb"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Browse documented runtime models and inspect their available fields and methods."
+msgstr ""
+
+#. module: base
+#: view
+msgid "Business"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Button failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "CSV (.csv)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "CSV template"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Category"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Category BID"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Category ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Category IDs"
+msgstr ""
+
+#. module: base
+#: frontend, view
+msgid "Change Password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Chatter"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Child IDs"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Choose which modules should be enabled on"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Clear"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Clear all filters"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Click or drop a file here"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Click to choose another file"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Client Actions"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Client ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Client Secret"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Cohort"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Cohort interval"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Cohort measure"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Cohort mode"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Cohort timeline"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Comment"
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Companies"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Company ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Company IDs"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Company Rate"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Company Ref Code"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Company Registry"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Company Type"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Complete Name"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Condition Expression (JSON)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Condition — evaluates condition_expr"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Configure the node inputs persisted into the workflow action sequence on canvas save."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Configure the workflow trigger transport. Webhook stays implicit; Kafka, MQTT and Model triggers persist through trigger rows."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Configured (hidden)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Confirm action"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Constraint Type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Continue"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Controls how many steps run concurrently per frontier batch and how a failed step affects the rest of the run."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Controls when this connection is followed during DAG execution."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy Client ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy Client Secret"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy Link"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy the public link or open the shared document in a new tab."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy this secret now for"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Copy to clipboard"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Could not render this page"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Could not schedule activity."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Could not upload file."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Count"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Countries"
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Country Group"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Country Group Codes"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Country Group IDs"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Country Groups"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Country ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Country IDs"
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Country State"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Country States"
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Country Ward"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Create UI"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Create a new database by cloning"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Create markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Create or update"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Create returned no id"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Credentials:"
+msgstr ""
+
+#. module: base
+#: label
+msgid "Currency"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Currency Code"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Currency ID"
+msgstr ""
+
+#. module: base
+#: label
+msgid "Currency Rate"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Currency Subunit Label"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Currency Unit Label"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Customer Status"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "DAG Settings"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "DAG settings"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Daily"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Data Type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Database"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Date"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Day"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Day of month"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Days of week"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Deadline"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Decimal Places"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Decimal Point"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Default"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Default (required fields)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Default stage"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete Node"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete Workflow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete attachment"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete connection"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete node"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Delete requires at least one record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Deleting…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Describe the workflow action sequence in markdown, then generate the backend action rows from that script."
+msgstr ""
+
+#. module: base
+#: field, frontend
+msgid "Description"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Details"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Device Limit"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Direction"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Disable"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Dismiss"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Document"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Domain must be a valid JSON array of domain tokens."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Done"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Download Excel Template"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Download the template"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Drag an action onto the canvas, or use Add to append it."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Drag and drop a file here, or"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Drag handle (reordering not implemented)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Drag onto another step to connect"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Duplicate"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Duplicate Database"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Duplicate database requires a saved source record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Duplicate workflow did not return a valid ID."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Duplicating..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Edge Type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Edge type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Edit node"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Edit recurring event"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Enable"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Enable notifications so Base Hub can alert you about updates and important activity."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "End date (optional)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Enter a new password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Enter the menu label, file name, and an optional folder under the writable public docs. Base documents are read-only and cannot be chosen."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Enter the new markdown file path."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Events are anchored to"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Every 2 weeks"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Excel (.xlsx)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "ExcelJS did not load"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Executing request…"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Expiry Time"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Export failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Exporting…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "External Identifier"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "External Identifiers"
+msgstr ""
+
+#. module: base
+#: view
+msgid "External User"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Fail Branch Only"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Fail Whole Workflow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to build the template"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to copy share link"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to create edge."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to create markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to create recurrence"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to create workflow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to create workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete edge."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete the template"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete workflow action."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to delete workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate database"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to duplicate workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to export workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to generate workflow actions"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to import workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load API documentation index"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load calendar events"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load cohort data"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load gantt records"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load grid records"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load markdown document"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load markdown menu"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load menu"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load model documentation"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load model fields"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load notifications"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load service health"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load templates"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load the map"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load the module catalog"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load the spreadsheet library"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load the website editor"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load view"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load website page"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load website studio"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load workflow canvas"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to load workflow script data"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to move record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to reinit database"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to reload API documentation index"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to rename markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to rename workflow."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to reorder columns"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to reschedule event"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to reschedule record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to resolve workflow trigger."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to run workflow test."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save grid cell"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save node parameters."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save the template"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow canvas"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow layout."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to save workflow trigger settings."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to update DAG settings."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to update edge type."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to update password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to update workflow active state."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failed to update workflow execution mode."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failure Policy"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Failure — only if the source step failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Feedback (optional)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Field"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Field names become"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Fields"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Fields to export"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "File name, e.g. api-overview.md"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "File validation issues"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Files Dir"
+msgstr ""
+
+#. module: base
+#: field
+msgid "First Name"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Flag Image"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Flag Image URL"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Flags"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Folder in public docs, e.g. docs/api (leave blank for the public root)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Follow the instructions below to install Base Hub as a PWA on this device."
+msgstr ""
+
+#. module: base
+#: view
+msgid "Formatting"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Frequency"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Frontend Widgets"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Function"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Gantt scale"
+msgstr ""
+
+#. module: base
+#: view
+msgid "General"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Generate"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Generate Workflow by Script"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Generate from markdown"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Generating…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Global"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Globals:"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Grid range"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Group"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Group Based"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Group ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Group IDs"
+msgstr ""
+
+#. module: base
+#: label, view
+msgid "Group Privilege"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Group Privileges"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Grouping"
+msgstr ""
+
+#. module: base
+#: label, menu, view
+msgid "Groups"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "HTTP"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "HTTP method"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Hide prompt"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Hierarchy"
+msgstr ""
+
+#. module: base
+#: view
+msgid "INV/%(year)s/"
+msgstr ""
+
+#. module: base
+#: field
+msgid "ISO Numeric"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Identity"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Image 1920"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Image URL"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Implied By IDs"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Implied IDs"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Import failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Import file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Importing…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Inactive"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Inactive State"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Inherit ID"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Install"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Install app"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Installation steps"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Installed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Instructions"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Interval"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Invalid JSON response from API docs endpoint"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Invalid JSON response from health check endpoint"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Inverse Company Rate"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Inverse Rate"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Ipn URL Dev"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Ipn URL Prod"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Is Active"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Is Branch"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Is Company"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Is Current Company Currency"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Is Main Account"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Is Public"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Jump straight into a workspace section"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Kafka"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Kanban board"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Kanban cards"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "KnowLedge"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Label"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Lang"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Languages"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Last Login Fail"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Last Login Time"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Last Name"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Last run:"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Later"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Live snapshot of the backend service and its dependencies. Auto-refreshes every 30s."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Load more… ("
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading API documentation…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading dashboards…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading markdown content…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading menu…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading model documentation…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading modules…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading notifications..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading permissions…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading website page..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading website studio..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading workflow guidance…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading workflow…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Loading…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Location"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Log note"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Log out"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Login Date"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Login failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Login response was not valid"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Login with Google"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Login with your Google account"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Lua Script"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "MQTT"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Main"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Manual — never auto-dispatched"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Mark done"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Master"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Max Parallel Steps"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Menu label"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Methods"
+msgstr ""
+
+#. module: base
+#: frontend, view
+msgid "Model"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Model Access"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Model Access IDs"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Action"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Actions"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Change Log"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Constraint"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Constraints"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Data ID"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Field"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Fields"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Operation"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Operations"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Model Relation"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Model Relations"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Model name, e.g. tbl.groups"
+msgstr ""
+
+#. module: base
+#: frontend, menu, view
+msgid "Models"
+msgstr ""
+
+#. module: base
+#: frontend, view
+msgid "Module"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Module Categories"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Module Category"
+msgstr ""
+
+#. module: base
+#: frontend, menu, view
+msgid "Modules"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Month"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Monthly"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Name Position"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "New"
+msgstr ""
+
+#. module: base
+#: label
+msgid "New Password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "New database name"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "New password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No action selected"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No attachments"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No content"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No dashboards configured yet."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No events in this range."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No extra settings for this trigger type."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No field matches."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No followers yet."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No geolocated records found."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No headings found."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No image"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No menu items available."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No messages yet."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No model access rows for this group."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No models match this search."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No modules found by the scan."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No notifications have been stored on this device yet."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No parameters configured — runs with its defaults."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No public methods are documented for this model."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No records"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No records found."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No related records"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No response received from server"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "No results for \""
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "None"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Active"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not All Config Allowed"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not All Devices Allowed"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Installed"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Is Active"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Is Branch"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Is Company"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Is Main Account"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not State Required"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not Superadmin"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Not ZIP Required"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Not enabled for this deployment."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Note"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Notes"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Notification"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Notifications"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "OAuth Client Already Exists"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "OAuth Client Created"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "On error"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "On this page"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Open install prompt"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "OpenAPI JSON"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Or continue with"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Others"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Overall Status"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Pages"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Parameters"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Parent Company"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Parent ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Parent Name"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Partner"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Partner ID"
+msgstr ""
+
+#. module: base
+#: label, menu, view
+msgid "Partners"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Password Reset"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Pause State"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Payload"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Permissions"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Pick a model from the catalog to inspect its contract."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Pick at least one field."
+msgstr ""
+
+#. module: base
+#: field
+msgid "Placeholder"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Position"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "PouchDB script has not loaded"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Preferences"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Preparing the markdown editor…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Preparing…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Preview"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Privilege ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Processing the file…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Profile"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Proxy Bid"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Proxy Name"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Proxy Type"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Proxy Value"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Publish"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Quick links"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Rate"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Rate IDs"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Rate String"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Re-init"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Re-init Modules"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Re-initializing…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Read only"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Realm"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Received"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Reconciliation"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Record Rule"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Record Rules"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Ref"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Ref ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Refresh"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Registration Time"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Reinit"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Relations"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Remove"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Remove follower"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Rename"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Rename Workflow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Rename markdown file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Rename workflow"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Rendering"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Repeat event"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Repeat this event"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "Reports"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Request execution failed"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Requests / Errors"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Required columns:"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Reset Token"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Reset to default"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Response"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Response error: empty response body"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Rounding"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Route"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Row action failed"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Rule Definition"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Run to get a response."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Running"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Running..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Runs when"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Runtime Catalog"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Sample Payload"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save Name"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save Node"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save Password"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save Trigger"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save as new"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save the record first to attach files."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save the record first to manage permissions."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Save the record first to use chatter."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Saved"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Saving..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Saving…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Scan"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Schedule"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Schedule Activity"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Search View ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search field"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search fields…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search menu..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search models..."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search receivers…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search sys.model…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search to add…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Searching…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Search…"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Security"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Select a node to see its details."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Select or create a markdown file to begin."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Selected file is not valid JSON."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Selects the base.workflow.action.catalog row this node executes — change it to repair a node whose Action Code no longer matches a known catalog entry."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Select…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Send"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Send message"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Sequence"
+msgstr ""
+
+#. module: base
+#: frontend, menu
+msgid "Service Health Check"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Set a new password for"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Settings"
+msgstr ""
+
+#. module: base
+#: field, frontend
+msgid "Share"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Share link"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Share markdown document"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Show Document"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Sign up"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Signature"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Signed in"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Signed in as"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Signup Status"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Signup Token"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Sites"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Size Limit"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Specific day of month"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Specific day(s) of week"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Stage (optional)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Start date"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "State"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "State ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "State IDs"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "State Required"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Static Assets"
+msgstr ""
+
+#. module: base
+#: frontend, view
+msgid "Status"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Step key"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Storage Backend"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Street 2"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Submit"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Success — only if the source step succeeded"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Summary"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "Superadmin"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Supported actions:"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Switch workflow…"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Symbol"
+msgstr ""
+
+#. module: base
+#: view
+msgid "System Config Parameter"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "System Config Params"
+msgstr ""
+
+#. module: base
+#: field
+msgid "TZ"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Tap"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Template name"
+msgstr ""
+
+#. module: base
+#: view
+msgid "The code must be unique per company."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "The page is out of date. Save your work and refresh to get the latest updates and avoid potential issues."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This action requires a saved database record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This action requires a saved user record"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This action's code ("
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This and following events"
+msgstr ""
+
+#. module: base
+#: view
+msgid "This deletes all data seeded by this module. This cannot be undone."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This event"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This method does not declare request parameters."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "This permanently deletes"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Thousands Sep"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Tid"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Timeout"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Timezone mismatch"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "To"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Today"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Total"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Traits"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Trigger Type"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Trigger settings"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Trigger topic"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Try Request"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Two Factor Accepted"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Two Factor Secret"
+msgstr ""
+
+#. module: base
+#: field, frontend
+msgid "Type"
+msgstr ""
+
+#. module: base
+#: view
+msgid "UI Client Action"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "UI Client Actions"
+msgstr ""
+
+#. module: base
+#: view
+msgid "UI Menu"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "UI Menus"
+msgstr ""
+
+#. module: base
+#: view
+msgid "UI View"
+msgstr ""
+
+#. module: base
+#: menu, view
+msgid "UI View Custom"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "UI View Types"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "UI Views"
+msgstr ""
+
+#. module: base
+#: view
+msgid "UI Window Action"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "UI Window Actions"
+msgstr ""
+
+#. module: base
+#: view
+msgid "company_id, code"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unexpected token at the end of the domain."
+msgstr ""
+
+#. module: base
+#: view
+msgid "Uninstall"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unknown API docs request error"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unknown health check request error"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Unpublish"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unsaved"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unsaved changes"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unterminated escape sequence in string literal."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Unterminated string literal in domain."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Update"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Update the workflow name shown in the selector and canvas header."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Upload the completed file"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Uptime"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Use the backend database name you want this session to open."
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "User ID"
+msgstr ""
+
+#. module: base
+#: field
+msgid "User IDs"
+msgstr ""
+
+#. module: base
+#: label, menu, view
+msgid "Users"
+msgstr ""
+
+#. module: base
+#: field
+msgid "VAT"
+msgstr ""
+
+#. module: base
+#: field
+msgid "VAT Label"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Version"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Version:"
+msgstr ""
+
+#. module: base
+#: view
+msgid "View ID"
+msgstr ""
+
+#. module: base
+#: view
+msgid "View Modes"
+msgstr ""
+
+#. module: base
+#: view
+msgid "View Type"
+msgstr ""
+
+#. module: base
+#: view
+msgid "View Types"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "View details"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "View mode"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Visibility Scope"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Visible"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Ward ID"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Website page has no site"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Week"
+msgstr ""
+
+#. module: base
+#: field
+msgid "Week Start"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Weekly"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Welcome back"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "What it does"
+msgstr ""
+
+#. module: base
+#: view
+msgid "Window Actions"
+msgstr ""
+
+#. module: base
+#: menu
+msgid "Workflow"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Workflow Name"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Workflow Script"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Write markdown…"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Year"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "Yearly"
+msgstr ""
+
+#. module: base
+#: field
+msgid "ZIP"
+msgstr ""
+
+#. module: base
+#: field, view
+msgid "ZIP Required"
+msgstr ""
+
+#. module: base
+#: view
+msgid "[\"amount\"]"
+msgstr ""
+
+#. module: base
+#: view
+msgid "[[\"amount\", \"<\", 0]]"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "already exists. Generate a new secret if the original one is lost."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "and cannot be rescheduled by dragging."
+msgstr ""
+
+#. module: base
+#: view
+msgid "base/reports/demo.html"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "decimal hours"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "docs/example.md"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. Kanban"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "e.g. Monthly report columns"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. Recompute Balances"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. base.demo_report"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. kanban"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. square-kanban"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. unique_partner_code"
+msgstr ""
+
+#. module: base
+#: view
+msgid "e.g. zap"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "in bulk from a spreadsheet (matched by ID)."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "in your browser prompt."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "m@example.com"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "remaining)"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "suggestions in string params."
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "workflow export response was missing a result"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "workflow import response was missing a result"
+msgstr ""
+
+#. module: base
+#: frontend
+msgid "workflow validate-graph response was missing a result"
+msgstr ""

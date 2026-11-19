@@ -1,0 +1,457 @@
+# Vietnamese translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* discuss
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: Base Hub Team\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: discuss
+#: field
+msgid "Access Token"
+msgstr "Mã truy cập"
+
+#. module: discuss
+#: field, view
+msgid "Activity Type"
+msgstr "Loại hoạt động"
+
+#. module: discuss
+#: menu, view
+msgid "Activity Types"
+msgstr "Loại hoạt động"
+
+#. module: discuss
+#: field
+msgid "Alias Name"
+msgstr "Tên bí danh"
+
+#. module: discuss
+#: field
+msgid "Assigned To"
+msgstr "Được giao cho"
+
+#. module: discuss
+#: field
+msgid "Author"
+msgstr "Tác giả"
+
+#. module: discuss
+#: field
+msgid "Author Guest"
+msgstr "Khách tác giả"
+
+#. module: discuss
+#: field
+msgid "Automated"
+msgstr "Tự động"
+
+#. module: discuss
+#: field
+msgid "Body"
+msgstr "Nội dung"
+
+#. module: discuss
+#: field
+msgid "Camera On"
+msgstr "Bật camera"
+
+#. module: discuss
+#: view
+msgid "Canned Response"
+msgstr "Phản hồi mẫu"
+
+#. module: discuss
+#: menu, view
+msgid "Canned Responses"
+msgstr "Phản hồi mẫu"
+
+#. module: discuss
+#: field
+msgid "Cc"
+msgstr "Cc"
+
+#. module: discuss
+#: field, view
+msgid "Chaining Type"
+msgstr "Kiểu liên kết chuỗi"
+
+#. module: discuss
+#: field
+msgid "Channel"
+msgstr "Kênh"
+
+#. module: discuss
+#: field
+msgid "Channel Member"
+msgstr "Thành viên kênh"
+
+#. module: discuss
+#: field
+msgid "Channel Type"
+msgstr "Loại kênh"
+
+#. module: discuss
+#: field
+msgid "Contact Policy"
+msgstr "Chính sách liên hệ"
+
+#. module: discuss
+#: field
+msgid "Deadline"
+msgstr "Hạn chót"
+
+#. module: discuss
+#: field
+msgid "Deafened"
+msgstr "Đã tắt âm thanh nghe"
+
+#. module: discuss
+#: field
+msgid "Decoration Type"
+msgstr "Kiểu trang trí"
+
+#. module: discuss
+#: field
+msgid "Default"
+msgstr "Mặc định"
+
+#. module: discuss
+#: field
+msgid "Defaults"
+msgstr "Mặc định"
+
+#. module: discuss
+#: field
+msgid "Delay Count"
+msgstr "Số lượng trì hoãn"
+
+#. module: discuss
+#: field
+msgid "Delay From"
+msgstr "Trì hoãn từ"
+
+#. module: discuss
+#: field
+msgid "Delay Unit"
+msgstr "Đơn vị trì hoãn"
+
+#. module: discuss
+#: field
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: discuss
+#: label
+msgid "Discuss Activities"
+msgstr "Hoạt động thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Activity Types"
+msgstr "Loại hoạt động thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Aliases"
+msgstr "Bí danh thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Call History"
+msgstr "Lịch sử cuộc gọi thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Canned Responses"
+msgstr "Phản hồi mẫu thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Channel Members"
+msgstr "Thành viên kênh thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Channel RTC Sessions"
+msgstr "Phiên RTC kênh thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Channels"
+msgstr "Kênh thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Followers"
+msgstr "Người theo dõi thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Guests"
+msgstr "Khách thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Mail Servers"
+msgstr "Máy chủ thư thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Message Subtypes"
+msgstr "Loại tin nhắn con thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Messages"
+msgstr "Tin nhắn thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Notifications"
+msgstr "Thông báo thảo luận"
+
+#. module: discuss
+#: label
+msgid "Discuss Outbound Mail"
+msgstr "Thư gửi đi thảo luận"
+
+#. module: discuss
+#: field
+msgid "Email"
+msgstr "Email"
+
+#. module: discuss
+#: field
+msgid "Ended At"
+msgstr "Kết thúc lúc"
+
+#. module: discuss
+#: field
+msgid "Failure Reason"
+msgstr "Lý do thất bại"
+
+#. module: discuss
+#: field
+msgid "Force Thread ID"
+msgstr "Buộc ID luồng"
+
+#. module: discuss
+#: field, view
+msgid "Groups"
+msgstr "Nhóm"
+
+#. module: discuss
+#: field
+msgid "Host"
+msgstr "Máy chủ"
+
+#. module: discuss
+#: field
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#. module: discuss
+#: field
+msgid "Internal"
+msgstr "Nội bộ"
+
+#. module: discuss
+#: field
+msgid "Is Read"
+msgstr "Đã đọc"
+
+#. module: discuss
+#: field
+msgid "Last Seen Message"
+msgstr "Tin nhắn đã xem gần nhất"
+
+#. module: discuss
+#: field
+msgid "Last Used At"
+msgstr "Dùng lần cuối lúc"
+
+#. module: discuss
+#: field
+msgid "Mail Server"
+msgstr "Máy chủ thư"
+
+#. module: discuss
+#: field
+msgid "Message"
+msgstr "Tin nhắn"
+
+#. module: discuss
+#: field
+msgid "Message Type"
+msgstr "Loại tin nhắn"
+
+#. module: discuss
+#: field
+msgid "Message-ID Header"
+msgstr "Tiêu đề Message-ID"
+
+#. module: discuss
+#: field
+msgid "Mute Until"
+msgstr "Tắt thông báo đến"
+
+#. module: discuss
+#: field
+msgid "Muted"
+msgstr "Đã tắt thông báo"
+
+#. module: discuss
+#: field
+msgid "Name"
+msgstr "Tên"
+
+#. module: discuss
+#: field
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: discuss
+#: field
+msgid "Notification Type"
+msgstr "Loại thông báo"
+
+#. module: discuss
+#: field
+msgid "Parent Message"
+msgstr "Tin nhắn gốc"
+
+#. module: discuss
+#: field
+msgid "Password"
+msgstr "Mật khẩu"
+
+#. module: discuss
+#: field
+msgid "Port"
+msgstr "Cổng"
+
+#. module: discuss
+#: field
+msgid "Read At"
+msgstr "Đọc lúc"
+
+#. module: discuss
+#: field
+msgid "Recipient"
+msgstr "Người nhận"
+
+#. module: discuss
+#: field
+msgid "Resource ID"
+msgstr "ID bản ghi nguồn"
+
+#. module: discuss
+#: field
+msgid "Resource Model"
+msgstr "Mô hình nguồn"
+
+#. module: discuss
+#: field
+msgid "Scheduled At"
+msgstr "Lên lịch lúc"
+
+#. module: discuss
+#: field
+msgid "Screen Sharing"
+msgstr "Chia sẻ màn hình"
+
+#. module: discuss
+#: field
+msgid "Sent At"
+msgstr "Gửi lúc"
+
+#. module: discuss
+#: field
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: discuss
+#: field
+msgid "Shortcut"
+msgstr "Phím tắt"
+
+#. module: discuss
+#: field
+msgid "Start Call Message"
+msgstr "Tin nhắn bắt đầu cuộc gọi"
+
+#. module: discuss
+#: field
+msgid "Started At"
+msgstr "Bắt đầu lúc"
+
+#. module: discuss
+#: field
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: discuss
+#: field
+msgid "Subject"
+msgstr "Chủ đề"
+
+#. module: discuss
+#: field
+msgid "Substitution"
+msgstr "Thay thế"
+
+#. module: discuss
+#: field
+msgid "Subtype"
+msgstr "Loại con"
+
+#. module: discuss
+#: field
+msgid "Subtypes"
+msgstr "Các loại con"
+
+#. module: discuss
+#: field
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#. module: discuss
+#: field
+msgid "Target Model"
+msgstr "Mô hình đích"
+
+#. module: discuss
+#: field
+msgid "To"
+msgstr "Đến"
+
+#. module: discuss
+#: field
+msgid "Triggered Next Type"
+msgstr "Loại kế tiếp được kích hoạt"
+
+#. module: discuss
+#: field
+msgid "Use TLS"
+msgstr "Dùng TLS"
+
+#. module: discuss
+#: field
+msgid "User"
+msgstr "Người dùng"
+
+#. module: discuss
+#: field
+msgid "Username"
+msgstr "Tên đăng nhập"

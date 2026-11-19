@@ -1,0 +1,171 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* base-automation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: base-automation
+#: field, view
+msgid "Action"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Action Type"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Action name"
+msgstr ""
+
+#. module: base-automation
+#: menu
+msgid "Actions"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Audit"
+msgstr ""
+
+#. module: base-automation
+#: menu
+msgid "Automation"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Automation Action"
+msgstr ""
+
+#. module: base-automation
+#: action, label, view
+msgid "Automation Actions"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Automation Cron"
+msgstr ""
+
+#. module: base-automation
+#: action, label, view
+msgid "Automation Crons"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Company ID"
+msgstr ""
+
+#. module: base-automation
+#: menu
+msgid "Crons"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Description"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Domain"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Fail Count"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Failure Handling"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Go Handler"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Handler Key"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Interval Seconds"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Last Run Status"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Lua Code"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Lua Script"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Max Failures"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Model"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Name"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Next Call"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Operation"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Schedule"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Schedule name"
+msgstr ""
+
+#. module: base-automation
+#: view
+msgid "Sys Model"
+msgstr ""
+
+#. module: base-automation
+#: field
+msgid "Values"
+msgstr ""

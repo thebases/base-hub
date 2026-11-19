@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <menuitem id="menu.website_root" name="Website" route_path="/web/tbl.website_page"/>
+    <menuitem id="menu.website_sites" name="Sites" route_path="/web/tbl.website_site" parent="menu.website_root"/>
+    <menuitem id="menu.website_pages" name="Pages" route_path="/web/tbl.website_page" parent="menu.website_root"/>
+    <menuitem id="menu.website_menus" name="Menu" route_path="/web/tbl.website_menu" parent="menu.website_root"/>
+    <menuitem id="menu.website_redirects" name="Redirects" route_path="/web/tbl.website_redirect" parent="menu.website_root"/>
+    <menuitem id="menu.website_domains" name="Domains" route_path="/web/tbl.website_domain" parent="menu.website_root"/>
+    <menuitem id="menu.website_contact_requests" name="Contact Requests" route_path="/web/tbl.website_contact_request" parent="menu.website_root"/>
+    <menuitem id="menu.website_translations" name="Translations" route_path="/web/tbl.website_page_translation" parent="menu.website_root"/>
+    <menuitem id="menu.website_form_submissions" name="Form Submissions" route_path="/web/tbl.website_form_submission" parent="menu.website_root"/>
+</data>

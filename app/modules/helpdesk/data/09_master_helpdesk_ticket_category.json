@@ -1,0 +1,37 @@
+[
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_category",
+    "external_id": "helpdesk.category.general",
+    "force_update": false,
+    "data": { "name": "General", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_category",
+    "external_id": "helpdesk.category.software",
+    "force_update": false,
+    "data": { "name": "Software", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_category",
+    "external_id": "helpdesk.category.hardware",
+    "force_update": false,
+    "data": { "name": "Hardware", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_category",
+    "external_id": "helpdesk.category.network",
+    "force_update": false,
+    "data": { "name": "Network", "active": true }
+  },
+  {
+    "action": "c",
+    "model": "tbl.helpdesk_ticket_category",
+    "external_id": "helpdesk.category.billing",
+    "force_update": false,
+    "data": { "name": "Account & Billing", "active": true }
+  }
+]

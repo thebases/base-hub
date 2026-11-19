@@ -1,0 +1,63 @@
+<templates xml:space="preserve">
+  <t t-name="ModelAccessTable">
+    <div t-att-class="'basehub-model-access ' + props.className">
+      <t t-if="state.error">
+        <Alert variant="'destructive'" className="'mb-2'">
+          <t t-esc="state.error"/>
+          <button type="button" class="btn-close float-end" t-att-aria-label="t('Dismiss')" t-on-click="dismissError"/>
+        </Alert>
+      </t>
+
+      <t t-if="state.loading">
+        <p class="text-body-secondary" t-esc="t('Loading permissions…')"/>
+      </t>
+      <t t-else="">
+        <table class="table table-sm align-middle basehub-model-access-table">
+          <thead>
+            <tr>
+              <th t-esc="t('Model')"/>
+              <t t-foreach="permFields" t-as="permField" t-key="permField">
+                <th class="text-center"><t t-esc="permLabel(permField)"/></th>
+              </t>
+              <th/>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-if="state.rows.length === 0">
+              <tr>
+                <td t-att-colspan="permFields.length + 2" class="text-body-secondary" t-esc="t('No model access rows for this group.')"/>
+              </tr>
+            </t>
+            <t t-foreach="state.rows" t-as="row" t-key="row.id">
+              <tr>
+                <td><t t-esc="row.model_name"/></td>
+                <t t-foreach="permFields" t-as="permField" t-key="permField">
+                  <td class="text-center">
+                    <Checkbox checked="row[permField] === true" disabled="props.readonly || state.savingID === row.id"
+                              onChange="() => this.togglePerm(row, permField)"/>
+                  </td>
+                </t>
+                <td class="text-end">
+                  <t t-if="!props.readonly">
+                    <Button variant="'ghost'" size="'sm'" t-att-aria-label="t('Remove')" t-att-title="t('Remove')"
+                            onClick="() => this.removeRow(row)">
+                      <Icon name="'trash-2'"/>
+                    </Button>
+                  </t>
+                </td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+
+        <t t-if="!props.readonly">
+          <div class="d-flex gap-2 align-items-center basehub-model-access-add">
+            <Input type="'text'" placeholder="t('Model name, e.g. tbl.groups')"
+                   value="state.draftModelName" onInput="(value) => this.onDraftModelNameInput(value)"/>
+            <Button variant="'outline'" size="'sm'" onClick="() => this.addRow()"><t t-esc="t('Add')"/></Button>
+          </div>
+        </t>
+      </t>
+    </div>
+  </t>
+</templates>

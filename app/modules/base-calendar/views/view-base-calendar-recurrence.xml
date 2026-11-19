@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_base_calendar_recurrence_list" model="ui.view">
+      <field name="name">base.calendar.recurrence.list</field>
+      <field name="model">base.calendar.recurrence</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Calendar Recurrences">
+          <field name="sys_model"/>
+          <field name="record_id"/>
+          <field name="frequency"/>
+          <field name="interval"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_calendar_recurrence_form" model="ui.view">
+      <field name="name">base.calendar.recurrence.form</field>
+      <field name="model">base.calendar.recurrence</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Calendar Recurrence">
+          <sheet>
+            <group>
+              <group>
+                <field name="sys_model"/>
+                <field name="record_id"/>
+                <field name="frequency"/>
+                <field name="interval"/>
+              </group>
+              <group>
+                <field name="by_weekday"/>
+                <field name="by_monthday"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_base_calendar_recurrence_search" model="ui.view">
+      <field name="name">base.calendar.recurrence.search</field>
+      <field name="model">base.calendar.recurrence</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Calendar Recurrences">
+          <field name="sys_model"/>
+          <field name="frequency"/>
+          <group>
+            <filter string="Model" name="group_by_sys_model" domain="[]" context="{'group_by': 'sys_model'}"/>
+            <filter string="Frequency" name="group_by_frequency" domain="[]" context="{'group_by': 'frequency'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+    <record id="view_base_calendar_recurrence_exception_list" model="ui.view">
+      <field name="name">base.calendar.recurrence.exception.list</field>
+      <field name="model">base.calendar.recurrence.exception</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Calendar Recurrence Exceptions">
+          <field name="recurrence_id"/>
+          <field name="original_occurrence_date"/>
+          <field name="override_date"/>
+          <field name="is_skipped"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_base_calendar_recurrence_exception_form" model="ui.view">
+      <field name="name">base.calendar.recurrence.exception.form</field>
+      <field name="model">base.calendar.recurrence.exception</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Calendar Recurrence Exception">
+          <sheet>
+            <group>
+              <field name="recurrence_id"/>
+              <field name="original_occurrence_date"/>
+              <field name="override_date"/>
+              <field name="is_skipped"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+</data>

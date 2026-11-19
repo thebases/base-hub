@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_ui_view_custom_list" model="ui.view">
+      <field name="name">ui.view.custom.list</field>
+      <field name="model">ui.view.custom</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="UI View Custom" sample="1" multi_edit="1">
+          <field name="created_at"/>
+          <field name="ref_id"/>
+          <field name="user_id"/>
+          <field name="updated_at" optional="show"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_ui_view_custom_form" model="ui.view">
+      <field name="name">ui.view.custom.form</field>
+      <field name="model">ui.view.custom</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="UI View Custom">
+          <sheet>
+            <group>
+              <group string="General">
+                <field name="ref_id"/>
+                <field name="user_id"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Details" name="details">
+                <field name="arch"/>
+              </page>
+              <page string="Audit" name="audit">
+                <field name="created_at"/>
+                <field name="updated_at"/>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_ui_view_custom_search" model="ui.view">
+      <field name="name">ui.view.custom.search</field>
+      <field name="model">ui.view.custom</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="UI View Custom">
+          <field name="ref_id"/>
+          <field name="user_id"/>
+          <field name="created_at"/>
+          <field name="updated_at"/>
+          <group>
+            <filter string="Ref ID" name="group_by_ref_id" domain="[]" context="{'group_by': 'ref_id'}"/>
+            <filter string="User ID" name="group_by_user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

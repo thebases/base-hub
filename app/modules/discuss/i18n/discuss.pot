@@ -1,0 +1,456 @@
+# Translation of Base Hub Server.
+# This file contains the translation of the following modules:
+# 	* discuss
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Base Hub 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 00:00+0000\n"
+"PO-Revision-Date: 2026-10-08 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: discuss
+#: field
+msgid "Access Token"
+msgstr ""
+
+#. module: discuss
+#: field, view
+msgid "Activity Type"
+msgstr ""
+
+#. module: discuss
+#: menu, view
+msgid "Activity Types"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Alias Name"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Assigned To"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Author"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Author Guest"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Automated"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Body"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Camera On"
+msgstr ""
+
+#. module: discuss
+#: view
+msgid "Canned Response"
+msgstr ""
+
+#. module: discuss
+#: menu, view
+msgid "Canned Responses"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Cc"
+msgstr ""
+
+#. module: discuss
+#: field, view
+msgid "Chaining Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Channel"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Channel Member"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Channel Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Contact Policy"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Deadline"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Deafened"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Decoration Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Default"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Defaults"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Delay Count"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Delay From"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Delay Unit"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Description"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Activities"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Activity Types"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Aliases"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Call History"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Canned Responses"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Channel Members"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Channel RTC Sessions"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Channels"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Followers"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Guests"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Mail Servers"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Message Subtypes"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Messages"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Notifications"
+msgstr ""
+
+#. module: discuss
+#: label
+msgid "Discuss Outbound Mail"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Email"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Ended At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Failure Reason"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Force Thread ID"
+msgstr ""
+
+#. module: discuss
+#: field, view
+msgid "Groups"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Host"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Icon"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Internal"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Is Read"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Last Seen Message"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Last Used At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Mail Server"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Message"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Message Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Message-ID Header"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Mute Until"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Muted"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Name"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Note"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Notification Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Parent Message"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Password"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Port"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Read At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Recipient"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Resource ID"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Resource Model"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Scheduled At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Screen Sharing"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Sent At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Sequence"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Shortcut"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Start Call Message"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Started At"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "State"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Subject"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Substitution"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Subtype"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Subtypes"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Summary"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Target Model"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "To"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Triggered Next Type"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Use TLS"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "User"
+msgstr ""
+
+#. module: discuss
+#: field
+msgid "Username"
+msgstr ""

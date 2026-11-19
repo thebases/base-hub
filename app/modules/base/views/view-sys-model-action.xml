@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data noupdate="1">
+    <record id="view_sys_model_action_list" model="ui.view">
+      <field name="name">sys.model.action.list</field>
+      <field name="model">sys.model.action</field>
+      <field name="type">list</field>
+      <field name="arch" type="xml">
+        <list string="Model Actions" decoration-muted="not active">
+          <field name="sequence" optional="show"/>
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="action_type"/>
+          <field name="view_type" optional="show"/>
+          <field name="operation_id" optional="show"/>
+          <field name="window_action_id" optional="show"/>
+          <field name="client_action_id" optional="show"/>
+          <field name="active" optional="hide"/>
+          <field name="updated_at" optional="hide"/>
+        </list>
+      </field>
+    </record>
+    <record id="view_sys_model_action_form" model="ui.view">
+      <field name="name">sys.model.action.form</field>
+      <field name="model">sys.model.action</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Model Action">
+          <widget name="web_ribbon" title="Archived" bg_color="bg-red-100 text-red-700" invisible="active"/>
+          <sheet>
+            <div class="d-flex align-items-start gap-4">
+              <main class="d-flex flex-fill flex-column gap-2">
+                <h1>
+                  <field name="name" nolabel="1" placeholder="e.g. Recompute Balances"/>
+                </h1>
+                <p class="small text-muted">
+                  Shown in the Actions dropdown of the selected model's views listed in View Types. Running it still
+                  requires the user's own access to the method or action it points to.
+                </p>
+              </main>
+            </div>
+            <!-- Left: the action type is picked first and decides the target;
+                 right: the Binding group appears once a type is chosen. -->
+            <group>
+              <group string="Action">
+                <field name="action_type" required="1"/>
+                <field name="window_action_id" invisible="action_type != 'window'" required="action_type == 'window'" limit="200"/>
+                <field name="client_action_id" invisible="action_type != 'client'" required="action_type == 'client'" limit="200"/>
+              </group>
+              <group string="Binding" invisible="not action_type">
+                <field name="model_name" widget="sys_model_name" required="1"/>
+                <!-- Options follow the chosen model; none until a model is set. -->
+                <field name="operation_id" invisible="action_type != 'model'" required="action_type == 'model'"
+                       limit="200" options_require="model_name"
+                       domain="[('model_name', '=', model_name), ('is_public', '=', True), ('uses_path_id', '=', False)]"/>
+                <!-- Pre-filled from action_type (onchange); empty falls back to the type default. -->
+                <field name="view_type" widget="ui_view_types"/>
+                <field name="sequence"/>
+                <field name="icon" placeholder="e.g. zap"/>
+                <field name="confirm" placeholder="e.g. Run this for all records?"/>
+                <field name="active"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_sys_model_action_search" model="ui.view">
+      <field name="name">sys.model.action.search</field>
+      <field name="model">sys.model.action</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Model Actions">
+          <field name="name"/>
+          <field name="model_name"/>
+          <field name="action_type"/>
+          <filter string="Model Actions" name="type_model" domain="[('action_type', '=', 'model')]"/>
+          <filter string="Window Actions" name="type_window" domain="[('action_type', '=', 'window')]"/>
+          <filter string="Client Actions" name="type_client" domain="[('action_type', '=', 'client')]"/>
+          <filter string="Archived" name="active_false" domain="[('active', '=', False)]"/>
+          <group>
+            <filter string="Model" name="group_by_model_name" domain="[]" context="{'group_by': 'model_name'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+</data>

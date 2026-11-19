@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" b-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Sets b-theme/data-bs-theme synchronously from the stored/URL
+         preference before any stylesheet paints, so the light/dark theme
+         CSS below (both loaded up front, gated by attribute selector)
+         renders the right variant on first paint instead of flashing
+         light then swapping to dark once main.js's module script runs.
+         Keep in sync with nodexui's nodexui.esm.js's
+         createThemeController() current()/defaultStorageKey/defaultQueryKey. -->
+    <script>
+      (function () {
+        try {
+          var params = new URLSearchParams(location.search);
+          var fromUrl = params.get("theme");
+          var theme =
+            fromUrl === "dark" || fromUrl === "light"
+              ? fromUrl
+              : (window.localStorage.getItem("b-theme") || window.localStorage.getItem("baseui-theme")) === "dark"
+                ? "dark"
+                : "light";
+          document.documentElement.setAttribute("b-theme", theme);
+          document.documentElement.setAttribute("data-bs-theme", theme);
+          // Light-mode color is the meta's server-injected pwa.theme_color, captured before the first overwrite.
+          var lightColor = null;
+          var syncThemeColor = function () {
+            var current = document.documentElement.getAttribute("b-theme");
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (!meta) return;
+            if (lightColor === null) lightColor = meta.getAttribute("content") || "#ffffff";
+            meta.setAttribute("content", current === "dark" ? "#000000" : lightColor);
+          };
+          // The meta tag sits below this script, so it only exists after parsing finishes.
+          document.addEventListener("DOMContentLoaded", syncThemeColor);
+          // The BaseUI theme controller flips b-theme at runtime; mirror it into the browser chrome color.
+          new MutationObserver(syncThemeColor).observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["b-theme"],
+          });
+        } catch (error) {
+          /* localStorage/URL access can throw (privacy mode, sandboxed iframe) — fall back to the light default already on <html>. */
+        }
+      })();
+    </script>
+
+    <!-- This app is mounted directly at root "/" (internal/cmd/server.go's
+         configureStaticAssetRoutes) and reused for /web/* deep links via
+         serveWebSPAIndex — same asset root either way, so a plain "/" base
+         keeps every relative URL on this page resolving correctly. -->
+    <script>
+      // Started before the module graph downloads; module-registry.js awaits it instead of fetching late.
+      window.__frontendModules = fetch("/frontend-modules.json", { cache: "no-cache" });
+    </script>
+    <base href="/" />
+    <!-- The import map must come before every modulepreload/module script: a module fetch started earlier makes the browser ignore the map. -->
+    <script type="importmap">
+      {
+        "imports": {
+          "nodexui/owl": "https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.esm.js",
+          "nodexui/component": "https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.esm.js",
+          "nodexui/theme": "https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.esm.js",
+          "nodexui/i18n": "https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.i18n.esm.js",
+          "@/": "./"
+        }
+      }
+    </script>
+    <!-- Signed-in /web visits: fetch the Shell / ModelView / ListView module graphs and their Owl template XMLs now,
+         flat and in parallel with main.js. AppRoot only imports them after main.js has been parsed, and both the imports
+         (level by level) and each component's XML (fetched only after its JS evaluates) otherwise form a serial chain of
+         round trips. Signed-out visits and /login are skipped so they never pay for Shell. Must stay after the import map.
+         Keep the lists equal to the static import graph: node scripts/check_preload_graph.mjs. -->
+    <script>
+      (function () {
+        try {
+          var auth = JSON.parse(window.sessionStorage.getItem("basehub-auth") || "{}").state || {};
+          if (!auth.accessToken && !auth.refreshToken) return;
+          var path = location.pathname;
+          if (path.indexOf("/web") !== 0) return;
+          var shell = [
+            "./modules/base-bus/action-client.js",
+            "./modules/base-bus/bus-root.js",
+            "./modules/base-bus/bus-service.js",
+            "./modules/base-bus/event-bus.js",
+            "./modules/base-bus/multi-tab.js",
+            "./modules/base/api/menu.js",
+            "./modules/base/components/BuildVersionLabel.js",
+            "./modules/base/components/menu-tree/MenuTree.js",
+            "./modules/base/components/pwa/PWAInstallDrawer.js",
+            "./modules/base/components/views/view-registry.js",
+            "./modules/base/pages/Shell/Shell.js",
+            "./modules/base/services/pouchdb.js",
+            "./modules/knowledge/api.js",
+            "./modules/knowledge/components/KnowledgeTree.js",
+            "./modules/knowledge/document-tree.js",
+            "./i18n.js",
+            "./router/navigation.js",
+            "./services/api/config.js",
+            "./services/api/jsonv2.js",
+            "./services/i18n/lang.js",
+            "./services/pwa/pwa-service.js",
+            "./services/pwa/version-service.js",
+            "./services/script-loader.js",
+            "./stores/auth-service.js",
+            "./stores/layout-store.js",
+            "./modules/base/components/BuildVersionLabel.xml",
+            "./modules/base/components/menu-tree/MenuTree.xml",
+            "./modules/base/components/pwa/PWAInstallDrawer.xml",
+            "./modules/base/pages/Shell/Shell.xml",
+            "./modules/knowledge/components/KnowledgeTree.xml",
+          ];
+          var model = [
+            "./modules/base-bus/index.js",
+            "./modules/base/components/views/base-view/kanban-utils.js",
+            "./modules/base/components/views/control-panel/Breadcrumbs.js",
+            "./modules/base/components/views/control-panel/ControlPanel.js",
+            "./modules/base/components/views/control-panel/Pager.js",
+            "./modules/base/components/views/control-panel/SearchBar.js",
+            "./modules/base/components/views/control-panel/ViewSwitcher.js",
+            "./modules/base/components/views/form/form-domain.js",
+            "./modules/base/components/views/form/form-widget-registry.js",
+            "./modules/base/components/views/list/list-dashboard.js",
+            "./modules/base/components/views/view-mount-registry.js",
+            "./modules/base/pages/ModelView/ModelView.js",
+            "./modules/base/components/views/control-panel/Breadcrumbs.xml",
+            "./modules/base/components/views/control-panel/ControlPanel.xml",
+            "./modules/base/components/views/control-panel/Pager.xml",
+            "./modules/base/components/views/control-panel/SearchBar.xml",
+            "./modules/base/components/views/control-panel/ViewSwitcher.xml",
+            "./modules/base/pages/ModelView/ModelView.xml",
+          ];
+          var list = [
+            "./modules/base/components/NoContent.js",
+            "./modules/base/components/views/form/form-arch-eval.js",
+            "./modules/base/components/views/list/ListView.js",
+            "./services/server-time.js",
+            "./stores/i18n-service.js",
+            "./modules/base/components/NoContent.xml",
+          ];
+          var hrefs = shell;
+          // /web/<model>[/<x>] pages mount ModelView; a bare /web/<model> opens the default list view.
+          if (/^\/web\/[^\/]*\.[^\/]*(\/[^\/]*)?\/?$/.test(path)) hrefs = hrefs.concat(model);
+          if (/^\/web\/[^\/]*\.[^\/]*\/?$/.test(path)) hrefs = hrefs.concat(list);
+          hrefs.forEach(function (href) {
+            var link = document.createElement("link");
+            if (/\.xml$/.test(href)) {
+              link.rel = "preload";
+              link.as = "fetch";
+              link.crossOrigin = "anonymous";
+            } else {
+              link.rel = "modulepreload";
+            }
+            link.href = href;
+            document.head.appendChild(link);
+          });
+        } catch (error) {
+          /* sessionStorage can throw in privacy mode; the normal import path still works. */
+        }
+      })();
+    </script>
+    <title>Base HUB</title>
+    <meta name="description" content="Base HUB: a metadata-driven business platform. Sign in to manage your data, workflows and devices." />
+    <meta name="theme-color" content="#111111" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="./icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Base HUB" />
+    <!-- <link rel="stylesheet" href="./vendor/bootstrap.min.css" /> -->
+    <!-- Loaded from the pinned nodexui npm release via jsDelivr — see
+         BASEUI_VERSION below (any bump must update every URL on this page
+         plus main.js's templates-XML fetch and env.js's icon CDN mapping in
+         lockstep). Load order matters here: (1) BaseUI's base component CSS,
+         (2) both theme variants (light/dark rules are gated by
+         [b-theme="..."], so both must be present in the DOM for the JS theme
+         controller to switch between them without a refetch), (3) this app's
+         own custom CSS last so it can override BaseUI/theme defaults. -->
+    <!-- Warm the CDN connection and start the ES module and the Owl templates XML now: main.js
+         needs both before it can mount, and they were only discovered after the whole static
+         import graph had been fetched. Keep the URLs identical to the import map and main.js. -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.esm.js" crossorigin />
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.i18n.esm.js" crossorigin />
+    <link rel="modulepreload" href="./main.js" />
+    <link rel="preload" as="fetch" crossorigin href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.templates.xml" />
+    <!-- The static import graph is otherwise discovered one level at a time (main.js -> router -> auth -> jsonv2 ...);
+         listing it here lets the browser fetch every module in parallel. Keep in sync with the imports of main.js. -->
+    <link rel="modulepreload" href="./router/router.js" />
+    <link rel="modulepreload" href="./router/match.js" />
+    <link rel="modulepreload" href="./router/navigation.js" />
+    <link rel="modulepreload" href="./router/AppRoot.js" />
+    <link rel="modulepreload" href="./modules/module-registry.js" />
+    <link rel="modulepreload" href="./modules/base/components/views/form/form-widget-registry.js" />
+    <link rel="modulepreload" href="./stores/auth-service.js" />
+    <link rel="modulepreload" href="./stores/i18n-service.js" />
+    <link rel="modulepreload" href="./services/i18n/lang.js" />
+    <link rel="modulepreload" href="./i18n.js" />
+    <link rel="modulepreload" href="./services/i18n/dom-translator.js" />
+    <link rel="modulepreload" href="./services/api/jsonv2.js" />
+    <link rel="modulepreload" href="./services/api/config.js" />
+    <link rel="modulepreload" href="./modules/base/components/views/view-registry.js" />
+    <link rel="modulepreload" href="./services/pwa/version-service.js" />
+    <link rel="modulepreload" href="./services/bootstrap-guard.js" />
+    <link rel="modulepreload" href="./modules/base/pages/Login/Login.js" />
+    <link rel="modulepreload" href="./modules/base/components/BuildVersionLabel.js" />
+    <link rel="modulepreload" href="./modules/website/register.js" />
+    <link rel="modulepreload" href="./modules/website-blog/register.js" />
+    <link rel="preload" as="fetch" crossorigin href="./router/AppRoot.xml" />
+    <link rel="preload" as="fetch" crossorigin href="./modules/base/pages/Login/Login.xml" />
+    <link rel="preload" as="fetch" crossorigin href="./modules/base/components/BuildVersionLabel.xml" />
+    <link rel="preload" as="style" href="./modules/base/pages/Login/Login.css" />
+    <!-- nodexui.min.css @imports this font stylesheet, which would only start after the CSS arrived; linking it here
+         fetches it in parallel and the later @import reuses the same request. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/nodexui.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/themes/nodexui-light.css" />
+    <!-- The dark variant is only needed in dark mode, so it must not block first paint: it loads as print media
+         (low priority, non-blocking) and is switched on once downloaded; in dark mode the inline script above
+         has already set b-theme, and the script right after the link makes it blocking again in that case. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nodexui@1.3.5/dist/themes/nodexui-dark.css" media="print" onload="this.media='all'" />
+    <script>
+      if (document.documentElement.getAttribute("b-theme") === "dark") document.currentScript.previousElementSibling.media = "all";
+    </script>
+    <link rel="stylesheet" id="page-css" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body style="overflow: hidden;height: 100svh;">
+    <!-- marked, turndown and PouchDB are not loaded here: services/script-loader.js pulls them in
+         on demand (Knowledge editor/viewer, bus notification log) so /login and /web skip them. -->
+    <script src="./env.js"></script>
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
